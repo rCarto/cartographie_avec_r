@@ -1,0 +1,273 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+```{r knitr2_init, echo=FALSE, cache=FALSE}
+library(knitr)
+## Global options
+options(max.print="90")
+opts_chunk$set(echo=TRUE,
+               cache=TRUE,
+               prompt=FALSE,
+               tidy=FALSE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE,
+               fig.align='center',
+               fig.height=7.75, 
+               fig.width=8)
+opts_knit$set(width=90)
+options(width = 90)
+```
+
+
+# Les types de cartes  {#chapitre2}
+
+La fonction `mf_map()` est la fonction centrale du package `mapsf`, cette fonction permet de réaliser la plupart des repreésentation usuelles en cartographie. 
+Ces arguments principaux sont :
+
+- `x`, un objet sf ;
+- `var`, le nom de la variable à représenter ;
+- `type`, le type de représentation.
+
+## Les données d'exemple
+
+Les lignes suivantes importent les couches d'information spatiales situées dans le fichier [geopackage](https://www.geopackage.org/) **lot46.gpkg**.
+
+```{r}
+library(sf)
+# import des communes du Lot
+com <- st_read("data/lot46.gpkg", layer = "commune", quiet = TRUE)
+# import des départments français
+dep <- st_read("data/lot46.gpkg", layer = "departement", quiet = TRUE)
+# import des restaurants
+resto <- st_read("data/lot46.gpkg", layer = "restaurant", quiet = TRUE)
+# import des routes
+route <- st_read("data/lot46.gpkg", layer = "route", quiet = TRUE)
+
+```
+
+
+## Afficher un fond de carte
+
+Utilisé sans précision de type, la fonction `mf_map()` affiche simplement le fond de carte. 
+
+```{r mf_base}
+library(mapsf)
+# Communes
+mf_map(x = com, border = "white")
+mf_map(x = dep, lwd = 2, col = NA, add = TRUE)
+mf_map(x = route, lwd = .5, col = "ivory4", add = TRUE)
+mf_map(x = resto, pch = 20, cex = .7, col = "darkred", add = TRUE)
+```
+
+
+
+
+
+
+## Carte de symboles proportionnels
+
+Les cartes de symboles proportionnels sont utilisées pour représenter les variables de stocks (variables quantitatives absolues, la somme et la moyenne ont un sens). 
+La fonction `mf_map(..., type = "prop")` propose cette représentation, plusieurs symboles sont disponibles : cercles, carrés. 
+
+```{r proportional_symbols}
+# Communes
+mf_map(x = com)
+# Symboles proportionnels
+mf_map(
+  x = com, 
+  var = "POPULATION",
+  type = "prop",
+  leg_title = "Population totale\n(2015)"
+)
+# Titre
+mf_title("Distribution de la population dans le Lot")
+```
+
+### Comparer plusieurs cartes
+
+Il est possible de fixer les dimensions du plus grand symbole, plus grande valeur.
+
+```{r proportional_symbols_comp}
+
+
+
+```
+
+### Les cartes de liens proportionnels
+
+
+
+
+<!-- ## Carte choroplèthe -->
+<!-- Les cartes choroplèthes sont utilisées pour représenter les variables de ratios (variables quantitatives relatives, la moyenne a un sens, la somme n'a pas de sens).  -->
+
+<!-- Pour ce genre de représentation il faut au préalable : -->
+
+<!-- * choisir une méthode de discrétisation pour transformer une série statistique continue en classes définies par des intervalles,  -->
+<!-- * choisir un nombre de classes,  -->
+<!-- * choisir une palette de couleurs. -->
+
+<!-- La fonction `choroLayer()` permet de créer des cartes choroplètes . Les arguments `nclass`,  `method` et `breaks` servent à paramétrer les discrétisations et la fonction `getBreaks()` permet de travailler sur les discrétisations en dehors de la fonction `choroLayer()`. De même, l'argument `col` est utilisé pour renseigner une palette de couleur mais plusieurs fonctions peuvent être utilisées pour paramétrer les palettes en dehors de la fonction (`carto.pal()`...).  -->
+
+
+<!-- ```{r choro} -->
+<!-- # Densité de population (hab./km2) en utilisant la fonction sf::st_area() -->
+<!-- mtq$POPDENS <- 1e6 * mtq$POP / as.numeric(st_area(mtq)) -->
+<!-- mf_map( -->
+<!--   x = mtq,  -->
+<!--   var = "POPDENS", -->
+<!--   type = "choro", -->
+<!--   breaks = "quantile", -->
+<!--   pal = "Dark Mint", -->
+<!--   leg_title = "Densité de population\n(habitants par km2)" -->
+<!-- ) -->
+<!-- mf_title("Distribution de la population en Martinique (2015)") -->
+<!-- ``` -->
+
+
+<!-- ### Discrétisations {#discretisation} -->
+
+<!-- La fonction `mf_get_breaks()` met à disposition les méthodes de discrétisations de variables classique : quantiles, moyenn/écart-type, amplitudes égales, moyennes emboitées, Fisher-Jenks, géométrique ... -->
+
+<!-- ```{r discr2, fig.height=3, fig.width=5, dm=FALSE} -->
+
+<!-- ``` -->
+
+
+<!-- ### Les cartes de points  -->
+
+
+
+
+<!-- ### Palettes de couleurs {#palettes} -->
+
+<!-- La fonction `mf_get_pal()` permet d'afficher toutes palettes de couleurs disponibles dans `cartography`. -->
+<!-- La fonction `carto.pal()` permet de construire une palette de couleur. -->
+<!-- Il est possible de créer des palettes associant 2 couleurs.  -->
+
+<!-- ```{r pal2,  fig.height=3, nm=TRUE} -->
+<!-- mypal <- mf_get_pal(n = c(6,3), palette = c("Reds 3", "Greens")) -->
+<!-- image(1:9, 1, as.matrix(1:9), col=mypal, xlab = "", ylab = "", xaxt = "n",  -->
+<!--       yaxt = "n",bty = "n") -->
+<!-- ``` -->
+
+
+<!-- ## Carte de typologie  -->
+<!-- Les cartes de typologies sont utilisées pour représenter les variables qualitatives.  -->
+<!-- La fonction `typoLayer()` propose cette représentation. L'argument `legend.values.order` sert à ordonner les modalités dans la légende. -->
+
+<!-- ```{r typolo} -->
+<!-- mf_map( -->
+<!--   x = mtq,  -->
+<!--   var="STATUS", -->
+<!--   type = "typo", -->
+<!--   pal = c("aquamarine4", "yellow3","wheat"),  -->
+<!--   lwd = .7, -->
+<!--   val_order = c("Prefecture", -->
+<!--                           "Sub-prefecture",  -->
+<!--                           "Simple municipality"), -->
+<!--   leg_pos = "topright", -->
+<!--   leg_title = "" -->
+<!-- ) -->
+<!-- mf_title("Statut Administratif") -->
+<!-- ``` -->
+
+
+<!-- ### Ordonner les valeurs dans la légende -->
+
+
+<!-- ### Les cartes de points -->
+
+
+<!-- ### Les cartes de liens -->
+
+
+
+<!-- ## Les cartes en symboles gradués -->
+
+<!-- ### Polygons -->
+
+<!-- ### points -->
+
+<!-- ### lignes -->
+
+
+
+<!-- ## Les cartes en symboles  -->
+
+
+
+
+<!-- ## Carte de stocks et de ratios  -->
+<!-- La fonction `propSymbolsChoroLayer()` représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d'une variable et dont la couleur repose sur la discrétisation d'une seconde variable. La fonction utilise les arguments des fonctions `propSymbolsLayer()` et `choroLayer()`.  -->
+
+<!-- ```{r choroprop} -->
+<!-- mf_map( -->
+<!--   x = mtq,  -->
+<!--   col="darkseagreen3",  -->
+<!--   border="darkseagreen4",   -->
+<!--   bg = "lightblue1" -->
+<!-- ) -->
+<!-- mf_map( -->
+<!--   x = mtq,  -->
+<!--   var = c("POP", "MED"), -->
+<!--   type = "prop_choro", -->
+<!--   border = "grey50", -->
+<!--   lwd = 1, -->
+<!--   leg_pos = c("topright", "bottomleft"),  -->
+<!--   leg_title = c("Population", "Revenu\nmédian\n(en euros)"), -->
+<!--   breaks = "equal",  -->
+<!--   nbreaks = 4,  -->
+<!--   pal = "Magenta", -->
+<!--   leg_val_rnd = c(0,-2))  -->
+<!-- mf_title("Population et richesse en Martinique, 2015") -->
+<!-- ``` -->
+
+<!-- ## Carte de stocks et de qualitative  -->
+<!-- La fonction `propSymbolsTypoLayer()` représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d'une variable et dont la couleur représente les modalités d'une variable qualitative. La fonction utilise les arguments des fonctions `propSymbolsLayer()` et `typoLayer()`.  -->
+
+<!-- ```{r typoprop} -->
+<!-- mf_map( -->
+<!--   x = mtq,  -->
+<!--   col="darkseagreen3",  -->
+<!--   border="darkseagreen4",   -->
+<!--   bg = "lightblue1" -->
+<!-- ) -->
+<!-- mf_map( -->
+<!--   x = mtq,  -->
+<!--   var = c("POP", "STATUS"), -->
+<!--   type = "prop_typo",  -->
+<!--   symbol = "circle", -->
+<!--   pal = c("aquamarine4", "yellow3","wheat"), -->
+<!--   leg_pos = c("bottomleft","topright"), -->
+<!--   leg_title = c("Population\n(2015)", -->
+<!--                 "Statut administratif"), -->
+<!--   val_order = c("Prefecture", -->
+<!--                           "Sub-prefecture",  -->
+<!--                           "Simple municipality") -->
+<!-- ) -->
+<!-- mf_title("Population en Martinique") -->
+<!-- ``` -->
+
+<!-- ## Cartes symboles + choro -->
+
+<!-- ## Les cartes raster -->
+
+<!-- `mf_raster()` -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
