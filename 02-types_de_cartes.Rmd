@@ -1,5 +1,6 @@
 ---
 output: html_document
+
 editor_options: 
   chunk_output_type: console
 ---
@@ -15,9 +16,10 @@ opts_chunk$set(echo=TRUE,
                message=FALSE,
                warning=FALSE,
                fig.align='center',
-               fig.height=7.75, 
+               fig.height=8, 
                fig.width=8)
 opts_knit$set(width=90)
+
 options(width = 90)
 ```
 
@@ -45,7 +47,6 @@ dep <- st_read("data/lot46.gpkg", layer = "departement", quiet = TRUE)
 resto <- st_read("data/lot46.gpkg", layer = "restaurant", quiet = TRUE)
 # import des routes
 route <- st_read("data/lot46.gpkg", layer = "route", quiet = TRUE)
-
 ```
 
 
@@ -61,10 +62,6 @@ mf_map(x = dep, lwd = 2, col = NA, add = TRUE)
 mf_map(x = route, lwd = .5, col = "ivory4", add = TRUE)
 mf_map(x = resto, pch = 20, cex = .7, col = "darkred", add = TRUE)
 ```
-
-
-
-
 
 
 ## Carte de symboles proportionnels
@@ -88,59 +85,118 @@ mf_title("Distribution de la population dans le Lot")
 
 ### Comparer plusieurs cartes
 
-Il est possible de fixer les dimensions du plus grand symbole, plus grande valeur.
+Il est possible de fixer les dimensions du plus grand symbole correspondant à une certaine valeur avec les arguments `inches` et `val_max`. Nous pouvons ainsi construire des cartes en symboles proportionnels comparables. 
 
-```{r proportional_symbols_comp}
+```{r proportional_symbols_comp, fig.height = 4}
+# Afficher deux cartes en vis à vis
+par(mfrow = c(1,2))
+# Communes
+mf_map(x = com, border = "grey90", lwd = .5)
+# Population active occupée dans l'industrie, les hommes
+mf_map(
+  x = com, 
+  var = "IND_H", 
+  type = "prop", 
+  inches = .2, 
+  val_max = 600, 
+  leg_title = "Hommes", 
+  leg_val_cex = .5,
+)
+# ajout d'un titre
+mf_title("Population active occupée dans l'industrie")
 
+# Communes
+mf_map(x = com, border = "grey90", lwd = .5)
+# Population active occupée dans l'industrie, les femmes
+mf_map(
+  x = com, 
+  var = "IND_F", 
+  type = "prop",
+  inches = .2, 
+  val_max = 600, 
+  leg_title ="Femmes", 
+  leg_val_cex = .5
+)
 
+# ajout d'un titre
+mf_title("Population active occupée dans l'industrie")
 
 ```
 
+Nous avons ici affiché deux cartes en vis à vis, voir XXXX pour plus de détails. 
+
+
+
 ### Les cartes de liens proportionnels
 
+TO DO
 
 
 
-<!-- ## Carte choroplèthe -->
-<!-- Les cartes choroplèthes sont utilisées pour représenter les variables de ratios (variables quantitatives relatives, la moyenne a un sens, la somme n'a pas de sens).  -->
 
-<!-- Pour ce genre de représentation il faut au préalable : -->
+## Carte choroplèthe
 
-<!-- * choisir une méthode de discrétisation pour transformer une série statistique continue en classes définies par des intervalles,  -->
-<!-- * choisir un nombre de classes,  -->
-<!-- * choisir une palette de couleurs. -->
+Les cartes choroplèthes sont utilisées pour représenter les variables de ratios (variables quantitatives relatives, la moyenne a un sens, la somme n'a pas de sens).
 
-<!-- La fonction `choroLayer()` permet de créer des cartes choroplètes . Les arguments `nclass`,  `method` et `breaks` servent à paramétrer les discrétisations et la fonction `getBreaks()` permet de travailler sur les discrétisations en dehors de la fonction `choroLayer()`. De même, l'argument `col` est utilisé pour renseigner une palette de couleur mais plusieurs fonctions peuvent être utilisées pour paramétrer les palettes en dehors de la fonction (`carto.pal()`...).  -->
+Pour ce genre de représentation il faut au préalable :
 
+* choisir une méthode de discrétisation pour transformer une série statistique continue en classes définies par des intervalles,
+* choisir un nombre de classes,
+* choisir une palette de couleurs.
 
-<!-- ```{r choro} -->
-<!-- # Densité de population (hab./km2) en utilisant la fonction sf::st_area() -->
-<!-- mtq$POPDENS <- 1e6 * mtq$POP / as.numeric(st_area(mtq)) -->
-<!-- mf_map( -->
-<!--   x = mtq,  -->
-<!--   var = "POPDENS", -->
-<!--   type = "choro", -->
-<!--   breaks = "quantile", -->
-<!--   pal = "Dark Mint", -->
-<!--   leg_title = "Densité de population\n(habitants par km2)" -->
-<!-- ) -->
-<!-- mf_title("Distribution de la population en Martinique (2015)") -->
-<!-- ``` -->
+La fonction `mf_map(..., type = "choro")` permet de créer des cartes choroplètes. Les arguments `nbreaks`, et `breaks` servent à paramétrer les discrétisations et la fonction `mf_get_breaks()` permet de travailler sur les discrétisations en dehors de la fonction `mf_map()`. De même, l'argument `pal` est utilisé pour renseigner une palette de couleur mais plusieurs fonctions peuvent être utilisées pour paramétrer les palettes en dehors de la fonction (`mf_get_pal`...).
 
 
-<!-- ### Discrétisations {#discretisation} -->
+```{r choro}
+# Densité de population (hab./km2) en utilisant la fonction sf::st_area()
+com$DENS <- 1e6 * com$POP / as.numeric(st_area(com))
+mf_map(
+  x = com,
+  var = "DENS",
+  type = "choro",
+  breaks = "quantile",
+  pal = "Dark Mint",
+  lwd = 1,
+  leg_title = "Densité de population\n(habitants par km2)", 
+  leg_val_rnd = 0
+)
+mf_title("Distribution de la population dans le Lot (2018)")
+```
 
-<!-- La fonction `mf_get_breaks()` met à disposition les méthodes de discrétisations de variables classique : quantiles, moyenn/écart-type, amplitudes égales, moyennes emboitées, Fisher-Jenks, géométrique ... -->
 
-<!-- ```{r discr2, fig.height=3, fig.width=5, dm=FALSE} -->
+### Discrétisations {#discretisation}
 
-<!-- ``` -->
+La fonction `mf_get_breaks()` met à disposition les méthodes de discrétisations de variables classique : quantiles, moyenn/écart-type, amplitudes égales, moyennes emboitées, Fisher-Jenks, géométrique ...
+
+```{r discr2, fig.height=6, fig.width=8}
+com$POP_ACT <- com$AGR_H + com$AGR_F + com$IND_H + com$IND_F + com$BTP_H + 
+  com$BTP_F + com$TER_H + com$TER_F
+com$SHARE_ACT <- 100 * com$POP_ACT / com$POPULATION
+
+d1 <- mf_get_breaks(com$SHARE_ACT, nbreaks = 6, breaks = "equal", freq = T)
+d2 <- mf_get_breaks(com$SHARE_ACT, nbreaks = 6, breaks = "quantile")
+d3 <- mf_get_breaks(com$SHARE_ACT, nbreaks = 6,  breaks = "geom")
+d4 <- mf_get_breaks(com$SHARE_ACT, breaks = "msd", central = FALSE)
+```
 
 
-<!-- ### Les cartes de points  -->
-
-
-
+```{r discr3, fig.height=6, fig.width=8, echo = FALSE}
+par(mfrow = c(2,2))
+hist(com$SHARE_ACT, breaks = d1, main = "d1 : amplitudes égales")
+rug(com$SHARE_ACT)
+hist(com$SHARE_ACT, breaks = d2, main = "d2 : éffectifs égaux")
+abline(v = quantile(com$SHARE_ACT, probs = seq(0,1,length.out = 7)), col  = "red")
+legend("topright", legend = "quantiles", col = "red", lty = 1, bty = "n")
+rug(com$SHARE_ACT)
+hist(com$SHARE_ACT, breaks = d3, main = "d3 : progression géométrique")
+rug(com$SHARE_ACT)
+hist(com$SHARE_ACT, breaks = d4, main = "d4 : moyenne & écart-type")
+abline(v = mean(com$SHARE_ACT), col  = "red")
+abline(v = mean(com$SHARE_ACT) + sd(com$SHARE_ACT), col  = "blue")
+abline(v = mean(com$SHARE_ACT) - sd(com$SHARE_ACT), col  = "blue")
+legend("topright", legend = c("moyenne", "moyenne +/-\nun écart-type"), col = c("red", "blue"), lty = 1, bty = "n")
+rug(com$SHARE_ACT)
+```
 
 <!-- ### Palettes de couleurs {#palettes} -->
 
@@ -155,34 +211,81 @@ Il est possible de fixer les dimensions du plus grand symbole, plus grande valeu
 <!-- ``` -->
 
 
-<!-- ## Carte de typologie  -->
-<!-- Les cartes de typologies sont utilisées pour représenter les variables qualitatives.  -->
-<!-- La fonction `typoLayer()` propose cette représentation. L'argument `legend.values.order` sert à ordonner les modalités dans la légende. -->
+## Carte de typologie
+Les cartes de typologies sont utilisées pour représenter les variables qualitatives.
+La fonction `mf_map(..., type = "typo")` propose cette représentation. 
 
-<!-- ```{r typolo} -->
-<!-- mf_map( -->
-<!--   x = mtq,  -->
-<!--   var="STATUS", -->
-<!--   type = "typo", -->
-<!--   pal = c("aquamarine4", "yellow3","wheat"),  -->
-<!--   lwd = .7, -->
-<!--   val_order = c("Prefecture", -->
-<!--                           "Sub-prefecture",  -->
-<!--                           "Simple municipality"), -->
-<!--   leg_pos = "topright", -->
-<!--   leg_title = "" -->
-<!-- ) -->
-<!-- mf_title("Statut Administratif") -->
-<!-- ``` -->
+```{r typo_simple}
+mf_map(
+  x = com,
+  var="STATUT",
+  type = "typo",
+  pal = c("aquamarine4", "yellow3","wheat"),
+  lwd = .7,
+  leg_title = ""
+)
+mf_title("Statut Administratif")
+```
 
 
-<!-- ### Ordonner les valeurs dans la légende -->
+### Ordonner les valeurs dans la légende
+
+L'argument `val_order` sert à ordonner les modalités dans la légende.
+
+```{r typo_order}
+mf_map(
+  x = com,
+  var="STATUT",
+  type = "typo",
+  pal = c("aquamarine4", "yellow3","wheat"),
+  val_order = c("Préfecture", "Sous-préfecture", "Commune simple"),
+  lwd = .7,
+  leg_title = ""
+)
+mf_title("Statut Administratif")
+```
 
 
-<!-- ### Les cartes de points -->
+### Les cartes de points
+Quand l'implantation de la couche est ponctuelle, des symboles sont utilisés pour porter les couleurs de la typologie. 
+
+```{r typo_point}
+# extraction des centroids de la préfectures et des sous préfectures
+com_ctr <- st_centroid(com[com$STATUT != "Commune simple", ])
+mf_map(com)
+mf_map(
+  x = com_ctr, 
+  var = "STATUT", 
+  type = "typo", 
+  cex = 3, 
+  pch = 23, 
+  pal = c("aquamarine4", "yellow3"),
+  leg_title = "", 
+  add = TRUE
+)
+mf_title("Statut Administratif")
+
+```
 
 
-<!-- ### Les cartes de liens -->
+### Les cartes de lignes
+
+```{r}
+# Sélection des routes qui intersectent la commune de Cahors
+cahors <- com[com$NOM_COM == "Cahors", ]
+route_cahors <- route[st_intersects(x = route, y = cahors, sparse = FALSE), ]
+mf_map(cahors)
+mf_map(
+  x = route_cahors, 
+  var = "VOCATION", 
+  type = "typo", 
+  lwd = 2,
+  pal = mf_get_pal(n = 4, "Dark 2"),
+  leg_title = "Type de route", 
+  add = TRUE
+)
+mf_title("Statut Administratif")
+```
 
 
 
@@ -196,61 +299,47 @@ Il est possible de fixer les dimensions du plus grand symbole, plus grande valeu
 
 
 
-<!-- ## Les cartes en symboles  -->
+<!-- ## Les cartes en symboles -->
 
 
 
 
-<!-- ## Carte de stocks et de ratios  -->
-<!-- La fonction `propSymbolsChoroLayer()` représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d'une variable et dont la couleur repose sur la discrétisation d'une seconde variable. La fonction utilise les arguments des fonctions `propSymbolsLayer()` et `choroLayer()`.  -->
+## Carte de stocks et de ratios
+La fonction `mf_map(..., var = c("var1", "var2"), type = "prop_tchoro")` représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d'une variable et dont la couleur repose sur la discrétisation d'une seconde variable. La fonction utilise les arguments des fonctions `mf_map(..., type = "prop")` et `mf_map(..., type = "choro")`.
 
-<!-- ```{r choroprop} -->
-<!-- mf_map( -->
-<!--   x = mtq,  -->
-<!--   col="darkseagreen3",  -->
-<!--   border="darkseagreen4",   -->
-<!--   bg = "lightblue1" -->
-<!-- ) -->
-<!-- mf_map( -->
-<!--   x = mtq,  -->
-<!--   var = c("POP", "MED"), -->
-<!--   type = "prop_choro", -->
-<!--   border = "grey50", -->
-<!--   lwd = 1, -->
-<!--   leg_pos = c("topright", "bottomleft"),  -->
-<!--   leg_title = c("Population", "Revenu\nmédian\n(en euros)"), -->
-<!--   breaks = "equal",  -->
-<!--   nbreaks = 4,  -->
-<!--   pal = "Magenta", -->
-<!--   leg_val_rnd = c(0,-2))  -->
-<!-- mf_title("Population et richesse en Martinique, 2015") -->
-<!-- ``` -->
+```{r choroprop}
+mf_map(x = com)
+mf_map(
+  x = com,
+  var = c("POPULATION", "DENS"),
+  type = "prop_choro",
+  border = "grey50",
+  lwd = 1,
+  leg_pos = c("topright", "topleft"),
+  leg_title = c("Population", "Densité\nde population\n(en hab./km2)"),
+  breaks = "q6",
+  pal = "Magenta",
+  leg_val_rnd = c(0,1))
+mf_title("Population")
+```
 
-<!-- ## Carte de stocks et de qualitative  -->
-<!-- La fonction `propSymbolsTypoLayer()` représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d'une variable et dont la couleur représente les modalités d'une variable qualitative. La fonction utilise les arguments des fonctions `propSymbolsLayer()` et `typoLayer()`.  -->
+## Carte de stocks et de qualitative
+La fonction `mf_map(..., var = c("var1", "var2"), type = "prop_typo")` représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d'une variable et dont la couleur représente les modalités d'une variable qualitative. La fonction utilise les arguments des fonctions `mf_map(..., type = "prop")` et `mf_map(..., type = "typo")`.
 
-<!-- ```{r typoprop} -->
-<!-- mf_map( -->
-<!--   x = mtq,  -->
-<!--   col="darkseagreen3",  -->
-<!--   border="darkseagreen4",   -->
-<!--   bg = "lightblue1" -->
-<!-- ) -->
-<!-- mf_map( -->
-<!--   x = mtq,  -->
-<!--   var = c("POP", "STATUS"), -->
-<!--   type = "prop_typo",  -->
-<!--   symbol = "circle", -->
-<!--   pal = c("aquamarine4", "yellow3","wheat"), -->
-<!--   leg_pos = c("bottomleft","topright"), -->
-<!--   leg_title = c("Population\n(2015)", -->
-<!--                 "Statut administratif"), -->
-<!--   val_order = c("Prefecture", -->
-<!--                           "Sub-prefecture",  -->
-<!--                           "Simple municipality") -->
-<!-- ) -->
-<!-- mf_title("Population en Martinique") -->
-<!-- ``` -->
+```{r typoprop}
+mf_map(x = com)
+mf_map(
+  x = com,
+  var = c("POPULATION", "STATUT"),
+  type = "prop_typo",
+  pal = c("aquamarine4", "yellow3","wheat"),
+  val_order = c("Préfecture", "Sous-préfecture", "Commune simple"),
+  leg_pos = c("bottomleft","topleft"),
+  leg_title = c("Population\n(2015)",
+                "Statut administratif"),
+)
+mf_title("Population")
+```
 
 <!-- ## Cartes symboles + choro -->
 
