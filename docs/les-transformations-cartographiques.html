@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 1 mapsf | Cartographie avec R</title>
-  <meta name="description" content="Chapitre 1 mapsf | Cartographie avec R" />
+  <title>Chapitre 5 Les transformations cartographiques | Cartographie avec R</title>
+  <meta name="description" content="Chapitre 5 Les transformations cartographiques | Cartographie avec R" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 1 mapsf | Cartographie avec R" />
+  <meta property="og:title" content="Chapitre 5 Les transformations cartographiques | Cartographie avec R" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Chapitre 1 mapsf | Cartographie avec R" />
+  <meta property="og:description" content="Chapitre 5 Les transformations cartographiques | Cartographie avec R" />
   <meta name="github-repo" content="rCarto/cartographie_avec_r" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 1 mapsf | Cartographie avec R" />
+  <meta name="twitter:title" content="Chapitre 5 Les transformations cartographiques | Cartographie avec R" />
   
-  <meta name="twitter:description" content="Chapitre 1 mapsf | Cartographie avec R" />
+  <meta name="twitter:description" content="Chapitre 5 Les transformations cartographiques | Cartographie avec R" />
   
 
 <meta name="author" content="Timothée Giraud &amp; Hugues Pecout" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/globe-africa-solid.svg" type="image/x-icon" />
-<link rel="prev" href="index.html"/>
-<link rel="next" href="chapitre2.html"/>
+<link rel="prev" href="les-cartes-en-3d.html"/>
+<link rel="next" href="sessioninfo.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -252,59 +252,142 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="chapitre1" class="section level1" number="1">
-<h1><span class="header-section-number">Chapitre 1</span> mapsf</h1>
-<p>L’écosystème spatial du logiciel libre R est riche, dynamique et mature et plusieurs packages permettent d’importer, de traiter et de représenter les données spatiales. Le package <a href="https://CRAN.R-project.org/package=maps"><code>mapsf</code></a> <span class="citation">(<a href="#ref-R-mapsf" role="doc-biblioref">Giraud 2021</a>)</span> s’appuie sur cet écosystème pour intégrer la création de cartes thématiques de qualité dans les chaines de traitement avec R.</p>
-<p>Dautres packages peuvent être utilisés pour réaliser des cartes thématique. Le package <code>ggplot2</code> <span class="citation">(<a href="#ref-Wickham16" role="doc-biblioref">Wickham 2016</a>)</span>, en association avec le package <code>ggspatial</code> <span class="citation">(<a href="#ref-R-ggspatial" role="doc-biblioref">Dunnington 2021</a>)</span>, par exemple permet d’afficher des objets spatiaux et de réaliser des cartes thématiques simples. Le package <code>tmap</code> <span class="citation">(<a href="#ref-Tennekes18" role="doc-biblioref">Tennekes 2018</a>)</span> est dédié à la création de cartes thématiques, il utilise une syntaxe proche de celle de <code>ggplot2</code> (enchaînement d’instructions combinées avec le signe ‘+’). La documentation et les tutoriels pour utiliser ces deux packages sont facilement accessibles sur le web.</p>
-<p>Ici nous utiliserons principalement le package <code>mapsf</code> dont les fonctionnalités sont assez complètes et la prise en main assez simple. De plus le package est assez léger.</p>
-<div id="présentation" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Présentation</h2>
-<p><img src="img/logo.png" align="right" alt="" width="120" /></p>
-<p><code>mapsf</code> permet de créer la plupart des types de carte utilisés habituellement en cartograpie statistique (carte choroplèthes, typologies, symboles proportionnels ou gradués…).<br />
-Pour chaque type de carte plusieurs paramètres permettent de personnaliser la représentation cartographique, ces paramètres sont les même que ceux que l’on retrouve dans les logiciels de SIG ou de cartographie usuels (par exemple le choix des discrétisations et des palettes de couleurs, modifications des taille des symboles ou la personnalisation des légendes).<br />
-Associées aux fonctions de représesentation des données d’autres fonctions sont dédiées à l’habillage cartographique (thèmes ou chartes graphiques, légendes, échelles, flèches d’orientation, titre, crédits, annotations…), à la création de cartons ou à l’export des cartes.<br />
-<code>mapsf</code> est le successeur de <a href="http://riatelab.github.io/cartography/docs/"><code>cartography</code></a> <span class="citation">(<a href="#ref-R-cartography" role="doc-biblioref">Giraud and Lambert 2017</a>)</span>, il offre les mêmes fonctionnalités principales tout en étant plus léger et plus ergonomique.</p>
-</div>
-<div id="documentation" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Documentation</h2>
-<p>Pour utiliser ce package plusieurs sources peuvent être consultées :</p>
+<div id="les-transformations-cartographiques" class="section level1" number="5">
+<h1><span class="header-section-number">Chapitre 5</span> Les transformations cartographiques</h1>
+<div id="les-cartogrammes" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Les cartogrammes</h2>
+<blockquote>
+<p>L’anamorphose classique est une représentation des États (ou de mailles quelconques) par <strong>des rectangles ou des polygones quelconques</strong> en fonction d’une <strong>quantité</strong> qui leur est rattaché. (…)
+On s’efforce de <strong>garder l’arrangement général</strong> des mailles ou la silhouette du continent.”<br />
+<span class="citation"><a href="#ref-Brunet93" role="doc-biblioref">Brunet, Ferras, and Théry</a> (<a href="#ref-Brunet93" role="doc-biblioref">1993</a>)</span></p>
+</blockquote>
+<p>3 types d’anamorphoses ou cartogrammes sont ici présentés :</p>
 <ul>
-<li>La documentation du package accessible <a href="http://riatelab.github.io/mapsf/">sur internet</a> ou directement dans R (<code>?mapsf</code>),<br />
-</li>
-<li>Les <a href="https://riatelab.github.io/mapsf/articles/">vignettes</a> associées au package présentent des exemples de scripts,<br />
-</li>
-<li>Le blog <a href="https://rgeomatic.hypotheses.org/">R Géomatique</a> qui met à disposition ressources et exemples liés au package et plus généralement à l’écosystème spatiale de R.</li>
+<li>Les cartogrammes de Dorling <span class="citation">(<a href="#ref-Dorling96" role="doc-biblioref">Dorling 1996</a>)</span></li>
+<li>Les cartogrammes non contigus <span class="citation">(<a href="#ref-Olson76" role="doc-biblioref">Olson 1976</a>)</span></li>
+<li>Les cartogrammes contigus <span class="citation">(<a href="#ref-Dougenik85" role="doc-biblioref">Dougenik, Chrisman, and Niemeyer 1985</a>)</span></li>
 </ul>
-</div>
-<div id="compatibilité-avec-graphics" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Compatibilité avec graphics</h2>
-<p><code>mapsf</code> utilise le système de graphique de base de R (le package <code>graphics</code> <span class="citation">(<a href="#ref-R-base" role="doc-biblioref">R Core Team 2021</a>)</span>). Il est donc assez aisé de combiner les éléments graphiques produit par le package et d’autres éléments graphiques (textes, plot, images…). Notez toutefois que <code>mapsf</code> utilise une solution ad-hoc pour la gestion des marges. Pour ajouter des éléments graphiques externe à <code>mapsf</code> vous devrez utiliser <code>par(xpd = TRUE)</code>.</p>
-</div>
-<div id="le-pipe" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Le pipe</h2>
-<p><code>mapsf</code> est compatible avec la syntaxe <em>pipe</em> (<code>|&gt;</code> et <code>%&gt;%</code>).</p>
 
+<div class="linky">
+Un cours complet sur les anamorphoses : <a href="https://neocarto.hypotheses.org/366" target="_blank">Les anamorphoses cartographiques</a> <span class="citation">(<a href="#ref-Lambert15" role="doc-biblioref">Lambert 2015</a>)</span>.
+</div>
+
+<div class="linky">
+<a href="https://rgeomatic.hypotheses.org/1361">Faire des cartogrammes avec R</a>
+</div>
+<p>Pour réaliser les cartogrammes nous utilisons le package <code>cartogram</code> <span class="citation">(<a href="#ref-R-cartogram" role="doc-biblioref">Jeworutzki 2018</a>)</span>.</p>
+<div id="les-cartogrammes-de-dorling" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Les cartogrammes de Dorling</h3>
+<p>Les territoires sont représentés par des figurés (cercles, des carrés ou des rectangles) ne se recouvrant pas dont les surfaces sont proportionnelles à une variable. Les positions des figurés sont définie selon les positions de départ.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-18"></span>
+<img src="img/dorling.png" alt="@McCormick07" width="602" />
+<p class="caption">
+Figure 5.1: <span class="citation"><a href="#ref-McCormick07" role="doc-biblioref">McCormick</a> (<a href="#ref-McCormick07" role="doc-biblioref">2017</a>)</span>
+</p>
+</div>
+
+<div class="rmdmoins">
+On identifie assez mal l’espace.<br />
+On peut nommer les cercles pour se repérer et/ou s’aider de la couleur pour faire apparaitre des clusters et mieux identifier les blocks géographiques.
+</div>
+
+<div class="rmdplus">
+La perception des quantités est très bonne.<br />
+Les tailles de cercles sont vraiment comparables.
+</div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="les-transformations-cartographiques.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapsf)</span>
+<span id="cb37-2"><a href="les-transformations-cartographiques.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cartogram)</span>
+<span id="cb37-3"><a href="les-transformations-cartographiques.html#cb37-3" aria-hidden="true" tabindex="-1"></a>com <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/lot46.gpkg&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;commune&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb37-4"><a href="les-transformations-cartographiques.html#cb37-4" aria-hidden="true" tabindex="-1"></a>com_dorling <span class="ot">&lt;-</span> <span class="fu">cartogram_dorling</span>(<span class="at">x =</span> com, <span class="at">weight =</span> <span class="st">&quot;POPULATION&quot;</span>, <span class="at">k =</span> <span class="dv">7</span>)</span>
+<span id="cb37-5"><a href="les-transformations-cartographiques.html#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_dorling, <span class="at">col =</span> <span class="st">&quot;#940000&quot;</span>, <span class="at">border=</span> <span class="st">&quot;white&quot;</span>)</span>
+<span id="cb37-6"><a href="les-transformations-cartographiques.html#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_label</span>(</span>
+<span id="cb37-7"><a href="les-transformations-cartographiques.html#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com_dorling[<span class="fu">order</span>(com_dorling<span class="sc">$</span>POPULATION, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ][<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,], </span>
+<span id="cb37-8"><a href="les-transformations-cartographiques.html#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="st">&quot;NOM_COM&quot;</span>,</span>
+<span id="cb37-9"><a href="les-transformations-cartographiques.html#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">overlap =</span> <span class="cn">FALSE</span>, <span class="at">show.lines =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb37-10"><a href="les-transformations-cartographiques.html#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">halo =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb37-11"><a href="les-transformations-cartographiques.html#cb37-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">r =</span> .<span class="dv">15</span></span>
+<span id="cb37-12"><a href="les-transformations-cartographiques.html#cb37-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb37-13"><a href="les-transformations-cartographiques.html#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population du Lot - Cartogramme de Dorling&quot;</span>)</span></code></pre></div>
+<p><img src="Cartographie-avec-R_files/figure-html/dorling-1.png" width="672" style="display: block; margin: auto;" />
+Le paramètre <code>k</code> permet de faire varier le facteur d’expansion des cercles.</p>
+</div>
+<div id="les-cartogrammes-non-continus" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Les cartogrammes non continus</h3>
+<p>La taille des polygones est proportionnelle à une variable. L’agencement des polygones les uns par rapport aux autres est conservée. La forme des polygones est ressemblante.</p>
+<p><img src="img/nccartogram.png" width="272" style="display: block; margin: auto;" />
+<span class="citation">(<a href="#ref-Cauvin13" role="doc-biblioref">Cauvin, Escobar, and Serradj 2013</a>)</span></p>
+
+<div class="rmdmoins">
+La topologie des régions est perdue.
+</div>
+
+<div class="rmdplus">
+La conservation de la forme des polygones est optimale.
+</div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="les-transformations-cartographiques.html#cb38-1" aria-hidden="true" tabindex="-1"></a>com_ncont <span class="ot">&lt;-</span> <span class="fu">cartogram_ncont</span>(<span class="at">x =</span> com, <span class="at">weight =</span> <span class="st">&quot;POPULATION&quot;</span>, <span class="at">k =</span> <span class="fl">1.2</span>)</span>
+<span id="cb38-2"><a href="les-transformations-cartographiques.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">border =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>,)</span>
+<span id="cb38-3"><a href="les-transformations-cartographiques.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_ncont, <span class="at">col =</span> <span class="st">&quot;#940000&quot;</span>, <span class="at">border=</span> <span class="st">&quot;white&quot;</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb38-4"><a href="les-transformations-cartographiques.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population du Lot - Cartogramme de Olson&quot;</span>)</span></code></pre></div>
+<p><img src="Cartographie-avec-R_files/figure-html/olson-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Le paramètre <code>k</code> permet de faire varier le facteur d’expansion des polygones.</p>
+</div>
+<div id="les-cartogrammes-continus" class="section level3" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> Les cartogrammes continus</h3>
+<p>La taille des polygones est proportionnelle à une variable. L’agencement des polygones les uns par rapport aux autres est conservée. Pour conserver la contiguité, la forme des polygones est fortement transformée.</p>
+<p><img src="img/cartogram.jpg" width="960" style="display: block; margin: auto;" />
+<span class="citation">(<a href="#ref-Paull16" role="doc-biblioref">Paull and Hennig 2016</a>)</span></p>
+
+<div class="rmdmoins">
+La forme des polygones est fortement distordue.
+</div>
+
+<div class="rmdplus">
+C’est une “vraie carte de géographie” : la topologie et la contiguité sont conservées.
+</div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="les-transformations-cartographiques.html#cb39-1" aria-hidden="true" tabindex="-1"></a>com_cont <span class="ot">&lt;-</span> <span class="fu">cartogram_cont</span>(<span class="at">x =</span> com, <span class="at">weight =</span> <span class="st">&quot;POPULATION&quot;</span>, <span class="at">prepare =</span> <span class="st">&quot;none&quot;</span>)</span>
+<span id="cb39-2"><a href="les-transformations-cartographiques.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_cont, <span class="at">col =</span> <span class="st">&quot;#940000&quot;</span>, <span class="at">border=</span> <span class="st">&quot;white&quot;</span>, <span class="at">add =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb39-3"><a href="les-transformations-cartographiques.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population en Martinique - Cartogramme de Dougenik&quot;</span>)</span>
+<span id="cb39-4"><a href="les-transformations-cartographiques.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_on</span>(com, <span class="at">cex =</span> .<span class="dv">2</span>, <span class="at">pos =</span> <span class="st">&quot;topleft&quot;</span>)</span>
+<span id="cb39-5"><a href="les-transformations-cartographiques.html#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">lwd =</span> .<span class="dv">5</span>)</span>
+<span id="cb39-6"><a href="les-transformations-cartographiques.html#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_off</span>()</span></code></pre></div>
+<p><img src="Cartographie-avec-R_files/figure-html/dougenik-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="forces-et-faiblesses-des-cartogrammes" class="section level3" number="5.1.4">
+<h3><span class="header-section-number">5.1.4</span> Forces et faiblesses des cartogrammes</h3>
+<p>Les cartogrammes sont des représentations cartographiques perçues comme <strong>innovante</strong> (bien que la methode date de 40 ans). Ces images très généralisées rendent bien compte des <strong>quantités</strong> et des <strong>gradiants</strong>. Ce sont de vraies images de <strong>communication</strong> qui <strong>provoquent</strong>, suscitent <strong>l’intérêt</strong>, véhiculent un <strong>message</strong> fort, <strong>interpellent</strong>.</p>
+<p>Mais les cartogrammes induisent une perte des <strong>repères visuels</strong> (difficile de retrouver son pays, ou sa région sur la carte), demandent un <strong>effort de lecture</strong> qui peut être important et ne permettent pas de <strong>gérer des données manquantes</strong>.</p>
+
+</div>
 </div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-R-ggspatial" class="csl-entry">
-Dunnington, Dewey. 2021. <em><span class="nocase">ggspatial</span>: Spatial Data Framework for <span class="nocase">ggplot2</span></em>. <a href="https://CRAN.R-project.org/package=ggspatial">https://CRAN.R-project.org/package=ggspatial</a>.
+<div id="ref-Brunet93" class="csl-entry">
+Brunet, Roger, Robert Ferras, and Hervé Théry. 1993. <em>Les Mots de La g<span>é</span>ographie: Dictionnaire Critique</em>. 03) 911 BRU.
 </div>
-<div id="ref-R-mapsf" class="csl-entry">
-———. 2021. <em><span class="nocase">mapsf</span>: Thematic Cartography</em>. <a href="https://CRAN.R-project.org/package=mapsf">https://CRAN.R-project.org/package=mapsf</a>.
+<div id="ref-Cauvin13" class="csl-entry">
+Cauvin, Colette, Francisco Escobar, and Aziz Serradj. 2013. <em>Thematic Cartography, Cartography and the Impact of the Quantitative Revolution</em>. Vol. 2. John Wiley &amp; Sons.
 </div>
-<div id="ref-R-cartography" class="csl-entry">
-Giraud, Timothée, and Nicolas Lambert. 2017. <span>“Reproducible Cartography.”</span> In <em>Advances in Cartography and GIScience. ICACI 2017. Lecture Notes in Geoinformation and Cartography.</em>, edited by Michael Peterson, 173–83. Cham, Switzerland: Springer. <a href="https://doi.org/10.1007/978-3-319-57336-6_13">https://doi.org/10.1007/978-3-319-57336-6_13</a>.
+<div id="ref-Dorling96" class="csl-entry">
+Dorling, Daniel. 1996. <em>Area Cartograms: Their Use and Creation, Concepts and Techniques in Modern Geography</em>. Vol. 59. CATMOG: Concepts and Techniques in Modern Geography. Institute of British Geographers.
 </div>
-<div id="ref-R-base" class="csl-entry">
-R Core Team. 2021. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+<div id="ref-Dougenik85" class="csl-entry">
+Dougenik, James A, Nicholas R Chrisman, and Duane R Niemeyer. 1985. <span>“An Algorithm to Construct Continuous Area Cartograms.”</span> <em>The Professional Geographer</em> 37 (1): 75–81.
 </div>
-<div id="ref-Tennekes18" class="csl-entry">
-Tennekes, Martijn. 2018. <span>“<span class="nocase">tmap</span>: Thematic Maps in <span>R</span>.”</span> <em>Journal of Statistical Software</em> 84 (6): 1–39. <a href="https://doi.org/10.18637/jss.v084.i06">https://doi.org/10.18637/jss.v084.i06</a>.
+<div id="ref-R-cartogram" class="csl-entry">
+Jeworutzki, Sebastian. 2018. <em>Cartogram: Create Cartograms with r</em>. <a href="https://CRAN.R-project.org/package=cartogram">https://CRAN.R-project.org/package=cartogram</a>.
 </div>
-<div id="ref-Wickham16" class="csl-entry">
-Wickham, Hadley. 2016. <em><span class="nocase">ggplot2</span>: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+<div id="ref-Lambert15" class="csl-entry">
+Lambert, Nicolas. 2015. <span>“Les Anamorphoses Cartographiques.”</span> Blog. <em>Carnet Néocartographique</em>. <a href="https://neocarto.hypotheses.org/366">https://neocarto.hypotheses.org/366</a>.
+</div>
+<div id="ref-McCormick07" class="csl-entry">
+McCormick, Mark. 2017. <span>“Carbon Atlas.”</span> <em>The Guardian</em>, December. <a href="http://kelsocartography.com/blog/wp-content/uploads/2008/03/carbonatlas.pdf">http://kelsocartography.com/blog/wp-content/uploads/2008/03/carbonatlas.pdf</a>.
+</div>
+<div id="ref-Olson76" class="csl-entry">
+Olson, Judy M. 1976. <span>“Noncontiguous Area Cartograms.”</span> <em>The Professional Geographer</em> 28 (4): 371–80.
+</div>
+<div id="ref-Paull16" class="csl-entry">
+Paull, John, and Benjamin Hennig. 2016. <span>“Atlas of Organics: Four Maps of the World of Organic Agriculture.”</span> <em>Journal of Organics</em> 3 (1): 25–32.
 </div>
 </div>
             </section>
@@ -312,8 +395,8 @@ Wickham, Hadley. 2016. <em><span class="nocase">ggplot2</span>: Elegant Graphics
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chapitre2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="les-cartes-en-3d.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sessioninfo.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

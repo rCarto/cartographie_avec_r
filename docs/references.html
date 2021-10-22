@@ -178,6 +178,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.4" data-path="chapitre2.html"><a href="chapitre2.html#carte-choroplèthe"><i class="fa fa-check"></i><b>2.4</b> Carte choroplèthe</a>
 <ul>
 <li class="chapter" data-level="2.4.1" data-path="chapitre2.html"><a href="chapitre2.html#discretisation"><i class="fa fa-check"></i><b>2.4.1</b> Discrétisations</a></li>
+<li class="chapter" data-level="2.4.2" data-path="chapitre2.html"><a href="chapitre2.html#palettes"><i class="fa fa-check"></i><b>2.4.2</b> Palettes de couleurs</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="chapitre2.html"><a href="chapitre2.html#carte-de-typologie"><i class="fa fa-check"></i><b>2.5</b> Carte de typologie</a>
 <ul>
@@ -213,7 +214,23 @@ div.csl-indent {
 <li class="chapter" data-level="3.16" data-path="chapitre3.html"><a href="chapitre3.html#ajouter-un-ombrage-à-une-couche"><i class="fa fa-check"></i><b>3.16</b> Ajouter un ombrage à une couche</a></li>
 <li class="chapter" data-level="3.17" data-path="chapitre3.html"><a href="chapitre3.html#création-de-cartons"><i class="fa fa-check"></i><b>3.17</b> Création de cartons</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="sessioninfo.html"><a href="sessioninfo.html"><i class="fa fa-check"></i><b>4</b> <code>sessionInfo()</code></a></li>
+<li class="chapter" data-level="4" data-path="les-cartes-en-3d.html"><a href="les-cartes-en-3d.html"><i class="fa fa-check"></i><b>4</b> Les cartes en 3D</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="les-cartes-en-3d.html"><a href="les-cartes-en-3d.html#linemap"><i class="fa fa-check"></i><b>4.1</b> linemap</a></li>
+<li class="chapter" data-level="4.2" data-path="les-cartes-en-3d.html"><a href="les-cartes-en-3d.html#relief-tanaka"><i class="fa fa-check"></i><b>4.2</b> Relief Tanaka</a></li>
+<li class="chapter" data-level="4.3" data-path="les-cartes-en-3d.html"><a href="les-cartes-en-3d.html#rayshader"><i class="fa fa-check"></i><b>4.3</b> rayshader</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="les-transformations-cartographiques.html"><a href="les-transformations-cartographiques.html"><i class="fa fa-check"></i><b>5</b> Les transformations cartographiques</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="les-transformations-cartographiques.html"><a href="les-transformations-cartographiques.html#les-cartogrammes"><i class="fa fa-check"></i><b>5.1</b> Les cartogrammes</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="les-transformations-cartographiques.html"><a href="les-transformations-cartographiques.html#les-cartogrammes-de-dorling"><i class="fa fa-check"></i><b>5.1.1</b> Les cartogrammes de Dorling</a></li>
+<li class="chapter" data-level="5.1.2" data-path="les-transformations-cartographiques.html"><a href="les-transformations-cartographiques.html#les-cartogrammes-non-continus"><i class="fa fa-check"></i><b>5.1.2</b> Les cartogrammes non continus</a></li>
+<li class="chapter" data-level="5.1.3" data-path="les-transformations-cartographiques.html"><a href="les-transformations-cartographiques.html#les-cartogrammes-continus"><i class="fa fa-check"></i><b>5.1.3</b> Les cartogrammes continus</a></li>
+<li class="chapter" data-level="5.1.4" data-path="les-transformations-cartographiques.html"><a href="les-transformations-cartographiques.html#forces-et-faiblesses-des-cartogrammes"><i class="fa fa-check"></i><b>5.1.4</b> Forces et faiblesses des cartogrammes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sessioninfo.html"><a href="sessioninfo.html"><i class="fa fa-check"></i><b>6</b> <code>sessionInfo()</code></a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rCarto/cartographie_avec_r" target="blank">Contribuer</a></li>
@@ -240,16 +257,55 @@ div.csl-indent {
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div class="csl-entry">
+Brunet, Roger, Robert Ferras, and Hervé Théry. 1993. <em>Les Mots de La g<span>é</span>ographie: Dictionnaire Critique</em>. 03) 911 BRU.
+</div>
+<div class="csl-entry">
+Cauvin, Colette, Francisco Escobar, and Aziz Serradj. 2013. <em>Thematic Cartography, Cartography and the Impact of the Quantitative Revolution</em>. Vol. 2. John Wiley &amp; Sons.
+</div>
+<div class="csl-entry">
+Dorling, Daniel. 1996. <em>Area Cartograms: Their Use and Creation, Concepts and Techniques in Modern Geography</em>. Vol. 59. CATMOG: Concepts and Techniques in Modern Geography. Institute of British Geographers.
+</div>
+<div class="csl-entry">
+Dougenik, James A, Nicholas R Chrisman, and Duane R Niemeyer. 1985. <span>“An Algorithm to Construct Continuous Area Cartograms.”</span> <em>The Professional Geographer</em> 37 (1): 75–81.
+</div>
+<div class="csl-entry">
 Dunnington, Dewey. 2021. <em><span class="nocase">ggspatial</span>: Spatial Data Framework for <span class="nocase">ggplot2</span></em>. <a href="https://CRAN.R-project.org/package=ggspatial">https://CRAN.R-project.org/package=ggspatial</a>.
 </div>
 <div class="csl-entry">
-Giraud, Timothée. 2021. <em><span class="nocase">mapsf</span>: Thematic Cartography</em>. <a href="https://CRAN.R-project.org/package=mapsf">https://CRAN.R-project.org/package=mapsf</a>.
+Giraud, Timothée. 2017. <em>Linemap: Line Maps</em>. <a href="https://CRAN.R-project.org/package=linemap">https://CRAN.R-project.org/package=linemap</a>.
+</div>
+<div class="csl-entry">
+———. 2020. <em>Tanaka: Design Shaded Contour Lines (or Tanaka) Maps</em>. <a href="https://CRAN.R-project.org/package=tanaka">https://CRAN.R-project.org/package=tanaka</a>.
+</div>
+<div class="csl-entry">
+———. 2021. <em><span class="nocase">mapsf</span>: Thematic Cartography</em>. <a href="https://CRAN.R-project.org/package=mapsf">https://CRAN.R-project.org/package=mapsf</a>.
 </div>
 <div class="csl-entry">
 Giraud, Timothée, and Nicolas Lambert. 2017. <span>“Reproducible Cartography.”</span> In <em>Advances in Cartography and GIScience. ICACI 2017. Lecture Notes in Geoinformation and Cartography.</em>, edited by Michael Peterson, 173–83. Cham, Switzerland: Springer. <a href="https://doi.org/10.1007/978-3-319-57336-6_13">https://doi.org/10.1007/978-3-319-57336-6_13</a>.
 </div>
 <div class="csl-entry">
+Jeworutzki, Sebastian. 2018. <em>Cartogram: Create Cartograms with r</em>. <a href="https://CRAN.R-project.org/package=cartogram">https://CRAN.R-project.org/package=cartogram</a>.
+</div>
+<div class="csl-entry">
+Lambert, Nicolas. 2015. <span>“Les Anamorphoses Cartographiques.”</span> Blog. <em>Carnet Néocartographique</em>. <a href="https://neocarto.hypotheses.org/366">https://neocarto.hypotheses.org/366</a>.
+</div>
+<div class="csl-entry">
+McCormick, Mark. 2017. <span>“Carbon Atlas.”</span> <em>The Guardian</em>, December. <a href="http://kelsocartography.com/blog/wp-content/uploads/2008/03/carbonatlas.pdf">http://kelsocartography.com/blog/wp-content/uploads/2008/03/carbonatlas.pdf</a>.
+</div>
+<div class="csl-entry">
+Morgan-Wall, Tyler. 2018. <em>Rayshader: Create and Visualize Hillshaded Maps from Elevation Matrices</em>. <a href="https://CRAN.R-project.org/package=rayshader">https://CRAN.R-project.org/package=rayshader</a>.
+</div>
+<div class="csl-entry">
+Olson, Judy M. 1976. <span>“Noncontiguous Area Cartograms.”</span> <em>The Professional Geographer</em> 28 (4): 371–80.
+</div>
+<div class="csl-entry">
+Paull, John, and Benjamin Hennig. 2016. <span>“Atlas of Organics: Four Maps of the World of Organic Agriculture.”</span> <em>Journal of Organics</em> 3 (1): 25–32.
+</div>
+<div class="csl-entry">
 R Core Team. 2021. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div class="csl-entry">
+Tanaka, Kitiro. 1950. <span>“The Relief Contour Method of Representing Topography on Maps.”</span> <em>The Geographical Review</em> xl (3).
 </div>
 <div class="csl-entry">
 Tennekes, Martijn. 2018. <span>“<span class="nocase">tmap</span>: Thematic Maps in <span>R</span>.”</span> <em>Journal of Statistical Software</em> 84 (6): 1–39. <a href="https://doi.org/10.18637/jss.v084.i06">https://doi.org/10.18637/jss.v084.i06</a>.
