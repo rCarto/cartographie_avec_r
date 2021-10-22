@@ -16,8 +16,8 @@ opts_chunk$set(echo=TRUE,
                message=FALSE,
                warning=FALSE,
                fig.align='center',
-               fig.height=8,
-               fig.width=8,
+               fig.height=5,
+               fig.width=5,
                sm=TRUE)
 opts_knit$set(width=90)
 options(width = 90)
@@ -25,8 +25,6 @@ options(width = 90)
 
 
 # La mise en page  {#chapitre3}
-
-
 
 Pour être finalisée, une carte thématique doit contenir certains éléments aditionnels tels que : le titre, l'auteur, la source, l'échelle, l'orientation...
 
@@ -49,13 +47,13 @@ route <- st_read("data/lot46.gpkg", layer = "route", quiet = TRUE)
 
 ## Les thèmes
 
-La fonction `mf_theme()` défini un thème cartographique. L'utilisation d'un thème permet permet de définir plusieurs paramètres graphiques qui sont ensuite appilqués aux cartes créées avec `mapsf`. Ces paramètres sont : les marges de la figure, la couleur principale, la couleur de fond, la position et l'aspect du titre. Un thème peut également être défini avec les fonction `mf_init()` et `mf_export()`.
+La fonction `mf_theme()` défini un thème cartographique. L'utilisation d'un thème permet permet de définir plusieurs paramètres graphiques qui sont ensuite appliqués aux cartes créées avec `mapsf`. Ces paramètres sont : les marges de la carte, la couleur principale, la couleur de fond, la position et l'aspect du titre. Un thème peut également être défini avec les fonction `mf_init()` et `mf_export()`.
 
 ### Utiliser un thème prédéfini
 
 Une série de thèmes prédéfinis est disponible par défault (voir `?mf_theme`).
 
-```{r them1, fig.show='hold'}
+```{r them1, fig.show='hold', fig.width =8, fig.height = 8}
 library(mapsf)
 # utilisation d'une couleur de fond pour la figure, pour voir l'utilisation des marges
 opar <- par(mfrow = c(2,2))
@@ -101,15 +99,15 @@ Il est également possible de créer un theme.
 
 ```{r}
 mf_theme(
-  bg = "lightblue", 
-  fg = "tomato1", 
-  mar = c(0,0,1.5,0), 
-  tab = FALSE, 
-  inner = FALSE, 
-  line = 1.5, 
-  pos = "center", 
-  cex = 1.2, 
-  font = 2
+  bg = "lightblue",    # couluer de fond
+  fg = "tomato1",      # couleur principale
+  mar = c(0,0,1.5,0),  # marges
+  tab = FALSE,         # style "onglet" pour le titre
+  inner = FALSE,       # titre à l'intérieur de la zone de carte ou à l'extérieur
+  line = 1.5,          # espace dédié au titre
+  pos = "center",      # position du titre
+  cex = 1.2,           # taille du titre
+  font = 2             # type de font pour le titre
 )
 mf_map(com)
 mf_title("New theme")
@@ -124,12 +122,33 @@ mf_title("New theme")
 
 ## Les titres
 
+La fonction ``mf_title()` permet d'ajouter un titre à une carte
+
 
 ```{r}
 mf_theme("default")
 mf_map(com)
-mf_title("New theme")
+mf_title("Titre de la carte")
 ```
+
+
+Il est possible de personnalisé l'aspect du titre. 
+
+```{r}
+mf_map(com)
+mf_title(
+  txt = "Titre de la carte", 
+  pos = "center", 
+  tab = FALSE, 
+  bg = "tomato3", 
+  fg = "lightblue", 
+  cex = 1, 
+  line = 1.2, 
+  font = 1, 
+  inner = FALSE
+  )
+```
+
 
 
 
@@ -151,7 +170,7 @@ La fonction `mf_scale()` permet de choisir la position et l'aspect de l'échelle
 ```{r scale}
 mf_map(com)
 mf_scale(
-  size = 10,
+  size = 20,
   lwd = 2,
   cex = 1.2,
 )
@@ -161,7 +180,7 @@ mf_scale(
 ## Crédits
 
 La fonction `mf_credits()` permet d'afficher une ligne de crédits (sources, auteur...).
-```{r}
+```{r credit}
 mf_map(com)
 mf_credits("IGN\nGiraud & Pécout, 2021")
 ```
@@ -195,7 +214,23 @@ mf_annotation(com[com$NOM_COM == "Cahors",], txt = "Cahors", halo = TRUE, cex = 
 
 ```{r}
 mf_map(com)
-mf_legend(type = "prop", val = c(1000,500,200,10), inches = .5, title = "Population")
+mf_legend(
+  type = "prop", 
+  val = c(1000,500,200,10), 
+  inches = .4, 
+  title = "Population", 
+  pos = "topleft"
+)
+mf_legend(
+  type = "choro", 
+  val = c(0,10,20,30,40),
+  pal = "Greens", 
+  pos = "bottomright", 
+  val_rnd = 0
+)
+    
+
+
 ```
 
 
@@ -262,7 +297,7 @@ L'emprise de cette carte est exactement celle de l'île.
 Cela peut être utile pour ajouter un logo, un pictogramme. La fonction `readPNG()` du package `png` permet l'ajout d'images sur une figure.
 
 ```{r logo}
-mf_theme("green")
+mf_theme("default")
 library(png)
 # import de l'image
 logo <- readPNG("img/mapmonster.png")
@@ -307,8 +342,8 @@ La fonction `locator()` permet de cliquer sur une figure et d'obtenir les coordo
 
 ## Ajouter un ombrage à une couche
 ```{r shadow}
-mf_shadow(com, col = "grey50")
-mf_map(com, col="darkseagreen3", border="darkseagreen4", add=TRUE)
+mf_shadow(com)
+mf_map(com, add=TRUE)
 
 ```
 

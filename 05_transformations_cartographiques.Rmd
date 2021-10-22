@@ -1,0 +1,154 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r knitr5_init, echo=FALSE, cache=FALSE}
+library(knitr)
+## Global options
+options(max.print="90")
+opts_chunk$set(echo=TRUE,
+               cache=FALSE,
+               prompt=FALSE,
+               tidy=FALSE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE,
+               fig.align='center',
+               fig.height=7,
+               fig.width=7,
+               sm=TRUE)
+opts_knit$set(width=90)
+options(width = 90)
+
+```
+
+# Les transformations cartographiques
+## Les cartogrammes
+
+> L’anamorphose classique est une représentation des États (ou de mailles quelconques) par **des rectangles ou des polygones quelconques** en fonction d’une **quantité** qui leur est rattaché. (...)
+> On s’efforce de **garder l’arrangement général** des mailles ou la silhouette du continent."    
+> @Brunet93  
+
+
+3 types d'anamorphoses ou cartogrammes sont ici présentés :
+
+- Les cartogrammes de Dorling [@Dorling96]
+- Les cartogrammes non contigus [@Olson76]
+- Les cartogrammes contigus [@Dougenik85]
+
+
+```{block2, type='linky'}
+Un cours complet sur les anamorphoses : [Les anamorphoses cartographiques](https://neocarto.hypotheses.org/366){target="_blank"} [@Lambert15].
+```
+
+
+```{block2, type='linky'}
+[Faire des cartogrammes avec R](https://rgeomatic.hypotheses.org/1361)
+```
+
+
+
+Pour réaliser les cartogrammes nous utilisons le package `cartogram` [@R-cartogram].
+
+### Les cartogrammes de Dorling
+
+Les territoires sont représentés par des figurés (cercles, des carrés ou des rectangles) ne se recouvrant pas dont les surfaces sont proportionnelles à une variable. Les positions des figurés sont définie selon les positions de départ. 
+
+
+```{r, fig.cap = '@McCormick07', echo=FALSE}
+knitr::include_graphics("img/dorling.png")
+```
+
+```{block2, type='rmdmoins'}
+On identifie assez mal l'espace.  
+On peut nommer les cercles pour se repérer et/ou s'aider de la couleur pour faire apparaitre des clusters et mieux identifier les blocks géographiques.    
+```
+
+```{block2, type='rmdplus'}
+La perception des quantités est très bonne.   
+Les tailles de cercles sont vraiment comparables.    
+```
+
+```{r dorling}
+library(mapsf)
+library(cartogram)
+com <- st_read("data/lot46.gpkg", layer = "commune", quiet = TRUE)
+com_dorling <- cartogram_dorling(x = com, weight = "POPULATION", k = 7)
+mf_map(com_dorling, col = "#940000", border= "white")
+mf_label(
+  x = com_dorling[order(com_dorling$POPULATION, decreasing = TRUE), ][1:10,], 
+  var = "NOM_COM",
+  overlap = FALSE, show.lines = FALSE,
+  halo = TRUE, 
+  r = .15
+)
+mf_title("Population du Lot - Cartogramme de Dorling")
+```
+Le paramètre `k` permet de faire varier le facteur d'expansion des cercles. 
+
+
+
+
+
+### Les cartogrammes non continus
+
+La taille des polygones est proportionnelle à une variable. L'agencement des polygones les uns par rapport aux autres est conservée. La forme des polygones est ressemblante. 
+
+```{r, fig.align='center', echo=FALSE}
+knitr::include_graphics("img/nccartogram.png")
+```
+[@Cauvin13]
+
+```{block2, type='rmdmoins'}
+La topologie des régions est perdue.
+```
+
+```{block2, type='rmdplus'}
+La conservation de la forme des polygones est optimale.
+```
+
+```{r olson}
+com_ncont <- cartogram_ncont(x = com, weight = "POPULATION", k = 1.2)
+mf_map(com, col = NA, border = "white", lwd = 0.5,)
+mf_map(com_ncont, col = "#940000", border= "white", add = TRUE)
+mf_title("Population du Lot - Cartogramme de Olson")
+```
+
+Le paramètre `k` permet de faire varier le facteur d'expansion des polygones. 
+
+
+### Les cartogrammes continus
+
+
+La taille des polygones est proportionnelle à une variable. L'agencement des polygones les uns par rapport aux autres est conservée. Pour conserver la contiguité, la forme des polygones est fortement transformée.  
+
+```{r, fig.align='center', echo=FALSE}
+knitr::include_graphics("img/cartogram.jpg")
+```
+[@Paull16]
+
+```{block2, type='rmdmoins'}
+La forme des polygones est fortement distordue.
+```
+
+```{block2, type='rmdplus'}
+C'est une “vraie carte de géographie” : la topologie et la contiguité sont conservées.
+```
+
+```{r dougenik}
+com_cont <- cartogram_cont(x = com, weight = "POPULATION", prepare = "none")
+mf_map(com_cont, col = "#940000", border= "white", add = FALSE)
+mf_title("Population en Martinique - Cartogramme de Dougenik")
+mf_inset_on(com, cex = .2, pos = "topleft")
+mf_map(com, lwd = .5)
+mf_inset_off()
+```
+
+
+### Forces et faiblesses des cartogrammes
+
+Les cartogrammes sont des représentations cartographiques perçues comme **innovante** (bien que la methode date de 40 ans). Ces images très généralisées rendent bien compte des **quantités** et des **gradiants**. Ce sont de vraies images de **communication** qui **provoquent**, suscitent **l’intérêt**, véhiculent un **message** fort, **interpellent**.  
+
+Mais les cartogrammes induisent une perte des **repères visuels** (difficile de retrouver son pays, ou sa région sur la carte), demandent un **effort de lecture** qui peut être important et ne permettent pas de **gérer des données manquantes**.   

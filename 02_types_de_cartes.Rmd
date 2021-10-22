@@ -181,7 +181,7 @@ d4 <- mf_get_breaks(com$SHARE_ACT, breaks = "msd", central = FALSE)
 
 
 ```{r discr3, fig.height=6, fig.width=8, echo = FALSE}
-par(mfrow = c(2,2))
+opar <- par(mfrow = c(2,2))
 hist(com$SHARE_ACT, breaks = d1, main = "d1 : amplitudes égales")
 rug(com$SHARE_ACT)
 hist(com$SHARE_ACT, breaks = d2, main = "d2 : éffectifs égaux")
@@ -196,19 +196,33 @@ abline(v = mean(com$SHARE_ACT) + sd(com$SHARE_ACT), col  = "blue")
 abline(v = mean(com$SHARE_ACT) - sd(com$SHARE_ACT), col  = "blue")
 legend("topright", legend = c("moyenne", "moyenne +/-\nun écart-type"), col = c("red", "blue"), lty = 1, bty = "n")
 rug(com$SHARE_ACT)
+par(opar)
 ```
 
-<!-- ### Palettes de couleurs {#palettes} -->
+### Palettes de couleurs {#palettes}
 
-<!-- La fonction `mf_get_pal()` permet d'afficher toutes palettes de couleurs disponibles dans `cartography`. -->
-<!-- La fonction `carto.pal()` permet de construire une palette de couleur. -->
-<!-- Il est possible de créer des palettes associant 2 couleurs.  -->
+L'argument `pal` de `mf_map()` est dédié au choix d'une palette de couleur. Les palettes fournies par la fonction `hcl.colors()` peuvent être utilisées directement. 
 
-<!-- ```{r pal2,  fig.height=3, nm=TRUE} -->
-<!-- mypal <- mf_get_pal(n = c(6,3), palette = c("Reds 3", "Greens")) -->
-<!-- image(1:9, 1, as.matrix(1:9), col=mypal, xlab = "", ylab = "", xaxt = "n",  -->
-<!--       yaxt = "n",bty = "n") -->
-<!-- ``` -->
+```{r pal1, fig.width = 4, fig.height = 4}
+mf_map(x = com, var = "SHARE_ACT", type = "choro", 
+       breaks = d4, pal = "Blues 3")
+```
+
+
+
+```{r, fig.cap = "Palettes directement disponibles"}
+knitr::include_graphics("img/swatch-plot-1.svg")
+```
+
+La fonction `mf_get_pal()` permet d'afficher toutes palettes de couleurs disponibles dans `cartography`.
+La fonction `carto.pal()` permet de construire une palette de couleur.
+Il est possible de créer des palettes associant 2 couleurs.
+
+```{r pal2,  fig.height=3, nm=TRUE}
+mypal <- mf_get_pal(n = c(6,3), palette = c("Reds 3", "Greens"))
+image(1:9, 1, as.matrix(1:9), col=mypal, xlab = "", ylab = "", xaxt = "n",
+      yaxt = "n",bty = "n")
+```
 
 
 ## Carte de typologie
