@@ -279,7 +279,7 @@ Un cours complet sur les anamorphoses : <a href="https://neocarto.hypotheses.org
 <div id="les-cartogrammes-de-dorling" class="section level3" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Les cartogrammes de Dorling</h3>
 <p>Les territoires sont représentés par des figurés (cercles, des carrés ou des rectangles) ne se recouvrant pas dont les surfaces sont proportionnelles à une variable. Les positions des figurés sont définie selon les positions de départ.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-18"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
 <img src="img/dorling.png" alt="@McCormick07" width="602" />
 <p class="caption">
 Figure 5.1: <span class="citation"><a href="#ref-McCormick07" role="doc-biblioref">McCormick</a> (<a href="#ref-McCormick07" role="doc-biblioref">2017</a>)</span>
@@ -308,7 +308,7 @@ Les tailles de cercles sont vraiment comparables.
 <span id="cb37-11"><a href="les-transformations-cartographiques.html#cb37-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">r =</span> .<span class="dv">15</span></span>
 <span id="cb37-12"><a href="les-transformations-cartographiques.html#cb37-12" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb37-13"><a href="les-transformations-cartographiques.html#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population du Lot - Cartogramme de Dorling&quot;</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/dorling-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="05_transformations_cartographiques_files/figure-html/dorling-1.png" width="672" style="display: block; margin: auto;" />
 Le paramètre <code>k</code> permet de faire varier le facteur d’expansion des cercles.</p>
 </div>
 <div id="les-cartogrammes-non-continus" class="section level3" number="5.1.2">
@@ -328,7 +328,7 @@ La conservation de la forme des polygones est optimale.
 <span id="cb38-2"><a href="les-transformations-cartographiques.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">border =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>,)</span>
 <span id="cb38-3"><a href="les-transformations-cartographiques.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_ncont, <span class="at">col =</span> <span class="st">&quot;#940000&quot;</span>, <span class="at">border=</span> <span class="st">&quot;white&quot;</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb38-4"><a href="les-transformations-cartographiques.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population du Lot - Cartogramme de Olson&quot;</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/olson-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="05_transformations_cartographiques_files/figure-html/olson-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Le paramètre <code>k</code> permet de faire varier le facteur d’expansion des polygones.</p>
 </div>
 <div id="les-cartogrammes-continus" class="section level3" number="5.1.3">
@@ -350,7 +350,7 @@ C’est une “vraie carte de géographie” : la topologie et la contiguité so
 <span id="cb39-4"><a href="les-transformations-cartographiques.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_on</span>(com, <span class="at">cex =</span> .<span class="dv">2</span>, <span class="at">pos =</span> <span class="st">&quot;topleft&quot;</span>)</span>
 <span id="cb39-5"><a href="les-transformations-cartographiques.html#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">lwd =</span> .<span class="dv">5</span>)</span>
 <span id="cb39-6"><a href="les-transformations-cartographiques.html#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_off</span>()</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/dougenik-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="05_transformations_cartographiques_files/figure-html/dougenik-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="forces-et-faiblesses-des-cartogrammes" class="section level3" number="5.1.4">
 <h3><span class="header-section-number">5.1.4</span> Forces et faiblesses des cartogrammes</h3>
@@ -445,7 +445,7 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });

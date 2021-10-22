@@ -4,25 +4,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r knitr5_init, echo=FALSE, cache=FALSE}
-library(knitr)
-## Global options
-options(max.print="90")
-opts_chunk$set(echo=TRUE,
-               cache=TRUE,
-               prompt=FALSE,
-               tidy=FALSE,
-               comment=NA,
-               message=FALSE,
-               warning=FALSE,
-               fig.align='center',
-               fig.height=7,
-               fig.width=7,
-               sm=TRUE)
-opts_knit$set(width=90)
-options(width = 90)
 
-```
 
 # Les transformations cartographiques
 ## Les cartogrammes
@@ -39,14 +21,10 @@ options(width = 90)
 - Les cartogrammes contigus [@Dougenik85]
 
 
-```{block2, type='linky'}
-Un cours complet sur les anamorphoses : [Les anamorphoses cartographiques](https://neocarto.hypotheses.org/366){target="_blank"} [@Lambert15].
-```
+\BeginKnitrBlock{linky}<div class="linky">Un cours complet sur les anamorphoses : [Les anamorphoses cartographiques](https://neocarto.hypotheses.org/366){target="_blank"} [@Lambert15].</div>\EndKnitrBlock{linky}
 
 
-```{block2, type='linky'}
-[Faire des cartogrammes avec R](https://rgeomatic.hypotheses.org/1361)
-```
+\BeginKnitrBlock{linky}<div class="linky">[Faire des cartogrammes avec R](https://rgeomatic.hypotheses.org/1361)</div>\EndKnitrBlock{linky}
 
 
 
@@ -57,21 +35,19 @@ Pour réaliser les cartogrammes nous utilisons le package `cartogram` [@R-cartog
 Les territoires sont représentés par des figurés (cercles, des carrés ou des rectangles) ne se recouvrant pas dont les surfaces sont proportionnelles à une variable. Les positions des figurés sont définie selon les positions de départ. 
 
 
-```{r, fig.cap = '@McCormick07', echo=FALSE}
-knitr::include_graphics("img/dorling.png")
-```
+<div class="figure" style="text-align: center">
+<img src="img/dorling.png" alt="@McCormick07" width="602" />
+<p class="caption">(\#fig:unnamed-chunk-3)@McCormick07</p>
+</div>
 
-```{block2, type='rmdmoins'}
-On identifie assez mal l'espace.  
-On peut nommer les cercles pour se repérer et/ou s'aider de la couleur pour faire apparaitre des clusters et mieux identifier les blocks géographiques.    
-```
+\BeginKnitrBlock{rmdmoins}<div class="rmdmoins">On identifie assez mal l'espace.  
+On peut nommer les cercles pour se repérer et/ou s'aider de la couleur pour faire apparaitre des clusters et mieux identifier les blocks géographiques.    </div>\EndKnitrBlock{rmdmoins}
 
-```{block2, type='rmdplus'}
-La perception des quantités est très bonne.   
-Les tailles de cercles sont vraiment comparables.    
-```
+\BeginKnitrBlock{rmdplus}<div class="rmdplus">La perception des quantités est très bonne.   
+Les tailles de cercles sont vraiment comparables.    </div>\EndKnitrBlock{rmdplus}
 
-```{r dorling}
+
+```r
 library(mapsf)
 library(cartogram)
 com <- st_read("data/lot46.gpkg", layer = "commune", quiet = TRUE)
@@ -86,6 +62,8 @@ mf_label(
 )
 mf_title("Population du Lot - Cartogramme de Dorling")
 ```
+
+<img src="05_transformations_cartographiques_files/figure-html/dorling-1.png" width="672" style="display: block; margin: auto;" />
 Le paramètre `k` permet de faire varier le facteur d'expansion des cercles. 
 
 
@@ -96,25 +74,22 @@ Le paramètre `k` permet de faire varier le facteur d'expansion des cercles.
 
 La taille des polygones est proportionnelle à une variable. L'agencement des polygones les uns par rapport aux autres est conservée. La forme des polygones est ressemblante. 
 
-```{r, fig.align='center', echo=FALSE}
-knitr::include_graphics("img/nccartogram.png")
-```
+<img src="img/nccartogram.png" width="272" style="display: block; margin: auto;" />
 [@Cauvin13]
 
-```{block2, type='rmdmoins'}
-La topologie des régions est perdue.
-```
+\BeginKnitrBlock{rmdmoins}<div class="rmdmoins">La topologie des régions est perdue.</div>\EndKnitrBlock{rmdmoins}
 
-```{block2, type='rmdplus'}
-La conservation de la forme des polygones est optimale.
-```
+\BeginKnitrBlock{rmdplus}<div class="rmdplus">La conservation de la forme des polygones est optimale.</div>\EndKnitrBlock{rmdplus}
 
-```{r olson}
+
+```r
 com_ncont <- cartogram_ncont(x = com, weight = "POPULATION", k = 1.2)
 mf_map(com, col = NA, border = "white", lwd = 0.5,)
 mf_map(com_ncont, col = "#940000", border= "white", add = TRUE)
 mf_title("Population du Lot - Cartogramme de Olson")
 ```
+
+<img src="05_transformations_cartographiques_files/figure-html/olson-1.png" width="672" style="display: block; margin: auto;" />
 
 Le paramètre `k` permet de faire varier le facteur d'expansion des polygones. 
 
@@ -124,20 +99,15 @@ Le paramètre `k` permet de faire varier le facteur d'expansion des polygones.
 
 La taille des polygones est proportionnelle à une variable. L'agencement des polygones les uns par rapport aux autres est conservée. Pour conserver la contiguité, la forme des polygones est fortement transformée.  
 
-```{r, fig.align='center', echo=FALSE}
-knitr::include_graphics("img/cartogram.jpg")
-```
+<img src="img/cartogram.jpg" width="960" style="display: block; margin: auto;" />
 [@Paull16]
 
-```{block2, type='rmdmoins'}
-La forme des polygones est fortement distordue.
-```
+\BeginKnitrBlock{rmdmoins}<div class="rmdmoins">La forme des polygones est fortement distordue.</div>\EndKnitrBlock{rmdmoins}
 
-```{block2, type='rmdplus'}
-C'est une “vraie carte de géographie” : la topologie et la contiguité sont conservées.
-```
+\BeginKnitrBlock{rmdplus}<div class="rmdplus">C'est une “vraie carte de géographie” : la topologie et la contiguité sont conservées.</div>\EndKnitrBlock{rmdplus}
 
-```{r dougenik}
+
+```r
 com_cont <- cartogram_cont(x = com, weight = "POPULATION", prepare = "none")
 mf_map(com_cont, col = "#940000", border= "white", add = FALSE)
 mf_title("Population en Martinique - Cartogramme de Dougenik")
@@ -145,6 +115,8 @@ mf_inset_on(com, cex = .2, pos = "topleft")
 mf_map(com, lwd = .5)
 mf_inset_off()
 ```
+
+<img src="05_transformations_cartographiques_files/figure-html/dougenik-1.png" width="672" style="display: block; margin: auto;" />
 
 
 ### Forces et faiblesses des cartogrammes

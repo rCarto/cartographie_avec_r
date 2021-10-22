@@ -283,7 +283,7 @@ Ces arguments principaux sont :</p>
 <span id="cb2-4"><a href="chapitre2.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> dep, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb2-5"><a href="chapitre2.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> route, <span class="at">lwd =</span> .<span class="dv">5</span>, <span class="at">col =</span> <span class="st">&quot;ivory4&quot;</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb2-6"><a href="chapitre2.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> resto, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> .<span class="dv">7</span>, <span class="at">col =</span> <span class="st">&quot;darkred&quot;</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/mf_base-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="02_types_de_cartes_files/figure-html/mf_base-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="carte-de-symboles-proportionnels" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Carte de symboles proportionnels</h2>
@@ -300,7 +300,7 @@ La fonction <code>mf_map(..., type = "prop")</code> propose cette représentatio
 <span id="cb3-9"><a href="chapitre2.html#cb3-9" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb3-10"><a href="chapitre2.html#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Titre</span></span>
 <span id="cb3-11"><a href="chapitre2.html#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Distribution de la population dans le Lot&quot;</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/proportional_symbols-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="02_types_de_cartes_files/figure-html/proportional_symbols-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div id="comparer-plusieurs-cartes" class="section level3" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> Comparer plusieurs cartes</h3>
 <p>Il est possible de fixer les dimensions du plus grand symbole correspondant à une certaine valeur avec les arguments <code>inches</code> et <code>val_max</code>. Nous pouvons ainsi construire des cartes en symboles proportionnels comparables.</p>
@@ -336,7 +336,7 @@ La fonction <code>mf_map(..., type = "prop")</code> propose cette représentatio
 <span id="cb4-30"><a href="chapitre2.html#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-31"><a href="chapitre2.html#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="co"># ajout d&#39;un titre</span></span>
 <span id="cb4-32"><a href="chapitre2.html#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population active occupée dans l&#39;industrie&quot;</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/proportional_symbols_comp-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="02_types_de_cartes_files/figure-html/proportional_symbols_comp-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>Nous avons ici affiché deux cartes en vis à vis, voir XXXX pour plus de détails.</p>
 </div>
 <div id="les-cartes-de-liens-proportionnels" class="section level3" number="2.3.2">
@@ -367,7 +367,7 @@ La fonction <code>mf_map(..., type = "prop")</code> propose cette représentatio
 <span id="cb5-11"><a href="chapitre2.html#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_val_rnd =</span> <span class="dv">0</span></span>
 <span id="cb5-12"><a href="chapitre2.html#cb5-12" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb5-13"><a href="chapitre2.html#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Distribution de la population dans le Lot (2018)&quot;</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/choro-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="02_types_de_cartes_files/figure-html/choro-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div id="discretisation" class="section level3" number="2.4.1">
 <h3><span class="header-section-number">2.4.1</span> Discrétisations</h3>
 <p>La fonction <code>mf_get_breaks()</code> met à disposition les méthodes de discrétisations de variables classique : quantiles, moyenn/écart-type, amplitudes égales, moyennes emboitées, Fisher-Jenks, géométrique …</p>
@@ -379,14 +379,14 @@ La fonction <code>mf_map(..., type = "prop")</code> propose cette représentatio
 <span id="cb6-6"><a href="chapitre2.html#cb6-6" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> <span class="fu">mf_get_breaks</span>(com<span class="sc">$</span>SHARE_ACT, <span class="at">nbreaks =</span> <span class="dv">6</span>, <span class="at">breaks =</span> <span class="st">&quot;quantile&quot;</span>)</span>
 <span id="cb6-7"><a href="chapitre2.html#cb6-7" aria-hidden="true" tabindex="-1"></a>d3 <span class="ot">&lt;-</span> <span class="fu">mf_get_breaks</span>(com<span class="sc">$</span>SHARE_ACT, <span class="at">nbreaks =</span> <span class="dv">6</span>,  <span class="at">breaks =</span> <span class="st">&quot;geom&quot;</span>)</span>
 <span id="cb6-8"><a href="chapitre2.html#cb6-8" aria-hidden="true" tabindex="-1"></a>d4 <span class="ot">&lt;-</span> <span class="fu">mf_get_breaks</span>(com<span class="sc">$</span>SHARE_ACT, <span class="at">breaks =</span> <span class="st">&quot;msd&quot;</span>, <span class="at">central =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/discr3-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="02_types_de_cartes_files/figure-html/discr3-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="palettes" class="section level3" number="2.4.2">
 <h3><span class="header-section-number">2.4.2</span> Palettes de couleurs</h3>
 <p>L’argument <code>pal</code> de <code>mf_map()</code> est dédié au choix d’une palette de couleur. Les palettes fournies par la fonction <code>hcl.colors()</code> peuvent être utilisées directement.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="chapitre2.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com, <span class="at">var =</span> <span class="st">&quot;SHARE_ACT&quot;</span>, <span class="at">type =</span> <span class="st">&quot;choro&quot;</span>, </span>
 <span id="cb7-2"><a href="chapitre2.html#cb7-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">breaks =</span> d4, <span class="at">pal =</span> <span class="st">&quot;Blues 3&quot;</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/pal1-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="02_types_de_cartes_files/figure-html/pal1-1.png" width="384" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="chapitre2.html#cb8-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;img/swatch-plot-1.svg&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
 <img src="img/swatch-plot-1.svg" alt="Palettes directement disponibles"  />
@@ -400,7 +400,7 @@ Il est possible de créer des palettes associant 2 couleurs.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="chapitre2.html#cb9-1" aria-hidden="true" tabindex="-1"></a>mypal <span class="ot">&lt;-</span> <span class="fu">mf_get_pal</span>(<span class="at">n =</span> <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">3</span>), <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">&quot;Reds 3&quot;</span>, <span class="st">&quot;Greens&quot;</span>))</span>
 <span id="cb9-2"><a href="chapitre2.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="dv">1</span>, <span class="fu">as.matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>), <span class="at">col=</span>mypal, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>,</span>
 <span id="cb9-3"><a href="chapitre2.html#cb9-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">yaxt =</span> <span class="st">&quot;n&quot;</span>,<span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/pal2-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="02_types_de_cartes_files/figure-html/pal2-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="carte-de-typologie" class="section level2" number="2.5">
@@ -416,7 +416,7 @@ La fonction <code>mf_map(..., type = "typo")</code> propose cette représentatio
 <span id="cb10-7"><a href="chapitre2.html#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">&quot;&quot;</span></span>
 <span id="cb10-8"><a href="chapitre2.html#cb10-8" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb10-9"><a href="chapitre2.html#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Statut Administratif&quot;</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/typo_simple-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="02_types_de_cartes_files/figure-html/typo_simple-1.png" width="768" style="display: block; margin: auto;" /></p>
 <div id="ordonner-les-valeurs-dans-la-légende" class="section level3" number="2.5.1">
 <h3><span class="header-section-number">2.5.1</span> Ordonner les valeurs dans la légende</h3>
 <p>L’argument <code>val_order</code> sert à ordonner les modalités dans la légende.</p>
@@ -430,7 +430,7 @@ La fonction <code>mf_map(..., type = "typo")</code> propose cette représentatio
 <span id="cb11-8"><a href="chapitre2.html#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">&quot;&quot;</span></span>
 <span id="cb11-9"><a href="chapitre2.html#cb11-9" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb11-10"><a href="chapitre2.html#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Statut Administratif&quot;</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/typo_order-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="02_types_de_cartes_files/figure-html/typo_order-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="les-cartes-de-points" class="section level3" number="2.5.2">
 <h3><span class="header-section-number">2.5.2</span> Les cartes de points</h3>
@@ -449,7 +449,7 @@ La fonction <code>mf_map(..., type = "typo")</code> propose cette représentatio
 <span id="cb12-12"><a href="chapitre2.html#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="cn">TRUE</span></span>
 <span id="cb12-13"><a href="chapitre2.html#cb12-13" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb12-14"><a href="chapitre2.html#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Statut Administratif&quot;</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/typo_point-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="02_types_de_cartes_files/figure-html/typo_point-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="les-cartes-de-lignes" class="section level3" number="2.5.3">
 <h3><span class="header-section-number">2.5.3</span> Les cartes de lignes</h3>
@@ -467,7 +467,7 @@ La fonction <code>mf_map(..., type = "typo")</code> propose cette représentatio
 <span id="cb13-12"><a href="chapitre2.html#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="cn">TRUE</span></span>
 <span id="cb13-13"><a href="chapitre2.html#cb13-13" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb13-14"><a href="chapitre2.html#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Statut Administratif&quot;</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/unnamed-chunk-3-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="02_types_de_cartes_files/figure-html/unnamed-chunk-3-1.png" width="768" style="display: block; margin: auto;" /></p>
 <!-- ## Les cartes en symboles gradués -->
 <!-- ### Polygons -->
 <!-- ### points -->
@@ -491,7 +491,7 @@ La fonction <code>mf_map(..., type = "typo")</code> propose cette représentatio
 <span id="cb14-11"><a href="chapitre2.html#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="st">&quot;Magenta&quot;</span>,</span>
 <span id="cb14-12"><a href="chapitre2.html#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_val_rnd =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
 <span id="cb14-13"><a href="chapitre2.html#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/choroprop-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="02_types_de_cartes_files/figure-html/choroprop-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="carte-de-stocks-et-de-qualitative" class="section level2" number="2.7">
 <h2><span class="header-section-number">2.7</span> Carte de stocks et de qualitative</h2>
@@ -508,7 +508,7 @@ La fonction <code>mf_map(..., type = "typo")</code> propose cette représentatio
 <span id="cb15-10"><a href="chapitre2.html#cb15-10" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Statut administratif&quot;</span>),</span>
 <span id="cb15-11"><a href="chapitre2.html#cb15-11" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb15-12"><a href="chapitre2.html#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/typoprop-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="02_types_de_cartes_files/figure-html/typoprop-1.png" width="768" style="display: block; margin: auto;" /></p>
 <!-- ## Cartes symboles + choro -->
 <!-- ## Les cartes raster -->
 <!-- `mf_raster()` -->
@@ -570,7 +570,7 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });
