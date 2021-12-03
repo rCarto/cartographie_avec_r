@@ -31,20 +31,15 @@ Associées aux fonctions de représesentation des données d’autres fonctions 
 
 
 ## Documentation 
+
 Pour utiliser ce package plusieurs sources peuvent être consultées :
 
 * La documentation du package accessible [sur internet](http://riatelab.github.io/mapsf/) ou directement dans R (`?mapsf`),  
 * Les [vignettes](https://riatelab.github.io/mapsf/articles/) associées au package présentent des exemples de scripts,  
+
 * Le blog [R Géomatique](https://rgeomatic.hypotheses.org/) qui met à disposition ressources et exemples liés au package et plus généralement à l'écosystème spatiale de R.  
 
 
-## Compatibilité avec graphics
-
-`mapsf` utilise le système de graphique de base de R (le package `graphics` [@R-base]). Il est donc assez aisé de combiner les éléments graphiques produit par le package et d'autres éléments graphiques (textes, plot, images...). Notez toutefois que `mapsf` utilise une solution ad-hoc pour la gestion des marges. Pour ajouter des éléments graphiques externe à `mapsf` vous devrez utiliser `par(xpd = TRUE)`.
-
-## Le pipe
-
-`mapsf` est compatible avec la syntaxe *pipe* (`|>` et `%>%`).
 
 
 

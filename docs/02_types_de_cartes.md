@@ -9,7 +9,7 @@ editor_options:
 
 # Les types de cartes  {#chapitre2}
 
-La fonction `mf_map()` est la fonction centrale du package `mapsf`, cette fonction permet de réaliser la plupart des repreésentation usuelles en cartographie. 
+La fonction `mf_map()` est la fonction centrale du package `mapsf`, cette fonction permet de réaliser la plupart des représentations usuelles en cartographie. 
 Ces arguments principaux sont :
 
 - `x`, un objet sf ;
@@ -54,7 +54,7 @@ mf_map(x = resto, pch = 20, cex = .7, col = "darkred", add = TRUE)
 ## Carte de symboles proportionnels
 
 Les cartes de symboles proportionnels sont utilisées pour représenter les variables de stocks (variables quantitatives absolues, la somme et la moyenne ont un sens). 
-La fonction `mf_map(..., type = "prop")` propose cette représentation, plusieurs symboles sont disponibles : cercles, carrés. 
+La fonction `mf_map(..., type = "prop")` propose cette représentation.
 
 
 ```r
@@ -342,7 +342,7 @@ mf_title("Population")
 
 <img src="02_types_de_cartes_files/figure-html/choroprop-1.png" width="768" style="display: block; margin: auto;" />
 
-## Carte de stocks et de qualitative
+## Carte de stocks et de catégories
 La fonction `mf_map(..., var = c("var1", "var2"), type = "prop_typo")` représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d'une variable et dont la couleur représente les modalités d'une variable qualitative. La fonction utilise les arguments des fonctions `mf_map(..., type = "prop")` et `mf_map(..., type = "typo")`.
 
 

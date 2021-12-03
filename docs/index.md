@@ -1,7 +1,7 @@
 --- 
 title: "Cartographie avec R"
 author: Timothée Giraud[^1] & Hugues Pecout[^2]
-date: "22 octobre 2021"
+date: "03 décembre 2021"
 bibliography:
 - book.bib
 - packages.bib

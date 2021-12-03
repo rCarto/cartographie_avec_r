@@ -3,8 +3,6 @@ fig:unnamed-chunk-3
 chapitre1
 présentation
 documentation
-compatibilité-avec-graphics
-le-pipe
 chapitre2
 les-données-dexemple
 afficher-un-fond-de-carte
@@ -19,7 +17,7 @@ ordonner-les-valeurs-dans-la-légende
 les-cartes-de-points
 les-cartes-de-lignes
 carte-de-stocks-et-de-ratios
-carte-de-stocks-et-de-qualitative
+carte-de-stocks-et-de-catégories
 chapitre3
 les-données-dexemple-1
 les-thèmes

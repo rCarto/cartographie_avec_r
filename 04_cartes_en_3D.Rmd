@@ -77,7 +77,7 @@ com <- st_read("data/lot46.gpkg", layer = "commune", quiet = TRUE)
 com <- st_transform(com, st_crs(rpop))
 # lissage du raster
 mat <- focalMat(x = rpop, d = c(1500), type = "Gauss")
-rpopl <- focal(x = rpop, w = mat, fun = sum)
+rpopl <- focal(x = rpop, w = mat, fun = sum, na.rm = TRUE)
 rpopl <- raster::raster(rpopl)
 # cartographie
 col1 <- hcl.colors(8, "Rocket", alpha = .3, rev = T)
