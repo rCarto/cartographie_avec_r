@@ -1,7 +1,7 @@
 --- 
 title: "Cartographie avec R"
 author: Timothée Giraud[^1] & Hugues Pecout[^2]
-date: "03 décembre 2021"
+date: "14 décembre 2021"
 bibliography:
 - book.bib
 - packages.bib
@@ -38,7 +38,6 @@ Il pourra ensuite tester les manipulations proposées dans le manuel directement
 
 **Contribution et feedback**  
 Vous pouvez nous envoyer vos remarques et suggestions en [postant une *issue*](https://github.com/rCarto/cartographie_avec_r/issues) sur le [*repo* GitHub](https://github.com/rCarto/cartographie_avec_r) de ce document. 
-
 
 
 
