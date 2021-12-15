@@ -251,8 +251,7 @@ mf_label(
   overlap = FALSE, 
   lines = FALSE
 )
-# layoutLayer(title = "Communes", tabtitle = TRUE, author = "INSEE, 2016",
-#             sources ="", north =TRUE, frame = FALSE, scale = 5)
+mf_scale()
 ```
 
 L'argument `halo = TRUE` permet d'afficher un léger halo autour des étiquettes et l'argument `overlap = FALSE` permet de créer des étiquettes ne se recouvrant pas.
@@ -260,6 +259,8 @@ L'argument `halo = TRUE` permet d'afficher un léger halo autour des étiquettes
 
 
 ## Centrer la carte sur une région
+
+La fonction `mf_init()` permet d'initialiser une carte en la centrant sur une objet spatial.  
 
 ```{r}
 mf_init(x = com_sel, theme = "iceberg")
@@ -275,46 +276,74 @@ mf_map(com_sel, col = NA, border = "red", lwd = 2, add = TRUE)
 Il faut ici utiliser l'argument `mfrow` de la fonction `par()`. Le premier chiffre représente le nombre lignes et le deuxième le nombre de colonnes.
 
 
-```{r mfrow0, fig.height=2.5, eval = F}
-
+```{r mfrow0, fig.width=7,  eval = TRUE}
+# define the figure layout (1 row, 2 columns)
+par(mfrow = c(1, 2))
+# first map
+mf_map(com)
+mf_map(com, "AGR_H", "prop")
+mf_title("Agriculture, hommes")
+# second map
+mf_map(com)
+mf_map(com, "TER_F", "prop")
+mf_title("Tertiaire, femmes")
 ```
 
 ## Export des cartes
 
 
-Il est assez difficile d'exporter des figures (cartes ou autres) dont le ratio hauteur/largeur estt satisfaisant. Le ratio par défaut des figures au format png est de 1 (480x480 pixels) :
+Il est assez difficile d'exporter des figures (cartes ou autres) dont le ratio hauteur/largeur est satisfaisant. Le ratio par défaut des figures au format png est de 1 (480x480 pixels) :
 
-```{r, eval=FALSE}
-
+```{r, results='hide'}
+c2c <- com[com$INSEE_COM == "46138", ]
+png("img/c2c1.png")
+mf_map(c2c)
+mf_title("Cœur de Causse")
+dev.off()
 ```
-![](img/martinique1.png)
 
-Sur cette carte beaucoup d'espace est perdu à l'est et à l'ouest de l’île.
+```{r, echo=FALSE}
+knitr::include_graphics("img/c2c1.png")
+```
+Sur cette carte beaucoup d'espace est perdu au nord et au sud de l’île.
 
-L'emprise de cette carte est exactement celle de l'île.
+La fonction `mf_export()` permet des exports de cartes dont le ratio hauteur/largeur est contrôlé et correspond à celui d'un objet spatial. 
+
+```{r, results='hide'}
+mf_export(c2c, "img/c2c2.png", width = 480)
+mf_map(c2c)
+mf_title("Cœur de Causse")
+dev.off()
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/c2c2.png")
+```
+L'emprise de cette carte est exactement celle de la région affichée.
+
+
 
 ## Ajouter une image sur une carte
 Cela peut être utile pour ajouter un logo, un pictogramme. La fonction `readPNG()` du package `png` permet l'ajout d'images sur une figure.
 
 ```{r logo}
-mf_theme("default")
+mf_theme("default", mar = c(0,0,0,0))
 library(png)
 # import de l'image
-logo <- readPNG("img/mapmonster.png")
+logo <- readPNG("img/Logo CG 46 - Bleu.png")
 # dimension de l'image en unité de la carte
-pp <- dim(logo)[2:1] * 16
+pp <- dim(logo)[2:1] * 20
 # Définition d'un point d'encrage de l'image dans la figure, ici
-# le coin inférieur gauche de la bounding box de la martinique.
-xy <- st_bbox(com)[1:2]
+# le coin supérieur gauche de la bounding box du département
+xy <- st_bbox(com)[c(1,4)]
 mf_map(com, col = "#D1914D", border = "white")
 rasterImage(
   image   = logo,
   xleft   = xy[1],
-  ybottom = xy[2],
+  ybottom = xy[2] - pp[2],
   xright  = xy[1] + pp[1],
-  ytop    = xy[2] + pp[2]
+  ytop    = xy[2]
 )
-mf_layout()
 ```
 
 
@@ -350,15 +379,22 @@ mf_map(com, add=TRUE)
 
 ## Création de cartons
 
-```{r inset}
+```{r inset, fig.width = 6.5, fig.height = 5}
 mf_init(x = com_sel, theme = "agolalight", expandBB = c(0,0,0,.5))
 mf_map(com, add = TRUE)
 mf_map(com_sel, col = "tomato4", border = "tomato1", lwd = 2, add = TRUE)
-mf_inset_on(x = com, pos = "topright", cex = .33)
-mf_map(com)
+mf_inset_on(x = dep, pos = "topright", cex = .3)
+mf_map(dep, lwd = .5, border= "grey90")
 mf_map(com_sel, col = "tomato4", border = "tomato1", lwd = .5, add = TRUE)
 mf_scale(size = 10, pos = "bottomright", cex = .6, lwd = .5)
 mf_inset_off()
+mf_inset_on(x = com, pos = "bottomright", cex = .3)
+mf_map(com, lwd = .5, border= "grey90")
+mf_map(com_sel, col = "tomato4", border = "tomato1", lwd = .5, add = TRUE)
+mf_scale(size = 10, pos = "bottomright", cex = .6, lwd = .5)
+mf_inset_off()
+mf_title("Cahors et ses environs")
+mf_scale(1)
 
 ```
 

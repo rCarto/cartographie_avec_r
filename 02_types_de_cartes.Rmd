@@ -127,9 +127,12 @@ Nous avons ici affiché deux cartes en vis-à-vis, voir XXXX pour plus de détai
 
 
 
-### Les cartes de liens proportionnels
+<!-- ### Les cartes de liens proportionnels -->
 
-TO DO
+<!-- TO DO -->
+
+
+
 
 
 
@@ -169,8 +172,11 @@ mf_title("Distribution de la population dans le Lot (2018)")
 La fonction `mf_get_breaks()` met à disposition les méthodes de discrétisations de variables classique : quantiles, moyenne/écart-type, amplitudes égales, moyennes emboîtées, Fisher-Jenks, géométrique ...
 
 ```{r discr2, fig.height=6, fig.width=8}
-com$POP_ACT <- com$AGR_H + com$AGR_F + com$IND_H + com$IND_F + com$BTP_H +
-  com$BTP_F + com$TER_H + com$TER_F
+com$POP_ACT <- 
+  com$AGR_H + com$AGR_F + 
+  com$IND_H + com$IND_F + 
+  com$BTP_H + com$BTP_F + 
+  com$TER_H + com$TER_F
 com$SHARE_ACT <- 100 * com$POP_ACT / com$POPULATION
 
 d1 <- mf_get_breaks(com$SHARE_ACT, nbreaks = 6, breaks = "equal", freq = T)
@@ -210,23 +216,22 @@ mf_map(x = com, var = "SHARE_ACT", type = "choro",
 
 
 
-```{r, fig.cap = "Palettes directement disponibles"}
+```{r, fig.cap = "Palettes directement disponibles", echo=FALSE}
 knitr::include_graphics("img/swatch-plot-1.svg")
 ```
 
-La fonction `mf_get_pal()` permet d'afficher toutes palettes de couleurs disponibles dans `cartography`.
-La fonction `carto.pal()` permet de construire une palette de couleur.
-Il est possible de créer des palettes associant 2 couleurs.
+La fonction `mf_get_pal()` permet de construire une palette de couleur.
+Cette fonction est surtout utile pour créer des palettes divergentes asymétriques équilibrées. 
 
 ```{r pal2,  fig.height=3, nm=TRUE}
-mypal <- mf_get_pal(n = c(6,3), palette = c("Reds 3", "Greens"))
+mypal <- mf_get_pal(n = c(6,3), palette = c("Burg", "Teal"))
 image(1:9, 1, as.matrix(1:9), col=mypal, xlab = "", ylab = "", xaxt = "n",
       yaxt = "n",bty = "n")
 ```
 
 
 ## Carte de typologie
-Les cartes de typologies sont utilisées pour représenter les variables qualitatives.
+Les cartes de typologies sont utilisées pour représenter les variables qualitatives.  
 La fonction `mf_map(..., type = "typo")` propose cette représentation.
 
 ```{r typo_simple}
@@ -319,7 +324,7 @@ mf_title("Statut Administratif")
 
 
 ## Carte de stocks et de ratios
-La fonction `mf_map(..., var = c("var1", "var2"), type = "prop_tchoro")` représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d'une variable et dont la couleur repose sur la discrétisation d'une seconde variable. La fonction utilise les arguments des fonctions `mf_map(..., type = "prop")` et `mf_map(..., type = "choro")`.
+La fonction `mf_map(..., var = c("var1", "var2"), type = "prop_choro")` représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d'une variable et dont la couleur repose sur la discrétisation d'une seconde variable. La fonction utilise les arguments des fonctions `mf_map(..., type = "prop")` et `mf_map(..., type = "choro")`.
 
 ```{r choroprop}
 mf_map(x = com)

@@ -49,3 +49,4 @@ les-cartogrammes-non-continus
 les-cartogrammes-continus
 forces-et-faiblesses-des-cartogrammes
 sessioninfo
+fig:unnamed-chunk-1

@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Chapitre 2 Les types de cartes | Cartographie avec R" />
   <meta name="twitter:image" content="/img/globe-africa-solid.svg" />
 
-<meta name="author" content="Timothée Giraud &amp; Hugues Pecout" />
+<meta name="author" content="Timothée Giraud[^1] &amp; Hugues Pecout[^2]" />
 
 
 
@@ -119,28 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -171,7 +149,6 @@ div.csl-indent {
 <li class="chapter" data-level="2.3" data-path="les-types-de-cartes.html"><a href="les-types-de-cartes.html#carte-de-symboles-proportionnels"><i class="fa fa-check"></i><b>2.3</b> Carte de symboles proportionnels</a>
 <ul>
 <li class="chapter" data-level="2.3.1" data-path="les-types-de-cartes.html"><a href="les-types-de-cartes.html#comparer-plusieurs-cartes"><i class="fa fa-check"></i><b>2.3.1</b> Comparer plusieurs cartes</a></li>
-<li class="chapter" data-level="2.3.2" data-path="les-types-de-cartes.html"><a href="les-types-de-cartes.html#les-cartes-de-liens-proportionnels"><i class="fa fa-check"></i><b>2.3.2</b> Les cartes de liens proportionnels</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="les-types-de-cartes.html"><a href="les-types-de-cartes.html#carte-choroplèthe"><i class="fa fa-check"></i><b>2.4</b> Carte choroplèthe</a>
 <ul>
@@ -333,10 +310,8 @@ La fonction <code>mf_map(..., type = "prop")</code> propose cette représentatio
 <span id="cb4-32"><a href="les-types-de-cartes.html#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population active occupée dans l&#39;industrie&quot;</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/proportional_symbols_comp-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>Nous avons ici affiché deux cartes en vis-à-vis, voir XXXX pour plus de détails.</p>
-</div>
-<div id="les-cartes-de-liens-proportionnels" class="section level3" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Les cartes de liens proportionnels</h3>
-<p>TO DO</p>
+<!-- ### Les cartes de liens proportionnels -->
+<!-- TO DO -->
 </div>
 </div>
 <div id="carte-choroplèthe" class="section level2" number="2.4">
@@ -366,14 +341,17 @@ La fonction <code>mf_map(..., type = "prop")</code> propose cette représentatio
 <div id="discretisation" class="section level3" number="2.4.1">
 <h3><span class="header-section-number">2.4.1</span> Discrétisations</h3>
 <p>La fonction <code>mf_get_breaks()</code> met à disposition les méthodes de discrétisations de variables classique : quantiles, moyenne/écart-type, amplitudes égales, moyennes emboîtées, Fisher-Jenks, géométrique …</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="les-types-de-cartes.html#cb6-1" aria-hidden="true" tabindex="-1"></a>com<span class="sc">$</span>POP_ACT <span class="ot">&lt;-</span> com<span class="sc">$</span>AGR_H <span class="sc">+</span> com<span class="sc">$</span>AGR_F <span class="sc">+</span> com<span class="sc">$</span>IND_H <span class="sc">+</span> com<span class="sc">$</span>IND_F <span class="sc">+</span> com<span class="sc">$</span>BTP_H <span class="sc">+</span></span>
-<span id="cb6-2"><a href="les-types-de-cartes.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  com<span class="sc">$</span>BTP_F <span class="sc">+</span> com<span class="sc">$</span>TER_H <span class="sc">+</span> com<span class="sc">$</span>TER_F</span>
-<span id="cb6-3"><a href="les-types-de-cartes.html#cb6-3" aria-hidden="true" tabindex="-1"></a>com<span class="sc">$</span>SHARE_ACT <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> com<span class="sc">$</span>POP_ACT <span class="sc">/</span> com<span class="sc">$</span>POPULATION</span>
-<span id="cb6-4"><a href="les-types-de-cartes.html#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="les-types-de-cartes.html#cb6-5" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> <span class="fu">mf_get_breaks</span>(com<span class="sc">$</span>SHARE_ACT, <span class="at">nbreaks =</span> <span class="dv">6</span>, <span class="at">breaks =</span> <span class="st">&quot;equal&quot;</span>, <span class="at">freq =</span> T)</span>
-<span id="cb6-6"><a href="les-types-de-cartes.html#cb6-6" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> <span class="fu">mf_get_breaks</span>(com<span class="sc">$</span>SHARE_ACT, <span class="at">nbreaks =</span> <span class="dv">6</span>, <span class="at">breaks =</span> <span class="st">&quot;quantile&quot;</span>)</span>
-<span id="cb6-7"><a href="les-types-de-cartes.html#cb6-7" aria-hidden="true" tabindex="-1"></a>d3 <span class="ot">&lt;-</span> <span class="fu">mf_get_breaks</span>(com<span class="sc">$</span>SHARE_ACT, <span class="at">nbreaks =</span> <span class="dv">6</span>, <span class="at">breaks =</span> <span class="st">&quot;geom&quot;</span>)</span>
-<span id="cb6-8"><a href="les-types-de-cartes.html#cb6-8" aria-hidden="true" tabindex="-1"></a>d4 <span class="ot">&lt;-</span> <span class="fu">mf_get_breaks</span>(com<span class="sc">$</span>SHARE_ACT, <span class="at">breaks =</span> <span class="st">&quot;msd&quot;</span>, <span class="at">central =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="les-types-de-cartes.html#cb6-1" aria-hidden="true" tabindex="-1"></a>com<span class="sc">$</span>POP_ACT <span class="ot">&lt;-</span> </span>
+<span id="cb6-2"><a href="les-types-de-cartes.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  com<span class="sc">$</span>AGR_H <span class="sc">+</span> com<span class="sc">$</span>AGR_F <span class="sc">+</span> </span>
+<span id="cb6-3"><a href="les-types-de-cartes.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  com<span class="sc">$</span>IND_H <span class="sc">+</span> com<span class="sc">$</span>IND_F <span class="sc">+</span> </span>
+<span id="cb6-4"><a href="les-types-de-cartes.html#cb6-4" aria-hidden="true" tabindex="-1"></a>  com<span class="sc">$</span>BTP_H <span class="sc">+</span> com<span class="sc">$</span>BTP_F <span class="sc">+</span> </span>
+<span id="cb6-5"><a href="les-types-de-cartes.html#cb6-5" aria-hidden="true" tabindex="-1"></a>  com<span class="sc">$</span>TER_H <span class="sc">+</span> com<span class="sc">$</span>TER_F</span>
+<span id="cb6-6"><a href="les-types-de-cartes.html#cb6-6" aria-hidden="true" tabindex="-1"></a>com<span class="sc">$</span>SHARE_ACT <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> com<span class="sc">$</span>POP_ACT <span class="sc">/</span> com<span class="sc">$</span>POPULATION</span>
+<span id="cb6-7"><a href="les-types-de-cartes.html#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="les-types-de-cartes.html#cb6-8" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> <span class="fu">mf_get_breaks</span>(com<span class="sc">$</span>SHARE_ACT, <span class="at">nbreaks =</span> <span class="dv">6</span>, <span class="at">breaks =</span> <span class="st">&quot;equal&quot;</span>, <span class="at">freq =</span> T)</span>
+<span id="cb6-9"><a href="les-types-de-cartes.html#cb6-9" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> <span class="fu">mf_get_breaks</span>(com<span class="sc">$</span>SHARE_ACT, <span class="at">nbreaks =</span> <span class="dv">6</span>, <span class="at">breaks =</span> <span class="st">&quot;quantile&quot;</span>)</span>
+<span id="cb6-10"><a href="les-types-de-cartes.html#cb6-10" aria-hidden="true" tabindex="-1"></a>d3 <span class="ot">&lt;-</span> <span class="fu">mf_get_breaks</span>(com<span class="sc">$</span>SHARE_ACT, <span class="at">nbreaks =</span> <span class="dv">6</span>, <span class="at">breaks =</span> <span class="st">&quot;geom&quot;</span>)</span>
+<span id="cb6-11"><a href="les-types-de-cartes.html#cb6-11" aria-hidden="true" tabindex="-1"></a>d4 <span class="ot">&lt;-</span> <span class="fu">mf_get_breaks</span>(com<span class="sc">$</span>SHARE_ACT, <span class="at">breaks =</span> <span class="st">&quot;msd&quot;</span>, <span class="at">central =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/discr3-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="palettes" class="section level3" number="2.4.2">
@@ -382,19 +360,17 @@ La fonction <code>mf_map(..., type = "prop")</code> propose cette représentatio
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="les-types-de-cartes.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com, <span class="at">var =</span> <span class="st">&quot;SHARE_ACT&quot;</span>, <span class="at">type =</span> <span class="st">&quot;choro&quot;</span>,</span>
 <span id="cb7-2"><a href="les-types-de-cartes.html#cb7-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">breaks =</span> d4, <span class="at">pal =</span> <span class="st">&quot;Blues 3&quot;</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/pal1-1.png" width="384" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="les-types-de-cartes.html#cb8-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;img/swatch-plot-1.svg&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
 <img src="img/swatch-plot-1.svg" alt="Palettes directement disponibles"  />
 <p class="caption">
 Figure 2.1: Palettes directement disponibles
 </p>
 </div>
-<p>La fonction <code>mf_get_pal()</code> permet d’afficher toutes palettes de couleurs disponibles dans <code>cartography</code>.
-La fonction <code>carto.pal()</code> permet de construire une palette de couleur.
-Il est possible de créer des palettes associant 2 couleurs.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="les-types-de-cartes.html#cb9-1" aria-hidden="true" tabindex="-1"></a>mypal <span class="ot">&lt;-</span> <span class="fu">mf_get_pal</span>(<span class="at">n =</span> <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">3</span>), <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">&quot;Reds 3&quot;</span>, <span class="st">&quot;Greens&quot;</span>))</span>
-<span id="cb9-2"><a href="les-types-de-cartes.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="dv">1</span>, <span class="fu">as.matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>), <span class="at">col=</span>mypal, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>,</span>
-<span id="cb9-3"><a href="les-types-de-cartes.html#cb9-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">yaxt =</span> <span class="st">&quot;n&quot;</span>,<span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
+<p>La fonction <code>mf_get_pal()</code> permet de construire une palette de couleur.
+Cette fonction est surtout utile pour créer des palettes divergentes asymétriques équilibrées.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="les-types-de-cartes.html#cb8-1" aria-hidden="true" tabindex="-1"></a>mypal <span class="ot">&lt;-</span> <span class="fu">mf_get_pal</span>(<span class="at">n =</span> <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">3</span>), <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">&quot;Burg&quot;</span>, <span class="st">&quot;Teal&quot;</span>))</span>
+<span id="cb8-2"><a href="les-types-de-cartes.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="dv">1</span>, <span class="fu">as.matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>), <span class="at">col=</span>mypal, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>,</span>
+<span id="cb8-3"><a href="les-types-de-cartes.html#cb8-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">yaxt =</span> <span class="st">&quot;n&quot;</span>,<span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/pal2-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -402,66 +378,66 @@ Il est possible de créer des palettes associant 2 couleurs.</p>
 <h2><span class="header-section-number">2.5</span> Carte de typologie</h2>
 <p>Les cartes de typologies sont utilisées pour représenter les variables qualitatives.
 La fonction <code>mf_map(..., type = "typo")</code> propose cette représentation.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="les-types-de-cartes.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
+<span id="cb9-2"><a href="les-types-de-cartes.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com,</span>
+<span id="cb9-3"><a href="les-types-de-cartes.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">var=</span><span class="st">&quot;STATUT&quot;</span>,</span>
+<span id="cb9-4"><a href="les-types-de-cartes.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;typo&quot;</span>,</span>
+<span id="cb9-5"><a href="les-types-de-cartes.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">&quot;aquamarine4&quot;</span>, <span class="st">&quot;yellow3&quot;</span>,<span class="st">&quot;wheat&quot;</span>),</span>
+<span id="cb9-6"><a href="les-types-de-cartes.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> .<span class="dv">7</span>,</span>
+<span id="cb9-7"><a href="les-types-de-cartes.html#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb9-8"><a href="les-types-de-cartes.html#cb9-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-9"><a href="les-types-de-cartes.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Statut Administratif&quot;</span>)</span></code></pre></div>
+<p><img src="Cartographie-avec-R_files/figure-html/typo_simple-1.png" width="768" style="display: block; margin: auto;" /></p>
+<div id="ordonner-les-valeurs-dans-la-légende" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Ordonner les valeurs dans la légende</h3>
+<p>L’argument <code>val_order</code> sert à ordonner les modalités dans la légende.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="les-types-de-cartes.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
 <span id="cb10-2"><a href="les-types-de-cartes.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com,</span>
 <span id="cb10-3"><a href="les-types-de-cartes.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">var=</span><span class="st">&quot;STATUT&quot;</span>,</span>
 <span id="cb10-4"><a href="les-types-de-cartes.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;typo&quot;</span>,</span>
 <span id="cb10-5"><a href="les-types-de-cartes.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">&quot;aquamarine4&quot;</span>, <span class="st">&quot;yellow3&quot;</span>,<span class="st">&quot;wheat&quot;</span>),</span>
-<span id="cb10-6"><a href="les-types-de-cartes.html#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> .<span class="dv">7</span>,</span>
-<span id="cb10-7"><a href="les-types-de-cartes.html#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">&quot;&quot;</span></span>
-<span id="cb10-8"><a href="les-types-de-cartes.html#cb10-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-9"><a href="les-types-de-cartes.html#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Statut Administratif&quot;</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/typo_simple-1.png" width="768" style="display: block; margin: auto;" /></p>
-<div id="ordonner-les-valeurs-dans-la-légende" class="section level3" number="2.5.1">
-<h3><span class="header-section-number">2.5.1</span> Ordonner les valeurs dans la légende</h3>
-<p>L’argument <code>val_order</code> sert à ordonner les modalités dans la légende.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="les-types-de-cartes.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
-<span id="cb11-2"><a href="les-types-de-cartes.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com,</span>
-<span id="cb11-3"><a href="les-types-de-cartes.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">var=</span><span class="st">&quot;STATUT&quot;</span>,</span>
-<span id="cb11-4"><a href="les-types-de-cartes.html#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;typo&quot;</span>,</span>
-<span id="cb11-5"><a href="les-types-de-cartes.html#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">&quot;aquamarine4&quot;</span>, <span class="st">&quot;yellow3&quot;</span>,<span class="st">&quot;wheat&quot;</span>),</span>
-<span id="cb11-6"><a href="les-types-de-cartes.html#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">val_order =</span> <span class="fu">c</span>(<span class="st">&quot;Préfecture&quot;</span>, <span class="st">&quot;Sous-préfecture&quot;</span>, <span class="st">&quot;Commune simple&quot;</span>),</span>
-<span id="cb11-7"><a href="les-types-de-cartes.html#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> .<span class="dv">7</span>,</span>
-<span id="cb11-8"><a href="les-types-de-cartes.html#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">&quot;&quot;</span></span>
-<span id="cb11-9"><a href="les-types-de-cartes.html#cb11-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb11-10"><a href="les-types-de-cartes.html#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Statut Administratif&quot;</span>)</span></code></pre></div>
+<span id="cb10-6"><a href="les-types-de-cartes.html#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">val_order =</span> <span class="fu">c</span>(<span class="st">&quot;Préfecture&quot;</span>, <span class="st">&quot;Sous-préfecture&quot;</span>, <span class="st">&quot;Commune simple&quot;</span>),</span>
+<span id="cb10-7"><a href="les-types-de-cartes.html#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> .<span class="dv">7</span>,</span>
+<span id="cb10-8"><a href="les-types-de-cartes.html#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb10-9"><a href="les-types-de-cartes.html#cb10-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-10"><a href="les-types-de-cartes.html#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Statut Administratif&quot;</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/typo_order-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="les-cartes-de-points" class="section level3" number="2.5.2">
 <h3><span class="header-section-number">2.5.2</span> Les cartes de points</h3>
 <p>Quand l’implantation de la couche est ponctuelle, des symboles sont utilisés pour porter les couleurs de la typologie.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="les-types-de-cartes.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extraction des centroides de la préfectures et des sous-préfectures</span></span>
-<span id="cb12-2"><a href="les-types-de-cartes.html#cb12-2" aria-hidden="true" tabindex="-1"></a>com_ctr <span class="ot">&lt;-</span> <span class="fu">st_centroid</span>(com[com<span class="sc">$</span>STATUT <span class="sc">!=</span> <span class="st">&quot;Commune simple&quot;</span>, ])</span>
-<span id="cb12-3"><a href="les-types-de-cartes.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb12-4"><a href="les-types-de-cartes.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
-<span id="cb12-5"><a href="les-types-de-cartes.html#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com_ctr, </span>
-<span id="cb12-6"><a href="les-types-de-cartes.html#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="st">&quot;STATUT&quot;</span>, </span>
-<span id="cb12-7"><a href="les-types-de-cartes.html#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;typo&quot;</span>, </span>
-<span id="cb12-8"><a href="les-types-de-cartes.html#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">cex =</span> <span class="dv">3</span>, </span>
-<span id="cb12-9"><a href="les-types-de-cartes.html#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">23</span>, </span>
-<span id="cb12-10"><a href="les-types-de-cartes.html#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">&quot;aquamarine4&quot;</span>, <span class="st">&quot;yellow3&quot;</span>),</span>
-<span id="cb12-11"><a href="les-types-de-cartes.html#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">&quot;&quot;</span>, </span>
-<span id="cb12-12"><a href="les-types-de-cartes.html#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="cn">TRUE</span></span>
-<span id="cb12-13"><a href="les-types-de-cartes.html#cb12-13" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-14"><a href="les-types-de-cartes.html#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Statut Administratif&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="les-types-de-cartes.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extraction des centroides de la préfectures et des sous-préfectures</span></span>
+<span id="cb11-2"><a href="les-types-de-cartes.html#cb11-2" aria-hidden="true" tabindex="-1"></a>com_ctr <span class="ot">&lt;-</span> <span class="fu">st_centroid</span>(com[com<span class="sc">$</span>STATUT <span class="sc">!=</span> <span class="st">&quot;Commune simple&quot;</span>, ])</span>
+<span id="cb11-3"><a href="les-types-de-cartes.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb11-4"><a href="les-types-de-cartes.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
+<span id="cb11-5"><a href="les-types-de-cartes.html#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com_ctr, </span>
+<span id="cb11-6"><a href="les-types-de-cartes.html#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="st">&quot;STATUT&quot;</span>, </span>
+<span id="cb11-7"><a href="les-types-de-cartes.html#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;typo&quot;</span>, </span>
+<span id="cb11-8"><a href="les-types-de-cartes.html#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">cex =</span> <span class="dv">3</span>, </span>
+<span id="cb11-9"><a href="les-types-de-cartes.html#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">23</span>, </span>
+<span id="cb11-10"><a href="les-types-de-cartes.html#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">&quot;aquamarine4&quot;</span>, <span class="st">&quot;yellow3&quot;</span>),</span>
+<span id="cb11-11"><a href="les-types-de-cartes.html#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">&quot;&quot;</span>, </span>
+<span id="cb11-12"><a href="les-types-de-cartes.html#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="cn">TRUE</span></span>
+<span id="cb11-13"><a href="les-types-de-cartes.html#cb11-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-14"><a href="les-types-de-cartes.html#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Statut Administratif&quot;</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/typo_point-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="les-cartes-de-lignes" class="section level3" number="2.5.3">
 <h3><span class="header-section-number">2.5.3</span> Les cartes de lignes</h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="les-types-de-cartes.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sélection des routes qui intersectent la commune de Cahors</span></span>
-<span id="cb13-2"><a href="les-types-de-cartes.html#cb13-2" aria-hidden="true" tabindex="-1"></a>cahors <span class="ot">&lt;-</span> com[com<span class="sc">$</span>NOM_COM <span class="sc">==</span> <span class="st">&quot;Cahors&quot;</span>, ]</span>
-<span id="cb13-3"><a href="les-types-de-cartes.html#cb13-3" aria-hidden="true" tabindex="-1"></a>route_cahors <span class="ot">&lt;-</span> route[<span class="fu">st_intersects</span>(<span class="at">x =</span> route, <span class="at">y =</span> cahors, <span class="at">sparse =</span> <span class="cn">FALSE</span>), ]</span>
-<span id="cb13-4"><a href="les-types-de-cartes.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(cahors)</span>
-<span id="cb13-5"><a href="les-types-de-cartes.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
-<span id="cb13-6"><a href="les-types-de-cartes.html#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> route_cahors,</span>
-<span id="cb13-7"><a href="les-types-de-cartes.html#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="st">&quot;VOCATION&quot;</span>,</span>
-<span id="cb13-8"><a href="les-types-de-cartes.html#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;typo&quot;</span>, </span>
-<span id="cb13-9"><a href="les-types-de-cartes.html#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> <span class="dv">2</span>,</span>
-<span id="cb13-10"><a href="les-types-de-cartes.html#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="fu">mf_get_pal</span>(<span class="at">n =</span> <span class="dv">4</span>, <span class="st">&quot;Dark 2&quot;</span>),</span>
-<span id="cb13-11"><a href="les-types-de-cartes.html#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">&quot;Type de route&quot;</span>,</span>
-<span id="cb13-12"><a href="les-types-de-cartes.html#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="cn">TRUE</span></span>
-<span id="cb13-13"><a href="les-types-de-cartes.html#cb13-13" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-14"><a href="les-types-de-cartes.html#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Statut Administratif&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="les-types-de-cartes.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sélection des routes qui intersectent la commune de Cahors</span></span>
+<span id="cb12-2"><a href="les-types-de-cartes.html#cb12-2" aria-hidden="true" tabindex="-1"></a>cahors <span class="ot">&lt;-</span> com[com<span class="sc">$</span>NOM_COM <span class="sc">==</span> <span class="st">&quot;Cahors&quot;</span>, ]</span>
+<span id="cb12-3"><a href="les-types-de-cartes.html#cb12-3" aria-hidden="true" tabindex="-1"></a>route_cahors <span class="ot">&lt;-</span> route[<span class="fu">st_intersects</span>(<span class="at">x =</span> route, <span class="at">y =</span> cahors, <span class="at">sparse =</span> <span class="cn">FALSE</span>), ]</span>
+<span id="cb12-4"><a href="les-types-de-cartes.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(cahors)</span>
+<span id="cb12-5"><a href="les-types-de-cartes.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
+<span id="cb12-6"><a href="les-types-de-cartes.html#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> route_cahors,</span>
+<span id="cb12-7"><a href="les-types-de-cartes.html#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="st">&quot;VOCATION&quot;</span>,</span>
+<span id="cb12-8"><a href="les-types-de-cartes.html#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;typo&quot;</span>, </span>
+<span id="cb12-9"><a href="les-types-de-cartes.html#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb12-10"><a href="les-types-de-cartes.html#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="fu">mf_get_pal</span>(<span class="at">n =</span> <span class="dv">4</span>, <span class="st">&quot;Dark 2&quot;</span>),</span>
+<span id="cb12-11"><a href="les-types-de-cartes.html#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">&quot;Type de route&quot;</span>,</span>
+<span id="cb12-12"><a href="les-types-de-cartes.html#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="cn">TRUE</span></span>
+<span id="cb12-13"><a href="les-types-de-cartes.html#cb12-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-14"><a href="les-types-de-cartes.html#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Statut Administratif&quot;</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/unnamed-chunk-3-1.png" width="768" style="display: block; margin: auto;" /></p>
 <!-- ## Les cartes en symboles gradués -->
 <!-- ### Polygons -->
@@ -473,36 +449,36 @@ La fonction <code>mf_map(..., type = "typo")</code> propose cette représentatio
 <div id="carte-de-stocks-et-de-ratios" class="section level2" number="2.6">
 <h2><span class="header-section-number">2.6</span> Carte de stocks et de ratios</h2>
 <p>La fonction <code>mf_map(..., var = c("var1", "var2"), type = "prop_tchoro")</code> représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d’une variable et dont la couleur repose sur la discrétisation d’une seconde variable. La fonction utilise les arguments des fonctions <code>mf_map(..., type = "prop")</code> et <code>mf_map(..., type = "choro")</code>.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="les-types-de-cartes.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com)</span>
-<span id="cb14-2"><a href="les-types-de-cartes.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
-<span id="cb14-3"><a href="les-types-de-cartes.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com,</span>
-<span id="cb14-4"><a href="les-types-de-cartes.html#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="fu">c</span>(<span class="st">&quot;POPULATION&quot;</span>, <span class="st">&quot;DENS&quot;</span>),</span>
-<span id="cb14-5"><a href="les-types-de-cartes.html#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;prop_choro&quot;</span>,</span>
-<span id="cb14-6"><a href="les-types-de-cartes.html#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">border =</span> <span class="st">&quot;grey50&quot;</span>,</span>
-<span id="cb14-7"><a href="les-types-de-cartes.html#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> <span class="dv">1</span>,</span>
-<span id="cb14-8"><a href="les-types-de-cartes.html#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_pos =</span> <span class="fu">c</span>(<span class="st">&quot;topright&quot;</span>, <span class="st">&quot;topleft&quot;</span>),</span>
-<span id="cb14-9"><a href="les-types-de-cartes.html#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="fu">c</span>(<span class="st">&quot;Population&quot;</span>, <span class="st">&quot;Densité</span><span class="sc">\n</span><span class="st">de population</span><span class="sc">\n</span><span class="st">(en hab./km2)&quot;</span>),</span>
-<span id="cb14-10"><a href="les-types-de-cartes.html#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="st">&quot;q6&quot;</span>,</span>
-<span id="cb14-11"><a href="les-types-de-cartes.html#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="st">&quot;Magenta&quot;</span>,</span>
-<span id="cb14-12"><a href="les-types-de-cartes.html#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_val_rnd =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb14-13"><a href="les-types-de-cartes.html#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="les-types-de-cartes.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com)</span>
+<span id="cb13-2"><a href="les-types-de-cartes.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
+<span id="cb13-3"><a href="les-types-de-cartes.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com,</span>
+<span id="cb13-4"><a href="les-types-de-cartes.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="fu">c</span>(<span class="st">&quot;POPULATION&quot;</span>, <span class="st">&quot;DENS&quot;</span>),</span>
+<span id="cb13-5"><a href="les-types-de-cartes.html#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;prop_choro&quot;</span>,</span>
+<span id="cb13-6"><a href="les-types-de-cartes.html#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">border =</span> <span class="st">&quot;grey50&quot;</span>,</span>
+<span id="cb13-7"><a href="les-types-de-cartes.html#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> <span class="dv">1</span>,</span>
+<span id="cb13-8"><a href="les-types-de-cartes.html#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_pos =</span> <span class="fu">c</span>(<span class="st">&quot;topright&quot;</span>, <span class="st">&quot;topleft&quot;</span>),</span>
+<span id="cb13-9"><a href="les-types-de-cartes.html#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="fu">c</span>(<span class="st">&quot;Population&quot;</span>, <span class="st">&quot;Densité</span><span class="sc">\n</span><span class="st">de population</span><span class="sc">\n</span><span class="st">(en hab./km2)&quot;</span>),</span>
+<span id="cb13-10"><a href="les-types-de-cartes.html#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="st">&quot;q6&quot;</span>,</span>
+<span id="cb13-11"><a href="les-types-de-cartes.html#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="st">&quot;Magenta&quot;</span>,</span>
+<span id="cb13-12"><a href="les-types-de-cartes.html#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_val_rnd =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb13-13"><a href="les-types-de-cartes.html#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/choroprop-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="carte-de-stocks-et-de-catégories" class="section level2" number="2.7">
 <h2><span class="header-section-number">2.7</span> Carte de stocks et de catégories</h2>
 <p>La fonction <code>mf_map(..., var = c("var1", "var2"), type = "prop_typo")</code> représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d’une variable et dont la couleur représente les modalités d’une variable qualitative. La fonction utilise les arguments des fonctions <code>mf_map(..., type = "prop")</code> et <code>mf_map(..., type = "typo")</code>.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="les-types-de-cartes.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com)</span>
-<span id="cb15-2"><a href="les-types-de-cartes.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
-<span id="cb15-3"><a href="les-types-de-cartes.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com,</span>
-<span id="cb15-4"><a href="les-types-de-cartes.html#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="fu">c</span>(<span class="st">&quot;POPULATION&quot;</span>, <span class="st">&quot;STATUT&quot;</span>),</span>
-<span id="cb15-5"><a href="les-types-de-cartes.html#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;prop_typo&quot;</span>,</span>
-<span id="cb15-6"><a href="les-types-de-cartes.html#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">&quot;aquamarine4&quot;</span>, <span class="st">&quot;yellow3&quot;</span>,<span class="st">&quot;wheat&quot;</span>),</span>
-<span id="cb15-7"><a href="les-types-de-cartes.html#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">val_order =</span> <span class="fu">c</span>(<span class="st">&quot;Préfecture&quot;</span>, <span class="st">&quot;Sous-préfecture&quot;</span>, <span class="st">&quot;Commune simple&quot;</span>),</span>
-<span id="cb15-8"><a href="les-types-de-cartes.html#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_pos =</span> <span class="fu">c</span>(<span class="st">&quot;bottomleft&quot;</span>,<span class="st">&quot;topleft&quot;</span>),</span>
-<span id="cb15-9"><a href="les-types-de-cartes.html#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="fu">c</span>(<span class="st">&quot;Population</span><span class="sc">\n</span><span class="st">(2015)&quot;</span>,</span>
-<span id="cb15-10"><a href="les-types-de-cartes.html#cb15-10" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Statut administratif&quot;</span>),</span>
-<span id="cb15-11"><a href="les-types-de-cartes.html#cb15-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-12"><a href="les-types-de-cartes.html#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="les-types-de-cartes.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com)</span>
+<span id="cb14-2"><a href="les-types-de-cartes.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
+<span id="cb14-3"><a href="les-types-de-cartes.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com,</span>
+<span id="cb14-4"><a href="les-types-de-cartes.html#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="fu">c</span>(<span class="st">&quot;POPULATION&quot;</span>, <span class="st">&quot;STATUT&quot;</span>),</span>
+<span id="cb14-5"><a href="les-types-de-cartes.html#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;prop_typo&quot;</span>,</span>
+<span id="cb14-6"><a href="les-types-de-cartes.html#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">&quot;aquamarine4&quot;</span>, <span class="st">&quot;yellow3&quot;</span>,<span class="st">&quot;wheat&quot;</span>),</span>
+<span id="cb14-7"><a href="les-types-de-cartes.html#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">val_order =</span> <span class="fu">c</span>(<span class="st">&quot;Préfecture&quot;</span>, <span class="st">&quot;Sous-préfecture&quot;</span>, <span class="st">&quot;Commune simple&quot;</span>),</span>
+<span id="cb14-8"><a href="les-types-de-cartes.html#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_pos =</span> <span class="fu">c</span>(<span class="st">&quot;bottomleft&quot;</span>,<span class="st">&quot;topleft&quot;</span>),</span>
+<span id="cb14-9"><a href="les-types-de-cartes.html#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="fu">c</span>(<span class="st">&quot;Population</span><span class="sc">\n</span><span class="st">(2015)&quot;</span>,</span>
+<span id="cb14-10"><a href="les-types-de-cartes.html#cb14-10" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Statut administratif&quot;</span>),</span>
+<span id="cb14-11"><a href="les-types-de-cartes.html#cb14-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-12"><a href="les-types-de-cartes.html#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/typoprop-1.png" width="768" style="display: block; margin: auto;" /></p>
 <!-- ## Cartes symboles + choro -->
 <!-- ## Les cartes raster -->

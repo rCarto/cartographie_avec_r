@@ -52,6 +52,13 @@ Associées aux fonctions de représentation des données d’autres fonctions so
 Pour utiliser ce package plusieurs sources peuvent être consultées :
 
 * La documentation du package accessible [sur internet](http://riatelab.github.io/mapsf/) ou directement dans R (`?mapsf`),
+
+* Une [*cheat sheet*](https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/mapsf_cheatsheet.pdf), 
+
+```{r, echo=FALSE, fig.align="center"}
+knitr::include_graphics("img/mapsf_cheatsheet.png")
+```
+
 * Les [vignettes](https://riatelab.github.io/mapsf/articles/) associées au package présentent des exemples de scripts,
 
 * Le blog [R Géomatique](https://rgeomatic.hypotheses.org/) qui met à disposition ressources et exemples liés au package et plus généralement à l'écosystème spatial de R.
