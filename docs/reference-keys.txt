@@ -1,9 +1,9 @@
 fig:unnamed-chunk-2
 fig:unnamed-chunk-18
-chapitre1
+mapsf
 présentation
 documentation
-chapitre2
+les-types-de-cartes
 les-données-dexemple
 afficher-un-fond-de-carte
 carte-de-symboles-proportionnels
@@ -18,7 +18,7 @@ les-cartes-de-points
 les-cartes-de-lignes
 carte-de-stocks-et-de-ratios
 carte-de-stocks-et-de-catégories
-chapitre3
+la-mise-en-page
 les-données-dexemple-1
 les-thèmes
 utiliser-un-thème-prédéfini
@@ -44,7 +44,6 @@ linemap
 relief-tanaka
 rayshader
 les-transformations-cartographiques
-les-cartogrammes
 les-cartogrammes-de-dorling
 les-cartogrammes-non-continus
 les-cartogrammes-continus

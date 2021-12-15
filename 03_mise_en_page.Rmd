@@ -24,7 +24,7 @@ options(width = 90)
 ```
 
 
-# La mise en page  {#chapitre3}
+# La mise en page 
 
 Pour être finalisée, une carte thématique doit contenir certains éléments additionnels tels que : le titre, l'auteur, la source, l'échelle, l'orientation...
 

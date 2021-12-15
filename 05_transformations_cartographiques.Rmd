@@ -25,7 +25,6 @@ options(width = 90)
 ```
 
 # Les transformations cartographiques
-## Les cartogrammes
 
 > L’anamorphose classique est une représentation des États (ou de mailles quelconques) par **des rectangles ou des polygones quelconques** en fonction d’une **quantité** qui leur est rattaché. (...)
 > On s’efforce de **garder l’arrangement général** des mailles ou la silhouette du continent."    
@@ -52,7 +51,7 @@ Un cours complet sur les anamorphoses : [Les anamorphoses cartographiques](https
 
 Pour réaliser les cartogrammes nous utilisons le package `cartogram` [@R-cartogram].
 
-### Les cartogrammes de Dorling
+## Les cartogrammes de Dorling
 
 Les territoires sont représentés par des figurés (cercles, des carrés ou des rectangles) ne se recouvrant pas dont les surfaces sont proportionnelles à une variable. Les positions des figurés sont définies selon les positions de départ.
 
@@ -92,7 +91,7 @@ Le paramètre `k` permet de faire varier le facteur d'expansion des cercles.
 
 
 
-### Les cartogrammes non continus
+## Les cartogrammes non continus
 
 La taille des polygones est proportionnelle à une variable. L'agencement des polygones les uns par rapport aux autres est conservée. La forme des polygones est ressemblante.
 
@@ -119,7 +118,7 @@ mf_title("Population du Lot - Cartogramme de Olson")
 Le paramètre `k` permet de faire varier le facteur d'expansion des polygones.
 
 
-### Les cartogrammes continus
+## Les cartogrammes continus
 
 
 La taille des polygones est proportionnelle à une variable. L'agencement des polygones les uns par rapport aux autres est conservée. Pour conserver la contiguïté, la forme des polygones est fortement transformée.
@@ -147,7 +146,7 @@ mf_inset_off()
 ```
 
 
-### Forces et faiblesses des cartogrammes
+## Forces et faiblesses des cartogrammes
 
 Les cartogrammes sont des représentations cartographiques perçues comme **innovantes** (bien que la méthode date de 40 ans). Ces images très généralisées rendent bien compte des **quantités** et des **gradients**. Ce sont de vraies images de **communication** qui **provoquent**, suscitent **l’intérêt**, véhiculent un **message** fort, **interpellent**.
 

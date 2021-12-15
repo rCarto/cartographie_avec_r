@@ -23,7 +23,7 @@ options(width = 90)
 ```
 
 
-# mapsf  {#chapitre1}
+# mapsf 
 
 L’écosystème spatial du logiciel libre R est riche, dynamique et mature et plusieurs packages permettent d’importer, de traiter et de représenter les données spatiales. Le package [`mapsf`](https://CRAN.R-project.org/package=maps) [@R-mapsf] s’appuie sur cet écosystème pour intégrer la création de cartes thématiques de qualité dans les chaînes de traitement avec R.
 

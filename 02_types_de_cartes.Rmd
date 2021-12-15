@@ -24,7 +24,7 @@ options(width = 90)
 ```
 
 
-# Les types de cartes  {#chapitre2}
+# Les types de cartes  
 
 La fonction `mf_map()` est la fonction centrale du package `mapsf`. Elle permet de réaliser la plupart des représentations usuelles en cartographie.
 Ces arguments principaux sont :
