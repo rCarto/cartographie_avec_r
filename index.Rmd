@@ -5,15 +5,14 @@ date: "`r format(Sys.time(), '%d %B %Y')`"
 bibliography:
 - book.bib
 - packages.bib
+csl: "universite-de-montreal-apa.csl"
 description: Cartographie avec R
 documentclass: book
-link-citations: yes
+link-citations: true
 site: bookdown::bookdown_site
-biblio-style: apalike
-link-citation: true
 github-repo: rCarto/cartographie_avec_r
 always_allow_html: yes
-cover-umage: img/globe-africa-solid.svg
+cover-image: img/globe-africa-solid.svg
 favicon: img/globe-africa-solid.svg
 ---
 
@@ -26,18 +25,14 @@ favicon: img/globe-africa-solid.svg
 
 L'objectif de ce document est de fournir un support à l'apprentissage de la cartographie avec R. 
 
-- [`mapsf`](#chapitre1)
-- [Les types de cartes](#chapitre2)
-- [La mise en page](#chapitre3)
-
 
 **Comment utiliser le manuel**  
-Le lecteur peut télécharger un projet RStudio contenant l'ensemble des données utitlisées dans le manuel ici. 
-Il pourra ensuite tester les manipulations proposées dans le manuel directement dans le projet RStudio téléchargé.  
+Le projet RStudio contenant l'ensemble des données utilisées dans le manuel est disponible [ici](https://github.com/rCarto/geodata/archive/refs/heads/main.zip). 
+Une fois le dossier décompressé il est possible de tester l'ensemble des manipulations proposées dans le projet RStudio. 
 
 
 **Contribution et feedback**  
-Vous pouvez nous envoyer vos remarques et suggestions en [postant une *issue*](https://github.com/rCarto/cartographie_avec_r/issues) sur le [*repo* GitHub](https://github.com/rCarto/cartographie_avec_r) de ce document. 
+Vous pouvez nous envoyer vos remarques et suggestions en [postant une *issue*](https://github.com/rCarto/cartographie_avec_r/issues) sur le [dépôt GitHub](https://github.com/rCarto/cartographie_avec_r) de ce document. 
 
 
 

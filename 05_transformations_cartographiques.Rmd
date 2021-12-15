@@ -29,7 +29,7 @@ options(width = 90)
 
 > L’anamorphose classique est une représentation des États (ou de mailles quelconques) par **des rectangles ou des polygones quelconques** en fonction d’une **quantité** qui leur est rattaché. (...)
 > On s’efforce de **garder l’arrangement général** des mailles ou la silhouette du continent."    
-> @Brunet93  
+> @Brunet93
 
 
 3 types d'anamorphoses ou cartogrammes sont ici présentés :
@@ -54,7 +54,7 @@ Pour réaliser les cartogrammes nous utilisons le package `cartogram` [@R-cartog
 
 ### Les cartogrammes de Dorling
 
-Les territoires sont représentés par des figurés (cercles, des carrés ou des rectangles) ne se recouvrant pas dont les surfaces sont proportionnelles à une variable. Les positions des figurés sont définie selon les positions de départ. 
+Les territoires sont représentés par des figurés (cercles, des carrés ou des rectangles) ne se recouvrant pas dont les surfaces sont proportionnelles à une variable. Les positions des figurés sont définies selon les positions de départ.
 
 
 ```{r, fig.cap = '@McCormick07', echo=FALSE}
@@ -63,12 +63,12 @@ knitr::include_graphics("img/dorling.png")
 
 ```{block2, type='rmdmoins'}
 On identifie assez mal l'espace.  
-On peut nommer les cercles pour se repérer et/ou s'aider de la couleur pour faire apparaitre des clusters et mieux identifier les blocks géographiques.    
+On peut nommer les cercles pour se repérer et/ou s'aider de la couleur pour faire apparaître des clusters et mieux identifier les blocs géographiques.
 ```
 
 ```{block2, type='rmdplus'}
-La perception des quantités est très bonne.   
-Les tailles de cercles sont vraiment comparables.    
+La perception des quantités est très bonne.
+Les tailles de cercles sont vraiment comparables.
 ```
 
 ```{r dorling}
@@ -86,7 +86,7 @@ mf_label(
 )
 mf_title("Population du Lot - Cartogramme de Dorling")
 ```
-Le paramètre `k` permet de faire varier le facteur d'expansion des cercles. 
+Le paramètre `k` permet de faire varier le facteur d'expansion des cercles.
 
 
 
@@ -94,7 +94,7 @@ Le paramètre `k` permet de faire varier le facteur d'expansion des cercles.
 
 ### Les cartogrammes non continus
 
-La taille des polygones est proportionnelle à une variable. L'agencement des polygones les uns par rapport aux autres est conservée. La forme des polygones est ressemblante. 
+La taille des polygones est proportionnelle à une variable. L'agencement des polygones les uns par rapport aux autres est conservée. La forme des polygones est ressemblante.
 
 ```{r, fig.align='center', echo=FALSE}
 knitr::include_graphics("img/nccartogram.png")
@@ -116,13 +116,13 @@ mf_map(com_ncont, col = "#940000", border= "white", add = TRUE)
 mf_title("Population du Lot - Cartogramme de Olson")
 ```
 
-Le paramètre `k` permet de faire varier le facteur d'expansion des polygones. 
+Le paramètre `k` permet de faire varier le facteur d'expansion des polygones.
 
 
 ### Les cartogrammes continus
 
 
-La taille des polygones est proportionnelle à une variable. L'agencement des polygones les uns par rapport aux autres est conservée. Pour conserver la contiguité, la forme des polygones est fortement transformée.  
+La taille des polygones est proportionnelle à une variable. L'agencement des polygones les uns par rapport aux autres est conservée. Pour conserver la contiguïté, la forme des polygones est fortement transformée.
 
 ```{r, fig.align='center', echo=FALSE}
 knitr::include_graphics("img/cartogram.jpg")
@@ -134,7 +134,7 @@ La forme des polygones est fortement distordue.
 ```
 
 ```{block2, type='rmdplus'}
-C'est une “vraie carte de géographie” : la topologie et la contiguité sont conservées.
+C'est une “vraie carte de géographie” : la topologie et la contiguïté sont conservées.
 ```
 
 ```{r dougenik}
@@ -149,6 +149,6 @@ mf_inset_off()
 
 ### Forces et faiblesses des cartogrammes
 
-Les cartogrammes sont des représentations cartographiques perçues comme **innovante** (bien que la methode date de 40 ans). Ces images très généralisées rendent bien compte des **quantités** et des **gradiants**. Ce sont de vraies images de **communication** qui **provoquent**, suscitent **l’intérêt**, véhiculent un **message** fort, **interpellent**.  
+Les cartogrammes sont des représentations cartographiques perçues comme **innovantes** (bien que la méthode date de 40 ans). Ces images très généralisées rendent bien compte des **quantités** et des **gradients**. Ce sont de vraies images de **communication** qui **provoquent**, suscitent **l’intérêt**, véhiculent un **message** fort, **interpellent**.
 
-Mais les cartogrammes induisent une perte des **repères visuels** (difficile de retrouver son pays, ou sa région sur la carte), demandent un **effort de lecture** qui peut être important et ne permettent pas de **gérer des données manquantes**.   
+Mais les cartogrammes induisent une perte des **repères visuels** (difficile de retrouver son pays, ou sa région sur la carte), demandent un **effort de lecture** qui peut être important et ne permettent pas de **gérer des données manquantes**.

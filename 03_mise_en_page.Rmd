@@ -26,7 +26,7 @@ options(width = 90)
 
 # La mise en page  {#chapitre3}
 
-Pour être finalisée, une carte thématique doit contenir certains éléments aditionnels tels que : le titre, l'auteur, la source, l'échelle, l'orientation...
+Pour être finalisée, une carte thématique doit contenir certains éléments additionnels tels que : le titre, l'auteur, la source, l'échelle, l'orientation...
 
 
 ## Les données d'exemple
@@ -47,11 +47,11 @@ route <- st_read("data/lot46.gpkg", layer = "route", quiet = TRUE)
 
 ## Les thèmes
 
-La fonction `mf_theme()` défini un thème cartographique. L'utilisation d'un thème permet permet de définir plusieurs paramètres graphiques qui sont ensuite appliqués aux cartes créées avec `mapsf`. Ces paramètres sont : les marges de la carte, la couleur principale, la couleur de fond, la position et l'aspect du titre. Un thème peut également être défini avec les fonction `mf_init()` et `mf_export()`.
+La fonction `mf_theme()` défini un thème cartographique. L'utilisation d'un thème permet de définir plusieurs paramètres graphiques qui sont ensuite appliqués aux cartes créées avec `mapsf`. Ces paramètres sont : les marges de la carte, la couleur principale, la couleur de fond, la position et l'aspect du titre. Un thème peut également être défini avec les fonctions `mf_init()` et `mf_export()`.
 
 ### Utiliser un thème prédéfini
 
-Une série de thèmes prédéfinis est disponible par défault (voir `?mf_theme`).
+Une série de thèmes prédéfinis est disponible par défaut (voir `?mf_theme`).
 
 ```{r them1, fig.show='hold', fig.width =8, fig.height = 8}
 library(mapsf)
@@ -76,7 +76,7 @@ par(opar)
 
 ### Modifier un thème existant
 
-Il est possible de modfier un thème existant. Dans cet exemple nous utilisons le thème "default" et nous en modifions quelques paramètres. 
+Il est possible de modifier un thème existant. Dans cet exemple, nous utilisons le thème "default" et nous en modifions quelques paramètres.
 
 ```{r theme2, fig.width = 8, fig.height = 4, fig.show='hold'}
 library(mapsf)
@@ -94,12 +94,12 @@ par(opar)
 ### Créer un thème
 
 
-Il est également possible de créer un theme. 
+Il est également possible de créer un thème.
 
 
 ```{r}
 mf_theme(
-  bg = "lightblue",    # couluer de fond
+  bg = "lightblue",    # couleur de fond
   fg = "tomato1",      # couleur principale
   mar = c(0,0,1.5,0),  # marges
   tab = FALSE,         # style "onglet" pour le titre
@@ -107,7 +107,7 @@ mf_theme(
   line = 1.5,          # espace dédié au titre
   pos = "center",      # position du titre
   cex = 1.2,           # taille du titre
-  font = 2             # type de font pour le titre
+  font = 2             # type de fonte pour le titre
 )
 mf_map(com)
 mf_title("New theme")
@@ -122,7 +122,7 @@ mf_title("New theme")
 
 ## Les titres
 
-La fonction ``mf_title()` permet d'ajouter un titre à une carte
+La fonction ``mf_title()` permet d'ajouter un titre à une carte.
 
 
 ```{r}
@@ -132,7 +132,7 @@ mf_title("Titre de la carte")
 ```
 
 
-Il est possible de personnalisé l'aspect du titre. 
+Il est possible de personnaliser l'aspect du titre.
 
 ```{r}
 mf_map(com)
@@ -255,7 +255,7 @@ mf_label(
 #             sources ="", north =TRUE, frame = FALSE, scale = 5)
 ```
 
-L'argument `halo = TRUE` permet d'afficher un leger halo autour des étiquettes et l'argument `overlap = FALSE` permet de créer des étiquettes ne se recouvrant pas.
+L'argument `halo = TRUE` permet d'afficher un léger halo autour des étiquettes et l'argument `overlap = FALSE` permet de créer des étiquettes ne se recouvrant pas.
 
 
 
@@ -282,14 +282,14 @@ Il faut ici utiliser l'argument `mfrow` de la fonction `par()`. Le premier chiff
 ## Export des cartes
 
 
-Il est assez difficile d'exporter des figures (cartes ou autres) dont le ratio hauteur/largeur soit satisfaisant. Le ratio par défaut des figure au format png est de 1 (480x480 pixels) :
+Il est assez difficile d'exporter des figures (cartes ou autres) dont le ratio hauteur/largeur estt satisfaisant. Le ratio par défaut des figures au format png est de 1 (480x480 pixels) :
 
 ```{r, eval=FALSE}
 
 ```
 ![](img/martinique1.png)
 
-Sur cette carte beaucoup d'espace est perdu à l'est et à l'ouest de l'ile.
+Sur cette carte beaucoup d'espace est perdu à l'est et à l'ouest de l’île.
 
 L'emprise de cette carte est exactement celle de l'île.
 
@@ -304,7 +304,7 @@ logo <- readPNG("img/mapmonster.png")
 # dimension de l'image en unité de la carte
 pp <- dim(logo)[2:1] * 16
 # Définition d'un point d'encrage de l'image dans la figure, ici
-# le coin inférieur gauche de la bounding box de la martique.
+# le coin inférieur gauche de la bounding box de la martinique.
 xy <- st_bbox(com)[1:2]
 mf_map(com, col = "#D1914D", border = "white")
 rasterImage(
@@ -361,6 +361,5 @@ mf_scale(size = 10, pos = "bottomright", cex = .6, lwd = .5)
 mf_inset_off()
 
 ```
-
 
 

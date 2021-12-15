@@ -66,7 +66,7 @@ mf_credits("Giraud & Pecout, 2021\nINSEE, Données carroyées Filosofi 2015")
 
 ## Relief Tanaka
 
-Nous utilisons le package `tanaka` [@Tanaka20] qui met à disposition une méthode [@Tanaka50] utilisée pour améliorer la perception du relief. 
+Nous utilisons le package `tanaka` [@Tanaka20] qui met à disposition une méthode [@Tanaka50] utilisée pour améliorer la perception du relief.
 
 ```{r tanaka}
 library(tanaka)

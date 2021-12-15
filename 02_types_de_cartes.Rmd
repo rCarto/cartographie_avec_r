@@ -26,7 +26,7 @@ options(width = 90)
 
 # Les types de cartes  {#chapitre2}
 
-La fonction `mf_map()` est la fonction centrale du package `mapsf`, cette fonction permet de réaliser la plupart des représentations usuelles en cartographie. 
+La fonction `mf_map()` est la fonction centrale du package `mapsf`. Elle permet de réaliser la plupart des représentations usuelles en cartographie.
 Ces arguments principaux sont :
 
 - `x`, un objet sf ;
@@ -52,7 +52,7 @@ route <- st_read("data/lot46.gpkg", layer = "route", quiet = TRUE)
 
 ## Afficher un fond de carte
 
-Utilisé sans précision de type, la fonction `mf_map()` affiche simplement le fond de carte. 
+Utilisée sans précision de type, la fonction `mf_map()` affiche simplement le fond de carte.
 
 ```{r mf_base}
 library(mapsf)
@@ -66,7 +66,7 @@ mf_map(x = resto, pch = 20, cex = .7, col = "darkred", add = TRUE)
 
 ## Carte de symboles proportionnels
 
-Les cartes de symboles proportionnels sont utilisées pour représenter les variables de stocks (variables quantitatives absolues, la somme et la moyenne ont un sens). 
+Les cartes de symboles proportionnels sont utilisées pour représenter les variables de stocks (variables quantitatives absolues, la somme et la moyenne ont un sens).
 La fonction `mf_map(..., type = "prop")` propose cette représentation.
 
 ```{r proportional_symbols}
@@ -88,7 +88,7 @@ mf_title("Distribution de la population dans le Lot")
 Il est possible de fixer les dimensions du plus grand symbole correspondant à une certaine valeur avec les arguments `inches` et `val_max`. Nous pouvons ainsi construire des cartes en symboles proportionnels comparables. 
 
 ```{r proportional_symbols_comp, fig.height = 4}
-# Afficher deux cartes en vis à vis
+# Afficher deux cartes en vis-à-vis
 par(mfrow = c(1,2))
 # Communes
 mf_map(x = com, border = "grey90", lwd = .5)
@@ -123,7 +123,7 @@ mf_title("Population active occupée dans l'industrie")
 
 ```
 
-Nous avons ici affiché deux cartes en vis à vis, voir XXXX pour plus de détails. 
+Nous avons ici affiché deux cartes en vis-à-vis, voir XXXX pour plus de détails. 
 
 
 
@@ -144,7 +144,7 @@ Pour ce genre de représentation il faut au préalable :
 * choisir un nombre de classes,
 * choisir une palette de couleurs.
 
-La fonction `mf_map(..., type = "choro")` permet de créer des cartes choroplètes. Les arguments `nbreaks`, et `breaks` servent à paramétrer les discrétisations et la fonction `mf_get_breaks()` permet de travailler sur les discrétisations en dehors de la fonction `mf_map()`. De même, l'argument `pal` est utilisé pour renseigner une palette de couleur mais plusieurs fonctions peuvent être utilisées pour paramétrer les palettes en dehors de la fonction (`mf_get_pal`...).
+La fonction `mf_map(..., type = "choro")` permet de créer des cartes choroplètes. Les arguments `nbreaks` et `breaks` servent à paramétrer les discrétisations, et la fonction `mf_get_breaks()` permet de travailler sur les discrétisations en dehors de la fonction `mf_map()`. De même, l'argument `pal` est utilisé pour renseigner une palette de couleur, mais plusieurs fonctions peuvent être utilisées pour paramétrer les palettes en dehors de la fonction (`mf_get_pal`...).
 
 
 ```{r choro}
@@ -166,16 +166,16 @@ mf_title("Distribution de la population dans le Lot (2018)")
 
 ### Discrétisations {#discretisation}
 
-La fonction `mf_get_breaks()` met à disposition les méthodes de discrétisations de variables classique : quantiles, moyenn/écart-type, amplitudes égales, moyennes emboitées, Fisher-Jenks, géométrique ...
+La fonction `mf_get_breaks()` met à disposition les méthodes de discrétisations de variables classique : quantiles, moyenne/écart-type, amplitudes égales, moyennes emboîtées, Fisher-Jenks, géométrique ...
 
 ```{r discr2, fig.height=6, fig.width=8}
-com$POP_ACT <- com$AGR_H + com$AGR_F + com$IND_H + com$IND_F + com$BTP_H + 
+com$POP_ACT <- com$AGR_H + com$AGR_F + com$IND_H + com$IND_F + com$BTP_H +
   com$BTP_F + com$TER_H + com$TER_F
 com$SHARE_ACT <- 100 * com$POP_ACT / com$POPULATION
 
 d1 <- mf_get_breaks(com$SHARE_ACT, nbreaks = 6, breaks = "equal", freq = T)
 d2 <- mf_get_breaks(com$SHARE_ACT, nbreaks = 6, breaks = "quantile")
-d3 <- mf_get_breaks(com$SHARE_ACT, nbreaks = 6,  breaks = "geom")
+d3 <- mf_get_breaks(com$SHARE_ACT, nbreaks = 6, breaks = "geom")
 d4 <- mf_get_breaks(com$SHARE_ACT, breaks = "msd", central = FALSE)
 ```
 
@@ -184,7 +184,7 @@ d4 <- mf_get_breaks(com$SHARE_ACT, breaks = "msd", central = FALSE)
 opar <- par(mfrow = c(2,2))
 hist(com$SHARE_ACT, breaks = d1, main = "d1 : amplitudes égales")
 rug(com$SHARE_ACT)
-hist(com$SHARE_ACT, breaks = d2, main = "d2 : éffectifs égaux")
+hist(com$SHARE_ACT, breaks = d2, main = "d2 : effectifs égaux")
 abline(v = quantile(com$SHARE_ACT, probs = seq(0,1,length.out = 7)), col  = "red")
 legend("topright", legend = "quantiles", col = "red", lty = 1, bty = "n")
 rug(com$SHARE_ACT)
@@ -201,10 +201,10 @@ par(opar)
 
 ### Palettes de couleurs {#palettes}
 
-L'argument `pal` de `mf_map()` est dédié au choix d'une palette de couleur. Les palettes fournies par la fonction `hcl.colors()` peuvent être utilisées directement. 
+L'argument `pal` de `mf_map()` est dédié au choix d'une palette de couleur. Les palettes fournies par la fonction `hcl.colors()` peuvent être utilisées directement.
 
 ```{r pal1, fig.width = 4, fig.height = 4}
-mf_map(x = com, var = "SHARE_ACT", type = "choro", 
+mf_map(x = com, var = "SHARE_ACT", type = "choro",
        breaks = d4, pal = "Blues 3")
 ```
 
@@ -227,7 +227,7 @@ image(1:9, 1, as.matrix(1:9), col=mypal, xlab = "", ylab = "", xaxt = "n",
 
 ## Carte de typologie
 Les cartes de typologies sont utilisées pour représenter les variables qualitatives.
-La fonction `mf_map(..., type = "typo")` propose cette représentation. 
+La fonction `mf_map(..., type = "typo")` propose cette représentation.
 
 ```{r typo_simple}
 mf_map(
@@ -261,10 +261,10 @@ mf_title("Statut Administratif")
 
 
 ### Les cartes de points
-Quand l'implantation de la couche est ponctuelle, des symboles sont utilisés pour porter les couleurs de la typologie. 
+Quand l'implantation de la couche est ponctuelle, des symboles sont utilisés pour porter les couleurs de la typologie.
 
 ```{r typo_point}
-# extraction des centroids de la préfectures et des sous préfectures
+# extraction des centroides de la préfectures et des sous-préfectures
 com_ctr <- st_centroid(com[com$STATUT != "Commune simple", ])
 mf_map(com)
 mf_map(
@@ -290,12 +290,12 @@ cahors <- com[com$NOM_COM == "Cahors", ]
 route_cahors <- route[st_intersects(x = route, y = cahors, sparse = FALSE), ]
 mf_map(cahors)
 mf_map(
-  x = route_cahors, 
-  var = "VOCATION", 
+  x = route_cahors,
+  var = "VOCATION",
   type = "typo", 
   lwd = 2,
   pal = mf_get_pal(n = 4, "Dark 2"),
-  leg_title = "Type de route", 
+  leg_title = "Type de route",
   add = TRUE
 )
 mf_title("Statut Administratif")
@@ -360,7 +360,6 @@ mf_title("Population")
 <!-- ## Les cartes raster -->
 
 <!-- `mf_raster()` -->
-
 
 
 
