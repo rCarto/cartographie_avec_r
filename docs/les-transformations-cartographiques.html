@@ -11,7 +11,7 @@
   <meta property="og:title" content="Chapitre 5 Les transformations cartographiques | Cartographie avec R" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="/img/globe-africa-solid.svg" />
   <meta property="og:description" content="Chapitre 5 Les transformations cartographiques | Cartographie avec R" />
   <meta name="github-repo" content="rCarto/cartographie_avec_r" />
 
@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Chapitre 5 Les transformations cartographiques | Cartographie avec R" />
   
   <meta name="twitter:description" content="Chapitre 5 Les transformations cartographiques | Cartographie avec R" />
-  
+  <meta name="twitter:image" content="/img/globe-africa-solid.svg" />
 
 <meta name="author" content="Timothée Giraud &amp; Hugues Pecout" />
 
@@ -257,27 +257,27 @@ div.csl-indent {
 <blockquote>
 <p>L’anamorphose classique est une représentation des États (ou de mailles quelconques) par <strong>des rectangles ou des polygones quelconques</strong> en fonction d’une <strong>quantité</strong> qui leur est rattaché. (…)
 On s’efforce de <strong>garder l’arrangement général</strong> des mailles ou la silhouette du continent.”<br />
-<span class="citation"><a href="#ref-Brunet93" role="doc-biblioref">Brunet, Ferras, and Théry</a> (<a href="#ref-Brunet93" role="doc-biblioref">1993</a>)</span></p>
+<span class="citation"><a href="#ref-Brunet93" role="doc-biblioref">Brunet et al.</a> (<a href="#ref-Brunet93" role="doc-biblioref">1993</a>)</span></p>
 </blockquote>
 <p>3 types d’anamorphoses ou cartogrammes sont ici présentés :</p>
 <ul>
-<li>Les cartogrammes de Dorling <span class="citation">(<a href="#ref-Dorling96" role="doc-biblioref">Dorling 1996</a>)</span></li>
-<li>Les cartogrammes non contigus <span class="citation">(<a href="#ref-Olson76" role="doc-biblioref">Olson 1976</a>)</span></li>
-<li>Les cartogrammes contigus <span class="citation">(<a href="#ref-Dougenik85" role="doc-biblioref">Dougenik, Chrisman, and Niemeyer 1985</a>)</span></li>
+<li>Les cartogrammes de Dorling <span class="citation">(<a href="#ref-Dorling96" role="doc-biblioref">Dorling, 1996</a>)</span></li>
+<li>Les cartogrammes non contigus <span class="citation">(<a href="#ref-Olson76" role="doc-biblioref">Olson, 1976</a>)</span></li>
+<li>Les cartogrammes contigus <span class="citation">(<a href="#ref-Dougenik85" role="doc-biblioref">Dougenik et al., 1985</a>)</span></li>
 </ul>
 
 <div class="linky">
-Un cours complet sur les anamorphoses : <a href="https://neocarto.hypotheses.org/366" target="_blank">Les anamorphoses cartographiques</a> <span class="citation">(<a href="#ref-Lambert15" role="doc-biblioref">Lambert 2015</a>)</span>.
+Un cours complet sur les anamorphoses : <a href="https://neocarto.hypotheses.org/366" target="_blank">Les anamorphoses cartographiques</a> <span class="citation">(<a href="#ref-Lambert15" role="doc-biblioref">Lambert, 2015</a>)</span>.
 </div>
 
 <div class="linky">
 <a href="https://rgeomatic.hypotheses.org/1361">Faire des cartogrammes avec R</a>
 </div>
-<p>Pour réaliser les cartogrammes nous utilisons le package <code>cartogram</code> <span class="citation">(<a href="#ref-R-cartogram" role="doc-biblioref">Jeworutzki 2018</a>)</span>.</p>
+<p>Pour réaliser les cartogrammes nous utilisons le package <code>cartogram</code> <span class="citation">(<a href="#ref-R-cartogram" role="doc-biblioref">Jeworutzki, 2018</a>)</span>.</p>
 <div id="les-cartogrammes-de-dorling" class="section level3" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Les cartogrammes de Dorling</h3>
-<p>Les territoires sont représentés par des figurés (cercles, des carrés ou des rectangles) ne se recouvrant pas dont les surfaces sont proportionnelles à une variable. Les positions des figurés sont définie selon les positions de départ.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<p>Les territoires sont représentés par des figurés (cercles, des carrés ou des rectangles) ne se recouvrant pas dont les surfaces sont proportionnelles à une variable. Les positions des figurés sont définies selon les positions de départ.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-18"></span>
 <img src="img/dorling.png" alt="@McCormick07" width="602" />
 <p class="caption">
 Figure 5.1: <span class="citation"><a href="#ref-McCormick07" role="doc-biblioref">McCormick</a> (<a href="#ref-McCormick07" role="doc-biblioref">2017</a>)</span>
@@ -286,11 +286,11 @@ Figure 5.1: <span class="citation"><a href="#ref-McCormick07" role="doc-bibliore
 
 <div class="rmdmoins">
 On identifie assez mal l’espace.<br />
-On peut nommer les cercles pour se repérer et/ou s’aider de la couleur pour faire apparaitre des clusters et mieux identifier les blocks géographiques.
+On peut nommer les cercles pour se repérer et/ou s’aider de la couleur pour faire apparaître des clusters et mieux identifier les blocs géographiques.
 </div>
 
 <div class="rmdplus">
-La perception des quantités est très bonne.<br />
+La perception des quantités est très bonne.
 Les tailles de cercles sont vraiment comparables.
 </div>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="les-transformations-cartographiques.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapsf)</span>
@@ -306,14 +306,14 @@ Les tailles de cercles sont vraiment comparables.
 <span id="cb37-11"><a href="les-transformations-cartographiques.html#cb37-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">r =</span> .<span class="dv">15</span></span>
 <span id="cb37-12"><a href="les-transformations-cartographiques.html#cb37-12" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb37-13"><a href="les-transformations-cartographiques.html#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population du Lot - Cartogramme de Dorling&quot;</span>)</span></code></pre></div>
-<p><img src="05_transformations_cartographiques_files/figure-html/dorling-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="Cartographie-avec-R_files/figure-html/dorling-1.png" width="672" style="display: block; margin: auto;" />
 Le paramètre <code>k</code> permet de faire varier le facteur d’expansion des cercles.</p>
 </div>
 <div id="les-cartogrammes-non-continus" class="section level3" number="5.1.2">
 <h3><span class="header-section-number">5.1.2</span> Les cartogrammes non continus</h3>
 <p>La taille des polygones est proportionnelle à une variable. L’agencement des polygones les uns par rapport aux autres est conservée. La forme des polygones est ressemblante.</p>
 <p><img src="img/nccartogram.png" width="272" style="display: block; margin: auto;" />
-<span class="citation">(<a href="#ref-Cauvin13" role="doc-biblioref">Cauvin, Escobar, and Serradj 2013</a>)</span></p>
+<span class="citation">(<a href="#ref-Cauvin13" role="doc-biblioref">Cauvin et al., 2013</a>)</span></p>
 
 <div class="rmdmoins">
 La topologie des régions est perdue.
@@ -326,21 +326,21 @@ La conservation de la forme des polygones est optimale.
 <span id="cb38-2"><a href="les-transformations-cartographiques.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">border =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>,)</span>
 <span id="cb38-3"><a href="les-transformations-cartographiques.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_ncont, <span class="at">col =</span> <span class="st">&quot;#940000&quot;</span>, <span class="at">border=</span> <span class="st">&quot;white&quot;</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb38-4"><a href="les-transformations-cartographiques.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population du Lot - Cartogramme de Olson&quot;</span>)</span></code></pre></div>
-<p><img src="05_transformations_cartographiques_files/figure-html/olson-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Cartographie-avec-R_files/figure-html/olson-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Le paramètre <code>k</code> permet de faire varier le facteur d’expansion des polygones.</p>
 </div>
 <div id="les-cartogrammes-continus" class="section level3" number="5.1.3">
 <h3><span class="header-section-number">5.1.3</span> Les cartogrammes continus</h3>
-<p>La taille des polygones est proportionnelle à une variable. L’agencement des polygones les uns par rapport aux autres est conservée. Pour conserver la contiguité, la forme des polygones est fortement transformée.</p>
+<p>La taille des polygones est proportionnelle à une variable. L’agencement des polygones les uns par rapport aux autres est conservée. Pour conserver la contiguïté, la forme des polygones est fortement transformée.</p>
 <p><img src="img/cartogram.jpg" width="960" style="display: block; margin: auto;" />
-<span class="citation">(<a href="#ref-Paull16" role="doc-biblioref">Paull and Hennig 2016</a>)</span></p>
+<span class="citation">(<a href="#ref-Paull16" role="doc-biblioref">Paull et Hennig, 2016</a>)</span></p>
 
 <div class="rmdmoins">
 La forme des polygones est fortement distordue.
 </div>
 
 <div class="rmdplus">
-C’est une “vraie carte de géographie” : la topologie et la contiguité sont conservées.
+C’est une “vraie carte de géographie” : la topologie et la contiguïté sont conservées.
 </div>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="les-transformations-cartographiques.html#cb39-1" aria-hidden="true" tabindex="-1"></a>com_cont <span class="ot">&lt;-</span> <span class="fu">cartogram_cont</span>(<span class="at">x =</span> com, <span class="at">weight =</span> <span class="st">&quot;POPULATION&quot;</span>, <span class="at">prepare =</span> <span class="st">&quot;none&quot;</span>)</span>
 <span id="cb39-2"><a href="les-transformations-cartographiques.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_cont, <span class="at">col =</span> <span class="st">&quot;#940000&quot;</span>, <span class="at">border=</span> <span class="st">&quot;white&quot;</span>, <span class="at">add =</span> <span class="cn">FALSE</span>)</span>
@@ -348,44 +348,44 @@ C’est une “vraie carte de géographie” : la topologie et la contiguité so
 <span id="cb39-4"><a href="les-transformations-cartographiques.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_on</span>(com, <span class="at">cex =</span> .<span class="dv">2</span>, <span class="at">pos =</span> <span class="st">&quot;topleft&quot;</span>)</span>
 <span id="cb39-5"><a href="les-transformations-cartographiques.html#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">lwd =</span> .<span class="dv">5</span>)</span>
 <span id="cb39-6"><a href="les-transformations-cartographiques.html#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_off</span>()</span></code></pre></div>
-<p><img src="05_transformations_cartographiques_files/figure-html/dougenik-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Cartographie-avec-R_files/figure-html/dougenik-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="forces-et-faiblesses-des-cartogrammes" class="section level3" number="5.1.4">
 <h3><span class="header-section-number">5.1.4</span> Forces et faiblesses des cartogrammes</h3>
-<p>Les cartogrammes sont des représentations cartographiques perçues comme <strong>innovante</strong> (bien que la methode date de 40 ans). Ces images très généralisées rendent bien compte des <strong>quantités</strong> et des <strong>gradiants</strong>. Ce sont de vraies images de <strong>communication</strong> qui <strong>provoquent</strong>, suscitent <strong>l’intérêt</strong>, véhiculent un <strong>message</strong> fort, <strong>interpellent</strong>.</p>
+<p>Les cartogrammes sont des représentations cartographiques perçues comme <strong>innovantes</strong> (bien que la méthode date de 40 ans). Ces images très généralisées rendent bien compte des <strong>quantités</strong> et des <strong>gradients</strong>. Ce sont de vraies images de <strong>communication</strong> qui <strong>provoquent</strong>, suscitent <strong>l’intérêt</strong>, véhiculent un <strong>message</strong> fort, <strong>interpellent</strong>.</p>
 <p>Mais les cartogrammes induisent une perte des <strong>repères visuels</strong> (difficile de retrouver son pays, ou sa région sur la carte), demandent un <strong>effort de lecture</strong> qui peut être important et ne permettent pas de <strong>gérer des données manquantes</strong>.</p>
 
 </div>
 </div>
 </div>
 <h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
 <div id="ref-Brunet93" class="csl-entry">
-Brunet, Roger, Robert Ferras, and Hervé Théry. 1993. <em>Les Mots de La g<span>é</span>ographie: Dictionnaire Critique</em>. 03) 911 BRU.
+Brunet, R., Ferras, R. et Théry, H. (1993). <em>Les mots de la g<span>é</span>ographie: dictionnaire critique</em>. La Documentation française.
 </div>
 <div id="ref-Cauvin13" class="csl-entry">
-Cauvin, Colette, Francisco Escobar, and Aziz Serradj. 2013. <em>Thematic Cartography, Cartography and the Impact of the Quantitative Revolution</em>. Vol. 2. John Wiley &amp; Sons.
+Cauvin, C., Escobar, F. et Serradj, A. (2013). <em>Thematic Cartography, Cartography and the Impact of the Quantitative Revolution</em> (vol. 2). John Wiley &amp; Sons.
 </div>
 <div id="ref-Dorling96" class="csl-entry">
-Dorling, Daniel. 1996. <em>Area Cartograms: Their Use and Creation, Concepts and Techniques in Modern Geography</em>. Vol. 59. CATMOG: Concepts and Techniques in Modern Geography. Institute of British Geographers.
+Dorling, D. (1996). <em>Area cartograms: their use and creation, concepts and techniques in modern geography</em> (vol. 59, p. 69). Institute of British Geographers.
 </div>
 <div id="ref-Dougenik85" class="csl-entry">
-Dougenik, James A, Nicholas R Chrisman, and Duane R Niemeyer. 1985. <span>“An Algorithm to Construct Continuous Area Cartograms.”</span> <em>The Professional Geographer</em> 37 (1): 75–81.
+Dougenik, J. A., Chrisman, N. R. et Niemeyer, D. R. (1985). An algorithm to construct continuous area cartograms. <em>The Professional Geographer</em>, <em>37</em>(1), 75‑81. <a href="https://doi.org/10.1111/j.0033-0124.1985.00075.x">https://doi.org/10.1111/j.0033-0124.1985.00075.x</a>
 </div>
 <div id="ref-R-cartogram" class="csl-entry">
-Jeworutzki, Sebastian. 2018. <em>Cartogram: Create Cartograms with r</em>. <a href="https://CRAN.R-project.org/package=cartogram">https://CRAN.R-project.org/package=cartogram</a>.
+Jeworutzki, S. (2018). <em>cartogram: Create Cartograms with R</em>. <a href="https://CRAN.R-project.org/package=cartogram">https://CRAN.R-project.org/package=cartogram</a>
 </div>
 <div id="ref-Lambert15" class="csl-entry">
-Lambert, Nicolas. 2015. <span>“Les Anamorphoses Cartographiques.”</span> Blog. <em>Carnet Néocartographique</em>. <a href="https://neocarto.hypotheses.org/366">https://neocarto.hypotheses.org/366</a>.
+Lambert, N. (2015). Les anamorphoses cartographiques [Blog]. <em>Carnet néocartographique</em>. <a href="https://neocarto.hypotheses.org/366">https://neocarto.hypotheses.org/366</a>
 </div>
 <div id="ref-McCormick07" class="csl-entry">
-McCormick, Mark. 2017. <span>“Carbon Atlas.”</span> <em>The Guardian</em>, December. <a href="http://kelsocartography.com/blog/wp-content/uploads/2008/03/carbonatlas.pdf">http://kelsocartography.com/blog/wp-content/uploads/2008/03/carbonatlas.pdf</a>.
+McCormick, M. (2017). Carbon Atlas. <em>The Guardian</em>. <a href="http://kelsocartography.com/blog/wp-content/uploads/2008/03/carbonatlas.pdf">http://kelsocartography.com/blog/wp-content/uploads/2008/03/carbonatlas.pdf</a>
 </div>
 <div id="ref-Olson76" class="csl-entry">
-Olson, Judy M. 1976. <span>“Noncontiguous Area Cartograms.”</span> <em>The Professional Geographer</em> 28 (4): 371–80.
+Olson, J. M. (1976). Noncontiguous area cartograms. <em>The Professional Geographer</em>, <em>28</em>(4), 371‑380. <a href="https://doi.org/10.1111/j.0033-0124.1976.00371.x">https://doi.org/10.1111/j.0033-0124.1976.00371.x</a>
 </div>
 <div id="ref-Paull16" class="csl-entry">
-Paull, John, and Benjamin Hennig. 2016. <span>“Atlas of Organics: Four Maps of the World of Organic Agriculture.”</span> <em>Journal of Organics</em> 3 (1): 25–32.
+Paull, J. et Hennig, B. (2016). Atlas of Organics: Four maps of the world of organic agriculture. <em>Journal of Organics</em>, <em>3</em>(1), 25‑32.
 </div>
 </div>
             </section>

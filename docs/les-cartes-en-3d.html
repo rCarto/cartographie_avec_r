@@ -11,7 +11,7 @@
   <meta property="og:title" content="Chapitre 4 Les cartes en 3D | Cartographie avec R" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="/img/globe-africa-solid.svg" />
   <meta property="og:description" content="Chapitre 4 Les cartes en 3D | Cartographie avec R" />
   <meta name="github-repo" content="rCarto/cartographie_avec_r" />
 
@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Chapitre 4 Les cartes en 3D | Cartographie avec R" />
   
   <meta name="twitter:description" content="Chapitre 4 Les cartes en 3D | Cartographie avec R" />
-  
+  <meta name="twitter:image" content="/img/globe-africa-solid.svg" />
 
 <meta name="author" content="Timothée Giraud &amp; Hugues Pecout" />
 
@@ -254,7 +254,7 @@ div.csl-indent {
 <h1><span class="header-section-number">Chapitre 4</span> Les cartes en 3D</h1>
 <div id="linemap" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> linemap</h2>
-<p>Le package <code>linemap</code> <span class="citation">(<a href="#ref-R-linemap" role="doc-biblioref">Giraud 2017</a>)</span> permet de réaliser des cartes composées de lignes.</p>
+<p>Le package <code>linemap</code> <span class="citation">(<a href="#ref-R-linemap" role="doc-biblioref">Giraud, 2017</a>)</span> permet de réaliser des cartes composées de lignes.</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="les-cartes-en-3d.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(linemap)</span>
 <span id="cb34-2"><a href="les-cartes-en-3d.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb34-3"><a href="les-cartes-en-3d.html#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
@@ -283,11 +283,11 @@ div.csl-indent {
 <span id="cb34-26"><a href="les-cartes-en-3d.html#cb34-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb34-27"><a href="les-cartes-en-3d.html#cb34-27" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population du Lot, 2015&quot;</span>)</span>
 <span id="cb34-28"><a href="les-cartes-en-3d.html#cb34-28" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_credits</span>(<span class="st">&quot;Giraud &amp; Pecout, 2021</span><span class="sc">\n</span><span class="st">INSEE, Données carroyées Filosofi 2015&quot;</span>)</span></code></pre></div>
-<p><img src="04_cartes_en_3D_files/figure-html/linemap-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Cartographie-avec-R_files/figure-html/linemap-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="relief-tanaka" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Relief Tanaka</h2>
-<p>Nous utilisons le package <code>tanaka</code> <span class="citation">(<a href="#ref-Tanaka20" role="doc-biblioref">Giraud 2020</a>)</span> qui met à disposition une méthode <span class="citation">(<a href="#ref-Tanaka50" role="doc-biblioref">Tanaka 1950</a>)</span> utilisée pour améliorer la perception du relief.</p>
+<p>Nous utilisons le package <code>tanaka</code> <span class="citation">(<a href="#ref-Tanaka20" role="doc-biblioref">Giraud, 2020</a>)</span> qui met à disposition une méthode <span class="citation">(<a href="#ref-Tanaka50" role="doc-biblioref">Tanaka, 1950</a>)</span> utilisée pour améliorer la perception du relief.</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="les-cartes-en-3d.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tanaka)</span>
 <span id="cb35-2"><a href="les-cartes-en-3d.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># import du raster de population</span></span>
 <span id="cb35-3"><a href="les-cartes-en-3d.html#cb35-3" aria-hidden="true" tabindex="-1"></a>rpop <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;data/pop.tif&quot;</span>)</span>
@@ -314,7 +314,7 @@ div.csl-indent {
 <span id="cb35-24"><a href="les-cartes-en-3d.html#cb35-24" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population lissée du Lot, 2015&quot;</span>)</span>
 <span id="cb35-25"><a href="les-cartes-en-3d.html#cb35-25" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_credits</span>(<span class="st">&quot;Giraud &amp; Pecout, 2021</span><span class="sc">\n</span><span class="st">INSEE, Données carroyées Filosofi 2015&quot;</span>, </span>
 <span id="cb35-26"><a href="les-cartes-en-3d.html#cb35-26" aria-hidden="true" tabindex="-1"></a>           <span class="at">bg =</span> <span class="st">&quot;#EDF4F5&quot;</span>)</span></code></pre></div>
-<p><img src="04_cartes_en_3D_files/figure-html/tanaka-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Cartographie-avec-R_files/figure-html/tanaka-1.png" width="672" style="display: block; margin: auto;" /></p>
 
 <div class="linky">
 <a href="https://rgeomatic.hypotheses.org/1758">The tanaka package</a>
@@ -322,7 +322,7 @@ div.csl-indent {
 </div>
 <div id="rayshader" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> rayshader</h2>
-<p>Le package <code>rayshader</code> <span class="citation">(<a href="#ref-R-rayshader" role="doc-biblioref">Morgan-Wall 2018</a>)</span> permet de réaliser de belles cartes en relief.
+<p>Le package <code>rayshader</code> <span class="citation">(<a href="#ref-R-rayshader" role="doc-biblioref">Morgan-Wall, 2018</a>)</span> permet de réaliser de belles cartes en relief.
 L’export des images n’est pas évident, il s’agit ici d’une simple capture d’écran.</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="les-cartes-en-3d.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rayshader) </span>
 <span id="cb36-2"><a href="les-cartes-en-3d.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rayvista)</span>
@@ -345,18 +345,18 @@ L’export des images n’est pas évident, il s’agit ici d’une simple captu
 </div>
 </div>
 <h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
 <div id="ref-R-linemap" class="csl-entry">
-Giraud, Timothée. 2017. <em>Linemap: Line Maps</em>. <a href="https://CRAN.R-project.org/package=linemap">https://CRAN.R-project.org/package=linemap</a>.
+Giraud, T. (2017). <em>linemap: Line Maps</em>. <a href="https://CRAN.R-project.org/package=linemap">https://CRAN.R-project.org/package=linemap</a>
 </div>
 <div id="ref-Tanaka20" class="csl-entry">
-———. 2020. <em>Tanaka: Design Shaded Contour Lines (or Tanaka) Maps</em>. <a href="https://CRAN.R-project.org/package=tanaka">https://CRAN.R-project.org/package=tanaka</a>.
+Giraud, T. (2020). <em>tanaka: Design Shaded Contour Lines (or Tanaka) Maps</em>. <a href="https://CRAN.R-project.org/package=tanaka">https://CRAN.R-project.org/package=tanaka</a>
 </div>
 <div id="ref-R-rayshader" class="csl-entry">
-Morgan-Wall, Tyler. 2018. <em>Rayshader: Create and Visualize Hillshaded Maps from Elevation Matrices</em>. <a href="https://CRAN.R-project.org/package=rayshader">https://CRAN.R-project.org/package=rayshader</a>.
+Morgan-Wall, T. (2018). <em>rayshader: Create and Visualize Hillshaded Maps from Elevation Matrices</em>. <a href="https://CRAN.R-project.org/package=rayshader">https://CRAN.R-project.org/package=rayshader</a>
 </div>
 <div id="ref-Tanaka50" class="csl-entry">
-Tanaka, Kitiro. 1950. <span>“The Relief Contour Method of Representing Topography on Maps.”</span> <em>The Geographical Review</em> xl (3).
+Tanaka, K. (1950). The Relief Contour Method of Representing Topography on Maps. <em>The Geographical Review</em>, <em>xl</em>(3). <a href="https://doi.org/doi:10.2307/211219">https://doi.org/doi:10.2307/211219</a>
 </div>
 </div>
             </section>

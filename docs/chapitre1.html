@@ -11,7 +11,7 @@
   <meta property="og:title" content="Chapitre 1 mapsf | Cartographie avec R" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="/img/globe-africa-solid.svg" />
   <meta property="og:description" content="Chapitre 1 mapsf | Cartographie avec R" />
   <meta name="github-repo" content="rCarto/cartographie_avec_r" />
 
@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Chapitre 1 mapsf | Cartographie avec R" />
   
   <meta name="twitter:description" content="Chapitre 1 mapsf | Cartographie avec R" />
-  
+  <meta name="twitter:image" content="/img/globe-africa-solid.svg" />
 
 <meta name="author" content="Timothée Giraud &amp; Hugues Pecout" />
 
@@ -252,45 +252,44 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="chapitre1" class="section level1" number="1">
 <h1><span class="header-section-number">Chapitre 1</span> mapsf</h1>
-<p>L’écosystème spatial du logiciel libre R est riche, dynamique et mature et plusieurs packages permettent d’importer, de traiter et de représenter les données spatiales. Le package <a href="https://CRAN.R-project.org/package=maps"><code>mapsf</code></a> <span class="citation">(<a href="#ref-R-mapsf" role="doc-biblioref">Giraud 2021</a>)</span> s’appuie sur cet écosystème pour intégrer la création de cartes thématiques de qualité dans les chaines de traitement avec R.</p>
-<p>Dautres packages peuvent être utilisés pour réaliser des cartes thématique. Le package <code>ggplot2</code> <span class="citation">(<a href="#ref-Wickham16" role="doc-biblioref">Wickham 2016</a>)</span>, en association avec le package <code>ggspatial</code> <span class="citation">(<a href="#ref-R-ggspatial" role="doc-biblioref">Dunnington 2021</a>)</span>, par exemple permet d’afficher des objets spatiaux et de réaliser des cartes thématiques simples. Le package <code>tmap</code> <span class="citation">(<a href="#ref-Tennekes18" role="doc-biblioref">Tennekes 2018</a>)</span> est dédié à la création de cartes thématiques, il utilise une syntaxe proche de celle de <code>ggplot2</code> (enchaînement d’instructions combinées avec le signe ‘+’). La documentation et les tutoriels pour utiliser ces deux packages sont facilement accessibles sur le web.</p>
-<p>Ici nous utiliserons principalement le package <code>mapsf</code> dont les fonctionnalités sont assez complètes et la prise en main assez simple. De plus le package est assez léger.</p>
+<p>L’écosystème spatial du logiciel libre R est riche, dynamique et mature et plusieurs packages permettent d’importer, de traiter et de représenter les données spatiales. Le package <a href="https://CRAN.R-project.org/package=maps"><code>mapsf</code></a> <span class="citation">(<a href="#ref-R-mapsf" role="doc-biblioref">Giraud, 2021</a>)</span> s’appuie sur cet écosystème pour intégrer la création de cartes thématiques de qualité dans les chaînes de traitement avec R.</p>
+<p>D’autres packages peuvent être utilisés pour réaliser des cartes thématiques. Le package <code>ggplot2</code> <span class="citation">(<a href="#ref-Wickham16" role="doc-biblioref">Wickham, 2016</a>)</span>, en association avec le package <code>ggspatial</code> <span class="citation">(<a href="#ref-R-ggspatial" role="doc-biblioref">Dunnington, 2021</a>)</span>, permet par exemple d’afficher des objets spatiaux et de réaliser des cartes thématiques simples. Le package <code>tmap</code> <span class="citation">(<a href="#ref-Tennekes18" role="doc-biblioref">Tennekes, 2018</a>)</span> est dédié à la création de cartes thématiques, il utilise une syntaxe proche de celle de <code>ggplot2</code> (enchaînement d’instructions combinées avec le signe ‘+’). La documentation et les tutoriels pour utiliser ces deux packages sont facilement accessibles sur le web.</p>
+<p>Ici, nous utiliserons principalement le package <code>mapsf</code> dont les fonctionnalités sont assez complètes et la prise en main plutôt simple. De plus, le package est relativement léger.</p>
 <div id="présentation" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Présentation</h2>
 <p><img src="img/logo.png" align="right" alt="" width="120" /></p>
-<p><code>mapsf</code> permet de créer la plupart des types de carte utilisés habituellement en cartograpie statistique (carte choroplèthes, typologies, symboles proportionnels ou gradués…).<br />
-Pour chaque type de carte plusieurs paramètres permettent de personnaliser la représentation cartographique, ces paramètres sont les même que ceux que l’on retrouve dans les logiciels de SIG ou de cartographie usuels (par exemple le choix des discrétisations et des palettes de couleurs, modifications des taille des symboles ou la personnalisation des légendes).<br />
-Associées aux fonctions de représesentation des données d’autres fonctions sont dédiées à l’habillage cartographique (thèmes ou chartes graphiques, légendes, échelles, flèches d’orientation, titre, crédits, annotations…), à la création de cartons ou à l’export des cartes.<br />
-<code>mapsf</code> est le successeur de <a href="http://riatelab.github.io/cartography/docs/"><code>cartography</code></a> <span class="citation">(<a href="#ref-R-cartography" role="doc-biblioref">Giraud and Lambert 2017</a>)</span>, il offre les mêmes fonctionnalités principales tout en étant plus léger et plus ergonomique.</p>
+<p><code>mapsf</code> permet de créer la plupart des types de carte utilisés habituellement en cartographie statistique (cartes choroplèthes, typologies, symboles proportionnels ou gradués…).<br />
+Pour chaque type de carte, plusieurs paramètres permettent de personnaliser la représentation cartographique. Ces paramètres sont les mêmes que ceux que l’on retrouve dans les logiciels de SIG ou de cartographie usuels (par exemple, le choix des discrétisations et des palettes de couleurs, la modification de de la taille des symboles ou la personnalisation des légendes).<br />
+Associées aux fonctions de représentation des données d’autres fonctions sont dédiées à l’habillage cartographique (thèmes ou chartes graphiques, légendes, échelles, flèches d’orientation, titre, crédits, annotations…), à la création de cartons ou à l’export des cartes.<br />
+<code>mapsf</code> est le successeur de <a href="http://riatelab.github.io/cartography/docs/"><code>cartography</code></a> <span class="citation">(<a href="#ref-R-cartography" role="doc-biblioref">Giraud et Lambert, 2017</a>)</span>, il offre les mêmes fonctionnalités principales tout en étant plus léger et plus ergonomique.</p>
 </div>
 <div id="documentation" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Documentation</h2>
 <p>Pour utiliser ce package plusieurs sources peuvent être consultées :</p>
 <ul>
-<li><p>La documentation du package accessible <a href="http://riatelab.github.io/mapsf/">sur internet</a> ou directement dans R (<code>?mapsf</code>),<br />
-</p></li>
+<li><p>La documentation du package accessible <a href="http://riatelab.github.io/mapsf/">sur internet</a> ou directement dans R (<code>?mapsf</code>),</p></li>
 <li><p>Les <a href="https://riatelab.github.io/mapsf/articles/">vignettes</a> associées au package présentent des exemples de scripts,</p></li>
-<li><p>Le blog <a href="https://rgeomatic.hypotheses.org/">R Géomatique</a> qui met à disposition ressources et exemples liés au package et plus généralement à l’écosystème spatiale de R.</p></li>
+<li><p>Le blog <a href="https://rgeomatic.hypotheses.org/">R Géomatique</a> qui met à disposition ressources et exemples liés au package et plus généralement à l’écosystème spatial de R.</p></li>
 </ul>
 
 </div>
 </div>
 <h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
 <div id="ref-R-ggspatial" class="csl-entry">
-Dunnington, Dewey. 2021. <em><span class="nocase">ggspatial</span>: Spatial Data Framework for <span class="nocase">ggplot2</span></em>. <a href="https://CRAN.R-project.org/package=ggspatial">https://CRAN.R-project.org/package=ggspatial</a>.
+Dunnington, D. (2021). <em><span>ggspatial</span>: Spatial Data Framework for <span>ggplot2</span></em>. <a href="https://CRAN.R-project.org/package=ggspatial">https://CRAN.R-project.org/package=ggspatial</a>
 </div>
 <div id="ref-R-mapsf" class="csl-entry">
-———. 2021. <em><span class="nocase">mapsf</span>: Thematic Cartography</em>. <a href="https://CRAN.R-project.org/package=mapsf">https://CRAN.R-project.org/package=mapsf</a>.
+Giraud, T. (2021). <em><span>mapsf</span>: Thematic Cartography</em>. <a href="https://CRAN.R-project.org/package=mapsf">https://CRAN.R-project.org/package=mapsf</a>
 </div>
 <div id="ref-R-cartography" class="csl-entry">
-Giraud, Timothée, and Nicolas Lambert. 2017. <span>“Reproducible Cartography.”</span> In <em>Advances in Cartography and GIScience. ICACI 2017. Lecture Notes in Geoinformation and Cartography.</em>, edited by Michael Peterson, 173–83. Cham, Switzerland: Springer. <a href="https://doi.org/10.1007/978-3-319-57336-6_13">https://doi.org/10.1007/978-3-319-57336-6_13</a>.
+Giraud, T. et Lambert, N. (2017). <em>Reproducible Cartography</em>. M. Peterson (dir.), Cham, Switzerland (p. 173‑183). <a href="https://doi.org/10.1007/978-3-319-57336-6_13">https://doi.org/10.1007/978-3-319-57336-6_13</a>
 </div>
 <div id="ref-Tennekes18" class="csl-entry">
-Tennekes, Martijn. 2018. <span>“<span class="nocase">tmap</span>: Thematic Maps in <span>R</span>.”</span> <em>Journal of Statistical Software</em> 84 (6): 1–39. <a href="https://doi.org/10.18637/jss.v084.i06">https://doi.org/10.18637/jss.v084.i06</a>.
+Tennekes, M. (2018). <span>tmap</span>: Thematic Maps in <span>R</span>. <em>Journal of Statistical Software</em>, <em>84</em>(6), 1‑39. <a href="https://doi.org/10.18637/jss.v084.i06">https://doi.org/10.18637/jss.v084.i06</a>
 </div>
 <div id="ref-Wickham16" class="csl-entry">
-Wickham, Hadley. 2016. <em><span class="nocase">ggplot2</span>: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+Wickham, H. (2016). <em><span>ggplot2</span>: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>
 </div>
 </div>
             </section>
