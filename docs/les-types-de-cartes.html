@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Chapitre 2 Les types de cartes | Cartographie avec R" />
   <meta name="twitter:image" content="/img/globe-africa-solid.svg" />
 
-<meta name="author" content="Timothée Giraud[^1] &amp; Hugues Pecout[^2]" />
+<meta name="author" content="Timothée Giraud &amp; Hugues Pecout" />
 
 
 
@@ -119,6 +119,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -360,7 +382,7 @@ La fonction <code>mf_map(..., type = "prop")</code> propose cette représentatio
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="les-types-de-cartes.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com, <span class="at">var =</span> <span class="st">&quot;SHARE_ACT&quot;</span>, <span class="at">type =</span> <span class="st">&quot;choro&quot;</span>,</span>
 <span id="cb7-2"><a href="les-types-de-cartes.html#cb7-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">breaks =</span> d4, <span class="at">pal =</span> <span class="st">&quot;Blues 3&quot;</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/pal1-1.png" width="384" style="display: block; margin: auto;" /></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
 <img src="img/swatch-plot-1.svg" alt="Palettes directement disponibles"  />
 <p class="caption">
 Figure 2.1: Palettes directement disponibles
@@ -376,7 +398,7 @@ Cette fonction est surtout utile pour créer des palettes divergentes asymétriq
 </div>
 <div id="carte-de-typologie" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> Carte de typologie</h2>
-<p>Les cartes de typologies sont utilisées pour représenter les variables qualitatives.
+<p>Les cartes de typologies sont utilisées pour représenter les variables qualitatives.<br />
 La fonction <code>mf_map(..., type = "typo")</code> propose cette représentation.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="les-types-de-cartes.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
 <span id="cb9-2"><a href="les-types-de-cartes.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com,</span>
@@ -438,7 +460,7 @@ La fonction <code>mf_map(..., type = "typo")</code> propose cette représentatio
 <span id="cb12-12"><a href="les-types-de-cartes.html#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="cn">TRUE</span></span>
 <span id="cb12-13"><a href="les-types-de-cartes.html#cb12-13" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb12-14"><a href="les-types-de-cartes.html#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Statut Administratif&quot;</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/unnamed-chunk-3-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="Cartographie-avec-R_files/figure-html/unnamed-chunk-4-1.png" width="768" style="display: block; margin: auto;" /></p>
 <!-- ## Les cartes en symboles gradués -->
 <!-- ### Polygons -->
 <!-- ### points -->
@@ -448,7 +470,7 @@ La fonction <code>mf_map(..., type = "typo")</code> propose cette représentatio
 </div>
 <div id="carte-de-stocks-et-de-ratios" class="section level2" number="2.6">
 <h2><span class="header-section-number">2.6</span> Carte de stocks et de ratios</h2>
-<p>La fonction <code>mf_map(..., var = c("var1", "var2"), type = "prop_tchoro")</code> représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d’une variable et dont la couleur repose sur la discrétisation d’une seconde variable. La fonction utilise les arguments des fonctions <code>mf_map(..., type = "prop")</code> et <code>mf_map(..., type = "choro")</code>.</p>
+<p>La fonction <code>mf_map(..., var = c("var1", "var2"), type = "prop_choro")</code> représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d’une variable et dont la couleur repose sur la discrétisation d’une seconde variable. La fonction utilise les arguments des fonctions <code>mf_map(..., type = "prop")</code> et <code>mf_map(..., type = "choro")</code>.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="les-types-de-cartes.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com)</span>
 <span id="cb13-2"><a href="les-types-de-cartes.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
 <span id="cb13-3"><a href="les-types-de-cartes.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com,</span>

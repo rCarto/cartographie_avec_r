@@ -276,16 +276,16 @@ mf_map(com_sel, col = NA, border = "red", lwd = 2, add = TRUE)
 Il faut ici utiliser l'argument `mfrow` de la fonction `par()`. Le premier chiffre représente le nombre lignes et le deuxième le nombre de colonnes.
 
 
-```{r mfrow0, fig.width=7,  eval = TRUE}
+```{r mfrow0, fig.width=7, fig.height = 3.5,  eval = TRUE}
 # define the figure layout (1 row, 2 columns)
 par(mfrow = c(1, 2))
 # first map
 mf_map(com)
-mf_map(com, "AGR_H", "prop")
-mf_title("Agriculture, hommes")
+mf_map(com, "TER_H", "prop", val_max = 4000)
+mf_title("Tertiaire, hommes")
 # second map
 mf_map(com)
-mf_map(com, "TER_F", "prop")
+mf_map(com, "TER_F", "prop", val_max = 4000)
 mf_title("Tertiaire, femmes")
 ```
 
@@ -305,7 +305,7 @@ dev.off()
 ```{r, echo=FALSE}
 knitr::include_graphics("img/c2c1.png")
 ```
-Sur cette carte beaucoup d'espace est perdu au nord et au sud de l’île.
+Sur cette carte beaucoup d'espace est perdu au nord et au sud de la commune.
 
 La fonction `mf_export()` permet des exports de cartes dont le ratio hauteur/largeur est contrôlé et correspond à celui d'un objet spatial. 
 
@@ -324,7 +324,8 @@ L'emprise de cette carte est exactement celle de la région affichée.
 
 
 ## Ajouter une image sur une carte
-Cela peut être utile pour ajouter un logo, un pictogramme. La fonction `readPNG()` du package `png` permet l'ajout d'images sur une figure.
+Cela peut être utile pour ajouter un logo, un pictogramme. La fonction `readPNG()` 
+du package `png` permet l'ajout d'images sur une figure.
 
 ```{r logo}
 mf_theme("default", mar = c(0,0,0,0))
@@ -351,13 +352,9 @@ rasterImage(
 
 La fonction `locator()` permet de cliquer sur une figure et d'obtenir les coordonnées d'un point dans le système de coordonnées de la figure (de la carte).
 
-<video width="800" controls="controls">
+<video width="770" controls="controls">
 <source src="img/locator.webm" type="video/webm" />
 </video>
-
-```{r}
-
-```
 
 `locator()`peut être utilisée sur la plupart des graphiques (pas ceux produits avec `ggplot2`).
 
@@ -370,6 +367,8 @@ La fonction `locator()` permet de cliquer sur une figure et d'obtenir les coordo
 
 
 ## Ajouter un ombrage à une couche
+
+La fonction `mf_shadow()` permet de créer une ombre à une couche de polygones. 
 ```{r shadow}
 mf_shadow(com)
 mf_map(com, add=TRUE)
@@ -379,6 +378,9 @@ mf_map(com, add=TRUE)
 
 ## Création de cartons
 
+La fonction `mf_inset_on()` permet de démarrer la création d'un carton.
+Il faut ensuite "refermer" le carton avec `mf_inset_off()`.
+
 ```{r inset, fig.width = 6.5, fig.height = 5}
 mf_init(x = com_sel, theme = "agolalight", expandBB = c(0,0,0,.5))
 mf_map(com, add = TRUE)
@@ -386,7 +388,7 @@ mf_map(com_sel, col = "tomato4", border = "tomato1", lwd = 2, add = TRUE)
 mf_inset_on(x = dep, pos = "topright", cex = .3)
 mf_map(dep, lwd = .5, border= "grey90")
 mf_map(com_sel, col = "tomato4", border = "tomato1", lwd = .5, add = TRUE)
-mf_scale(size = 10, pos = "bottomright", cex = .6, lwd = .5)
+mf_scale(size = 100, pos = "bottomleft", cex = .6, lwd = .5)
 mf_inset_off()
 mf_inset_on(x = com, pos = "bottomright", cex = .3)
 mf_map(com, lwd = .5, border= "grey90")
@@ -394,7 +396,7 @@ mf_map(com_sel, col = "tomato4", border = "tomato1", lwd = .5, add = TRUE)
 mf_scale(size = 10, pos = "bottomright", cex = .6, lwd = .5)
 mf_inset_off()
 mf_title("Cahors et ses environs")
-mf_scale(1)
+mf_scale(1, pos = 'bottomleft')
 
 ```
 

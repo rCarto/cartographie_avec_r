@@ -1,5 +1,5 @@
-fig:unnamed-chunk-2
-fig:unnamed-chunk-18
+fig:unnamed-chunk-3
+fig:unnamed-chunk-21
 mapsf
 présentation
 documentation
@@ -8,7 +8,6 @@ les-données-dexemple
 afficher-un-fond-de-carte
 carte-de-symboles-proportionnels
 comparer-plusieurs-cartes
-les-cartes-de-liens-proportionnels
 carte-choroplèthe
 discretisation
 palettes
@@ -49,4 +48,3 @@ les-cartogrammes-non-continus
 les-cartogrammes-continus
 forces-et-faiblesses-des-cartogrammes
 sessioninfo
-fig:unnamed-chunk-1

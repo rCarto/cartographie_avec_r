@@ -171,7 +171,6 @@ div.csl-indent {
 <li class="chapter" data-level="2.3" data-path="les-types-de-cartes.html"><a href="les-types-de-cartes.html#carte-de-symboles-proportionnels"><i class="fa fa-check"></i><b>2.3</b> Carte de symboles proportionnels</a>
 <ul>
 <li class="chapter" data-level="2.3.1" data-path="les-types-de-cartes.html"><a href="les-types-de-cartes.html#comparer-plusieurs-cartes"><i class="fa fa-check"></i><b>2.3.1</b> Comparer plusieurs cartes</a></li>
-<li class="chapter" data-level="2.3.2" data-path="les-types-de-cartes.html"><a href="les-types-de-cartes.html#les-cartes-de-liens-proportionnels"><i class="fa fa-check"></i><b>2.3.2</b> Les cartes de liens proportionnels</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="les-types-de-cartes.html"><a href="les-types-de-cartes.html#carte-choroplèthe"><i class="fa fa-check"></i><b>2.4</b> Carte choroplèthe</a>
 <ul>
@@ -272,7 +271,7 @@ Un cours complet sur les anamorphoses : <a href="https://neocarto.hypotheses.org
 <div id="les-cartogrammes-de-dorling" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Les cartogrammes de Dorling</h2>
 <p>Les territoires sont représentés par des figurés (cercles, des carrés ou des rectangles) ne se recouvrant pas dont les surfaces sont proportionnelles à une variable. Les positions des figurés sont définies selon les positions de départ.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-18"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-21"></span>
 <img src="img/dorling.png" alt="@McCormick07" width="602" />
 <p class="caption">
 Figure 5.1: <span class="citation"><a href="#ref-McCormick07" role="doc-biblioref">McCormick</a> (<a href="#ref-McCormick07" role="doc-biblioref">2017</a>)</span>
@@ -288,19 +287,19 @@ On peut nommer les cercles pour se repérer et/ou s’aider de la couleur pour f
 La perception des quantités est très bonne.
 Les tailles de cercles sont vraiment comparables.
 </div>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="les-transformations-cartographiques.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapsf)</span>
-<span id="cb37-2"><a href="les-transformations-cartographiques.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cartogram)</span>
-<span id="cb37-3"><a href="les-transformations-cartographiques.html#cb37-3" aria-hidden="true" tabindex="-1"></a>com <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/lot46.gpkg&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;commune&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb37-4"><a href="les-transformations-cartographiques.html#cb37-4" aria-hidden="true" tabindex="-1"></a>com_dorling <span class="ot">&lt;-</span> <span class="fu">cartogram_dorling</span>(<span class="at">x =</span> com, <span class="at">weight =</span> <span class="st">&quot;POPULATION&quot;</span>, <span class="at">k =</span> <span class="dv">7</span>)</span>
-<span id="cb37-5"><a href="les-transformations-cartographiques.html#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_dorling, <span class="at">col =</span> <span class="st">&quot;#940000&quot;</span>, <span class="at">border=</span> <span class="st">&quot;white&quot;</span>)</span>
-<span id="cb37-6"><a href="les-transformations-cartographiques.html#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_label</span>(</span>
-<span id="cb37-7"><a href="les-transformations-cartographiques.html#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com_dorling[<span class="fu">order</span>(com_dorling<span class="sc">$</span>POPULATION, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ][<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,], </span>
-<span id="cb37-8"><a href="les-transformations-cartographiques.html#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="st">&quot;NOM_COM&quot;</span>,</span>
-<span id="cb37-9"><a href="les-transformations-cartographiques.html#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">overlap =</span> <span class="cn">FALSE</span>, <span class="at">show.lines =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb37-10"><a href="les-transformations-cartographiques.html#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">halo =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb37-11"><a href="les-transformations-cartographiques.html#cb37-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">r =</span> .<span class="dv">15</span></span>
-<span id="cb37-12"><a href="les-transformations-cartographiques.html#cb37-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb37-13"><a href="les-transformations-cartographiques.html#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population du Lot - Cartogramme de Dorling&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="les-transformations-cartographiques.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapsf)</span>
+<span id="cb38-2"><a href="les-transformations-cartographiques.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cartogram)</span>
+<span id="cb38-3"><a href="les-transformations-cartographiques.html#cb38-3" aria-hidden="true" tabindex="-1"></a>com <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/lot46.gpkg&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;commune&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb38-4"><a href="les-transformations-cartographiques.html#cb38-4" aria-hidden="true" tabindex="-1"></a>com_dorling <span class="ot">&lt;-</span> <span class="fu">cartogram_dorling</span>(<span class="at">x =</span> com, <span class="at">weight =</span> <span class="st">&quot;POPULATION&quot;</span>, <span class="at">k =</span> <span class="dv">7</span>)</span>
+<span id="cb38-5"><a href="les-transformations-cartographiques.html#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_dorling, <span class="at">col =</span> <span class="st">&quot;#940000&quot;</span>, <span class="at">border=</span> <span class="st">&quot;white&quot;</span>)</span>
+<span id="cb38-6"><a href="les-transformations-cartographiques.html#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_label</span>(</span>
+<span id="cb38-7"><a href="les-transformations-cartographiques.html#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com_dorling[<span class="fu">order</span>(com_dorling<span class="sc">$</span>POPULATION, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ][<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,], </span>
+<span id="cb38-8"><a href="les-transformations-cartographiques.html#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="st">&quot;NOM_COM&quot;</span>,</span>
+<span id="cb38-9"><a href="les-transformations-cartographiques.html#cb38-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">overlap =</span> <span class="cn">FALSE</span>, <span class="at">show.lines =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb38-10"><a href="les-transformations-cartographiques.html#cb38-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">halo =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb38-11"><a href="les-transformations-cartographiques.html#cb38-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">r =</span> .<span class="dv">15</span></span>
+<span id="cb38-12"><a href="les-transformations-cartographiques.html#cb38-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb38-13"><a href="les-transformations-cartographiques.html#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population du Lot - Cartogramme de Dorling&quot;</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/dorling-1.png" width="672" style="display: block; margin: auto;" />
 Le paramètre <code>k</code> permet de faire varier le facteur d’expansion des cercles.</p>
 </div>
@@ -317,10 +316,10 @@ La topologie des régions est perdue.
 <div class="rmdplus">
 La conservation de la forme des polygones est optimale.
 </div>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="les-transformations-cartographiques.html#cb38-1" aria-hidden="true" tabindex="-1"></a>com_ncont <span class="ot">&lt;-</span> <span class="fu">cartogram_ncont</span>(<span class="at">x =</span> com, <span class="at">weight =</span> <span class="st">&quot;POPULATION&quot;</span>, <span class="at">k =</span> <span class="fl">1.2</span>)</span>
-<span id="cb38-2"><a href="les-transformations-cartographiques.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">border =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>,)</span>
-<span id="cb38-3"><a href="les-transformations-cartographiques.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_ncont, <span class="at">col =</span> <span class="st">&quot;#940000&quot;</span>, <span class="at">border=</span> <span class="st">&quot;white&quot;</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb38-4"><a href="les-transformations-cartographiques.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population du Lot - Cartogramme de Olson&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="les-transformations-cartographiques.html#cb39-1" aria-hidden="true" tabindex="-1"></a>com_ncont <span class="ot">&lt;-</span> <span class="fu">cartogram_ncont</span>(<span class="at">x =</span> com, <span class="at">weight =</span> <span class="st">&quot;POPULATION&quot;</span>, <span class="at">k =</span> <span class="fl">1.2</span>)</span>
+<span id="cb39-2"><a href="les-transformations-cartographiques.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">border =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>,)</span>
+<span id="cb39-3"><a href="les-transformations-cartographiques.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_ncont, <span class="at">col =</span> <span class="st">&quot;#940000&quot;</span>, <span class="at">border=</span> <span class="st">&quot;white&quot;</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb39-4"><a href="les-transformations-cartographiques.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population du Lot - Cartogramme de Olson&quot;</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/olson-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Le paramètre <code>k</code> permet de faire varier le facteur d’expansion des polygones.</p>
 </div>
@@ -337,12 +336,12 @@ La forme des polygones est fortement distordue.
 <div class="rmdplus">
 C’est une “vraie carte de géographie” : la topologie et la contiguïté sont conservées.
 </div>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="les-transformations-cartographiques.html#cb39-1" aria-hidden="true" tabindex="-1"></a>com_cont <span class="ot">&lt;-</span> <span class="fu">cartogram_cont</span>(<span class="at">x =</span> com, <span class="at">weight =</span> <span class="st">&quot;POPULATION&quot;</span>, <span class="at">prepare =</span> <span class="st">&quot;none&quot;</span>)</span>
-<span id="cb39-2"><a href="les-transformations-cartographiques.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_cont, <span class="at">col =</span> <span class="st">&quot;#940000&quot;</span>, <span class="at">border=</span> <span class="st">&quot;white&quot;</span>, <span class="at">add =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb39-3"><a href="les-transformations-cartographiques.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population en Martinique - Cartogramme de Dougenik&quot;</span>)</span>
-<span id="cb39-4"><a href="les-transformations-cartographiques.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_on</span>(com, <span class="at">cex =</span> .<span class="dv">2</span>, <span class="at">pos =</span> <span class="st">&quot;topleft&quot;</span>)</span>
-<span id="cb39-5"><a href="les-transformations-cartographiques.html#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">lwd =</span> .<span class="dv">5</span>)</span>
-<span id="cb39-6"><a href="les-transformations-cartographiques.html#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_off</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="les-transformations-cartographiques.html#cb40-1" aria-hidden="true" tabindex="-1"></a>com_cont <span class="ot">&lt;-</span> <span class="fu">cartogram_cont</span>(<span class="at">x =</span> com, <span class="at">weight =</span> <span class="st">&quot;POPULATION&quot;</span>, <span class="at">prepare =</span> <span class="st">&quot;none&quot;</span>)</span>
+<span id="cb40-2"><a href="les-transformations-cartographiques.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_cont, <span class="at">col =</span> <span class="st">&quot;#940000&quot;</span>, <span class="at">border=</span> <span class="st">&quot;white&quot;</span>, <span class="at">add =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb40-3"><a href="les-transformations-cartographiques.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Population en Martinique - Cartogramme de Dougenik&quot;</span>)</span>
+<span id="cb40-4"><a href="les-transformations-cartographiques.html#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_on</span>(com, <span class="at">cex =</span> .<span class="dv">2</span>, <span class="at">pos =</span> <span class="st">&quot;topleft&quot;</span>)</span>
+<span id="cb40-5"><a href="les-transformations-cartographiques.html#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">lwd =</span> .<span class="dv">5</span>)</span>
+<span id="cb40-6"><a href="les-transformations-cartographiques.html#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_off</span>()</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/dougenik-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="forces-et-faiblesses-des-cartogrammes" class="section level2" number="5.4">
