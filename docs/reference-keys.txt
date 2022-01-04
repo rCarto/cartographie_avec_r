@@ -11,6 +11,7 @@ comparer-plusieurs-cartes
 carte-choroplèthe
 discretisation
 palettes
+pour-une-couche-de-points
 carte-de-typologie
 ordonner-les-valeurs-dans-la-légende
 les-cartes-de-points
@@ -48,3 +49,4 @@ les-cartogrammes-non-continus
 les-cartogrammes-continus
 forces-et-faiblesses-des-cartogrammes
 sessioninfo
+fig:unnamed-chunk-2

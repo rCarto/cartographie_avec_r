@@ -382,18 +382,25 @@ La fonction `mf_inset_on()` permet de démarrer la création d'un carton.
 Il faut ensuite "refermer" le carton avec `mf_inset_off()`.
 
 ```{r inset, fig.width = 6.5, fig.height = 5}
-mf_init(x = com_sel, theme = "agolalight", expandBB = c(0,0,0,.5))
+mf_init(x = com_sel, theme = "agolalight", expandBB = c(0,.1,0,.5))
 mf_map(com, add = TRUE)
 mf_map(com_sel, col = "tomato4", border = "tomato1", lwd = 2, add = TRUE)
+# Carton France
 mf_inset_on(x = dep, pos = "topright", cex = .3)
 mf_map(dep, lwd = .5, border= "grey90")
 mf_map(com_sel, col = "tomato4", border = "tomato1", lwd = .5, add = TRUE)
-mf_scale(size = 100, pos = "bottomleft", cex = .6, lwd = .5)
+mf_scale(size = 200, pos = "bottomleft", cex = .6, lwd = .5)
 mf_inset_off()
+# Carton Lot
 mf_inset_on(x = com, pos = "bottomright", cex = .3)
 mf_map(com, lwd = .5, border= "grey90")
 mf_map(com_sel, col = "tomato4", border = "tomato1", lwd = .5, add = TRUE)
-mf_scale(size = 10, pos = "bottomright", cex = .6, lwd = .5)
+mf_scale(size = 20, pos = "bottomright", cex = .6, lwd = .5)
+mf_inset_off()
+# Carton Monde
+mf_inset_on(x = "worldmap", pos = "topleft")
+mf_worldmap(com_sel, land_col = "#cccccc",border_col = NA, 
+            water_col =  "#e3e3e3", col = "tomato4")
 mf_inset_off()
 mf_title("Cahors et ses environs")
 mf_scale(1, pos = 'bottomleft')

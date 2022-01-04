@@ -32,19 +32,12 @@ Le package `linemap` [@R-linemap] permet de réaliser des cartes composées de l
 
 ```{r linemap}
 library(linemap)
-library(sf)
-library(terra)
 library(mapsf)
-# import du raster de population
-rpop <- rast("data/pop.tif")
 # import des communes du Lot
 com <- st_read("data/lot46.gpkg", layer = "commune", quiet = TRUE)
-com <- st_transform(com, st_crs(rpop))
-# découpage selon l'emprise de com
-rpop <- trim(mask(rpop, vect(com)))
-# transformation en data.frame
-pop <- as.data.frame(rpop, xy = TRUE)
-pop <- pop[order(pop$y), ]
+com <- st_transform(com, 3035)
+# import du data.frame de population
+pop <- read.csv("data/pop.csv")
 # cartographie
 th <- mf_theme("green")
 mf_init(com)
@@ -56,9 +49,9 @@ linemap(
   lwd = 1, 
   col = th$bg, 
   border = th$fg, 
-  add = TRUE)
+  add = T)
 mf_title("Population du Lot, 2015")
-mf_credits("Giraud & Pecout, 2021\nINSEE, Données carroyées Filosofi 2015")
+mf_credits("Giraud & Pecout, 2021\nDonnées carroyées – Carreau de 1km, INSEE - 2019")
 ```
 
 
@@ -70,6 +63,7 @@ Nous utilisons le package `tanaka` [@Tanaka20] qui met à disposition une métho
 
 ```{r tanaka}
 library(tanaka)
+library(terra)
 # import du raster de population
 rpop <- rast("data/pop.tif")
 # import des communes du Lot

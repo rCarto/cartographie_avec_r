@@ -123,7 +123,7 @@ mf_title("Population active occupée dans l'industrie")
 
 ```
 
-Nous avons ici affiché deux cartes en vis-à-vis, voir XXXX pour plus de détails. 
+Nous avons ici affiché deux cartes en vis-à-vis, voir le point [Afficher plusieurs cartes sur la même figure](#afficher-plusieurs-cartes-sur-la-même-figure) pour plus de détails. 
 
 
 
@@ -228,6 +228,35 @@ mypal <- mf_get_pal(n = c(6,3), palette = c("Burg", "Teal"))
 image(1:9, 1, as.matrix(1:9), col=mypal, xlab = "", ylab = "", xaxt = "n",
       yaxt = "n",bty = "n")
 ```
+
+
+### Pour une couche de points
+
+Il est possible d'utiliser ce mode de représentation en implémentation ponctuelle également. 
+
+```{r choropt}
+com_c <- st_centroid(com)
+mf_map(com)
+mf_map(
+  x = com_c,
+  var = "DENS",
+  type = "choro",
+  breaks = "quantile",
+  nbreaks = 4,
+  pal = "Dark Mint",
+  pch = 24,
+  cex = 2,
+  border = "white",
+  lwd = .7,
+  leg_pos = "topleft",
+  leg_title = "Densité de population\n(habitants par km2)", 
+  leg_val_rnd = 0, 
+  add = TRUE
+)
+mf_title("Distribution de la population dans le Lot (2018)")
+
+```
+
 
 
 ## Carte de typologie
