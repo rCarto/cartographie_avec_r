@@ -72,7 +72,6 @@ com <- st_transform(com, st_crs(rpop))
 # lissage du raster
 mat <- focalMat(x = rpop, d = c(1500), type = "Gauss")
 rpopl <- focal(x = rpop, w = mat, fun = sum, na.rm = TRUE)
-rpopl <- raster::raster(rpopl)
 # cartographie
 col1 <- hcl.colors(8, "Rocket", alpha = .3, rev = T)
 col2 <- hcl.colors(8, "Rocket", alpha = 1, rev = T)[-1]

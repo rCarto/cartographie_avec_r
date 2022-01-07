@@ -39,6 +39,7 @@ ajouter-une-image-sur-une-carte
 placer-précisément-un-élément-sur-la-carte
 ajouter-un-ombrage-à-une-couche
 création-de-cartons
+exercices
 les-cartes-en-3d
 linemap
 relief-tanaka
@@ -49,4 +50,3 @@ les-cartogrammes-non-continus
 les-cartogrammes-continus
 forces-et-faiblesses-des-cartogrammes
 sessioninfo
-fig:unnamed-chunk-2

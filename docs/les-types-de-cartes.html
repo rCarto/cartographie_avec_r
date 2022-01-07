@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Chapitre 2 Les types de cartes | Cartographie avec R" />
   <meta name="twitter:image" content="/img/globe-africa-solid.svg" />
 
-<meta name="author" content="Timothée Giraud[^1] &amp; Hugues Pecout[^2]" />
+<meta name="author" content="Timothée Giraud &amp; Hugues Pecout" />
 
 
 
@@ -119,6 +119,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -189,6 +211,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.15" data-path="la-mise-en-page.html"><a href="la-mise-en-page.html#placer-précisément-un-élément-sur-la-carte"><i class="fa fa-check"></i><b>3.15</b> Placer précisément un élément sur la carte</a></li>
 <li class="chapter" data-level="3.16" data-path="la-mise-en-page.html"><a href="la-mise-en-page.html#ajouter-un-ombrage-à-une-couche"><i class="fa fa-check"></i><b>3.16</b> Ajouter un ombrage à une couche</a></li>
 <li class="chapter" data-level="3.17" data-path="la-mise-en-page.html"><a href="la-mise-en-page.html#création-de-cartons"><i class="fa fa-check"></i><b>3.17</b> Création de cartons</a></li>
+<li class="chapter" data-level="3.18" data-path="la-mise-en-page.html"><a href="la-mise-en-page.html#exercices"><i class="fa fa-check"></i><b>3.18</b> Exercices</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="les-cartes-en-3d.html"><a href="les-cartes-en-3d.html"><i class="fa fa-check"></i><b>4</b> Les cartes en 3D</a>
 <ul>
@@ -361,7 +384,7 @@ La fonction <code>mf_map(..., type = "prop")</code> propose cette représentatio
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="les-types-de-cartes.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com, <span class="at">var =</span> <span class="st">&quot;SHARE_ACT&quot;</span>, <span class="at">type =</span> <span class="st">&quot;choro&quot;</span>,</span>
 <span id="cb7-2"><a href="les-types-de-cartes.html#cb7-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">breaks =</span> d4, <span class="at">pal =</span> <span class="st">&quot;Blues 3&quot;</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/pal1-1.png" width="384" style="display: block; margin: auto;" /></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
 <img src="img/swatch-plot-1.svg" alt="Palettes directement disponibles"  />
 <p class="caption">
 Figure 2.1: Palettes directement disponibles
@@ -463,7 +486,7 @@ La fonction <code>mf_map(..., type = "typo")</code> propose cette représentatio
 <span id="cb13-12"><a href="les-types-de-cartes.html#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">add =</span> <span class="cn">TRUE</span></span>
 <span id="cb13-13"><a href="les-types-de-cartes.html#cb13-13" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb13-14"><a href="les-types-de-cartes.html#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Statut Administratif&quot;</span>)</span></code></pre></div>
-<p><img src="Cartographie-avec-R_files/figure-html/unnamed-chunk-3-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="Cartographie-avec-R_files/figure-html/unnamed-chunk-4-1.png" width="768" style="display: block; margin: auto;" /></p>
 <!-- ## Les cartes en symboles gradués -->
 <!-- ### Polygons -->
 <!-- ### points -->

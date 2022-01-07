@@ -407,4 +407,67 @@ mf_scale(1, pos = 'bottomleft')
 
 ```
 
+## Exercices
+
+1. Créez une carte représentant la population active travaillant dans l'industrie. 
+2. Ajoutez les éléments d'habillage indispensables.
+3. Utilisez un thème personnalisé.
+4. Ajoutez un carton de localisation du Lot
+5. Exportez la carte au format PNG avec 800 pixels de large. 
+6. Comment rendre la carte plus intelligible ? Allez-y !
+
+
+```{r exo, include=FALSE, eval = FALSE}
+library(mapsf)
+# import des communes du Lot
+com <- st_read("data/lot46.gpkg", layer = "commune", quiet = TRUE)
+# import des départments français
+dep <- st_read("data/lot46.gpkg", layer = "departement", quiet = TRUE)
+com$ACT <-  apply(com[, 5:12, drop = TRUE],1,sum)
+com$SIND <- 100 * (com$IND_H + com$IND_F) / com$ACT
+
+
+
+th <- mf_theme("green", mar = c(0,0,1.5,0))
+
+mf_export(com, theme = th, width=800)
+mf_map(x = com, border = "white", lwd = .2, add = T)
+mf_map(x = dep, lwd = 1, col = NA, add = TRUE, lend = 0)
+mf_map(com[com$ACT>15, ], c("ACT", "SIND"), "prop_choro", 
+       breaks = "quantile", nbreaks = 5, 
+       pal = "Red-Yellow", 
+       inches = .4,
+       border = "white", lwd = .7, 
+       leg_val_rnd =  c(0,1), 
+       leg_pos = c(538000,6438063 + 4000, 538000, 6420000 +  4000),
+       leg_title = c("Nombre d'actifs*", 
+                     "Part des actifs\ndans l'industrie (en %)"))
+mf_annotation(x = com[com$NOM_COM=="Biars-sur-Cère",], 
+              txt = "Andros", 
+              col_arrow = th$fg, halo = T, cex = 1)
+mf_annotation(x = com[com$NOM_COM=="Figeac",], 
+              txt = "Industrie\naéronautique", 
+              col_arrow = th$fg, pos = "bottomright", halo = T, cex = 1)
+mf_annotation(x = com[com$NOM_COM=="Gramat",], 
+              txt = "La Quercynoise", 
+              col_arrow = th$fg, pos = "topleft", s = 1, halo = T, cex = 1)
+text(x = 538000, y = 6396101, 
+     label = "* Ne sont représentées\n  que les communes de\n  plus de 15 actifs", 
+     cex = .6, col = th$fg, adj = c(0,0))
+mf_title("Répartition des actifs travaillant dans l'industrie - 2017")
+mf_inset_on(fig = c(.8,0.98,0.1,0.3))
+mf_map(dep, lwd = .1)
+mf_map(com, border = NA, add = T, col = th$fg)
+box(col =th$fg, lwd = .5)
+mf_inset_off()
+mf_scale(5)
+mf_credits(paste0("Admin Express COG Carto 3.0, IGN - 2021 & ", 
+                  "BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - ",
+                  "Séries départementales et communales, INSEE - 2020\n",
+                  "Auteurs : T. Giraud & H. Pecout, 2022"))
+dev.off()
+```
+
+
+
 
