@@ -9,7 +9,7 @@ library(knitr)
 ## Global options
 options(max.print="90")
 opts_chunk$set(echo=TRUE,
-               cache=FALSE,
+               cache=TRUE,
                prompt=FALSE,
                tidy=FALSE,
                comment=NA,
@@ -98,10 +98,12 @@ mf_credits("Giraud & Pecout, 2021\nINSEE, Données carroyées Filosofi 2015",
 
 ## rayshader
 
-Le package `rayshader` [@R-rayshader] permet de réaliser de belles cartes en relief. 
-L'export des images n'est pas évident, il s'agit ici d'une simple capture d'écran. 
+Le package `rayshader` [@R-rayshader] permet de réaliser de belles cartes en relief mais il n'est pas très facile à prendre en main. Le package `rayvista` [@R-rayvista] s'appuie sur `rayshader` et facilite la création de représentations 3D du terrain.
+`rayvista` n'est pas sur le CRAN. 
+
 
 ```{r rayshade,eval=FALSE}
+# remotes::install_github("https://github.com/h-a-graham/rayvista")
 library(rayshader) 
 library(rayvista)
 
