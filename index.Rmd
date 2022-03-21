@@ -49,5 +49,5 @@ La version en ligne de ce document est sous licence [Creative Commons Attributio
 
 
 
-[^1]: UMS RIATE, CNRS, Université de Paris, F-75013 Paris, France
+[^1]: UMS RIATE, CNRS, Université Paris Cité, F-75013 Paris, France
 [^2]: FR CIST, CNRS, F-75013 Paris, France
