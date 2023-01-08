@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapitre 6 sessionInfo() | Cartographie avec R</title>
   <meta name="description" content="Chapitre 6 sessionInfo() | Cartographie avec R" />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapitre 6 sessionInfo() | Cartographie avec R" />
   <meta property="og:type" content="book" />
@@ -91,7 +91,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -104,7 +104,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -249,13 +249,13 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="sessioninfo" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">Chapitre 6</span> <code>sessionInfo()</code><a href="sessioninfo.html#sessioninfo" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<pre><code>R version 4.1.3 (2022-03-10)
+<pre><code>R version 4.2.2 (2022-10-31)
 Platform: x86_64-pc-linux-gnu (64-bit)
 Running under: Debian GNU/Linux 11 (bullseye)
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
-LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.13.so
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 
 locale:
  [1] LC_CTYPE=fr_FR.UTF-8       LC_NUMERIC=C               LC_TIME=fr_FR.UTF-8       
@@ -267,23 +267,23 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] cartogram_0.2.2 terra_1.5-21    tanaka_0.3.0.0  linemap_0.3.0.0 png_0.1-7      
-[6] mapsf_0.5.0.0   sf_1.0-7        knitr_1.38     
+[1] cartogram_0.2.2 terra_1.6-47    tanaka_0.3.0    linemap_0.3.0.0 png_0.1-8      
+[6] mapsf_0.6.1     sf_1.0-9        knitr_1.41     
 
 loaded via a namespace (and not attached):
- [1] tidyselect_1.1.2   xfun_0.30          bslib_0.3.1        purrr_0.3.4       
- [5] vctrs_0.4.1        generics_0.1.2     htmltools_0.5.2    s2_1.0.7          
- [9] yaml_2.3.5         utf8_1.2.2         rlang_1.0.2        isoband_0.2.5     
-[13] e1071_1.7-9        jquerylib_0.1.4    pillar_1.7.0       glue_1.6.2        
-[17] DBI_1.1.2          wk_0.6.0           jpeg_0.1-9         lifecycle_1.0.1   
-[21] stringr_1.4.0      codetools_0.2-18   evaluate_0.15      fastmap_1.1.0     
-[25] class_7.3-20       fansi_1.0.3        highr_0.9          Rcpp_1.0.8.3      
-[29] KernSmooth_2.23-20 classInt_0.4-3     jsonlite_1.8.0     digest_0.6.29     
-[33] stringi_1.7.6      bookdown_0.26      dplyr_1.0.8        grid_4.1.3        
-[37] cli_3.2.0          tools_4.1.3        packcircles_0.3.4  magrittr_2.0.3    
-[41] sass_0.4.1         proxy_0.4-26       tibble_3.1.6       crayon_1.5.1      
-[45] pkgconfig_2.0.3    ellipsis_0.3.2     assertthat_0.2.1   rmarkdown_2.13    
-[49] rstudioapi_0.13    R6_2.5.1           units_0.8-0        compiler_4.1.3    </code></pre>
+ [1] Rcpp_1.0.9         bslib_0.4.2        compiler_4.2.2     pillar_1.8.1      
+ [5] jquerylib_0.1.4    highr_0.10         class_7.3-20       tools_4.2.2       
+ [9] digest_0.6.31      tibble_3.1.8       jsonlite_1.8.4     evaluate_0.19     
+[13] lifecycle_1.0.3    pkgconfig_2.0.3    rlang_1.0.6        cli_3.5.0         
+[17] DBI_1.1.3          rstudioapi_0.14    yaml_2.3.6         xfun_0.36         
+[21] fastmap_1.1.0      e1071_1.7-12       stringr_1.5.0      dplyr_1.0.10      
+[25] packcircles_0.3.5  generics_0.1.3     vctrs_0.5.1        sass_0.4.4        
+[29] isoband_0.2.7      tidyselect_1.2.0   classInt_0.4-8     grid_4.2.2        
+[33] glue_1.6.2         R6_2.5.1           jpeg_0.1-10        fansi_1.0.3       
+[37] rmarkdown_2.19     bookdown_0.31      mapiso_0.2.0       magrittr_2.0.3    
+[41] codetools_0.2-18   htmltools_0.5.4    units_0.8-1        assertthat_0.2.1  
+[45] utf8_1.2.2         KernSmooth_2.23-20 stringi_1.7.8      proxy_0.4-27      
+[49] cachem_1.0.6      </code></pre>
 
 </div>
             </section>

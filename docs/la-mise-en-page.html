@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapitre 3 La mise en page | Cartographie avec R</title>
   <meta name="description" content="Chapitre 3 La mise en page | Cartographie avec R" />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapitre 3 La mise en page | Cartographie avec R" />
   <meta property="og:type" content="book" />
@@ -91,7 +91,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -104,7 +104,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -550,7 +550,7 @@ Il faut ensuite “refermer” le carton avec <code>mf_inset_off()</code>.</p>
 <!-- # import des départments français -->
 <!-- dep <- st_read("data/lot46.gpkg", layer = "departement", quiet = TRUE) -->
 <!-- # Nombre total d'actifs -->
-<!-- com$ACT <- com$AGR_H + com$AGR_F + com$IND_H + com$IND_F + com$BTP_H +  -->
+<!-- com$ACT <- com$AGR_H + com$AGR_F + com$IND_H + com$IND_F + com$BTP_H + -->
 <!--   com$BTP_F + com$TER_H + com$TER_F -->
 <!-- # Nombre d'actifs dans l'industrie -->
 <!-- com$IND <- com$IND_F + com$IND_H -->
@@ -559,7 +559,7 @@ Il faut ensuite “refermer” le carton avec <code>mf_inset_off()</code>.</p>
 <!-- # Création d'un thème personnalisé -->
 <!-- th <- mf_theme("green", mar = c(0,0,1.5,0), pos = "left") -->
 <!-- # Cartographie du nombre total de travailleurs de l'industrie -->
-<!-- mf_export(com, "img/n_ind.png", theme = th,  -->
+<!-- mf_export(com, "img/n_ind.png", theme = th, -->
 <!--           width = 800) -->
 <!-- mf_map(x = com, border = "white", lwd = .2, add = T) -->
 <!-- mf_map(x = dep, lwd = 1, col = NA, add = TRUE, lend = 0) -->
@@ -568,9 +568,9 @@ Il faut ensuite “refermer” le carton avec <code>mf_inset_off()</code>.</p>
 <!-- mf_title("Répartition des actifs travaillant dans l'industrie - 2017") -->
 <!-- mf_scale(5) -->
 <!-- mf_arrow(pos = "topright") -->
-<!-- # notez l'utilisation ici de paste0() qui permet de concatener des chaines  -->
+<!-- # notez l'utilisation ici de paste0() qui permet de concatener des chaines -->
 <!-- # de caractères et de \n qui permet d'aller à la ligne -->
-<!-- mf_credits(paste0("Admin Express COG Carto 3.0, IGN - 2021 & ",  -->
+<!-- mf_credits(paste0("Admin Express COG Carto 3.0, IGN - 2021 & ", -->
 <!--                   "BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - ", -->
 <!--                   "Séries départementales et communales, INSEE - 2020\n", -->
 <!--                   "Auteurs : T. Giraud & H. Pecout, 2022")) -->
@@ -591,65 +591,65 @@ Il faut ensuite “refermer” le carton avec <code>mf_inset_off()</code>.</p>
 <!-- hist(com_sel$PART_ACT_IND) -->
 <!-- boxplot(com_sel$PART_ACT_IND, horizontal = TRUE) -->
 <!-- summary(com_sel$PART_ACT_IND) -->
-<!-- # Creation d'un vecteur contenant les limites de classes en  -->
+<!-- # Creation d'un vecteur contenant les limites de classes en -->
 <!-- # utilisant la méthode des quantiles -->
 <!-- bks <- mf_get_breaks(com_sel$PART_ACT_IND, nbreaks = 5, -->
 <!--                      breaks = "quantile") -->
 <!-- hist(com_sel$PART_ACT_IND, bks) -->
-<!-- mf_export(com, "img/s_ind.png", theme = th,  -->
+<!-- mf_export(com, "img/s_ind.png", theme = th, -->
 <!--           width = 800) -->
 <!-- # Cartographie -->
-<!-- mf_map(x = com,  -->
-<!--        var = "PART_ACT_IND",  -->
+<!-- mf_map(x = com, -->
+<!--        var = "PART_ACT_IND", -->
 <!--        type = "choro", -->
 <!--        breaks = bks,         # Utilisation des bornes de classes créées précédement -->
 <!--        leg_val_rnd = 0,      # arrondir les valeurs dans la légende -->
 <!--        pal = "Red-Yellow",   # Utilisation d'une palette de couleur -->
 <!--        leg_title = "Part des actifs\ntravaillant dans\nl'industrie", -->
-<!--        add = TRUE,  -->
+<!--        add = TRUE, -->
 <!--        col_na = "grey", -->
 <!--        leg_no_data = "Communes de moins de 15 actifs") # texte du no data dans la légende -->
 <!-- mf_title("Répartition des actifs travaillant dans l'industrie - 2017") -->
 <!-- mf_scale(5) -->
 <!-- mf_arrow(pos = "topright") -->
-<!-- mf_credits(paste0("Admin Express COG Carto 3.0, IGN - 2021 & ",  -->
+<!-- mf_credits(paste0("Admin Express COG Carto 3.0, IGN - 2021 & ", -->
 <!--                   "BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - ", -->
 <!--                   "Séries départementales et communales, INSEE - 2020\n", -->
 <!--                   "Auteurs : T. Giraud & H. Pecout, 2022")) -->
 <!-- dev.off() -->
 <!-- ``` -->
 <!-- ![](img/s_ind.png) -->
-<!-- Nous allons maintenant combiner le nombre total d'actifs et la parts des travailleurs de l'industrie.  -->
+<!-- Nous allons maintenant combiner le nombre total d'actifs et la parts des travailleurs de l'industrie. -->
 <!-- ```{r exoc, echo=TRUE, eval = TRUE} -->
-<!-- mf_export(com, "img/c_ind.png", theme = th,  -->
+<!-- mf_export(com, "img/c_ind.png", theme = th, -->
 <!--           width = 800) -->
 <!-- mf_map(x = com, border = "white", lwd = .2, add = T) -->
 <!-- mf_map(x = dep, lwd = 1, col = NA, add = TRUE, lend = 0) -->
-<!-- mf_map(com, c("ACT", "PART_ACT_IND"), "prop_choro",  -->
-<!--        breaks = bks,  -->
-<!--        pal = "Red-Yellow",  -->
+<!-- mf_map(com, c("ACT", "PART_ACT_IND"), "prop_choro", -->
+<!--        breaks = bks, -->
+<!--        pal = "Red-Yellow", -->
 <!--        inches = .4, -->
-<!--        border = "white", lwd = .7,  -->
-<!--        leg_val_rnd =  c(0,1),  -->
+<!--        border = "white", lwd = .7, -->
+<!--        leg_val_rnd =  c(0,1), -->
 <!--        leg_pos = c(538000,6442000, 538000, 6424000),  # ici les légendes sont positionnées manuellement -->
-<!--        leg_title = c("Nombre d'actifs*",  -->
-<!--                      "Part des actifs\ndans l'industrie (en %)"),  -->
+<!--        leg_title = c("Nombre d'actifs*", -->
+<!--                      "Part des actifs\ndans l'industrie (en %)"), -->
 <!--        col_na = "grey", -->
 <!--        leg_no_data = "Communes de moins de 15 actifs") -->
 <!-- # Ajout d'annotations -->
-<!-- mf_annotation(x = com[com$NOM_COM=="Biars-sur-Cère",],  -->
-<!--               txt = "Andros",  -->
+<!-- mf_annotation(x = com[com$NOM_COM=="Biars-sur-Cère",], -->
+<!--               txt = "Andros", -->
 <!--               col_arrow = th$fg, halo = T, cex = 1) -->
-<!-- mf_annotation(x = com[com$NOM_COM=="Figeac",],  -->
-<!--               txt = "Industrie\naéronautique",  -->
+<!-- mf_annotation(x = com[com$NOM_COM=="Figeac",], -->
+<!--               txt = "Industrie\naéronautique", -->
 <!--               col_arrow = th$fg, pos = "bottomright", halo = T, cex = 1) -->
-<!-- mf_annotation(x = com[com$NOM_COM=="Gramat",],  -->
-<!--               txt = "La Quercynoise (?)",  -->
-<!--               col_arrow = th$fg, pos = "topleft", s = 1, halo = T,  -->
+<!-- mf_annotation(x = com[com$NOM_COM=="Gramat",], -->
+<!--               txt = "La Quercynoise (?)", -->
+<!--               col_arrow = th$fg, pos = "topleft", s = 1, halo = T, -->
 <!--               cex = 1) -->
 <!-- mf_title("Répartition des actifs travaillant dans l'industrie - 2017") -->
 <!-- # ajout d'un carton -> -->
-<!-- mf_inset_on(fig = c(.8,0.98,0.1,0.3))  -->
+<!-- mf_inset_on(fig = c(.8,0.98,0.1,0.3)) -->
 <!-- mf_map(dep, lwd = .1) -->
 <!-- mf_map(com, border = NA, add = T, col = th$fg) -->
 <!-- box(col = th$fg, lwd = .5) -->
@@ -657,7 +657,7 @@ Il faut ensuite “refermer” le carton avec <code>mf_inset_off()</code>.</p>
 <!-- # <- fin du carton -->
 <!-- mf_scale(5) -->
 <!-- mf_arrow("topright") -->
-<!-- mf_credits(paste0("Admin Express COG Carto 3.0, IGN - 2021 & ",  -->
+<!-- mf_credits(paste0("Admin Express COG Carto 3.0, IGN - 2021 & ", -->
 <!--                   "BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - ", -->
 <!--                   "Séries départementales et communales, INSEE - 2020\n", -->
 <!--                   "Auteurs : T. Giraud & H. Pecout, 2022")) -->
