@@ -543,127 +543,141 @@ Il faut ensuite “refermer” le carton avec <code>mf_inset_off()</code>.</p>
 <li>Exportez la carte au format PNG avec 800 pixels de large.</li>
 <li>Comment rendre la carte plus intelligible ? Allez-y !</li>
 </ol>
-<!-- ```{r exoa, echo=TRUE, eval = TRUE} -->
-<!-- library(mapsf) -->
-<!-- # import des communes du Lot -->
-<!-- com <- st_read("data/lot46.gpkg", layer = "commune", quiet = TRUE) -->
-<!-- # import des départments français -->
-<!-- dep <- st_read("data/lot46.gpkg", layer = "departement", quiet = TRUE) -->
-<!-- # Nombre total d'actifs -->
-<!-- com$ACT <- com$AGR_H + com$AGR_F + com$IND_H + com$IND_F + com$BTP_H + -->
-<!--   com$BTP_F + com$TER_H + com$TER_F -->
-<!-- # Nombre d'actifs dans l'industrie -->
-<!-- com$IND <- com$IND_F + com$IND_H -->
-<!-- # Part des actifs travaillant dans l'industrie -->
-<!-- com$PART_ACT_IND <- 100 * com$IND / com$ACT -->
-<!-- # Création d'un thème personnalisé -->
-<!-- th <- mf_theme("green", mar = c(0,0,1.5,0), pos = "left") -->
-<!-- # Cartographie du nombre total de travailleurs de l'industrie -->
-<!-- mf_export(com, "img/n_ind.png", theme = th, -->
-<!--           width = 800) -->
-<!-- mf_map(x = com, border = "white", lwd = .2, add = T) -->
-<!-- mf_map(x = dep, lwd = 1, col = NA, add = TRUE, lend = 0) -->
-<!-- mf_map(x = com, var = "IND", type = "prop", -->
-<!--        leg_title = "Nombre d'actifs\ntravaillant dans\nl'industrie") -->
-<!-- mf_title("Répartition des actifs travaillant dans l'industrie - 2017") -->
-<!-- mf_scale(5) -->
-<!-- mf_arrow(pos = "topright") -->
-<!-- # notez l'utilisation ici de paste0() qui permet de concatener des chaines -->
-<!-- # de caractères et de \n qui permet d'aller à la ligne -->
-<!-- mf_credits(paste0("Admin Express COG Carto 3.0, IGN - 2021 & ", -->
-<!--                   "BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - ", -->
-<!--                   "Séries départementales et communales, INSEE - 2020\n", -->
-<!--                   "Auteurs : T. Giraud & H. Pecout, 2022")) -->
-<!-- dev.off() -->
-<!-- ``` -->
-<!-- ![](img/n_ind.png) -->
-<!-- ```{r exob, echo=TRUE, eval = TRUE} -->
-<!-- # Cartographie de la part des actifs travaillant dans l'industrie -->
-<!-- ## Quelle est la forme de la distribution que nous voulons cartographier ? -->
-<!-- hist(com$PART_ACT_IND) -->
-<!-- boxplot(com$PART_ACT_IND, horizontal = TRUE) -->
-<!-- summary(com$PART_ACT_IND) -->
-<!-- #### > Seules 2 communes ont 100% de travailleurs dans l'industrie -->
-<!-- #### Ces communes ont moins de 15 actifs -->
-<!-- # Sélection des communes ayant plus de 15 actifs -->
-<!-- com_sel <- com[com$ACT > 15, ] -->
-<!-- ## Quelle est la forme de cette (nouvelle) distribution -->
-<!-- hist(com_sel$PART_ACT_IND) -->
-<!-- boxplot(com_sel$PART_ACT_IND, horizontal = TRUE) -->
-<!-- summary(com_sel$PART_ACT_IND) -->
-<!-- # Creation d'un vecteur contenant les limites de classes en -->
-<!-- # utilisant la méthode des quantiles -->
-<!-- bks <- mf_get_breaks(com_sel$PART_ACT_IND, nbreaks = 5, -->
-<!--                      breaks = "quantile") -->
-<!-- hist(com_sel$PART_ACT_IND, bks) -->
-<!-- mf_export(com, "img/s_ind.png", theme = th, -->
-<!--           width = 800) -->
-<!-- # Cartographie -->
-<!-- mf_map(x = com, -->
-<!--        var = "PART_ACT_IND", -->
-<!--        type = "choro", -->
-<!--        breaks = bks,         # Utilisation des bornes de classes créées précédement -->
-<!--        leg_val_rnd = 0,      # arrondir les valeurs dans la légende -->
-<!--        pal = "Red-Yellow",   # Utilisation d'une palette de couleur -->
-<!--        leg_title = "Part des actifs\ntravaillant dans\nl'industrie", -->
-<!--        add = TRUE, -->
-<!--        col_na = "grey", -->
-<!--        leg_no_data = "Communes de moins de 15 actifs") # texte du no data dans la légende -->
-<!-- mf_title("Répartition des actifs travaillant dans l'industrie - 2017") -->
-<!-- mf_scale(5) -->
-<!-- mf_arrow(pos = "topright") -->
-<!-- mf_credits(paste0("Admin Express COG Carto 3.0, IGN - 2021 & ", -->
-<!--                   "BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - ", -->
-<!--                   "Séries départementales et communales, INSEE - 2020\n", -->
-<!--                   "Auteurs : T. Giraud & H. Pecout, 2022")) -->
-<!-- dev.off() -->
-<!-- ``` -->
-<!-- ![](img/s_ind.png) -->
-<!-- Nous allons maintenant combiner le nombre total d'actifs et la parts des travailleurs de l'industrie. -->
-<!-- ```{r exoc, echo=TRUE, eval = TRUE} -->
-<!-- mf_export(com, "img/c_ind.png", theme = th, -->
-<!--           width = 800) -->
-<!-- mf_map(x = com, border = "white", lwd = .2, add = T) -->
-<!-- mf_map(x = dep, lwd = 1, col = NA, add = TRUE, lend = 0) -->
-<!-- mf_map(com, c("ACT", "PART_ACT_IND"), "prop_choro", -->
-<!--        breaks = bks, -->
-<!--        pal = "Red-Yellow", -->
-<!--        inches = .4, -->
-<!--        border = "white", lwd = .7, -->
-<!--        leg_val_rnd =  c(0,1), -->
-<!--        leg_pos = c(538000,6442000, 538000, 6424000),  # ici les légendes sont positionnées manuellement -->
-<!--        leg_title = c("Nombre d'actifs*", -->
-<!--                      "Part des actifs\ndans l'industrie (en %)"), -->
-<!--        col_na = "grey", -->
-<!--        leg_no_data = "Communes de moins de 15 actifs") -->
-<!-- # Ajout d'annotations -->
-<!-- mf_annotation(x = com[com$NOM_COM=="Biars-sur-Cère",], -->
-<!--               txt = "Andros", -->
-<!--               col_arrow = th$fg, halo = T, cex = 1) -->
-<!-- mf_annotation(x = com[com$NOM_COM=="Figeac",], -->
-<!--               txt = "Industrie\naéronautique", -->
-<!--               col_arrow = th$fg, pos = "bottomright", halo = T, cex = 1) -->
-<!-- mf_annotation(x = com[com$NOM_COM=="Gramat",], -->
-<!--               txt = "La Quercynoise (?)", -->
-<!--               col_arrow = th$fg, pos = "topleft", s = 1, halo = T, -->
-<!--               cex = 1) -->
-<!-- mf_title("Répartition des actifs travaillant dans l'industrie - 2017") -->
-<!-- # ajout d'un carton -> -->
-<!-- mf_inset_on(fig = c(.8,0.98,0.1,0.3)) -->
-<!-- mf_map(dep, lwd = .1) -->
-<!-- mf_map(com, border = NA, add = T, col = th$fg) -->
-<!-- box(col = th$fg, lwd = .5) -->
-<!-- mf_inset_off() -->
-<!-- # <- fin du carton -->
-<!-- mf_scale(5) -->
-<!-- mf_arrow("topright") -->
-<!-- mf_credits(paste0("Admin Express COG Carto 3.0, IGN - 2021 & ", -->
-<!--                   "BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - ", -->
-<!--                   "Séries départementales et communales, INSEE - 2020\n", -->
-<!--                   "Auteurs : T. Giraud & H. Pecout, 2022")) -->
-<!-- dev.off() -->
-<!-- ``` -->
-<!-- ![](img/c_ind.png) -->
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="la-mise-en-page.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapsf)</span>
+<span id="cb36-2"><a href="la-mise-en-page.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># import des communes du Lot</span></span>
+<span id="cb36-3"><a href="la-mise-en-page.html#cb36-3" aria-hidden="true" tabindex="-1"></a>com <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/lot46.gpkg&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;commune&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb36-4"><a href="la-mise-en-page.html#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># import des départments français</span></span>
+<span id="cb36-5"><a href="la-mise-en-page.html#cb36-5" aria-hidden="true" tabindex="-1"></a>dep <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/lot46.gpkg&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;departement&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb36-6"><a href="la-mise-en-page.html#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Nombre total d&#39;actifs</span></span>
+<span id="cb36-7"><a href="la-mise-en-page.html#cb36-7" aria-hidden="true" tabindex="-1"></a>com<span class="sc">$</span>ACT <span class="ot">&lt;-</span> com<span class="sc">$</span>AGR_H <span class="sc">+</span> com<span class="sc">$</span>AGR_F <span class="sc">+</span> com<span class="sc">$</span>IND_H <span class="sc">+</span> com<span class="sc">$</span>IND_F <span class="sc">+</span> com<span class="sc">$</span>BTP_H <span class="sc">+</span></span>
+<span id="cb36-8"><a href="la-mise-en-page.html#cb36-8" aria-hidden="true" tabindex="-1"></a>  com<span class="sc">$</span>BTP_F <span class="sc">+</span> com<span class="sc">$</span>TER_H <span class="sc">+</span> com<span class="sc">$</span>TER_F</span>
+<span id="cb36-9"><a href="la-mise-en-page.html#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Nombre d&#39;actifs dans l&#39;industrie</span></span>
+<span id="cb36-10"><a href="la-mise-en-page.html#cb36-10" aria-hidden="true" tabindex="-1"></a>com<span class="sc">$</span>IND <span class="ot">&lt;-</span> com<span class="sc">$</span>IND_F <span class="sc">+</span> com<span class="sc">$</span>IND_H</span>
+<span id="cb36-11"><a href="la-mise-en-page.html#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Part des actifs travaillant dans l&#39;industrie</span></span>
+<span id="cb36-12"><a href="la-mise-en-page.html#cb36-12" aria-hidden="true" tabindex="-1"></a>com<span class="sc">$</span>PART_ACT_IND <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> com<span class="sc">$</span>IND <span class="sc">/</span> com<span class="sc">$</span>ACT</span>
+<span id="cb36-13"><a href="la-mise-en-page.html#cb36-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-14"><a href="la-mise-en-page.html#cb36-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d&#39;un thème personnalisé</span></span>
+<span id="cb36-15"><a href="la-mise-en-page.html#cb36-15" aria-hidden="true" tabindex="-1"></a>th <span class="ot">&lt;-</span> <span class="fu">mf_theme</span>(<span class="st">&quot;green&quot;</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">1.5</span>,<span class="dv">0</span>), <span class="at">pos =</span> <span class="st">&quot;left&quot;</span>)</span>
+<span id="cb36-16"><a href="la-mise-en-page.html#cb36-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-17"><a href="la-mise-en-page.html#cb36-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Cartographie du nombre total de travailleurs de l&#39;industrie</span></span>
+<span id="cb36-18"><a href="la-mise-en-page.html#cb36-18" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_export</span>(com, <span class="st">&quot;img/n_ind.png&quot;</span>, <span class="at">theme =</span> th,</span>
+<span id="cb36-19"><a href="la-mise-en-page.html#cb36-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">width =</span> <span class="dv">800</span>)</span>
+<span id="cb36-20"><a href="la-mise-en-page.html#cb36-20" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com, <span class="at">border =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> .<span class="dv">2</span>, <span class="at">add =</span> T)</span>
+<span id="cb36-21"><a href="la-mise-en-page.html#cb36-21" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> dep, <span class="at">lwd =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">lend =</span> <span class="dv">0</span>)</span>
+<span id="cb36-22"><a href="la-mise-en-page.html#cb36-22" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com, <span class="at">var =</span> <span class="st">&quot;IND&quot;</span>, <span class="at">type =</span> <span class="st">&quot;prop&quot;</span>,</span>
+<span id="cb36-23"><a href="la-mise-en-page.html#cb36-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_title =</span> <span class="st">&quot;Nombre d&#39;actifs</span><span class="sc">\n</span><span class="st">travaillant dans</span><span class="sc">\n</span><span class="st">l&#39;industrie&quot;</span>)</span>
+<span id="cb36-24"><a href="la-mise-en-page.html#cb36-24" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Répartition des actifs travaillant dans l&#39;industrie - 2017&quot;</span>)</span>
+<span id="cb36-25"><a href="la-mise-en-page.html#cb36-25" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(<span class="dv">5</span>)</span>
+<span id="cb36-26"><a href="la-mise-en-page.html#cb36-26" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_arrow</span>(<span class="at">pos =</span> <span class="st">&quot;topright&quot;</span>)</span>
+<span id="cb36-27"><a href="la-mise-en-page.html#cb36-27" aria-hidden="true" tabindex="-1"></a><span class="co"># notez l&#39;utilisation ici de paste0() qui permet de concatener des chaines</span></span>
+<span id="cb36-28"><a href="la-mise-en-page.html#cb36-28" aria-hidden="true" tabindex="-1"></a><span class="co"># de caractères et de \n qui permet d&#39;aller à la ligne</span></span>
+<span id="cb36-29"><a href="la-mise-en-page.html#cb36-29" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_credits</span>(<span class="fu">paste0</span>(<span class="st">&quot;Admin Express COG Carto 3.0, IGN - 2021 &amp; &quot;</span>,</span>
+<span id="cb36-30"><a href="la-mise-en-page.html#cb36-30" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - &quot;</span>,</span>
+<span id="cb36-31"><a href="la-mise-en-page.html#cb36-31" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Séries départementales et communales, INSEE - 2020</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb36-32"><a href="la-mise-en-page.html#cb36-32" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Auteurs : T. Giraud &amp; H. Pecout, 2022&quot;</span>))</span>
+<span id="cb36-33"><a href="la-mise-en-page.html#cb36-33" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<pre><code>png 
+  2 </code></pre>
+<p><img src="img/n_ind.png" /></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="la-mise-en-page.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cartographie de la part des actifs travaillant dans l&#39;industrie</span></span>
+<span id="cb38-2"><a href="la-mise-en-page.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Quelle est la forme de la distribution que nous voulons cartographier ?</span></span>
+<span id="cb38-3"><a href="la-mise-en-page.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(com<span class="sc">$</span>PART_ACT_IND)</span></code></pre></div>
+<p><img src="Cartographie-avec-R_files/figure-html/exob-1.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="la-mise-en-page.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(com<span class="sc">$</span>PART_ACT_IND, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="Cartographie-avec-R_files/figure-html/exob-2.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="la-mise-en-page.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(com<span class="sc">$</span>PART_ACT_IND)</span></code></pre></div>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  0.000   7.407  14.286  16.282  23.077 100.000 </code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="la-mise-en-page.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### &gt; Seules 2 communes ont 100% de travailleurs dans l&#39;industrie</span></span>
+<span id="cb42-2"><a href="la-mise-en-page.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="do">#### Ces communes ont moins de 15 actifs</span></span>
+<span id="cb42-3"><a href="la-mise-en-page.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sélection des communes ayant plus de 15 actifs</span></span>
+<span id="cb42-4"><a href="la-mise-en-page.html#cb42-4" aria-hidden="true" tabindex="-1"></a>com_sel <span class="ot">&lt;-</span> com[com<span class="sc">$</span>ACT <span class="sc">&gt;</span> <span class="dv">15</span>, ]</span>
+<span id="cb42-5"><a href="la-mise-en-page.html#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Quelle est la forme de cette (nouvelle) distribution</span></span>
+<span id="cb42-6"><a href="la-mise-en-page.html#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(com_sel<span class="sc">$</span>PART_ACT_IND)</span></code></pre></div>
+<p><img src="Cartographie-avec-R_files/figure-html/exob-3.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="la-mise-en-page.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(com_sel<span class="sc">$</span>PART_ACT_IND, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="Cartographie-avec-R_files/figure-html/exob-4.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="la-mise-en-page.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(com_sel<span class="sc">$</span>PART_ACT_IND)</span></code></pre></div>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  0.000   7.408  14.286  15.783  22.466  60.000 </code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="la-mise-en-page.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creation d&#39;un vecteur contenant les limites de classes en</span></span>
+<span id="cb46-2"><a href="la-mise-en-page.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># utilisant la méthode des quantiles</span></span>
+<span id="cb46-3"><a href="la-mise-en-page.html#cb46-3" aria-hidden="true" tabindex="-1"></a>bks <span class="ot">&lt;-</span> <span class="fu">mf_get_breaks</span>(com_sel<span class="sc">$</span>PART_ACT_IND, <span class="at">nbreaks =</span> <span class="dv">5</span>,</span>
+<span id="cb46-4"><a href="la-mise-en-page.html#cb46-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="st">&quot;quantile&quot;</span>)</span>
+<span id="cb46-5"><a href="la-mise-en-page.html#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(com_sel<span class="sc">$</span>PART_ACT_IND, bks)</span></code></pre></div>
+<p><img src="Cartographie-avec-R_files/figure-html/exob-5.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="la-mise-en-page.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_export</span>(com, <span class="st">&quot;img/s_ind.png&quot;</span>, <span class="at">theme =</span> th,</span>
+<span id="cb47-2"><a href="la-mise-en-page.html#cb47-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">width =</span> <span class="dv">800</span>)</span>
+<span id="cb47-3"><a href="la-mise-en-page.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Cartographie</span></span>
+<span id="cb47-4"><a href="la-mise-en-page.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com,</span>
+<span id="cb47-5"><a href="la-mise-en-page.html#cb47-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">var =</span> <span class="st">&quot;PART_ACT_IND&quot;</span>,</span>
+<span id="cb47-6"><a href="la-mise-en-page.html#cb47-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">type =</span> <span class="st">&quot;choro&quot;</span>,</span>
+<span id="cb47-7"><a href="la-mise-en-page.html#cb47-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">breaks =</span> bks,         <span class="co"># Utilisation des bornes de classes créées précédement</span></span>
+<span id="cb47-8"><a href="la-mise-en-page.html#cb47-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_val_rnd =</span> <span class="dv">0</span>,      <span class="co"># arrondir les valeurs dans la légende</span></span>
+<span id="cb47-9"><a href="la-mise-en-page.html#cb47-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">pal =</span> <span class="st">&quot;Red-Yellow&quot;</span>,   <span class="co"># Utilisation d&#39;une palette de couleur</span></span>
+<span id="cb47-10"><a href="la-mise-en-page.html#cb47-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_title =</span> <span class="st">&quot;Part des actifs</span><span class="sc">\n</span><span class="st">travaillant dans</span><span class="sc">\n</span><span class="st">l&#39;industrie&quot;</span>,</span>
+<span id="cb47-11"><a href="la-mise-en-page.html#cb47-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">add =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb47-12"><a href="la-mise-en-page.html#cb47-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">col_na =</span> <span class="st">&quot;grey&quot;</span>,</span>
+<span id="cb47-13"><a href="la-mise-en-page.html#cb47-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_no_data =</span> <span class="st">&quot;Communes de moins de 15 actifs&quot;</span>) <span class="co"># texte du no data dans la légende</span></span>
+<span id="cb47-14"><a href="la-mise-en-page.html#cb47-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Répartition des actifs travaillant dans l&#39;industrie - 2017&quot;</span>)</span>
+<span id="cb47-15"><a href="la-mise-en-page.html#cb47-15" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(<span class="dv">5</span>)</span>
+<span id="cb47-16"><a href="la-mise-en-page.html#cb47-16" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_arrow</span>(<span class="at">pos =</span> <span class="st">&quot;topright&quot;</span>)</span>
+<span id="cb47-17"><a href="la-mise-en-page.html#cb47-17" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_credits</span>(<span class="fu">paste0</span>(<span class="st">&quot;Admin Express COG Carto 3.0, IGN - 2021 &amp; &quot;</span>,</span>
+<span id="cb47-18"><a href="la-mise-en-page.html#cb47-18" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - &quot;</span>,</span>
+<span id="cb47-19"><a href="la-mise-en-page.html#cb47-19" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Séries départementales et communales, INSEE - 2020</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb47-20"><a href="la-mise-en-page.html#cb47-20" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Auteurs : T. Giraud &amp; H. Pecout, 2022&quot;</span>))</span>
+<span id="cb47-21"><a href="la-mise-en-page.html#cb47-21" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<pre><code>png 
+  2 </code></pre>
+<p><img src="img/s_ind.png" /></p>
+<p>Nous allons maintenant combiner le nombre total d’actifs et la parts des travailleurs de l’industrie.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="la-mise-en-page.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_export</span>(com, <span class="st">&quot;img/c_ind.png&quot;</span>, <span class="at">theme =</span> th,</span>
+<span id="cb49-2"><a href="la-mise-en-page.html#cb49-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">width =</span> <span class="dv">800</span>)</span>
+<span id="cb49-3"><a href="la-mise-en-page.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com, <span class="at">border =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> .<span class="dv">2</span>, <span class="at">add =</span> T)</span>
+<span id="cb49-4"><a href="la-mise-en-page.html#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> dep, <span class="at">lwd =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">lend =</span> <span class="dv">0</span>)</span>
+<span id="cb49-5"><a href="la-mise-en-page.html#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="fu">c</span>(<span class="st">&quot;ACT&quot;</span>, <span class="st">&quot;PART_ACT_IND&quot;</span>), <span class="st">&quot;prop_choro&quot;</span>,</span>
+<span id="cb49-6"><a href="la-mise-en-page.html#cb49-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">breaks =</span> bks,</span>
+<span id="cb49-7"><a href="la-mise-en-page.html#cb49-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">pal =</span> <span class="st">&quot;Red-Yellow&quot;</span>,</span>
+<span id="cb49-8"><a href="la-mise-en-page.html#cb49-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">inches =</span> .<span class="dv">4</span>,</span>
+<span id="cb49-9"><a href="la-mise-en-page.html#cb49-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">border =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> .<span class="dv">7</span>,</span>
+<span id="cb49-10"><a href="la-mise-en-page.html#cb49-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_val_rnd =</span>  <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</span>
+<span id="cb49-11"><a href="la-mise-en-page.html#cb49-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_pos =</span> <span class="fu">c</span>(<span class="dv">538000</span>,<span class="dv">6442000</span>, <span class="dv">538000</span>, <span class="dv">6424000</span>),  <span class="co"># ici les légendes sont positionnées manuellement</span></span>
+<span id="cb49-12"><a href="la-mise-en-page.html#cb49-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_title =</span> <span class="fu">c</span>(<span class="st">&quot;Nombre d&#39;actifs*&quot;</span>,</span>
+<span id="cb49-13"><a href="la-mise-en-page.html#cb49-13" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Part des actifs</span><span class="sc">\n</span><span class="st">dans l&#39;industrie (en %)&quot;</span>),</span>
+<span id="cb49-14"><a href="la-mise-en-page.html#cb49-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">col_na =</span> <span class="st">&quot;grey&quot;</span>,</span>
+<span id="cb49-15"><a href="la-mise-en-page.html#cb49-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_no_data =</span> <span class="st">&quot;Communes de moins de 15 actifs&quot;</span>)</span>
+<span id="cb49-16"><a href="la-mise-en-page.html#cb49-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-17"><a href="la-mise-en-page.html#cb49-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajout d&#39;annotations</span></span>
+<span id="cb49-18"><a href="la-mise-en-page.html#cb49-18" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_annotation</span>(<span class="at">x =</span> com[com<span class="sc">$</span>NOM_COM<span class="sc">==</span><span class="st">&quot;Biars-sur-Cère&quot;</span>,],</span>
+<span id="cb49-19"><a href="la-mise-en-page.html#cb49-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">txt =</span> <span class="st">&quot;Andros&quot;</span>,</span>
+<span id="cb49-20"><a href="la-mise-en-page.html#cb49-20" aria-hidden="true" tabindex="-1"></a>              <span class="at">col_arrow =</span> th<span class="sc">$</span>fg, <span class="at">halo =</span> T, <span class="at">cex =</span> <span class="dv">1</span>)</span>
+<span id="cb49-21"><a href="la-mise-en-page.html#cb49-21" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_annotation</span>(<span class="at">x =</span> com[com<span class="sc">$</span>NOM_COM<span class="sc">==</span><span class="st">&quot;Figeac&quot;</span>,],</span>
+<span id="cb49-22"><a href="la-mise-en-page.html#cb49-22" aria-hidden="true" tabindex="-1"></a>              <span class="at">txt =</span> <span class="st">&quot;Industrie</span><span class="sc">\n</span><span class="st">aéronautique&quot;</span>,</span>
+<span id="cb49-23"><a href="la-mise-en-page.html#cb49-23" aria-hidden="true" tabindex="-1"></a>              <span class="at">col_arrow =</span> th<span class="sc">$</span>fg, <span class="at">pos =</span> <span class="st">&quot;bottomright&quot;</span>, <span class="at">halo =</span> T, <span class="at">cex =</span> <span class="dv">1</span>)</span>
+<span id="cb49-24"><a href="la-mise-en-page.html#cb49-24" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_annotation</span>(<span class="at">x =</span> com[com<span class="sc">$</span>NOM_COM<span class="sc">==</span><span class="st">&quot;Gramat&quot;</span>,],</span>
+<span id="cb49-25"><a href="la-mise-en-page.html#cb49-25" aria-hidden="true" tabindex="-1"></a>              <span class="at">txt =</span> <span class="st">&quot;La Quercynoise (?)&quot;</span>,</span>
+<span id="cb49-26"><a href="la-mise-en-page.html#cb49-26" aria-hidden="true" tabindex="-1"></a>              <span class="at">col_arrow =</span> th<span class="sc">$</span>fg, <span class="at">pos =</span> <span class="st">&quot;topleft&quot;</span>, <span class="at">s =</span> <span class="dv">1</span>, <span class="at">halo =</span> T,</span>
+<span id="cb49-27"><a href="la-mise-en-page.html#cb49-27" aria-hidden="true" tabindex="-1"></a>              <span class="at">cex =</span> <span class="dv">1</span>)</span>
+<span id="cb49-28"><a href="la-mise-en-page.html#cb49-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-29"><a href="la-mise-en-page.html#cb49-29" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Répartition des actifs travaillant dans l&#39;industrie - 2017&quot;</span>)</span>
+<span id="cb49-30"><a href="la-mise-en-page.html#cb49-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-31"><a href="la-mise-en-page.html#cb49-31" aria-hidden="true" tabindex="-1"></a><span class="co"># ajout d&#39;un carton -&gt;</span></span>
+<span id="cb49-32"><a href="la-mise-en-page.html#cb49-32" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_on</span>(<span class="at">fig =</span> <span class="fu">c</span>(.<span class="dv">8</span>,<span class="fl">0.98</span>,<span class="fl">0.1</span>,<span class="fl">0.3</span>))</span>
+<span id="cb49-33"><a href="la-mise-en-page.html#cb49-33" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(dep, <span class="at">lwd =</span> .<span class="dv">1</span>)</span>
+<span id="cb49-34"><a href="la-mise-en-page.html#cb49-34" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">border =</span> <span class="cn">NA</span>, <span class="at">add =</span> T, <span class="at">col =</span> th<span class="sc">$</span>fg)</span>
+<span id="cb49-35"><a href="la-mise-en-page.html#cb49-35" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">col =</span> th<span class="sc">$</span>fg, <span class="at">lwd =</span> .<span class="dv">5</span>)</span>
+<span id="cb49-36"><a href="la-mise-en-page.html#cb49-36" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_off</span>()</span>
+<span id="cb49-37"><a href="la-mise-en-page.html#cb49-37" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;- fin du carton</span></span>
+<span id="cb49-38"><a href="la-mise-en-page.html#cb49-38" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(<span class="dv">5</span>)</span>
+<span id="cb49-39"><a href="la-mise-en-page.html#cb49-39" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_arrow</span>(<span class="st">&quot;topright&quot;</span>)</span>
+<span id="cb49-40"><a href="la-mise-en-page.html#cb49-40" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_credits</span>(<span class="fu">paste0</span>(<span class="st">&quot;Admin Express COG Carto 3.0, IGN - 2021 &amp; &quot;</span>,</span>
+<span id="cb49-41"><a href="la-mise-en-page.html#cb49-41" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - &quot;</span>,</span>
+<span id="cb49-42"><a href="la-mise-en-page.html#cb49-42" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Séries départementales et communales, INSEE - 2020</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb49-43"><a href="la-mise-en-page.html#cb49-43" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Auteurs : T. Giraud &amp; H. Pecout, 2022&quot;</span>))</span>
+<span id="cb49-44"><a href="la-mise-en-page.html#cb49-44" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<pre><code>png 
+  2 </code></pre>
+<p><img src="img/c_ind.png" /></p>
 
 </div>
 </div>
