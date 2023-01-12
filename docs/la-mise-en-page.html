@@ -253,15 +253,15 @@ div.csl-indent {
 <div id="les-données-dexemple-1" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Les données d’exemple<a href="la-mise-en-page.html#les-données-dexemple-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Les lignes suivantes importent les couches d’information spatiales situées dans le fichier <a href="https://www.geopackage.org/">geopackage</a> <strong>lot46.gpkg</strong>.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="la-mise-en-page.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
-<span id="cb16-2"><a href="la-mise-en-page.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># import des communes du Lot</span></span>
-<span id="cb16-3"><a href="la-mise-en-page.html#cb16-3" aria-hidden="true" tabindex="-1"></a>com <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/lot46.gpkg&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;commune&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb16-4"><a href="la-mise-en-page.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># import des départments français</span></span>
-<span id="cb16-5"><a href="la-mise-en-page.html#cb16-5" aria-hidden="true" tabindex="-1"></a>dep <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/lot46.gpkg&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;departement&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb16-6"><a href="la-mise-en-page.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># import des restaurants</span></span>
-<span id="cb16-7"><a href="la-mise-en-page.html#cb16-7" aria-hidden="true" tabindex="-1"></a>resto <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/lot46.gpkg&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;restaurant&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb16-8"><a href="la-mise-en-page.html#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># import des routes</span></span>
-<span id="cb16-9"><a href="la-mise-en-page.html#cb16-9" aria-hidden="true" tabindex="-1"></a>route <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/lot46.gpkg&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;route&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="la-mise-en-page.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb17-2"><a href="la-mise-en-page.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># import des communes du Lot</span></span>
+<span id="cb17-3"><a href="la-mise-en-page.html#cb17-3" aria-hidden="true" tabindex="-1"></a>com <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/lot46.gpkg&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;commune&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-4"><a href="la-mise-en-page.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># import des départments français</span></span>
+<span id="cb17-5"><a href="la-mise-en-page.html#cb17-5" aria-hidden="true" tabindex="-1"></a>dep <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/lot46.gpkg&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;departement&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-6"><a href="la-mise-en-page.html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># import des restaurants</span></span>
+<span id="cb17-7"><a href="la-mise-en-page.html#cb17-7" aria-hidden="true" tabindex="-1"></a>resto <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/lot46.gpkg&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;restaurant&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-8"><a href="la-mise-en-page.html#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># import des routes</span></span>
+<span id="cb17-9"><a href="la-mise-en-page.html#cb17-9" aria-hidden="true" tabindex="-1"></a>route <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/lot46.gpkg&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;route&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="les-thèmes" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Les thèmes<a href="la-mise-en-page.html#les-thèmes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -269,197 +269,197 @@ div.csl-indent {
 <div id="utiliser-un-thème-prédéfini" class="section level3 hasAnchor" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Utiliser un thème prédéfini<a href="la-mise-en-page.html#utiliser-un-thème-prédéfini" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Une série de thèmes prédéfinis est disponible par défaut (voir <code>?mf_theme</code>).</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="la-mise-en-page.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapsf)</span>
-<span id="cb17-2"><a href="la-mise-en-page.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># utilisation d&#39;une couleur de fond pour la figure, pour voir l&#39;utilisation des marges</span></span>
-<span id="cb17-3"><a href="la-mise-en-page.html#cb17-3" aria-hidden="true" tabindex="-1"></a>opar <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb17-4"><a href="la-mise-en-page.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation d&#39;un thème prédéfini</span></span>
-<span id="cb17-5"><a href="la-mise-en-page.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">&quot;default&quot;</span>)</span>
-<span id="cb17-6"><a href="la-mise-en-page.html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb17-7"><a href="la-mise-en-page.html#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Theme : &#39;default&#39;&quot;</span>)</span>
-<span id="cb17-8"><a href="la-mise-en-page.html#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">&quot;darkula&quot;</span>)</span>
-<span id="cb17-9"><a href="la-mise-en-page.html#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb17-10"><a href="la-mise-en-page.html#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Theme : &#39;darkula&#39;&quot;</span>)</span>
-<span id="cb17-11"><a href="la-mise-en-page.html#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">&quot;candy&quot;</span>)</span>
-<span id="cb17-12"><a href="la-mise-en-page.html#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb17-13"><a href="la-mise-en-page.html#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Theme : &#39;candy&#39;&quot;</span>)</span>
-<span id="cb17-14"><a href="la-mise-en-page.html#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">&quot;nevermind&quot;</span>)</span>
-<span id="cb17-15"><a href="la-mise-en-page.html#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb17-16"><a href="la-mise-en-page.html#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Theme : &#39;nevermind&#39;&quot;</span>)</span>
-<span id="cb17-17"><a href="la-mise-en-page.html#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(opar)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="la-mise-en-page.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapsf)</span>
+<span id="cb18-2"><a href="la-mise-en-page.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># utilisation d&#39;une couleur de fond pour la figure, pour voir l&#39;utilisation des marges</span></span>
+<span id="cb18-3"><a href="la-mise-en-page.html#cb18-3" aria-hidden="true" tabindex="-1"></a>opar <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb18-4"><a href="la-mise-en-page.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisation d&#39;un thème prédéfini</span></span>
+<span id="cb18-5"><a href="la-mise-en-page.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">&quot;default&quot;</span>)</span>
+<span id="cb18-6"><a href="la-mise-en-page.html#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb18-7"><a href="la-mise-en-page.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Theme : &#39;default&#39;&quot;</span>)</span>
+<span id="cb18-8"><a href="la-mise-en-page.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">&quot;darkula&quot;</span>)</span>
+<span id="cb18-9"><a href="la-mise-en-page.html#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb18-10"><a href="la-mise-en-page.html#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Theme : &#39;darkula&#39;&quot;</span>)</span>
+<span id="cb18-11"><a href="la-mise-en-page.html#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">&quot;candy&quot;</span>)</span>
+<span id="cb18-12"><a href="la-mise-en-page.html#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb18-13"><a href="la-mise-en-page.html#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Theme : &#39;candy&#39;&quot;</span>)</span>
+<span id="cb18-14"><a href="la-mise-en-page.html#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">&quot;nevermind&quot;</span>)</span>
+<span id="cb18-15"><a href="la-mise-en-page.html#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb18-16"><a href="la-mise-en-page.html#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Theme : &#39;nevermind&#39;&quot;</span>)</span>
+<span id="cb18-17"><a href="la-mise-en-page.html#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(opar)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/them1-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="modifier-un-thème-existant" class="section level3 hasAnchor" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> Modifier un thème existant<a href="la-mise-en-page.html#modifier-un-thème-existant" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Il est possible de modifier un thème existant. Dans cet exemple, nous utilisons le thème “default” et nous en modifions quelques paramètres.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="la-mise-en-page.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapsf)</span>
-<span id="cb18-2"><a href="la-mise-en-page.html#cb18-2" aria-hidden="true" tabindex="-1"></a>opar <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb18-3"><a href="la-mise-en-page.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">&quot;default&quot;</span>)</span>
-<span id="cb18-4"><a href="la-mise-en-page.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb18-5"><a href="la-mise-en-page.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;default&quot;</span>)</span>
-<span id="cb18-6"><a href="la-mise-en-page.html#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">&quot;default&quot;</span>, <span class="at">tab =</span> <span class="cn">FALSE</span>, <span class="at">font =</span> <span class="dv">4</span>, <span class="at">bg =</span> <span class="st">&quot;grey60&quot;</span>, <span class="at">pos =</span> <span class="st">&quot;center&quot;</span>)</span>
-<span id="cb18-7"><a href="la-mise-en-page.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb18-8"><a href="la-mise-en-page.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;modified default&quot;</span>)</span>
-<span id="cb18-9"><a href="la-mise-en-page.html#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(opar)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="la-mise-en-page.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapsf)</span>
+<span id="cb19-2"><a href="la-mise-en-page.html#cb19-2" aria-hidden="true" tabindex="-1"></a>opar <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb19-3"><a href="la-mise-en-page.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">&quot;default&quot;</span>)</span>
+<span id="cb19-4"><a href="la-mise-en-page.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb19-5"><a href="la-mise-en-page.html#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;default&quot;</span>)</span>
+<span id="cb19-6"><a href="la-mise-en-page.html#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">&quot;default&quot;</span>, <span class="at">tab =</span> <span class="cn">FALSE</span>, <span class="at">font =</span> <span class="dv">4</span>, <span class="at">bg =</span> <span class="st">&quot;grey60&quot;</span>, <span class="at">pos =</span> <span class="st">&quot;center&quot;</span>)</span>
+<span id="cb19-7"><a href="la-mise-en-page.html#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb19-8"><a href="la-mise-en-page.html#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;modified default&quot;</span>)</span>
+<span id="cb19-9"><a href="la-mise-en-page.html#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(opar)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/theme2-1.png" width="768" style="display: block; margin: auto;" /></p>
 </div>
 <div id="créer-un-thème" class="section level3 hasAnchor" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> Créer un thème<a href="la-mise-en-page.html#créer-un-thème" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Il est également possible de créer un thème.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="la-mise-en-page.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(</span>
-<span id="cb19-2"><a href="la-mise-en-page.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">bg =</span> <span class="st">&quot;lightblue&quot;</span>,    <span class="co"># couleur de fond</span></span>
-<span id="cb19-3"><a href="la-mise-en-page.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">fg =</span> <span class="st">&quot;tomato1&quot;</span>,      <span class="co"># couleur principale</span></span>
-<span id="cb19-4"><a href="la-mise-en-page.html#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">1.5</span>,<span class="dv">0</span>),  <span class="co"># marges</span></span>
-<span id="cb19-5"><a href="la-mise-en-page.html#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">tab =</span> <span class="cn">FALSE</span>,         <span class="co"># style &quot;onglet&quot; pour le titre</span></span>
-<span id="cb19-6"><a href="la-mise-en-page.html#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">inner =</span> <span class="cn">FALSE</span>,       <span class="co"># titre à l&#39;intérieur de la zone de carte ou à l&#39;extérieur</span></span>
-<span id="cb19-7"><a href="la-mise-en-page.html#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">line =</span> <span class="fl">1.5</span>,          <span class="co"># espace dédié au titre</span></span>
-<span id="cb19-8"><a href="la-mise-en-page.html#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">pos =</span> <span class="st">&quot;center&quot;</span>,      <span class="co"># position du titre</span></span>
-<span id="cb19-9"><a href="la-mise-en-page.html#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">cex =</span> <span class="fl">1.2</span>,           <span class="co"># taille du titre</span></span>
-<span id="cb19-10"><a href="la-mise-en-page.html#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">font =</span> <span class="dv">2</span>             <span class="co"># type de fonte pour le titre</span></span>
-<span id="cb19-11"><a href="la-mise-en-page.html#cb19-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb19-12"><a href="la-mise-en-page.html#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb19-13"><a href="la-mise-en-page.html#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;New theme&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="la-mise-en-page.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(</span>
+<span id="cb20-2"><a href="la-mise-en-page.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">bg =</span> <span class="st">&quot;lightblue&quot;</span>,    <span class="co"># couleur de fond</span></span>
+<span id="cb20-3"><a href="la-mise-en-page.html#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">fg =</span> <span class="st">&quot;tomato1&quot;</span>,      <span class="co"># couleur principale</span></span>
+<span id="cb20-4"><a href="la-mise-en-page.html#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">1.5</span>,<span class="dv">0</span>),  <span class="co"># marges</span></span>
+<span id="cb20-5"><a href="la-mise-en-page.html#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">tab =</span> <span class="cn">FALSE</span>,         <span class="co"># style &quot;onglet&quot; pour le titre</span></span>
+<span id="cb20-6"><a href="la-mise-en-page.html#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">inner =</span> <span class="cn">FALSE</span>,       <span class="co"># titre à l&#39;intérieur de la zone de carte ou à l&#39;extérieur</span></span>
+<span id="cb20-7"><a href="la-mise-en-page.html#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">line =</span> <span class="fl">1.5</span>,          <span class="co"># espace dédié au titre</span></span>
+<span id="cb20-8"><a href="la-mise-en-page.html#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">pos =</span> <span class="st">&quot;center&quot;</span>,      <span class="co"># position du titre</span></span>
+<span id="cb20-9"><a href="la-mise-en-page.html#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">cex =</span> <span class="fl">1.2</span>,           <span class="co"># taille du titre</span></span>
+<span id="cb20-10"><a href="la-mise-en-page.html#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">font =</span> <span class="dv">2</span>             <span class="co"># type de fonte pour le titre</span></span>
+<span id="cb20-11"><a href="la-mise-en-page.html#cb20-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-12"><a href="la-mise-en-page.html#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb20-13"><a href="la-mise-en-page.html#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;New theme&quot;</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/unnamed-chunk-6-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="les-titres" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Les titres<a href="la-mise-en-page.html#les-titres" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La fonction `<code>mf_title()</code> permet d’ajouter un titre à une carte.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="la-mise-en-page.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">&quot;default&quot;</span>)</span>
-<span id="cb20-2"><a href="la-mise-en-page.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb20-3"><a href="la-mise-en-page.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Titre de la carte&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="la-mise-en-page.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">&quot;default&quot;</span>)</span>
+<span id="cb21-2"><a href="la-mise-en-page.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb21-3"><a href="la-mise-en-page.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Titre de la carte&quot;</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Il est possible de personnaliser l’aspect du titre.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="la-mise-en-page.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb21-2"><a href="la-mise-en-page.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(</span>
-<span id="cb21-3"><a href="la-mise-en-page.html#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">txt =</span> <span class="st">&quot;Titre de la carte&quot;</span>, </span>
-<span id="cb21-4"><a href="la-mise-en-page.html#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">pos =</span> <span class="st">&quot;center&quot;</span>, </span>
-<span id="cb21-5"><a href="la-mise-en-page.html#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">tab =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb21-6"><a href="la-mise-en-page.html#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">bg =</span> <span class="st">&quot;tomato3&quot;</span>, </span>
-<span id="cb21-7"><a href="la-mise-en-page.html#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">fg =</span> <span class="st">&quot;lightblue&quot;</span>, </span>
-<span id="cb21-8"><a href="la-mise-en-page.html#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">cex =</span> <span class="dv">1</span>, </span>
-<span id="cb21-9"><a href="la-mise-en-page.html#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">line =</span> <span class="fl">1.2</span>, </span>
-<span id="cb21-10"><a href="la-mise-en-page.html#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">font =</span> <span class="dv">1</span>, </span>
-<span id="cb21-11"><a href="la-mise-en-page.html#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">inner =</span> <span class="cn">FALSE</span></span>
-<span id="cb21-12"><a href="la-mise-en-page.html#cb21-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="la-mise-en-page.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb22-2"><a href="la-mise-en-page.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(</span>
+<span id="cb22-3"><a href="la-mise-en-page.html#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">txt =</span> <span class="st">&quot;Titre de la carte&quot;</span>, </span>
+<span id="cb22-4"><a href="la-mise-en-page.html#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">pos =</span> <span class="st">&quot;center&quot;</span>, </span>
+<span id="cb22-5"><a href="la-mise-en-page.html#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">tab =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb22-6"><a href="la-mise-en-page.html#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">bg =</span> <span class="st">&quot;tomato3&quot;</span>, </span>
+<span id="cb22-7"><a href="la-mise-en-page.html#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">fg =</span> <span class="st">&quot;lightblue&quot;</span>, </span>
+<span id="cb22-8"><a href="la-mise-en-page.html#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">cex =</span> <span class="dv">1</span>, </span>
+<span id="cb22-9"><a href="la-mise-en-page.html#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">line =</span> <span class="fl">1.2</span>, </span>
+<span id="cb22-10"><a href="la-mise-en-page.html#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">font =</span> <span class="dv">1</span>, </span>
+<span id="cb22-11"><a href="la-mise-en-page.html#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">inner =</span> <span class="cn">FALSE</span></span>
+<span id="cb22-12"><a href="la-mise-en-page.html#cb22-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="flèche-dorientation" class="section level2 hasAnchor" number="3.4">
 <h2><span class="header-section-number">3.4</span> Flèche d’orientation<a href="la-mise-en-page.html#flèche-dorientation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La fonction <code>mf_arrow()</code> permet de choisir la position et l’aspect de la flèche d’orientation.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="la-mise-en-page.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb22-2"><a href="la-mise-en-page.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_arrow</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="la-mise-en-page.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb23-2"><a href="la-mise-en-page.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_arrow</span>()</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/north-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="échelle" class="section level2 hasAnchor" number="3.5">
 <h2><span class="header-section-number">3.5</span> Échelle<a href="la-mise-en-page.html#échelle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La fonction <code>mf_scale()</code> permet de choisir la position et l’aspect de l’échelle.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="la-mise-en-page.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb23-2"><a href="la-mise-en-page.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(</span>
-<span id="cb23-3"><a href="la-mise-en-page.html#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">size =</span> <span class="dv">20</span>,</span>
-<span id="cb23-4"><a href="la-mise-en-page.html#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> <span class="dv">2</span>,</span>
-<span id="cb23-5"><a href="la-mise-en-page.html#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">cex =</span> <span class="fl">1.2</span>,</span>
-<span id="cb23-6"><a href="la-mise-en-page.html#cb23-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="la-mise-en-page.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb24-2"><a href="la-mise-en-page.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(</span>
+<span id="cb24-3"><a href="la-mise-en-page.html#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">size =</span> <span class="dv">20</span>,</span>
+<span id="cb24-4"><a href="la-mise-en-page.html#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb24-5"><a href="la-mise-en-page.html#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">cex =</span> <span class="fl">1.2</span>,</span>
+<span id="cb24-6"><a href="la-mise-en-page.html#cb24-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/scale-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="crédits" class="section level2 hasAnchor" number="3.6">
 <h2><span class="header-section-number">3.6</span> Crédits<a href="la-mise-en-page.html#crédits" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La fonction <code>mf_credits()</code> permet d’afficher une ligne de crédits (sources, auteur…).</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="la-mise-en-page.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb24-2"><a href="la-mise-en-page.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_credits</span>(<span class="st">&quot;IGN</span><span class="sc">\n</span><span class="st">Giraud &amp; Pécout, 2021&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="la-mise-en-page.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb25-2"><a href="la-mise-en-page.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_credits</span>(<span class="st">&quot;IGN</span><span class="sc">\n</span><span class="st">Giraud &amp; Pécout, 2021&quot;</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/credit-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="habillage-complet" class="section level2 hasAnchor" number="3.7">
 <h2><span class="header-section-number">3.7</span> Habillage complet<a href="la-mise-en-page.html#habillage-complet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La fonction <code>mf_layout()</code> permet d’afficher tous ces éléments.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="la-mise-en-page.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb25-2"><a href="la-mise-en-page.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_layout</span>(</span>
-<span id="cb25-3"><a href="la-mise-en-page.html#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Martinique&quot;</span>,</span>
-<span id="cb25-4"><a href="la-mise-en-page.html#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">credits =</span> <span class="st">&quot;IGN</span><span class="sc">\n</span><span class="st">Giraud &amp; Pécout, 2021&quot;</span>,</span>
-<span id="cb25-5"><a href="la-mise-en-page.html#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">arrow =</span> <span class="cn">TRUE</span></span>
-<span id="cb25-6"><a href="la-mise-en-page.html#cb25-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="la-mise-en-page.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb26-2"><a href="la-mise-en-page.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_layout</span>(</span>
+<span id="cb26-3"><a href="la-mise-en-page.html#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Martinique&quot;</span>,</span>
+<span id="cb26-4"><a href="la-mise-en-page.html#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">credits =</span> <span class="st">&quot;IGN</span><span class="sc">\n</span><span class="st">Giraud &amp; Pécout, 2021&quot;</span>,</span>
+<span id="cb26-5"><a href="la-mise-en-page.html#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">arrow =</span> <span class="cn">TRUE</span></span>
+<span id="cb26-6"><a href="la-mise-en-page.html#cb26-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/layout1-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="annotations" class="section level2 hasAnchor" number="3.8">
 <h2><span class="header-section-number">3.8</span> Annotations<a href="la-mise-en-page.html#annotations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="la-mise-en-page.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb26-2"><a href="la-mise-en-page.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_annotation</span>(com[com<span class="sc">$</span>NOM_COM <span class="sc">==</span> <span class="st">&quot;Cahors&quot;</span>,], <span class="at">txt =</span> <span class="st">&quot;Cahors&quot;</span>, <span class="at">halo =</span> <span class="cn">TRUE</span>, <span class="at">cex =</span> <span class="fl">1.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="la-mise-en-page.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb27-2"><a href="la-mise-en-page.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_annotation</span>(com[com<span class="sc">$</span>NOM_COM <span class="sc">==</span> <span class="st">&quot;Cahors&quot;</span>,], <span class="at">txt =</span> <span class="st">&quot;Cahors&quot;</span>, <span class="at">halo =</span> <span class="cn">TRUE</span>, <span class="at">cex =</span> <span class="fl">1.5</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/unnamed-chunk-9-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="les-légendes" class="section level2 hasAnchor" number="3.9">
 <h2><span class="header-section-number">3.9</span> Les légendes<a href="la-mise-en-page.html#les-légendes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="la-mise-en-page.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb27-2"><a href="la-mise-en-page.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_legend</span>(</span>
-<span id="cb27-3"><a href="la-mise-en-page.html#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;prop&quot;</span>, </span>
-<span id="cb27-4"><a href="la-mise-en-page.html#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">val =</span> <span class="fu">c</span>(<span class="dv">1000</span>,<span class="dv">500</span>,<span class="dv">200</span>,<span class="dv">10</span>), </span>
-<span id="cb27-5"><a href="la-mise-en-page.html#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">inches =</span> .<span class="dv">4</span>, </span>
-<span id="cb27-6"><a href="la-mise-en-page.html#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Population&quot;</span>, </span>
-<span id="cb27-7"><a href="la-mise-en-page.html#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">pos =</span> <span class="st">&quot;topleft&quot;</span></span>
-<span id="cb27-8"><a href="la-mise-en-page.html#cb27-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb27-9"><a href="la-mise-en-page.html#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_legend</span>(</span>
-<span id="cb27-10"><a href="la-mise-en-page.html#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;choro&quot;</span>, </span>
-<span id="cb27-11"><a href="la-mise-en-page.html#cb27-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">val =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>),</span>
-<span id="cb27-12"><a href="la-mise-en-page.html#cb27-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="st">&quot;Greens&quot;</span>, </span>
-<span id="cb27-13"><a href="la-mise-en-page.html#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">pos =</span> <span class="st">&quot;bottomright&quot;</span>, </span>
-<span id="cb27-14"><a href="la-mise-en-page.html#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">val_rnd =</span> <span class="dv">0</span></span>
-<span id="cb27-15"><a href="la-mise-en-page.html#cb27-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="la-mise-en-page.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb28-2"><a href="la-mise-en-page.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_legend</span>(</span>
+<span id="cb28-3"><a href="la-mise-en-page.html#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;prop&quot;</span>, </span>
+<span id="cb28-4"><a href="la-mise-en-page.html#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">val =</span> <span class="fu">c</span>(<span class="dv">1000</span>,<span class="dv">500</span>,<span class="dv">200</span>,<span class="dv">10</span>), </span>
+<span id="cb28-5"><a href="la-mise-en-page.html#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">inches =</span> .<span class="dv">4</span>, </span>
+<span id="cb28-6"><a href="la-mise-en-page.html#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Population&quot;</span>, </span>
+<span id="cb28-7"><a href="la-mise-en-page.html#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">pos =</span> <span class="st">&quot;topleft&quot;</span></span>
+<span id="cb28-8"><a href="la-mise-en-page.html#cb28-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb28-9"><a href="la-mise-en-page.html#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_legend</span>(</span>
+<span id="cb28-10"><a href="la-mise-en-page.html#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;choro&quot;</span>, </span>
+<span id="cb28-11"><a href="la-mise-en-page.html#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">val =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>),</span>
+<span id="cb28-12"><a href="la-mise-en-page.html#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="st">&quot;Greens&quot;</span>, </span>
+<span id="cb28-13"><a href="la-mise-en-page.html#cb28-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">pos =</span> <span class="st">&quot;bottomright&quot;</span>, </span>
+<span id="cb28-14"><a href="la-mise-en-page.html#cb28-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">val_rnd =</span> <span class="dv">0</span></span>
+<span id="cb28-15"><a href="la-mise-en-page.html#cb28-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/unnamed-chunk-10-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="étiquettes" class="section level2 hasAnchor" number="3.10">
 <h2><span class="header-section-number">3.10</span> Étiquettes<a href="la-mise-en-page.html#étiquettes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La fonction <code>mf_label()</code> est dédiée à l’afichage d’étiquettes.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="la-mise-en-page.html#cb28-1" aria-hidden="true" tabindex="-1"></a>com_sel <span class="ot">&lt;-</span> com[<span class="fu">st_intersects</span>(com, com[com<span class="sc">$</span>NOM_COM <span class="sc">==</span> <span class="st">&quot;Cahors&quot;</span>, ], <span class="at">sparse =</span> F), ]</span>
-<span id="cb28-2"><a href="la-mise-en-page.html#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="la-mise-en-page.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_sel)</span>
-<span id="cb28-4"><a href="la-mise-en-page.html#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_label</span>(</span>
-<span id="cb28-5"><a href="la-mise-en-page.html#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com_sel,</span>
-<span id="cb28-6"><a href="la-mise-en-page.html#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="st">&quot;NOM_COM&quot;</span>,</span>
-<span id="cb28-7"><a href="la-mise-en-page.html#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">col=</span> <span class="st">&quot;black&quot;</span>,</span>
-<span id="cb28-8"><a href="la-mise-en-page.html#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">halo =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb28-9"><a href="la-mise-en-page.html#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">overlap =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb28-10"><a href="la-mise-en-page.html#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">lines =</span> <span class="cn">FALSE</span></span>
-<span id="cb28-11"><a href="la-mise-en-page.html#cb28-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb28-12"><a href="la-mise-en-page.html#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="la-mise-en-page.html#cb29-1" aria-hidden="true" tabindex="-1"></a>com_sel <span class="ot">&lt;-</span> com[<span class="fu">st_intersects</span>(com, com[com<span class="sc">$</span>NOM_COM <span class="sc">==</span> <span class="st">&quot;Cahors&quot;</span>, ], <span class="at">sparse =</span> F), ]</span>
+<span id="cb29-2"><a href="la-mise-en-page.html#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="la-mise-en-page.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_sel)</span>
+<span id="cb29-4"><a href="la-mise-en-page.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_label</span>(</span>
+<span id="cb29-5"><a href="la-mise-en-page.html#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com_sel,</span>
+<span id="cb29-6"><a href="la-mise-en-page.html#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="st">&quot;NOM_COM&quot;</span>,</span>
+<span id="cb29-7"><a href="la-mise-en-page.html#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">col=</span> <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb29-8"><a href="la-mise-en-page.html#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">halo =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb29-9"><a href="la-mise-en-page.html#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">overlap =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb29-10"><a href="la-mise-en-page.html#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">lines =</span> <span class="cn">FALSE</span></span>
+<span id="cb29-11"><a href="la-mise-en-page.html#cb29-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-12"><a href="la-mise-en-page.html#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>()</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/labs-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>L’argument <code>halo = TRUE</code> permet d’afficher un léger halo autour des étiquettes et l’argument <code>overlap = FALSE</code> permet de créer des étiquettes ne se recouvrant pas.</p>
 </div>
 <div id="centrer-la-carte-sur-une-région" class="section level2 hasAnchor" number="3.11">
 <h2><span class="header-section-number">3.11</span> Centrer la carte sur une région<a href="la-mise-en-page.html#centrer-la-carte-sur-une-région" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La fonction <code>mf_init()</code> permet d’initialiser une carte en la centrant sur une objet spatial.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="la-mise-en-page.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_init</span>(<span class="at">x =</span> com_sel, <span class="at">theme =</span> <span class="st">&quot;iceberg&quot;</span>)</span>
-<span id="cb29-2"><a href="la-mise-en-page.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb29-3"><a href="la-mise-en-page.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_sel, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">border =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="la-mise-en-page.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_init</span>(<span class="at">x =</span> com_sel, <span class="at">theme =</span> <span class="st">&quot;iceberg&quot;</span>)</span>
+<span id="cb30-2"><a href="la-mise-en-page.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb30-3"><a href="la-mise-en-page.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_sel, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">border =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/unnamed-chunk-11-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="afficher-plusieurs-cartes-sur-la-même-figure" class="section level2 hasAnchor" number="3.12">
 <h2><span class="header-section-number">3.12</span> Afficher plusieurs cartes sur la même figure<a href="la-mise-en-page.html#afficher-plusieurs-cartes-sur-la-même-figure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Il faut ici utiliser l’argument <code>mfrow</code> de la fonction <code>par()</code>. Le premier chiffre représente le nombre lignes et le deuxième le nombre de colonnes.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="la-mise-en-page.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define the figure layout (1 row, 2 columns)</span></span>
-<span id="cb30-2"><a href="la-mise-en-page.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb30-3"><a href="la-mise-en-page.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># first map</span></span>
-<span id="cb30-4"><a href="la-mise-en-page.html#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb30-5"><a href="la-mise-en-page.html#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="st">&quot;TER_H&quot;</span>, <span class="st">&quot;prop&quot;</span>, <span class="at">val_max =</span> <span class="dv">4000</span>)</span>
-<span id="cb30-6"><a href="la-mise-en-page.html#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Tertiaire, hommes&quot;</span>)</span>
-<span id="cb30-7"><a href="la-mise-en-page.html#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co"># second map</span></span>
-<span id="cb30-8"><a href="la-mise-en-page.html#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb30-9"><a href="la-mise-en-page.html#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="st">&quot;TER_F&quot;</span>, <span class="st">&quot;prop&quot;</span>, <span class="at">val_max =</span> <span class="dv">4000</span>)</span>
-<span id="cb30-10"><a href="la-mise-en-page.html#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Tertiaire, femmes&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="la-mise-en-page.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define the figure layout (1 row, 2 columns)</span></span>
+<span id="cb31-2"><a href="la-mise-en-page.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb31-3"><a href="la-mise-en-page.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># first map</span></span>
+<span id="cb31-4"><a href="la-mise-en-page.html#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb31-5"><a href="la-mise-en-page.html#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="st">&quot;TER_H&quot;</span>, <span class="st">&quot;prop&quot;</span>, <span class="at">val_max =</span> <span class="dv">4000</span>)</span>
+<span id="cb31-6"><a href="la-mise-en-page.html#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Tertiaire, hommes&quot;</span>)</span>
+<span id="cb31-7"><a href="la-mise-en-page.html#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co"># second map</span></span>
+<span id="cb31-8"><a href="la-mise-en-page.html#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb31-9"><a href="la-mise-en-page.html#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="st">&quot;TER_F&quot;</span>, <span class="st">&quot;prop&quot;</span>, <span class="at">val_max =</span> <span class="dv">4000</span>)</span>
+<span id="cb31-10"><a href="la-mise-en-page.html#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Tertiaire, femmes&quot;</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/mfrow0-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="export-des-cartes" class="section level2 hasAnchor" number="3.13">
 <h2><span class="header-section-number">3.13</span> Export des cartes<a href="la-mise-en-page.html#export-des-cartes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Il est assez difficile d’exporter des figures (cartes ou autres) dont le ratio hauteur/largeur est satisfaisant. Le ratio par défaut des figures au format png est de 1 (480x480 pixels) :</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="la-mise-en-page.html#cb31-1" aria-hidden="true" tabindex="-1"></a>c2c <span class="ot">&lt;-</span> com[com<span class="sc">$</span>INSEE_COM <span class="sc">==</span> <span class="st">&quot;46138&quot;</span>, ]</span>
-<span id="cb31-2"><a href="la-mise-en-page.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;img/c2c1.png&quot;</span>)</span>
-<span id="cb31-3"><a href="la-mise-en-page.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(c2c)</span>
-<span id="cb31-4"><a href="la-mise-en-page.html#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Cœur de Causse&quot;</span>)</span>
-<span id="cb31-5"><a href="la-mise-en-page.html#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="la-mise-en-page.html#cb32-1" aria-hidden="true" tabindex="-1"></a>c2c <span class="ot">&lt;-</span> com[com<span class="sc">$</span>INSEE_COM <span class="sc">==</span> <span class="st">&quot;46138&quot;</span>, ]</span>
+<span id="cb32-2"><a href="la-mise-en-page.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;img/c2c1.png&quot;</span>)</span>
+<span id="cb32-3"><a href="la-mise-en-page.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(c2c)</span>
+<span id="cb32-4"><a href="la-mise-en-page.html#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Cœur de Causse&quot;</span>)</span>
+<span id="cb32-5"><a href="la-mise-en-page.html#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
 <p><img src="img/c2c1.png" width="240" style="display: block; margin: auto;" />
 Sur cette carte beaucoup d’espace est perdu au nord et au sud de la commune.</p>
 <p>La fonction <code>mf_export()</code> permet des exports de cartes dont le ratio hauteur/largeur est contrôlé et correspond à celui d’un objet spatial.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="la-mise-en-page.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_export</span>(c2c, <span class="st">&quot;img/c2c2.png&quot;</span>, <span class="at">width =</span> <span class="dv">480</span>)</span>
-<span id="cb32-2"><a href="la-mise-en-page.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(c2c)</span>
-<span id="cb32-3"><a href="la-mise-en-page.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Cœur de Causse&quot;</span>)</span>
-<span id="cb32-4"><a href="la-mise-en-page.html#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="la-mise-en-page.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_export</span>(c2c, <span class="st">&quot;img/c2c2.png&quot;</span>, <span class="at">width =</span> <span class="dv">480</span>)</span>
+<span id="cb33-2"><a href="la-mise-en-page.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(c2c)</span>
+<span id="cb33-3"><a href="la-mise-en-page.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Cœur de Causse&quot;</span>)</span>
+<span id="cb33-4"><a href="la-mise-en-page.html#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
 <p><img src="img/c2c2.png" width="240" style="display: block; margin: auto;" />
 L’emprise de cette carte est exactement celle de la région affichée.</p>
 </div>
@@ -467,23 +467,23 @@ L’emprise de cette carte est exactement celle de la région affichée.</p>
 <h2><span class="header-section-number">3.14</span> Ajouter une image sur une carte<a href="la-mise-en-page.html#ajouter-une-image-sur-une-carte" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Cela peut être utile pour ajouter un logo, un pictogramme. La fonction <code>readPNG()</code>
 du package <code>png</code> permet l’ajout d’images sur une figure.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="la-mise-en-page.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">&quot;default&quot;</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
-<span id="cb33-2"><a href="la-mise-en-page.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(png)</span>
-<span id="cb33-3"><a href="la-mise-en-page.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import de l&#39;image</span></span>
-<span id="cb33-4"><a href="la-mise-en-page.html#cb33-4" aria-hidden="true" tabindex="-1"></a>logo <span class="ot">&lt;-</span> <span class="fu">readPNG</span>(<span class="st">&quot;img/Logo CG 46 - Bleu.png&quot;</span>)</span>
-<span id="cb33-5"><a href="la-mise-en-page.html#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># dimension de l&#39;image en unité de la carte</span></span>
-<span id="cb33-6"><a href="la-mise-en-page.html#cb33-6" aria-hidden="true" tabindex="-1"></a>pp <span class="ot">&lt;-</span> <span class="fu">dim</span>(logo)[<span class="dv">2</span><span class="sc">:</span><span class="dv">1</span>] <span class="sc">*</span> <span class="dv">20</span></span>
-<span id="cb33-7"><a href="la-mise-en-page.html#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition d&#39;un point d&#39;encrage de l&#39;image dans la figure, ici</span></span>
-<span id="cb33-8"><a href="la-mise-en-page.html#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co"># le coin supérieur gauche de la bounding box du département</span></span>
-<span id="cb33-9"><a href="la-mise-en-page.html#cb33-9" aria-hidden="true" tabindex="-1"></a>xy <span class="ot">&lt;-</span> <span class="fu">st_bbox</span>(com)[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]</span>
-<span id="cb33-10"><a href="la-mise-en-page.html#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">col =</span> <span class="st">&quot;#D1914D&quot;</span>, <span class="at">border =</span> <span class="st">&quot;white&quot;</span>)</span>
-<span id="cb33-11"><a href="la-mise-en-page.html#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="fu">rasterImage</span>(</span>
-<span id="cb33-12"><a href="la-mise-en-page.html#cb33-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">image   =</span> logo,</span>
-<span id="cb33-13"><a href="la-mise-en-page.html#cb33-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">xleft   =</span> xy[<span class="dv">1</span>],</span>
-<span id="cb33-14"><a href="la-mise-en-page.html#cb33-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">ybottom =</span> xy[<span class="dv">2</span>] <span class="sc">-</span> pp[<span class="dv">2</span>],</span>
-<span id="cb33-15"><a href="la-mise-en-page.html#cb33-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">xright  =</span> xy[<span class="dv">1</span>] <span class="sc">+</span> pp[<span class="dv">1</span>],</span>
-<span id="cb33-16"><a href="la-mise-en-page.html#cb33-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">ytop    =</span> xy[<span class="dv">2</span>]</span>
-<span id="cb33-17"><a href="la-mise-en-page.html#cb33-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="la-mise-en-page.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">&quot;default&quot;</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb34-2"><a href="la-mise-en-page.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(png)</span>
+<span id="cb34-3"><a href="la-mise-en-page.html#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import de l&#39;image</span></span>
+<span id="cb34-4"><a href="la-mise-en-page.html#cb34-4" aria-hidden="true" tabindex="-1"></a>logo <span class="ot">&lt;-</span> <span class="fu">readPNG</span>(<span class="st">&quot;img/Logo CG 46 - Bleu.png&quot;</span>)</span>
+<span id="cb34-5"><a href="la-mise-en-page.html#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># dimension de l&#39;image en unité de la carte</span></span>
+<span id="cb34-6"><a href="la-mise-en-page.html#cb34-6" aria-hidden="true" tabindex="-1"></a>pp <span class="ot">&lt;-</span> <span class="fu">dim</span>(logo)[<span class="dv">2</span><span class="sc">:</span><span class="dv">1</span>] <span class="sc">*</span> <span class="dv">20</span></span>
+<span id="cb34-7"><a href="la-mise-en-page.html#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition d&#39;un point d&#39;encrage de l&#39;image dans la figure, ici</span></span>
+<span id="cb34-8"><a href="la-mise-en-page.html#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="co"># le coin supérieur gauche de la bounding box du département</span></span>
+<span id="cb34-9"><a href="la-mise-en-page.html#cb34-9" aria-hidden="true" tabindex="-1"></a>xy <span class="ot">&lt;-</span> <span class="fu">st_bbox</span>(com)[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]</span>
+<span id="cb34-10"><a href="la-mise-en-page.html#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">col =</span> <span class="st">&quot;#D1914D&quot;</span>, <span class="at">border =</span> <span class="st">&quot;white&quot;</span>)</span>
+<span id="cb34-11"><a href="la-mise-en-page.html#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="fu">rasterImage</span>(</span>
+<span id="cb34-12"><a href="la-mise-en-page.html#cb34-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">image   =</span> logo,</span>
+<span id="cb34-13"><a href="la-mise-en-page.html#cb34-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">xleft   =</span> xy[<span class="dv">1</span>],</span>
+<span id="cb34-14"><a href="la-mise-en-page.html#cb34-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">ybottom =</span> xy[<span class="dv">2</span>] <span class="sc">-</span> pp[<span class="dv">2</span>],</span>
+<span id="cb34-15"><a href="la-mise-en-page.html#cb34-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">xright  =</span> xy[<span class="dv">1</span>] <span class="sc">+</span> pp[<span class="dv">1</span>],</span>
+<span id="cb34-16"><a href="la-mise-en-page.html#cb34-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">ytop    =</span> xy[<span class="dv">2</span>]</span>
+<span id="cb34-17"><a href="la-mise-en-page.html#cb34-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/logo-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="placer-précisément-un-élément-sur-la-carte" class="section level2 hasAnchor" number="3.15">
@@ -501,36 +501,36 @@ du package <code>png</code> permet l’ajout d’images sur une figure.</p>
 <div id="ajouter-un-ombrage-à-une-couche" class="section level2 hasAnchor" number="3.16">
 <h2><span class="header-section-number">3.16</span> Ajouter un ombrage à une couche<a href="la-mise-en-page.html#ajouter-un-ombrage-à-une-couche" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La fonction <code>mf_shadow()</code> permet de créer une ombre à une couche de polygones.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="la-mise-en-page.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_shadow</span>(com)</span>
-<span id="cb34-2"><a href="la-mise-en-page.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">add=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="la-mise-en-page.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_shadow</span>(com)</span>
+<span id="cb35-2"><a href="la-mise-en-page.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">add=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/shadow-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="création-de-cartons" class="section level2 hasAnchor" number="3.17">
 <h2><span class="header-section-number">3.17</span> Création de cartons<a href="la-mise-en-page.html#création-de-cartons" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La fonction <code>mf_inset_on()</code> permet de démarrer la création d’un carton.
 Il faut ensuite “refermer” le carton avec <code>mf_inset_off()</code>.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="la-mise-en-page.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_init</span>(<span class="at">x =</span> com_sel, <span class="at">theme =</span> <span class="st">&quot;agolalight&quot;</span>, <span class="at">expandBB =</span> <span class="fu">c</span>(<span class="dv">0</span>,.<span class="dv">1</span>,<span class="dv">0</span>,.<span class="dv">5</span>))</span>
-<span id="cb35-2"><a href="la-mise-en-page.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb35-3"><a href="la-mise-en-page.html#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_sel, <span class="at">col =</span> <span class="st">&quot;tomato4&quot;</span>, <span class="at">border =</span> <span class="st">&quot;tomato1&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb35-4"><a href="la-mise-en-page.html#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Carton France</span></span>
-<span id="cb35-5"><a href="la-mise-en-page.html#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_on</span>(<span class="at">x =</span> dep, <span class="at">pos =</span> <span class="st">&quot;topright&quot;</span>, <span class="at">cex =</span> .<span class="dv">3</span>)</span>
-<span id="cb35-6"><a href="la-mise-en-page.html#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(dep, <span class="at">lwd =</span> .<span class="dv">5</span>, <span class="at">border=</span> <span class="st">&quot;grey90&quot;</span>)</span>
-<span id="cb35-7"><a href="la-mise-en-page.html#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_sel, <span class="at">col =</span> <span class="st">&quot;tomato4&quot;</span>, <span class="at">border =</span> <span class="st">&quot;tomato1&quot;</span>, <span class="at">lwd =</span> .<span class="dv">5</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb35-8"><a href="la-mise-en-page.html#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(<span class="at">size =</span> <span class="dv">200</span>, <span class="at">pos =</span> <span class="st">&quot;bottomleft&quot;</span>, <span class="at">cex =</span> .<span class="dv">6</span>, <span class="at">lwd =</span> .<span class="dv">5</span>)</span>
-<span id="cb35-9"><a href="la-mise-en-page.html#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_off</span>()</span>
-<span id="cb35-10"><a href="la-mise-en-page.html#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Carton Lot</span></span>
-<span id="cb35-11"><a href="la-mise-en-page.html#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_on</span>(<span class="at">x =</span> com, <span class="at">pos =</span> <span class="st">&quot;bottomright&quot;</span>, <span class="at">cex =</span> .<span class="dv">3</span>)</span>
-<span id="cb35-12"><a href="la-mise-en-page.html#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">lwd =</span> .<span class="dv">5</span>, <span class="at">border=</span> <span class="st">&quot;grey90&quot;</span>)</span>
-<span id="cb35-13"><a href="la-mise-en-page.html#cb35-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_sel, <span class="at">col =</span> <span class="st">&quot;tomato4&quot;</span>, <span class="at">border =</span> <span class="st">&quot;tomato1&quot;</span>, <span class="at">lwd =</span> .<span class="dv">5</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb35-14"><a href="la-mise-en-page.html#cb35-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">pos =</span> <span class="st">&quot;bottomright&quot;</span>, <span class="at">cex =</span> .<span class="dv">6</span>, <span class="at">lwd =</span> .<span class="dv">5</span>)</span>
-<span id="cb35-15"><a href="la-mise-en-page.html#cb35-15" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_off</span>()</span>
-<span id="cb35-16"><a href="la-mise-en-page.html#cb35-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Carton Monde</span></span>
-<span id="cb35-17"><a href="la-mise-en-page.html#cb35-17" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_on</span>(<span class="at">x =</span> <span class="st">&quot;worldmap&quot;</span>, <span class="at">pos =</span> <span class="st">&quot;topleft&quot;</span>)</span>
-<span id="cb35-18"><a href="la-mise-en-page.html#cb35-18" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_worldmap</span>(com_sel, <span class="at">land_col =</span> <span class="st">&quot;#cccccc&quot;</span>,<span class="at">border_col =</span> <span class="cn">NA</span>, </span>
-<span id="cb35-19"><a href="la-mise-en-page.html#cb35-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">water_col =</span>  <span class="st">&quot;#e3e3e3&quot;</span>, <span class="at">col =</span> <span class="st">&quot;tomato4&quot;</span>)</span>
-<span id="cb35-20"><a href="la-mise-en-page.html#cb35-20" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_off</span>()</span>
-<span id="cb35-21"><a href="la-mise-en-page.html#cb35-21" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Cahors et ses environs&quot;</span>)</span>
-<span id="cb35-22"><a href="la-mise-en-page.html#cb35-22" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(<span class="dv">1</span>, <span class="at">pos =</span> <span class="st">&#39;bottomleft&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="la-mise-en-page.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_init</span>(<span class="at">x =</span> com_sel, <span class="at">theme =</span> <span class="st">&quot;agolalight&quot;</span>, <span class="at">expandBB =</span> <span class="fu">c</span>(<span class="dv">0</span>,.<span class="dv">1</span>,<span class="dv">0</span>,.<span class="dv">5</span>))</span>
+<span id="cb36-2"><a href="la-mise-en-page.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb36-3"><a href="la-mise-en-page.html#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_sel, <span class="at">col =</span> <span class="st">&quot;tomato4&quot;</span>, <span class="at">border =</span> <span class="st">&quot;tomato1&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb36-4"><a href="la-mise-en-page.html#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Carton France</span></span>
+<span id="cb36-5"><a href="la-mise-en-page.html#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_on</span>(<span class="at">x =</span> dep, <span class="at">pos =</span> <span class="st">&quot;topright&quot;</span>, <span class="at">cex =</span> .<span class="dv">3</span>)</span>
+<span id="cb36-6"><a href="la-mise-en-page.html#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(dep, <span class="at">lwd =</span> .<span class="dv">5</span>, <span class="at">border=</span> <span class="st">&quot;grey90&quot;</span>)</span>
+<span id="cb36-7"><a href="la-mise-en-page.html#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_sel, <span class="at">col =</span> <span class="st">&quot;tomato4&quot;</span>, <span class="at">border =</span> <span class="st">&quot;tomato1&quot;</span>, <span class="at">lwd =</span> .<span class="dv">5</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb36-8"><a href="la-mise-en-page.html#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(<span class="at">size =</span> <span class="dv">200</span>, <span class="at">pos =</span> <span class="st">&quot;bottomleft&quot;</span>, <span class="at">cex =</span> .<span class="dv">6</span>, <span class="at">lwd =</span> .<span class="dv">5</span>)</span>
+<span id="cb36-9"><a href="la-mise-en-page.html#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_off</span>()</span>
+<span id="cb36-10"><a href="la-mise-en-page.html#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Carton Lot</span></span>
+<span id="cb36-11"><a href="la-mise-en-page.html#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_on</span>(<span class="at">x =</span> com, <span class="at">pos =</span> <span class="st">&quot;bottomright&quot;</span>, <span class="at">cex =</span> .<span class="dv">3</span>)</span>
+<span id="cb36-12"><a href="la-mise-en-page.html#cb36-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">lwd =</span> .<span class="dv">5</span>, <span class="at">border=</span> <span class="st">&quot;grey90&quot;</span>)</span>
+<span id="cb36-13"><a href="la-mise-en-page.html#cb36-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_sel, <span class="at">col =</span> <span class="st">&quot;tomato4&quot;</span>, <span class="at">border =</span> <span class="st">&quot;tomato1&quot;</span>, <span class="at">lwd =</span> .<span class="dv">5</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb36-14"><a href="la-mise-en-page.html#cb36-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">pos =</span> <span class="st">&quot;bottomright&quot;</span>, <span class="at">cex =</span> .<span class="dv">6</span>, <span class="at">lwd =</span> .<span class="dv">5</span>)</span>
+<span id="cb36-15"><a href="la-mise-en-page.html#cb36-15" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_off</span>()</span>
+<span id="cb36-16"><a href="la-mise-en-page.html#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Carton Monde</span></span>
+<span id="cb36-17"><a href="la-mise-en-page.html#cb36-17" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_on</span>(<span class="at">x =</span> <span class="st">&quot;worldmap&quot;</span>, <span class="at">pos =</span> <span class="st">&quot;topleft&quot;</span>)</span>
+<span id="cb36-18"><a href="la-mise-en-page.html#cb36-18" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_worldmap</span>(com_sel, <span class="at">land_col =</span> <span class="st">&quot;#cccccc&quot;</span>,<span class="at">border_col =</span> <span class="cn">NA</span>, </span>
+<span id="cb36-19"><a href="la-mise-en-page.html#cb36-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">water_col =</span>  <span class="st">&quot;#e3e3e3&quot;</span>, <span class="at">col =</span> <span class="st">&quot;tomato4&quot;</span>)</span>
+<span id="cb36-20"><a href="la-mise-en-page.html#cb36-20" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_off</span>()</span>
+<span id="cb36-21"><a href="la-mise-en-page.html#cb36-21" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Cahors et ses environs&quot;</span>)</span>
+<span id="cb36-22"><a href="la-mise-en-page.html#cb36-22" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(<span class="dv">1</span>, <span class="at">pos =</span> <span class="st">&#39;bottomleft&#39;</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/inset-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
 <div id="exercices" class="section level2 hasAnchor" number="3.18">
@@ -543,138 +543,138 @@ Il faut ensuite “refermer” le carton avec <code>mf_inset_off()</code>.</p>
 <li>Exportez la carte au format PNG avec 800 pixels de large.</li>
 <li>Comment rendre la carte plus intelligible ? Allez-y !</li>
 </ol>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="la-mise-en-page.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapsf)</span>
-<span id="cb36-2"><a href="la-mise-en-page.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># import des communes du Lot</span></span>
-<span id="cb36-3"><a href="la-mise-en-page.html#cb36-3" aria-hidden="true" tabindex="-1"></a>com <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/lot46.gpkg&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;commune&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb36-4"><a href="la-mise-en-page.html#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># import des départments français</span></span>
-<span id="cb36-5"><a href="la-mise-en-page.html#cb36-5" aria-hidden="true" tabindex="-1"></a>dep <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/lot46.gpkg&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;departement&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb36-6"><a href="la-mise-en-page.html#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Nombre total d&#39;actifs</span></span>
-<span id="cb36-7"><a href="la-mise-en-page.html#cb36-7" aria-hidden="true" tabindex="-1"></a>com<span class="sc">$</span>ACT <span class="ot">&lt;-</span> com<span class="sc">$</span>AGR_H <span class="sc">+</span> com<span class="sc">$</span>AGR_F <span class="sc">+</span> com<span class="sc">$</span>IND_H <span class="sc">+</span> com<span class="sc">$</span>IND_F <span class="sc">+</span> com<span class="sc">$</span>BTP_H <span class="sc">+</span></span>
-<span id="cb36-8"><a href="la-mise-en-page.html#cb36-8" aria-hidden="true" tabindex="-1"></a>  com<span class="sc">$</span>BTP_F <span class="sc">+</span> com<span class="sc">$</span>TER_H <span class="sc">+</span> com<span class="sc">$</span>TER_F</span>
-<span id="cb36-9"><a href="la-mise-en-page.html#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Nombre d&#39;actifs dans l&#39;industrie</span></span>
-<span id="cb36-10"><a href="la-mise-en-page.html#cb36-10" aria-hidden="true" tabindex="-1"></a>com<span class="sc">$</span>IND <span class="ot">&lt;-</span> com<span class="sc">$</span>IND_F <span class="sc">+</span> com<span class="sc">$</span>IND_H</span>
-<span id="cb36-11"><a href="la-mise-en-page.html#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Part des actifs travaillant dans l&#39;industrie</span></span>
-<span id="cb36-12"><a href="la-mise-en-page.html#cb36-12" aria-hidden="true" tabindex="-1"></a>com<span class="sc">$</span>PART_ACT_IND <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> com<span class="sc">$</span>IND <span class="sc">/</span> com<span class="sc">$</span>ACT</span>
-<span id="cb36-13"><a href="la-mise-en-page.html#cb36-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-14"><a href="la-mise-en-page.html#cb36-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d&#39;un thème personnalisé</span></span>
-<span id="cb36-15"><a href="la-mise-en-page.html#cb36-15" aria-hidden="true" tabindex="-1"></a>th <span class="ot">&lt;-</span> <span class="fu">mf_theme</span>(<span class="st">&quot;green&quot;</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">1.5</span>,<span class="dv">0</span>), <span class="at">pos =</span> <span class="st">&quot;left&quot;</span>)</span>
-<span id="cb36-16"><a href="la-mise-en-page.html#cb36-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-17"><a href="la-mise-en-page.html#cb36-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Cartographie du nombre total de travailleurs de l&#39;industrie</span></span>
-<span id="cb36-18"><a href="la-mise-en-page.html#cb36-18" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_export</span>(com, <span class="st">&quot;img/n_ind.png&quot;</span>, <span class="at">theme =</span> th,</span>
-<span id="cb36-19"><a href="la-mise-en-page.html#cb36-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">width =</span> <span class="dv">800</span>)</span>
-<span id="cb36-20"><a href="la-mise-en-page.html#cb36-20" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com, <span class="at">border =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> .<span class="dv">2</span>, <span class="at">add =</span> T)</span>
-<span id="cb36-21"><a href="la-mise-en-page.html#cb36-21" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> dep, <span class="at">lwd =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">lend =</span> <span class="dv">0</span>)</span>
-<span id="cb36-22"><a href="la-mise-en-page.html#cb36-22" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com, <span class="at">var =</span> <span class="st">&quot;IND&quot;</span>, <span class="at">type =</span> <span class="st">&quot;prop&quot;</span>,</span>
-<span id="cb36-23"><a href="la-mise-en-page.html#cb36-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_title =</span> <span class="st">&quot;Nombre d&#39;actifs</span><span class="sc">\n</span><span class="st">travaillant dans</span><span class="sc">\n</span><span class="st">l&#39;industrie&quot;</span>)</span>
-<span id="cb36-24"><a href="la-mise-en-page.html#cb36-24" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Répartition des actifs travaillant dans l&#39;industrie - 2017&quot;</span>)</span>
-<span id="cb36-25"><a href="la-mise-en-page.html#cb36-25" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(<span class="dv">5</span>)</span>
-<span id="cb36-26"><a href="la-mise-en-page.html#cb36-26" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_arrow</span>(<span class="at">pos =</span> <span class="st">&quot;topright&quot;</span>)</span>
-<span id="cb36-27"><a href="la-mise-en-page.html#cb36-27" aria-hidden="true" tabindex="-1"></a><span class="co"># notez l&#39;utilisation ici de paste0() qui permet de concatener des chaines</span></span>
-<span id="cb36-28"><a href="la-mise-en-page.html#cb36-28" aria-hidden="true" tabindex="-1"></a><span class="co"># de caractères et de \n qui permet d&#39;aller à la ligne</span></span>
-<span id="cb36-29"><a href="la-mise-en-page.html#cb36-29" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_credits</span>(<span class="fu">paste0</span>(<span class="st">&quot;Admin Express COG Carto 3.0, IGN - 2021 &amp; &quot;</span>,</span>
-<span id="cb36-30"><a href="la-mise-en-page.html#cb36-30" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - &quot;</span>,</span>
-<span id="cb36-31"><a href="la-mise-en-page.html#cb36-31" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Séries départementales et communales, INSEE - 2020</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb36-32"><a href="la-mise-en-page.html#cb36-32" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Auteurs : T. Giraud &amp; H. Pecout, 2022&quot;</span>))</span>
-<span id="cb36-33"><a href="la-mise-en-page.html#cb36-33" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="la-mise-en-page.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapsf)</span>
+<span id="cb37-2"><a href="la-mise-en-page.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># import des communes du Lot</span></span>
+<span id="cb37-3"><a href="la-mise-en-page.html#cb37-3" aria-hidden="true" tabindex="-1"></a>com <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/lot46.gpkg&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;commune&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb37-4"><a href="la-mise-en-page.html#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co"># import des départments français</span></span>
+<span id="cb37-5"><a href="la-mise-en-page.html#cb37-5" aria-hidden="true" tabindex="-1"></a>dep <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;data/lot46.gpkg&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;departement&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb37-6"><a href="la-mise-en-page.html#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Nombre total d&#39;actifs</span></span>
+<span id="cb37-7"><a href="la-mise-en-page.html#cb37-7" aria-hidden="true" tabindex="-1"></a>com<span class="sc">$</span>ACT <span class="ot">&lt;-</span> com<span class="sc">$</span>AGR_H <span class="sc">+</span> com<span class="sc">$</span>AGR_F <span class="sc">+</span> com<span class="sc">$</span>IND_H <span class="sc">+</span> com<span class="sc">$</span>IND_F <span class="sc">+</span> com<span class="sc">$</span>BTP_H <span class="sc">+</span></span>
+<span id="cb37-8"><a href="la-mise-en-page.html#cb37-8" aria-hidden="true" tabindex="-1"></a>  com<span class="sc">$</span>BTP_F <span class="sc">+</span> com<span class="sc">$</span>TER_H <span class="sc">+</span> com<span class="sc">$</span>TER_F</span>
+<span id="cb37-9"><a href="la-mise-en-page.html#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Nombre d&#39;actifs dans l&#39;industrie</span></span>
+<span id="cb37-10"><a href="la-mise-en-page.html#cb37-10" aria-hidden="true" tabindex="-1"></a>com<span class="sc">$</span>IND <span class="ot">&lt;-</span> com<span class="sc">$</span>IND_F <span class="sc">+</span> com<span class="sc">$</span>IND_H</span>
+<span id="cb37-11"><a href="la-mise-en-page.html#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Part des actifs travaillant dans l&#39;industrie</span></span>
+<span id="cb37-12"><a href="la-mise-en-page.html#cb37-12" aria-hidden="true" tabindex="-1"></a>com<span class="sc">$</span>PART_ACT_IND <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> com<span class="sc">$</span>IND <span class="sc">/</span> com<span class="sc">$</span>ACT</span>
+<span id="cb37-13"><a href="la-mise-en-page.html#cb37-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-14"><a href="la-mise-en-page.html#cb37-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d&#39;un thème personnalisé</span></span>
+<span id="cb37-15"><a href="la-mise-en-page.html#cb37-15" aria-hidden="true" tabindex="-1"></a>th <span class="ot">&lt;-</span> <span class="fu">mf_theme</span>(<span class="st">&quot;green&quot;</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">1.5</span>,<span class="dv">0</span>), <span class="at">pos =</span> <span class="st">&quot;left&quot;</span>)</span>
+<span id="cb37-16"><a href="la-mise-en-page.html#cb37-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-17"><a href="la-mise-en-page.html#cb37-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Cartographie du nombre total de travailleurs de l&#39;industrie</span></span>
+<span id="cb37-18"><a href="la-mise-en-page.html#cb37-18" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_export</span>(com, <span class="st">&quot;img/n_ind.png&quot;</span>, <span class="at">theme =</span> th,</span>
+<span id="cb37-19"><a href="la-mise-en-page.html#cb37-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">width =</span> <span class="dv">800</span>)</span>
+<span id="cb37-20"><a href="la-mise-en-page.html#cb37-20" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com, <span class="at">border =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> .<span class="dv">2</span>, <span class="at">add =</span> T)</span>
+<span id="cb37-21"><a href="la-mise-en-page.html#cb37-21" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> dep, <span class="at">lwd =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">lend =</span> <span class="dv">0</span>)</span>
+<span id="cb37-22"><a href="la-mise-en-page.html#cb37-22" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com, <span class="at">var =</span> <span class="st">&quot;IND&quot;</span>, <span class="at">type =</span> <span class="st">&quot;prop&quot;</span>,</span>
+<span id="cb37-23"><a href="la-mise-en-page.html#cb37-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_title =</span> <span class="st">&quot;Nombre d&#39;actifs</span><span class="sc">\n</span><span class="st">travaillant dans</span><span class="sc">\n</span><span class="st">l&#39;industrie&quot;</span>)</span>
+<span id="cb37-24"><a href="la-mise-en-page.html#cb37-24" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Répartition des actifs travaillant dans l&#39;industrie - 2017&quot;</span>)</span>
+<span id="cb37-25"><a href="la-mise-en-page.html#cb37-25" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(<span class="dv">5</span>)</span>
+<span id="cb37-26"><a href="la-mise-en-page.html#cb37-26" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_arrow</span>(<span class="at">pos =</span> <span class="st">&quot;topright&quot;</span>)</span>
+<span id="cb37-27"><a href="la-mise-en-page.html#cb37-27" aria-hidden="true" tabindex="-1"></a><span class="co"># notez l&#39;utilisation ici de paste0() qui permet de concatener des chaines</span></span>
+<span id="cb37-28"><a href="la-mise-en-page.html#cb37-28" aria-hidden="true" tabindex="-1"></a><span class="co"># de caractères et de \n qui permet d&#39;aller à la ligne</span></span>
+<span id="cb37-29"><a href="la-mise-en-page.html#cb37-29" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_credits</span>(<span class="fu">paste0</span>(<span class="st">&quot;Admin Express COG Carto 3.0, IGN - 2021 &amp; &quot;</span>,</span>
+<span id="cb37-30"><a href="la-mise-en-page.html#cb37-30" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - &quot;</span>,</span>
+<span id="cb37-31"><a href="la-mise-en-page.html#cb37-31" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Séries départementales et communales, INSEE - 2020</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb37-32"><a href="la-mise-en-page.html#cb37-32" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Auteurs : T. Giraud &amp; H. Pecout, 2022&quot;</span>))</span>
+<span id="cb37-33"><a href="la-mise-en-page.html#cb37-33" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
 <pre><code>png 
   2 </code></pre>
 <p><img src="img/n_ind.png" /></p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="la-mise-en-page.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cartographie de la part des actifs travaillant dans l&#39;industrie</span></span>
-<span id="cb38-2"><a href="la-mise-en-page.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Quelle est la forme de la distribution que nous voulons cartographier ?</span></span>
-<span id="cb38-3"><a href="la-mise-en-page.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(com<span class="sc">$</span>PART_ACT_IND)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="la-mise-en-page.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cartographie de la part des actifs travaillant dans l&#39;industrie</span></span>
+<span id="cb39-2"><a href="la-mise-en-page.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Quelle est la forme de la distribution que nous voulons cartographier ?</span></span>
+<span id="cb39-3"><a href="la-mise-en-page.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(com<span class="sc">$</span>PART_ACT_IND)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/exob-1.png" width="480" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="la-mise-en-page.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(com<span class="sc">$</span>PART_ACT_IND, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="la-mise-en-page.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(com<span class="sc">$</span>PART_ACT_IND, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/exob-2.png" width="480" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="la-mise-en-page.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(com<span class="sc">$</span>PART_ACT_IND)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="la-mise-en-page.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(com<span class="sc">$</span>PART_ACT_IND)</span></code></pre></div>
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   0.000   7.407  14.286  16.282  23.077 100.000 </code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="la-mise-en-page.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### &gt; Seules 2 communes ont 100% de travailleurs dans l&#39;industrie</span></span>
-<span id="cb42-2"><a href="la-mise-en-page.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="do">#### Ces communes ont moins de 15 actifs</span></span>
-<span id="cb42-3"><a href="la-mise-en-page.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sélection des communes ayant plus de 15 actifs</span></span>
-<span id="cb42-4"><a href="la-mise-en-page.html#cb42-4" aria-hidden="true" tabindex="-1"></a>com_sel <span class="ot">&lt;-</span> com[com<span class="sc">$</span>ACT <span class="sc">&gt;</span> <span class="dv">15</span>, ]</span>
-<span id="cb42-5"><a href="la-mise-en-page.html#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Quelle est la forme de cette (nouvelle) distribution</span></span>
-<span id="cb42-6"><a href="la-mise-en-page.html#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(com_sel<span class="sc">$</span>PART_ACT_IND)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="la-mise-en-page.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="do">#### &gt; Seules 2 communes ont 100% de travailleurs dans l&#39;industrie</span></span>
+<span id="cb43-2"><a href="la-mise-en-page.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="do">#### Ces communes ont moins de 15 actifs</span></span>
+<span id="cb43-3"><a href="la-mise-en-page.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sélection des communes ayant plus de 15 actifs</span></span>
+<span id="cb43-4"><a href="la-mise-en-page.html#cb43-4" aria-hidden="true" tabindex="-1"></a>com_sel <span class="ot">&lt;-</span> com[com<span class="sc">$</span>ACT <span class="sc">&gt;</span> <span class="dv">15</span>, ]</span>
+<span id="cb43-5"><a href="la-mise-en-page.html#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Quelle est la forme de cette (nouvelle) distribution</span></span>
+<span id="cb43-6"><a href="la-mise-en-page.html#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(com_sel<span class="sc">$</span>PART_ACT_IND)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/exob-3.png" width="480" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="la-mise-en-page.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(com_sel<span class="sc">$</span>PART_ACT_IND, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="la-mise-en-page.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(com_sel<span class="sc">$</span>PART_ACT_IND, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/exob-4.png" width="480" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="la-mise-en-page.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(com_sel<span class="sc">$</span>PART_ACT_IND)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="la-mise-en-page.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(com_sel<span class="sc">$</span>PART_ACT_IND)</span></code></pre></div>
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   0.000   7.408  14.286  15.783  22.466  60.000 </code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="la-mise-en-page.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creation d&#39;un vecteur contenant les limites de classes en</span></span>
-<span id="cb46-2"><a href="la-mise-en-page.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># utilisant la méthode des quantiles</span></span>
-<span id="cb46-3"><a href="la-mise-en-page.html#cb46-3" aria-hidden="true" tabindex="-1"></a>bks <span class="ot">&lt;-</span> <span class="fu">mf_get_breaks</span>(com_sel<span class="sc">$</span>PART_ACT_IND, <span class="at">nbreaks =</span> <span class="dv">5</span>,</span>
-<span id="cb46-4"><a href="la-mise-en-page.html#cb46-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="st">&quot;quantile&quot;</span>)</span>
-<span id="cb46-5"><a href="la-mise-en-page.html#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(com_sel<span class="sc">$</span>PART_ACT_IND, bks)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="la-mise-en-page.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creation d&#39;un vecteur contenant les limites de classes en</span></span>
+<span id="cb47-2"><a href="la-mise-en-page.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co"># utilisant la méthode des quantiles</span></span>
+<span id="cb47-3"><a href="la-mise-en-page.html#cb47-3" aria-hidden="true" tabindex="-1"></a>bks <span class="ot">&lt;-</span> <span class="fu">mf_get_breaks</span>(com_sel<span class="sc">$</span>PART_ACT_IND, <span class="at">nbreaks =</span> <span class="dv">5</span>,</span>
+<span id="cb47-4"><a href="la-mise-en-page.html#cb47-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="st">&quot;quantile&quot;</span>)</span>
+<span id="cb47-5"><a href="la-mise-en-page.html#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(com_sel<span class="sc">$</span>PART_ACT_IND, bks)</span></code></pre></div>
 <p><img src="Cartographie-avec-R_files/figure-html/exob-5.png" width="480" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="la-mise-en-page.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_export</span>(com, <span class="st">&quot;img/s_ind.png&quot;</span>, <span class="at">theme =</span> th,</span>
-<span id="cb47-2"><a href="la-mise-en-page.html#cb47-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">width =</span> <span class="dv">800</span>)</span>
-<span id="cb47-3"><a href="la-mise-en-page.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Cartographie</span></span>
-<span id="cb47-4"><a href="la-mise-en-page.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com,</span>
-<span id="cb47-5"><a href="la-mise-en-page.html#cb47-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">var =</span> <span class="st">&quot;PART_ACT_IND&quot;</span>,</span>
-<span id="cb47-6"><a href="la-mise-en-page.html#cb47-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">type =</span> <span class="st">&quot;choro&quot;</span>,</span>
-<span id="cb47-7"><a href="la-mise-en-page.html#cb47-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">breaks =</span> bks,         <span class="co"># Utilisation des bornes de classes créées précédement</span></span>
-<span id="cb47-8"><a href="la-mise-en-page.html#cb47-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_val_rnd =</span> <span class="dv">0</span>,      <span class="co"># arrondir les valeurs dans la légende</span></span>
-<span id="cb47-9"><a href="la-mise-en-page.html#cb47-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">pal =</span> <span class="st">&quot;Red-Yellow&quot;</span>,   <span class="co"># Utilisation d&#39;une palette de couleur</span></span>
-<span id="cb47-10"><a href="la-mise-en-page.html#cb47-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_title =</span> <span class="st">&quot;Part des actifs</span><span class="sc">\n</span><span class="st">travaillant dans</span><span class="sc">\n</span><span class="st">l&#39;industrie&quot;</span>,</span>
-<span id="cb47-11"><a href="la-mise-en-page.html#cb47-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">add =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb47-12"><a href="la-mise-en-page.html#cb47-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">col_na =</span> <span class="st">&quot;grey&quot;</span>,</span>
-<span id="cb47-13"><a href="la-mise-en-page.html#cb47-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_no_data =</span> <span class="st">&quot;Communes de moins de 15 actifs&quot;</span>) <span class="co"># texte du no data dans la légende</span></span>
-<span id="cb47-14"><a href="la-mise-en-page.html#cb47-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Répartition des actifs travaillant dans l&#39;industrie - 2017&quot;</span>)</span>
-<span id="cb47-15"><a href="la-mise-en-page.html#cb47-15" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(<span class="dv">5</span>)</span>
-<span id="cb47-16"><a href="la-mise-en-page.html#cb47-16" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_arrow</span>(<span class="at">pos =</span> <span class="st">&quot;topright&quot;</span>)</span>
-<span id="cb47-17"><a href="la-mise-en-page.html#cb47-17" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_credits</span>(<span class="fu">paste0</span>(<span class="st">&quot;Admin Express COG Carto 3.0, IGN - 2021 &amp; &quot;</span>,</span>
-<span id="cb47-18"><a href="la-mise-en-page.html#cb47-18" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - &quot;</span>,</span>
-<span id="cb47-19"><a href="la-mise-en-page.html#cb47-19" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Séries départementales et communales, INSEE - 2020</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb47-20"><a href="la-mise-en-page.html#cb47-20" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Auteurs : T. Giraud &amp; H. Pecout, 2022&quot;</span>))</span>
-<span id="cb47-21"><a href="la-mise-en-page.html#cb47-21" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="la-mise-en-page.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_export</span>(com, <span class="st">&quot;img/s_ind.png&quot;</span>, <span class="at">theme =</span> th,</span>
+<span id="cb48-2"><a href="la-mise-en-page.html#cb48-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">width =</span> <span class="dv">800</span>)</span>
+<span id="cb48-3"><a href="la-mise-en-page.html#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Cartographie</span></span>
+<span id="cb48-4"><a href="la-mise-en-page.html#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com,</span>
+<span id="cb48-5"><a href="la-mise-en-page.html#cb48-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">var =</span> <span class="st">&quot;PART_ACT_IND&quot;</span>,</span>
+<span id="cb48-6"><a href="la-mise-en-page.html#cb48-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">type =</span> <span class="st">&quot;choro&quot;</span>,</span>
+<span id="cb48-7"><a href="la-mise-en-page.html#cb48-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">breaks =</span> bks,         <span class="co"># Utilisation des bornes de classes créées précédement</span></span>
+<span id="cb48-8"><a href="la-mise-en-page.html#cb48-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_val_rnd =</span> <span class="dv">0</span>,      <span class="co"># arrondir les valeurs dans la légende</span></span>
+<span id="cb48-9"><a href="la-mise-en-page.html#cb48-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">pal =</span> <span class="st">&quot;Red-Yellow&quot;</span>,   <span class="co"># Utilisation d&#39;une palette de couleur</span></span>
+<span id="cb48-10"><a href="la-mise-en-page.html#cb48-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_title =</span> <span class="st">&quot;Part des actifs</span><span class="sc">\n</span><span class="st">travaillant dans</span><span class="sc">\n</span><span class="st">l&#39;industrie&quot;</span>,</span>
+<span id="cb48-11"><a href="la-mise-en-page.html#cb48-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">add =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb48-12"><a href="la-mise-en-page.html#cb48-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">col_na =</span> <span class="st">&quot;grey&quot;</span>,</span>
+<span id="cb48-13"><a href="la-mise-en-page.html#cb48-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_no_data =</span> <span class="st">&quot;Communes de moins de 15 actifs&quot;</span>) <span class="co"># texte du no data dans la légende</span></span>
+<span id="cb48-14"><a href="la-mise-en-page.html#cb48-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Répartition des actifs travaillant dans l&#39;industrie - 2017&quot;</span>)</span>
+<span id="cb48-15"><a href="la-mise-en-page.html#cb48-15" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(<span class="dv">5</span>)</span>
+<span id="cb48-16"><a href="la-mise-en-page.html#cb48-16" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_arrow</span>(<span class="at">pos =</span> <span class="st">&quot;topright&quot;</span>)</span>
+<span id="cb48-17"><a href="la-mise-en-page.html#cb48-17" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_credits</span>(<span class="fu">paste0</span>(<span class="st">&quot;Admin Express COG Carto 3.0, IGN - 2021 &amp; &quot;</span>,</span>
+<span id="cb48-18"><a href="la-mise-en-page.html#cb48-18" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - &quot;</span>,</span>
+<span id="cb48-19"><a href="la-mise-en-page.html#cb48-19" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Séries départementales et communales, INSEE - 2020</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb48-20"><a href="la-mise-en-page.html#cb48-20" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Auteurs : T. Giraud &amp; H. Pecout, 2022&quot;</span>))</span>
+<span id="cb48-21"><a href="la-mise-en-page.html#cb48-21" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
 <pre><code>png 
   2 </code></pre>
 <p><img src="img/s_ind.png" /></p>
 <p>Nous allons maintenant combiner le nombre total d’actifs et la parts des travailleurs de l’industrie.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="la-mise-en-page.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_export</span>(com, <span class="st">&quot;img/c_ind.png&quot;</span>, <span class="at">theme =</span> th,</span>
-<span id="cb49-2"><a href="la-mise-en-page.html#cb49-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">width =</span> <span class="dv">800</span>)</span>
-<span id="cb49-3"><a href="la-mise-en-page.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com, <span class="at">border =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> .<span class="dv">2</span>, <span class="at">add =</span> T)</span>
-<span id="cb49-4"><a href="la-mise-en-page.html#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> dep, <span class="at">lwd =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">lend =</span> <span class="dv">0</span>)</span>
-<span id="cb49-5"><a href="la-mise-en-page.html#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="fu">c</span>(<span class="st">&quot;ACT&quot;</span>, <span class="st">&quot;PART_ACT_IND&quot;</span>), <span class="st">&quot;prop_choro&quot;</span>,</span>
-<span id="cb49-6"><a href="la-mise-en-page.html#cb49-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">breaks =</span> bks,</span>
-<span id="cb49-7"><a href="la-mise-en-page.html#cb49-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">pal =</span> <span class="st">&quot;Red-Yellow&quot;</span>,</span>
-<span id="cb49-8"><a href="la-mise-en-page.html#cb49-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">inches =</span> .<span class="dv">4</span>,</span>
-<span id="cb49-9"><a href="la-mise-en-page.html#cb49-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">border =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> .<span class="dv">7</span>,</span>
-<span id="cb49-10"><a href="la-mise-en-page.html#cb49-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_val_rnd =</span>  <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</span>
-<span id="cb49-11"><a href="la-mise-en-page.html#cb49-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_pos =</span> <span class="fu">c</span>(<span class="dv">538000</span>,<span class="dv">6442000</span>, <span class="dv">538000</span>, <span class="dv">6424000</span>),  <span class="co"># ici les légendes sont positionnées manuellement</span></span>
-<span id="cb49-12"><a href="la-mise-en-page.html#cb49-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_title =</span> <span class="fu">c</span>(<span class="st">&quot;Nombre d&#39;actifs*&quot;</span>,</span>
-<span id="cb49-13"><a href="la-mise-en-page.html#cb49-13" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Part des actifs</span><span class="sc">\n</span><span class="st">dans l&#39;industrie (en %)&quot;</span>),</span>
-<span id="cb49-14"><a href="la-mise-en-page.html#cb49-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">col_na =</span> <span class="st">&quot;grey&quot;</span>,</span>
-<span id="cb49-15"><a href="la-mise-en-page.html#cb49-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_no_data =</span> <span class="st">&quot;Communes de moins de 15 actifs&quot;</span>)</span>
-<span id="cb49-16"><a href="la-mise-en-page.html#cb49-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-17"><a href="la-mise-en-page.html#cb49-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajout d&#39;annotations</span></span>
-<span id="cb49-18"><a href="la-mise-en-page.html#cb49-18" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_annotation</span>(<span class="at">x =</span> com[com<span class="sc">$</span>NOM_COM<span class="sc">==</span><span class="st">&quot;Biars-sur-Cère&quot;</span>,],</span>
-<span id="cb49-19"><a href="la-mise-en-page.html#cb49-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">txt =</span> <span class="st">&quot;Andros&quot;</span>,</span>
-<span id="cb49-20"><a href="la-mise-en-page.html#cb49-20" aria-hidden="true" tabindex="-1"></a>              <span class="at">col_arrow =</span> th<span class="sc">$</span>fg, <span class="at">halo =</span> T, <span class="at">cex =</span> <span class="dv">1</span>)</span>
-<span id="cb49-21"><a href="la-mise-en-page.html#cb49-21" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_annotation</span>(<span class="at">x =</span> com[com<span class="sc">$</span>NOM_COM<span class="sc">==</span><span class="st">&quot;Figeac&quot;</span>,],</span>
-<span id="cb49-22"><a href="la-mise-en-page.html#cb49-22" aria-hidden="true" tabindex="-1"></a>              <span class="at">txt =</span> <span class="st">&quot;Industrie</span><span class="sc">\n</span><span class="st">aéronautique&quot;</span>,</span>
-<span id="cb49-23"><a href="la-mise-en-page.html#cb49-23" aria-hidden="true" tabindex="-1"></a>              <span class="at">col_arrow =</span> th<span class="sc">$</span>fg, <span class="at">pos =</span> <span class="st">&quot;bottomright&quot;</span>, <span class="at">halo =</span> T, <span class="at">cex =</span> <span class="dv">1</span>)</span>
-<span id="cb49-24"><a href="la-mise-en-page.html#cb49-24" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_annotation</span>(<span class="at">x =</span> com[com<span class="sc">$</span>NOM_COM<span class="sc">==</span><span class="st">&quot;Gramat&quot;</span>,],</span>
-<span id="cb49-25"><a href="la-mise-en-page.html#cb49-25" aria-hidden="true" tabindex="-1"></a>              <span class="at">txt =</span> <span class="st">&quot;La Quercynoise (?)&quot;</span>,</span>
-<span id="cb49-26"><a href="la-mise-en-page.html#cb49-26" aria-hidden="true" tabindex="-1"></a>              <span class="at">col_arrow =</span> th<span class="sc">$</span>fg, <span class="at">pos =</span> <span class="st">&quot;topleft&quot;</span>, <span class="at">s =</span> <span class="dv">1</span>, <span class="at">halo =</span> T,</span>
-<span id="cb49-27"><a href="la-mise-en-page.html#cb49-27" aria-hidden="true" tabindex="-1"></a>              <span class="at">cex =</span> <span class="dv">1</span>)</span>
-<span id="cb49-28"><a href="la-mise-en-page.html#cb49-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-29"><a href="la-mise-en-page.html#cb49-29" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Répartition des actifs travaillant dans l&#39;industrie - 2017&quot;</span>)</span>
-<span id="cb49-30"><a href="la-mise-en-page.html#cb49-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-31"><a href="la-mise-en-page.html#cb49-31" aria-hidden="true" tabindex="-1"></a><span class="co"># ajout d&#39;un carton -&gt;</span></span>
-<span id="cb49-32"><a href="la-mise-en-page.html#cb49-32" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_on</span>(<span class="at">fig =</span> <span class="fu">c</span>(.<span class="dv">8</span>,<span class="fl">0.98</span>,<span class="fl">0.1</span>,<span class="fl">0.3</span>))</span>
-<span id="cb49-33"><a href="la-mise-en-page.html#cb49-33" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(dep, <span class="at">lwd =</span> .<span class="dv">1</span>)</span>
-<span id="cb49-34"><a href="la-mise-en-page.html#cb49-34" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">border =</span> <span class="cn">NA</span>, <span class="at">add =</span> T, <span class="at">col =</span> th<span class="sc">$</span>fg)</span>
-<span id="cb49-35"><a href="la-mise-en-page.html#cb49-35" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">col =</span> th<span class="sc">$</span>fg, <span class="at">lwd =</span> .<span class="dv">5</span>)</span>
-<span id="cb49-36"><a href="la-mise-en-page.html#cb49-36" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_off</span>()</span>
-<span id="cb49-37"><a href="la-mise-en-page.html#cb49-37" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;- fin du carton</span></span>
-<span id="cb49-38"><a href="la-mise-en-page.html#cb49-38" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(<span class="dv">5</span>)</span>
-<span id="cb49-39"><a href="la-mise-en-page.html#cb49-39" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_arrow</span>(<span class="st">&quot;topright&quot;</span>)</span>
-<span id="cb49-40"><a href="la-mise-en-page.html#cb49-40" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_credits</span>(<span class="fu">paste0</span>(<span class="st">&quot;Admin Express COG Carto 3.0, IGN - 2021 &amp; &quot;</span>,</span>
-<span id="cb49-41"><a href="la-mise-en-page.html#cb49-41" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - &quot;</span>,</span>
-<span id="cb49-42"><a href="la-mise-en-page.html#cb49-42" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Séries départementales et communales, INSEE - 2020</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb49-43"><a href="la-mise-en-page.html#cb49-43" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Auteurs : T. Giraud &amp; H. Pecout, 2022&quot;</span>))</span>
-<span id="cb49-44"><a href="la-mise-en-page.html#cb49-44" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="la-mise-en-page.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_export</span>(com, <span class="st">&quot;img/c_ind.png&quot;</span>, <span class="at">theme =</span> th,</span>
+<span id="cb50-2"><a href="la-mise-en-page.html#cb50-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">width =</span> <span class="dv">800</span>)</span>
+<span id="cb50-3"><a href="la-mise-en-page.html#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com, <span class="at">border =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> .<span class="dv">2</span>, <span class="at">add =</span> T)</span>
+<span id="cb50-4"><a href="la-mise-en-page.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> dep, <span class="at">lwd =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">lend =</span> <span class="dv">0</span>)</span>
+<span id="cb50-5"><a href="la-mise-en-page.html#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="fu">c</span>(<span class="st">&quot;ACT&quot;</span>, <span class="st">&quot;PART_ACT_IND&quot;</span>), <span class="st">&quot;prop_choro&quot;</span>,</span>
+<span id="cb50-6"><a href="la-mise-en-page.html#cb50-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">breaks =</span> bks,</span>
+<span id="cb50-7"><a href="la-mise-en-page.html#cb50-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">pal =</span> <span class="st">&quot;Red-Yellow&quot;</span>,</span>
+<span id="cb50-8"><a href="la-mise-en-page.html#cb50-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">inches =</span> .<span class="dv">4</span>,</span>
+<span id="cb50-9"><a href="la-mise-en-page.html#cb50-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">border =</span> <span class="st">&quot;white&quot;</span>, <span class="at">lwd =</span> .<span class="dv">7</span>,</span>
+<span id="cb50-10"><a href="la-mise-en-page.html#cb50-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_val_rnd =</span>  <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</span>
+<span id="cb50-11"><a href="la-mise-en-page.html#cb50-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_pos =</span> <span class="fu">c</span>(<span class="dv">538000</span>,<span class="dv">6442000</span>, <span class="dv">538000</span>, <span class="dv">6424000</span>),  <span class="co"># ici les légendes sont positionnées manuellement</span></span>
+<span id="cb50-12"><a href="la-mise-en-page.html#cb50-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_title =</span> <span class="fu">c</span>(<span class="st">&quot;Nombre d&#39;actifs*&quot;</span>,</span>
+<span id="cb50-13"><a href="la-mise-en-page.html#cb50-13" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Part des actifs</span><span class="sc">\n</span><span class="st">dans l&#39;industrie (en %)&quot;</span>),</span>
+<span id="cb50-14"><a href="la-mise-en-page.html#cb50-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">col_na =</span> <span class="st">&quot;grey&quot;</span>,</span>
+<span id="cb50-15"><a href="la-mise-en-page.html#cb50-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_no_data =</span> <span class="st">&quot;Communes de moins de 15 actifs&quot;</span>)</span>
+<span id="cb50-16"><a href="la-mise-en-page.html#cb50-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-17"><a href="la-mise-en-page.html#cb50-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajout d&#39;annotations</span></span>
+<span id="cb50-18"><a href="la-mise-en-page.html#cb50-18" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_annotation</span>(<span class="at">x =</span> com[com<span class="sc">$</span>NOM_COM<span class="sc">==</span><span class="st">&quot;Biars-sur-Cère&quot;</span>,],</span>
+<span id="cb50-19"><a href="la-mise-en-page.html#cb50-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">txt =</span> <span class="st">&quot;Andros&quot;</span>,</span>
+<span id="cb50-20"><a href="la-mise-en-page.html#cb50-20" aria-hidden="true" tabindex="-1"></a>              <span class="at">col_arrow =</span> th<span class="sc">$</span>fg, <span class="at">halo =</span> T, <span class="at">cex =</span> <span class="dv">1</span>)</span>
+<span id="cb50-21"><a href="la-mise-en-page.html#cb50-21" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_annotation</span>(<span class="at">x =</span> com[com<span class="sc">$</span>NOM_COM<span class="sc">==</span><span class="st">&quot;Figeac&quot;</span>,],</span>
+<span id="cb50-22"><a href="la-mise-en-page.html#cb50-22" aria-hidden="true" tabindex="-1"></a>              <span class="at">txt =</span> <span class="st">&quot;Industrie</span><span class="sc">\n</span><span class="st">aéronautique&quot;</span>,</span>
+<span id="cb50-23"><a href="la-mise-en-page.html#cb50-23" aria-hidden="true" tabindex="-1"></a>              <span class="at">col_arrow =</span> th<span class="sc">$</span>fg, <span class="at">pos =</span> <span class="st">&quot;bottomright&quot;</span>, <span class="at">halo =</span> T, <span class="at">cex =</span> <span class="dv">1</span>)</span>
+<span id="cb50-24"><a href="la-mise-en-page.html#cb50-24" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_annotation</span>(<span class="at">x =</span> com[com<span class="sc">$</span>NOM_COM<span class="sc">==</span><span class="st">&quot;Gramat&quot;</span>,],</span>
+<span id="cb50-25"><a href="la-mise-en-page.html#cb50-25" aria-hidden="true" tabindex="-1"></a>              <span class="at">txt =</span> <span class="st">&quot;La Quercynoise (?)&quot;</span>,</span>
+<span id="cb50-26"><a href="la-mise-en-page.html#cb50-26" aria-hidden="true" tabindex="-1"></a>              <span class="at">col_arrow =</span> th<span class="sc">$</span>fg, <span class="at">pos =</span> <span class="st">&quot;topleft&quot;</span>, <span class="at">s =</span> <span class="dv">1</span>, <span class="at">halo =</span> T,</span>
+<span id="cb50-27"><a href="la-mise-en-page.html#cb50-27" aria-hidden="true" tabindex="-1"></a>              <span class="at">cex =</span> <span class="dv">1</span>)</span>
+<span id="cb50-28"><a href="la-mise-en-page.html#cb50-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-29"><a href="la-mise-en-page.html#cb50-29" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">&quot;Répartition des actifs travaillant dans l&#39;industrie - 2017&quot;</span>)</span>
+<span id="cb50-30"><a href="la-mise-en-page.html#cb50-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-31"><a href="la-mise-en-page.html#cb50-31" aria-hidden="true" tabindex="-1"></a><span class="co"># ajout d&#39;un carton -&gt;</span></span>
+<span id="cb50-32"><a href="la-mise-en-page.html#cb50-32" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_on</span>(<span class="at">fig =</span> <span class="fu">c</span>(.<span class="dv">8</span>,<span class="fl">0.98</span>,<span class="fl">0.1</span>,<span class="fl">0.3</span>))</span>
+<span id="cb50-33"><a href="la-mise-en-page.html#cb50-33" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(dep, <span class="at">lwd =</span> .<span class="dv">1</span>)</span>
+<span id="cb50-34"><a href="la-mise-en-page.html#cb50-34" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">border =</span> <span class="cn">NA</span>, <span class="at">add =</span> T, <span class="at">col =</span> th<span class="sc">$</span>fg)</span>
+<span id="cb50-35"><a href="la-mise-en-page.html#cb50-35" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>(<span class="at">col =</span> th<span class="sc">$</span>fg, <span class="at">lwd =</span> .<span class="dv">5</span>)</span>
+<span id="cb50-36"><a href="la-mise-en-page.html#cb50-36" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_off</span>()</span>
+<span id="cb50-37"><a href="la-mise-en-page.html#cb50-37" aria-hidden="true" tabindex="-1"></a><span class="co"># &lt;- fin du carton</span></span>
+<span id="cb50-38"><a href="la-mise-en-page.html#cb50-38" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(<span class="dv">5</span>)</span>
+<span id="cb50-39"><a href="la-mise-en-page.html#cb50-39" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_arrow</span>(<span class="st">&quot;topright&quot;</span>)</span>
+<span id="cb50-40"><a href="la-mise-en-page.html#cb50-40" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_credits</span>(<span class="fu">paste0</span>(<span class="st">&quot;Admin Express COG Carto 3.0, IGN - 2021 &amp; &quot;</span>,</span>
+<span id="cb50-41"><a href="la-mise-en-page.html#cb50-41" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - &quot;</span>,</span>
+<span id="cb50-42"><a href="la-mise-en-page.html#cb50-42" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Séries départementales et communales, INSEE - 2020</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb50-43"><a href="la-mise-en-page.html#cb50-43" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;Auteurs : T. Giraud &amp; H. Pecout, 2022&quot;</span>))</span>
+<span id="cb50-44"><a href="la-mise-en-page.html#cb50-44" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
 <pre><code>png 
   2 </code></pre>
 <p><img src="img/c_ind.png" /></p>
