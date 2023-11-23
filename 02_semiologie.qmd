@@ -1,0 +1,38 @@
+# La sémiologie graphique
+
+## Principes généraux
+
+> La **sémiologie graphique** est, de façon générale, l'ensemble des règles qui régissent la construction d'un système de signes ou langage permettant la traduction graphique d'une information. Depuis la parution de la Sémiologie graphique de Jacques @bertin1967, elle désigne surtout **un ensemble standardisé des règles et de pratiques inhérentes à la représentation cartographique** au-delà des travaux réalisés par Bertin.   
+<small>[Wikipedia : Sémiologie graphique](https://fr.wikipedia.org/wiki/S%C3%A9miologie_graphique)</small>
+
+
+Pour une première approche de la cartographie thématique on peut se référer à la figure suivante qui résume de manière simplifiée la relation entre un type de variable et sa représentation graphique correcte. 
+
+![](img/arbre_type_data.png)
+
+
+
+
+
+## Ressources
+
+Voici quelques ouvrages de référence en cartographie thématique : 
+
+- Sémiologie Graphique. Les Diagrammes - Les Réseaux - Les Cartes. @bertin1967.
+- La représentation des données géographiques : Statistique et cartographie. @beguin2010.
+- Manuel de cartographie : principes, méthodes, applications. @lambert2016.  
+
+Le site des supports de formation à la cartographie thématique et au logiciel Magrit ([Formations Magrit](https://magrit-formations.github.io/)) pourrait également vous être utile :
+
+- [Histoire de la cartographie thématique](https://magrit-formations.github.io/histoire_carto)
+- [Les sources de l'information géographique](https://magrit-formations.github.io/infogeo_sources)
+- [Le fond de carte](https://magrit-formations.github.io/fond_de_carte)
+- [Sémiologie graphique et variables visuelles](https://magrit-formations.github.io/variables_visuelles)
+- [Les discrétisations](https://magrit-formations.github.io/discretisation)
+- [Habillage et mise en page](https://magrit-formations.github.io/mise_en_page) 
+- [Mise en scène](https://magrit-formations.github.io/mise_en_scene)
+
+
+:::{.callout-note}
+Pourquoi on ne représente [pas de stocks en aplat !](https://neocarto.hypotheses.org/5717)
+:::

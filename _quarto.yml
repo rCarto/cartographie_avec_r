@@ -1,0 +1,74 @@
+project:
+  type: book
+  output-dir: docs
+  resources: 
+    - "geodata.zip"
+execute: 
+  freeze: auto
+  
+format:
+  html:
+    callout-appearance: simple
+    callout-icon: false
+    theme: cosmo
+    pagetitle: "Cartographie avec R"
+    author-meta: "Timothée Giraud et Hugues Pecout"
+    description-meta: 
+      "Cartographie avec R: créer des cartes thématiques conformes aux règles de la sémiologie graphique et de la cartographie.
+      L'objectif de ce document est de fournir un support à l'apprentissage de la cartographie avec R."
+    bibliography: [book.bib]
+    lang: fr
+    csl: "universite-de-montreal-apa.csl"
+
+
+
+book:
+  title: "Cartographie avec R"
+  description: "créer des cartes thématiques conformes aux règles de la sémiologie graphique et de la cartographie."
+  author:
+    - name: Timothée Giraud
+      orcid: 0000-0001-5679-6536
+      email: timothee.giraud@cnrs.fr
+      url: https://rcarto.github.io
+      affiliation:
+          name: RIATE (CNRS)
+          url: https://riate.cnrs.fr
+    - name: Hugues Pecout
+      orcid: 0000-0002-0246-0954
+      affiliation:
+          name: Géographie-cités (CNRS)
+          url: https://geographie-cites.cnrs.fr/       
+  date: last-modified
+  date-format: "D MMM YYYY"
+  doi: 10.5281/zenodo.5905734
+  search: true
+  repo-url: https://github.com/rcarto/geomatique_avec_r/
+  cover-image: img/globe-africa-solid.svg
+  page-footer: 
+    right: "<img src='img/logos-footer.png' width=290px />"
+    left: "[![CreativeCommonsLicense](img/by-nc-sa.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)"
+  favicon: img/globe-africa-solid.svg
+  site-url: https://rcarto.github.io/rcarto/cartographie_avec_r/
+  open-graph: true
+  chapters:
+    - index.qmd
+    - 01_mapsf.qmd
+    - 02_semiologie.qmd
+    - 03_types_de_cartes.qmd
+    - 04_mise_en_page.qmd
+    - 2000_references.qmd
+  appendices:
+    - 05_anamorphoses.qmd
+    - 2002_data.qmd
+  
+knitr:
+  opts_chunk: 
+    collapse: false
+    comment: "#>" 
+    fig.height: 5.74
+    fig.width: 6
+    cache: true
+    crop: true
+    fig.path: "figs/"
+    cache.path: "cache/"
+
