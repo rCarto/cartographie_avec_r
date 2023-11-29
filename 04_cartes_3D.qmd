@@ -1,29 +1,3 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-
-```{r knitr4_init, echo=FALSE, cache=FALSE}
-library(knitr)
-## Global options
-options(max.print="90")
-opts_chunk$set(echo=TRUE,
-               cache=TRUE,
-               prompt=FALSE,
-               tidy=FALSE,
-               comment=NA,
-               message=FALSE,
-               warning=FALSE,
-               fig.align='center',
-               fig.height=7,
-               fig.width=7,
-               sm=TRUE)
-opts_knit$set(width=90)
-options(width = 90)
-
-```
-
 # Les cartes en 3D
 
 ## linemap
@@ -31,27 +5,25 @@ options(width = 90)
 Le package `linemap` [@R-linemap] permet de réaliser des cartes composées de lignes.
 
 ```{r linemap}
+#| fig-width: 7
+#| fig-height: 8
+#| eval: true
 library(linemap)
+library(sf)
+library(terra)
 library(mapsf)
-# import des communes du Lot
-com <- st_read("data/lot46.gpkg", layer = "commune", quiet = TRUE)
-com <- st_transform(com, 3035)
-# import du data.frame de population
-pop <- read.csv("data/pop.csv")
-# cartographie
-th <- mf_theme("green")
-mf_init(com)
-linemap(
-  x = pop, 
-  var = "Ind", 
-  k = 10,
-  threshold = 15,
-  lwd = 1, 
-  col = th$bg, 
-  border = th$fg, 
-  add = T)
-mf_title("Population du Lot, 2015")
-mf_credits("Giraud & Pecout, 2021\nDonnées carroyées – Carreau de 1km, INSEE - 2019")
+com <- st_read("data/lot.gpkg", layer = "communes", quiet = TRUE)
+elev <- rast("data/elev.tif")
+cahors <- st_buffer(com[com$NOM_COM == "Cahors", ], 5000)
+elev_cahors <- crop(elev, cahors)
+mf_theme("green")
+mf_map(cahors, col = NA, border = NA, expandBB = c(-.05,0,0.05,0))
+linemap(x = elev_cahors,
+        k = 5, 
+        bg = getOption("mapsf.bg"), 
+        add = TRUE, lwd = 1)
+mf_title("Altitude vers Cahors")
+mf_credits("Giraud & Pecout, 2023")
 ```
 
 
@@ -59,69 +31,47 @@ mf_credits("Giraud & Pecout, 2021\nDonnées carroyées – Carreau de 1km, INSEE
 
 ## Relief Tanaka
 
-Nous utilisons le package `tanaka` [@Tanaka20] qui met à disposition une méthode [@Tanaka50] utilisée pour améliorer la perception du relief.
+Nous utilisons le package `tanaka` [@R-tanaka] qui met à disposition une méthode [@Tanaka50] utilisée pour améliorer la perception du relief.
 
 ```{r tanaka}
 library(tanaka)
 library(terra)
-# import du raster de population
-rpop <- rast("data/pop.tif")
-# import des communes du Lot
-com <- st_read("data/lot46.gpkg", layer = "commune", quiet = TRUE)
-com <- st_transform(com, st_crs(rpop))
-# lissage du raster
-mat <- focalMat(x = rpop, d = c(1500), type = "Gauss")
-rpopl <- focal(x = rpop, w = mat, fun = sum, na.rm = TRUE)
-# cartographie
-col1 <- hcl.colors(8, "Rocket", alpha = .3, rev = T)
-col2 <- hcl.colors(8, "Rocket", alpha = 1, rev = T)[-1]
-mf_theme("agolalight")
-mf_init(com)
-tanaka(x = rpopl, breaks = c(0,10,25, 50,100,250,500,750, 1972), 
-       col = col1, light = NA, dark = NA, add = T, legend.pos = "n")
-tanaka(x = rpopl, breaks = c(0,10,25,50,100,250,500,786), 
-       col = col2, add = T, mask = com, legend.pos = "n")
-mf_legend(type = "choro", pos = "topleft", 
-          val = c(0,10,25,50,100,250,500,786), pal = col2, 
-          bg = "#EDF4F5", fg = NA, frame = T, val_rnd = 0, 
-          title = "Habitants\npar km2")
-mf_title("Population lissée du Lot, 2015")
-mf_credits("Giraud & Pecout, 2021\nINSEE, Données carroyées Filosofi 2015", 
-           bg = "#EDF4F5")
+mf_theme("candy")
+mf_map(cahors, col = NA, border = NA)
+tanaka(elev_cahors, 
+       breaks = seq(100,375,25), 
+       col = hcl.colors(11, "Lajolla"), 
+       add = TRUE)
+mf_title("Altitude vers Cahors")
+mf_credits("Giraud & Pecout, 2023")
 ```
 
+<!-- ## rayshader -->
 
-```{block2, type = 'linky'}
-[The tanaka package](https://rgeomatic.hypotheses.org/1758)
-```
-
-
-## rayshader
-
-Le package `rayshader` [@R-rayshader] permet de réaliser de belles cartes en relief mais il n'est pas très facile à prendre en main. Le package `rayvista` [@R-rayvista] s'appuie sur `rayshader` et facilite la création de représentations 3D du terrain.
-`rayvista` n'est pas sur le CRAN. 
+<!-- Le package `rayshader` [@R-rayshader] permet de réaliser de belles cartes en relief mais il n'est pas très facile à prendre en main. Le package `rayvista` [@R-rayvista] s'appuie sur `rayshader` et facilite la création de représentations 3D du terrain. -->
+<!-- `rayvista` n'est pas sur le CRAN.  -->
 
 
-```{r rayshade,eval=FALSE}
-# remotes::install_github("https://github.com/h-a-graham/rayvista")
-library(rayshader) 
-library(rayvista)
+<!-- ```{r rayshade,eval=FALSE} -->
+<!-- # remotes::install_github("https://github.com/h-a-graham/rayvista") -->
+<!-- library(rayshader)  -->
+<!-- library(rayvista) -->
 
-zone <- plot_3d_vista(
-  lat = 44.9320, long = 1.6905, radius = 4000,
-  zscale = 1.5, phi = 30, theta = 120, 
-  windowsize = c(1000, 600), 
-  baseshape = "circle",
-  overlay_detail = 15,
-  elevation_detail = 14,
-  background = "grey20"
-)
-png("img/mezels.png", width = 1000, height = 600)
-render_camera(zoom = .4)
-render_depth(focus = 0.4, focallength = 55, vignette = TRUE)
-dev.off()
-```
+<!-- zone <- plot_3d_vista( -->
+<!--   lat = 44.9320, long = 1.6905, radius = 4000, -->
+<!--   zscale = 1.5, phi = 30, theta = 120,  -->
+<!--   windowsize = c(1000, 600),  -->
+<!--   baseshape = "circle", -->
+<!--   overlay_detail = 15, -->
+<!--   elevation_detail = 14, -->
+<!--   background = "grey20" -->
+<!-- ) -->
+<!-- png("img/mezels.png", width = 1000, height = 600) -->
+<!-- render_camera(zoom = .4) -->
+<!-- render_depth(focus = 0.4, focallength = 55, vignette = TRUE) -->
+<!-- dev.off() -->
+<!-- ``` -->
 
-```{r, fig.align='center', echo=FALSE, out.width='100%'}
-knitr::include_graphics("img/mezels.png")
-```
+<!-- ```{r, fig.align='center', echo=FALSE, out.width='100%'} -->
+<!-- # knitr::include_graphics("img/mezels.png") -->
+<!-- ``` -->

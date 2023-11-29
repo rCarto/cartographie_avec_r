@@ -85,8 +85,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./2002_data.html" rel="next">
-<link href="./2000_references.html" rel="prev">
+<link href="./2000_references.html" rel="next">
+<link href="./04_cartes_3D.html" rel="prev">
 <link href="./img/globe-africa-solid.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -136,7 +136,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_anamorphoses.html">Appendices</a></li><li class="breadcrumb-item"><a href="./05_anamorphoses.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Les cartogrammes</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04_cartes_3D.html"><strong>Cartographie 3D et Anamorphoses</strong></a></li><li class="breadcrumb-item"><a href="./05_anamorphoses.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Les cartogrammes</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -153,7 +153,7 @@ div.csl-indent {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Cartographie avec R</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/rcarto/geomatique_avec_r/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/rcarto/cartographie_avec_r/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
     </div>
       </div>
@@ -170,30 +170,64 @@ div.csl-indent {
  <span class="menu-text"><em>Préambule</em></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text"><strong>Cartographie thématique</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_mapsf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">mapsf</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_semiologie.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La sémiologie graphique</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_types_de_cartes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Les types de cartes</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_mise_en_page.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La mise en page</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text"><strong>Cartographie 3D et Anamorphoses</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_cartes_3D.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Les cartes en 3D</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_anamorphoses.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Les cartogrammes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2000_references.html" class="sidebar-item-text sidebar-link">
@@ -202,23 +236,17 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./05_anamorphoses.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Les cartogrammes</span></span></a>
-  </div>
-</li>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2002_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Les données du projet</span></span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Les données du projet</span></span></a>
   </div>
 </li>
       </ul>
@@ -233,10 +261,10 @@ div.csl-indent {
     <h2 id="toc-title">Table des matières</h2>
    
   <ul>
-  <li><a href="#les-cartogrammes-de-dorling" id="toc-les-cartogrammes-de-dorling" class="nav-link active" data-scroll-target="#les-cartogrammes-de-dorling"><span class="header-section-number">A.1</span> Les cartogrammes de Dorling</a></li>
-  <li><a href="#les-cartogrammes-non-continus" id="toc-les-cartogrammes-non-continus" class="nav-link" data-scroll-target="#les-cartogrammes-non-continus"><span class="header-section-number">A.2</span> Les cartogrammes non continus</a></li>
-  <li><a href="#les-cartogrammes-continus" id="toc-les-cartogrammes-continus" class="nav-link" data-scroll-target="#les-cartogrammes-continus"><span class="header-section-number">A.3</span> Les cartogrammes continus</a></li>
-  <li><a href="#forces-et-faiblesses-des-cartogrammes" id="toc-forces-et-faiblesses-des-cartogrammes" class="nav-link" data-scroll-target="#forces-et-faiblesses-des-cartogrammes"><span class="header-section-number">A.4</span> Forces et faiblesses des cartogrammes</a></li>
+  <li><a href="#les-cartogrammes-de-dorling" id="toc-les-cartogrammes-de-dorling" class="nav-link active" data-scroll-target="#les-cartogrammes-de-dorling"><span class="header-section-number">6.1</span> Les cartogrammes de Dorling</a></li>
+  <li><a href="#les-cartogrammes-non-continus" id="toc-les-cartogrammes-non-continus" class="nav-link" data-scroll-target="#les-cartogrammes-non-continus"><span class="header-section-number">6.2</span> Les cartogrammes non continus</a></li>
+  <li><a href="#les-cartogrammes-continus" id="toc-les-cartogrammes-continus" class="nav-link" data-scroll-target="#les-cartogrammes-continus"><span class="header-section-number">6.3</span> Les cartogrammes continus</a></li>
+  <li><a href="#forces-et-faiblesses-des-cartogrammes" id="toc-forces-et-faiblesses-des-cartogrammes" class="nav-link" data-scroll-target="#forces-et-faiblesses-des-cartogrammes"><span class="header-section-number">6.4</span> Forces et faiblesses des cartogrammes</a></li>
   </ul>
 </nav>
     </div>
@@ -245,7 +273,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Annexe A — Les cartogrammes</h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Les cartogrammes</span></h1>
 </div>
 
 
@@ -287,23 +315,32 @@ Ressources
 </div>
 </div>
 <p>Pour réaliser les cartogrammes nous utilisons le package <code>cartogram</code> <span class="citation" data-cites="R-cartogram">(<a href="2000_references.html#ref-R-cartogram" role="doc-biblioref">Jeworutzki, 2023</a>)</span>.</p>
-<section id="les-cartogrammes-de-dorling" class="level2" data-number="A.1">
-<h2 data-number="A.1" class="anchored" data-anchor-id="les-cartogrammes-de-dorling"><span class="header-section-number">A.1</span> Les cartogrammes de Dorling</h2>
+<section id="les-cartogrammes-de-dorling" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="les-cartogrammes-de-dorling"><span class="header-section-number">6.1</span> Les cartogrammes de Dorling</h2>
 <p>Les territoires sont représentés par des figurés (cercles, des carrés ou des rectangles) ne se recouvrant pas dont les surfaces sont proportionnelles à une variable. Les positions des figurés sont définies selon les positions de départ.</p>
 <div class="cell" data-hash="cache/dorling_98b12bbe2b4d6feecc05a73ae98581c9">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapsf)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cartogram)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>com <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/lot.gpkg"</span>, <span class="at">layer =</span> <span class="st">"communes"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>com_dorling <span class="ot">&lt;-</span> <span class="fu">cartogram_dorling</span>(<span class="at">x =</span> com, <span class="at">weight =</span> <span class="st">"POPULATION"</span>, <span class="at">k =</span> <span class="dv">7</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_dorling, <span class="at">col =</span> <span class="st">"#940000"</span>, <span class="at">border=</span> <span class="st">"white"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_label</span>(</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com_dorling[<span class="fu">order</span>(com_dorling<span class="sc">$</span>POPULATION, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ][<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,], </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="st">"NOM_COM"</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">overlap =</span> <span class="cn">FALSE</span>, <span class="at">lines =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">halo =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">r =</span> .<span class="dv">15</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Population du Lot - Cartogramme de Dorling"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cartogram)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; 
+#&gt; Attaching package: 'cartogram'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; The following object is masked from 'package:terra':
+#&gt; 
+#&gt;     cartogram</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>com <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/lot.gpkg"</span>, <span class="at">layer =</span> <span class="st">"communes"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>com_dorling <span class="ot">&lt;-</span> <span class="fu">cartogram_dorling</span>(<span class="at">x =</span> com, <span class="at">weight =</span> <span class="st">"POPULATION"</span>, <span class="at">k =</span> <span class="dv">7</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_dorling, <span class="at">col =</span> <span class="st">"#940000"</span>, <span class="at">border=</span> <span class="st">"white"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_label</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com_dorling[<span class="fu">order</span>(com_dorling<span class="sc">$</span>POPULATION, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ][<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,], </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="st">"NOM_COM"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">overlap =</span> <span class="cn">FALSE</span>, <span class="at">lines =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">halo =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">r =</span> .<span class="dv">15</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Population du Lot - Cartogramme de Dorling"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="figs/dorling-1.png" class="img-fluid" width="576"></p>
 </div>
@@ -314,14 +351,14 @@ On peut nommer les cercles pour se repérer et/ou s’aider de la couleur pour f
 La perception des quantités est très bonne.<br>
 Les tailles de cercles sont vraiment comparables.</p>
 </section>
-<section id="les-cartogrammes-non-continus" class="level2" data-number="A.2">
-<h2 data-number="A.2" class="anchored" data-anchor-id="les-cartogrammes-non-continus"><span class="header-section-number">A.2</span> Les cartogrammes non continus</h2>
+<section id="les-cartogrammes-non-continus" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="les-cartogrammes-non-continus"><span class="header-section-number">6.2</span> Les cartogrammes non continus</h2>
 <p>La taille des polygones est proportionnelle à une variable. L’agencement des polygones les uns par rapport aux autres est conservée. La forme des polygones est ressemblante.</p>
 <div class="cell" data-hash="cache/olson_bc32a888cf2b76ee3e9a89955d24284e">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>com_ncont <span class="ot">&lt;-</span> <span class="fu">cartogram_ncont</span>(<span class="at">x =</span> com, <span class="at">weight =</span> <span class="st">"POPULATION"</span>, <span class="at">k =</span> <span class="fl">1.2</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">border =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>,)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_ncont, <span class="at">col =</span> <span class="st">"#940000"</span>, <span class="at">border=</span> <span class="st">"white"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Population du Lot - Cartogramme de Olson"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>com_ncont <span class="ot">&lt;-</span> <span class="fu">cartogram_ncont</span>(<span class="at">x =</span> com, <span class="at">weight =</span> <span class="st">"POPULATION"</span>, <span class="at">k =</span> <span class="fl">1.2</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">border =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>,)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_ncont, <span class="at">col =</span> <span class="st">"#940000"</span>, <span class="at">border=</span> <span class="st">"white"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Population du Lot - Cartogramme de Olson"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="figs/olson-1.png" class="img-fluid" width="576"></p>
 </div>
@@ -330,18 +367,18 @@ Les tailles de cercles sont vraiment comparables.</p>
 <p>La topologie des régions est perdue.<br>
 La conservation de la forme des polygones est optimale.</p>
 </section>
-<section id="les-cartogrammes-continus" class="level2" data-number="A.3">
-<h2 data-number="A.3" class="anchored" data-anchor-id="les-cartogrammes-continus"><span class="header-section-number">A.3</span> Les cartogrammes continus</h2>
+<section id="les-cartogrammes-continus" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="les-cartogrammes-continus"><span class="header-section-number">6.3</span> Les cartogrammes continus</h2>
 <p>La taille des polygones est proportionnelle à une variable. L’agencement des polygones les uns par rapport aux autres est conservée. Pour conserver la contiguïté, la forme des polygones est fortement transformée.</p>
 <div class="cell" data-hash="cache/dougenik_b99af48ef4ede0aba5d179034ed9aafa">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>com_cont <span class="ot">&lt;-</span> <span class="fu">cartogram_cont</span>(<span class="at">x =</span> com, <span class="at">weight =</span> <span class="st">"POPULATION"</span>, </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">prepare =</span> <span class="st">"none"</span>, </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">itermax =</span> <span class="dv">10</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_cont, <span class="at">col =</span> <span class="st">"#940000"</span>, <span class="at">border=</span> <span class="st">"white"</span>, <span class="at">add =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Population du Lot - Cartogramme de Dougenik"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_on</span>(com, <span class="at">cex =</span> .<span class="dv">2</span>, <span class="at">pos =</span> <span class="st">"topleft"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">lwd =</span> .<span class="dv">5</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_off</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>com_cont <span class="ot">&lt;-</span> <span class="fu">cartogram_cont</span>(<span class="at">x =</span> com, <span class="at">weight =</span> <span class="st">"POPULATION"</span>, </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">prepare =</span> <span class="st">"none"</span>, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">itermax =</span> <span class="dv">10</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_cont, <span class="at">col =</span> <span class="st">"#940000"</span>, <span class="at">border=</span> <span class="st">"white"</span>, <span class="at">add =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Population du Lot - Cartogramme de Dougenik"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_on</span>(com, <span class="at">cex =</span> .<span class="dv">2</span>, <span class="at">pos =</span> <span class="st">"topleft"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">lwd =</span> .<span class="dv">5</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_inset_off</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="figs/dougenik-1.png" class="img-fluid" width="576"></p>
 </div>
@@ -349,8 +386,8 @@ La conservation de la forme des polygones est optimale.</p>
 <p>La forme des polygones est fortement distordue.<br>
 C’est une “vraie carte de géographie” : la topologie et la contiguïté sont conservées.</p>
 </section>
-<section id="forces-et-faiblesses-des-cartogrammes" class="level2" data-number="A.4">
-<h2 data-number="A.4" class="anchored" data-anchor-id="forces-et-faiblesses-des-cartogrammes"><span class="header-section-number">A.4</span> Forces et faiblesses des cartogrammes</h2>
+<section id="forces-et-faiblesses-des-cartogrammes" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="forces-et-faiblesses-des-cartogrammes"><span class="header-section-number">6.4</span> Forces et faiblesses des cartogrammes</h2>
 <p>Les cartogrammes sont des représentations cartographiques perçues comme <strong>innovantes</strong> (bien que la méthode date de 40 ans). Ces images très généralisées rendent bien compte des <strong>quantités</strong> et des <strong>gradients</strong>. Ce sont de vraies images de <strong>communication</strong> qui <strong>provoquent</strong>, suscitent <strong>l’intérêt</strong>, véhiculent un <strong>message</strong> fort, <strong>interpellent</strong>.</p>
 <p>Mais les cartogrammes induisent une perte des <strong>repères visuels</strong> (difficile de retrouver son pays, ou sa région sur la carte), demandent un <strong>effort de lecture</strong> qui peut être important et ne permettent pas de <strong>gérer des données manquantes</strong>.</p>
 
@@ -613,13 +650,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./2000_references.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
+      <a href="./04_cartes_3D.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Les cartes en 3D</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./2002_data.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Les données du projet</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./2000_references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

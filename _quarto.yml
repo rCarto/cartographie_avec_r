@@ -42,7 +42,7 @@ book:
   date-format: "D MMM YYYY"
   doi: 10.5281/zenodo.5905734
   search: true
-  repo-url: https://github.com/rcarto/geomatique_avec_r/
+  repo-url: https://github.com/rcarto/cartographie_avec_r/
   cover-image: img/globe-africa-solid.svg
   page-footer: 
     right: "<img src='img/logos-footer.png' width=290px />"
@@ -52,13 +52,18 @@ book:
   open-graph: true
   chapters:
     - index.qmd
-    - 01_mapsf.qmd
-    - 02_semiologie.qmd
-    - 03_types_de_cartes.qmd
-    - 04_mise_en_page.qmd
+    - part: "**Cartographie thématique**"
+      chapters:
+      - 01_mapsf.qmd
+      - 02_semiologie.qmd
+      - 03_types_de_cartes.qmd
+      - 04_mise_en_page.qmd
+    - part: "**Cartographie 3D et Anamorphoses**"
+      chapters: 
+      - 04_cartes_3D.qmd
+      - 05_anamorphoses.qmd
     - 2000_references.qmd
   appendices:
-    - 05_anamorphoses.qmd
     - 2002_data.qmd
   
 knitr:

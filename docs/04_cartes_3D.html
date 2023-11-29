@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -51,8 +85,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./2002_data.html" rel="next">
-<link href="./05_anamorphoses.html" rel="prev">
+<link href="./05_anamorphoses.html" rel="next">
+<link href="./04_mise_en_page.html" rel="prev">
 <link href="./img/globe-africa-solid.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -87,7 +121,10 @@ div.csl-indent {
 
 <meta property="og:title" content="Cartographie avec R">
 <meta property="og:description" content="créer des cartes thématiques conformes aux règles de la sémiologie graphique et de la cartographie.">
+<meta property="og:image" content="https://rcarto.github.io/rcarto/cartographie_avec_r/figs/linemap-1.png">
 <meta property="og:site-name" content="Cartographie avec R">
+<meta property="og:image:height" content="1536">
+<meta property="og:image:width" content="1344">
 </head>
 
 <body class="nav-sidebar floating">
@@ -99,7 +136,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2000_references.html">References</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04_cartes_3D.html"><strong>Cartographie 3D et Anamorphoses</strong></a></li><li class="breadcrumb-item"><a href="./04_cartes_3D.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Les cartes en 3D</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -179,7 +216,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_cartes_3D.html" class="sidebar-item-text sidebar-link">
+  <a href="./04_cartes_3D.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Les cartes en 3D</span></span></a>
   </div>
 </li>
@@ -193,7 +230,7 @@ div.csl-indent {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2000_references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./2000_references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -220,14 +257,21 @@ div.csl-indent {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#linemap" id="toc-linemap" class="nav-link active" data-scroll-target="#linemap"><span class="header-section-number">5.1</span> linemap</a></li>
+  <li><a href="#relief-tanaka" id="toc-relief-tanaka" class="nav-link" data-scroll-target="#relief-tanaka"><span class="header-section-number">5.2</span> Relief Tanaka</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">References</h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Les cartes en 3D</span></h1>
 </div>
 
 
@@ -242,80 +286,90 @@ div.csl-indent {
 
 </header>
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="list">
-<div id="ref-beguin2010" class="csl-entry" role="listitem">
-Béguin, M. et Pumain, D. (2010). <em>La repr<span>é</span>sentation des
-donn<span>é</span>es g<span>é</span>ographiques: Statistique et
-cartographie</em>. Armand Colin.
+<section id="linemap" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="linemap"><span class="header-section-number">5.1</span> linemap</h2>
+<p>Le package <code>linemap</code> <span class="citation" data-cites="R-linemap">(<a href="2000_references.html#ref-R-linemap" role="doc-biblioref">Giraud, 2023a</a>)</span> permet de réaliser des cartes composées de lignes.</p>
+<div class="cell" data-hash="cache/linemap_b425759c1366e542fab1a01b3ea52c67">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(linemap)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; terra 1.7.55</code></pre>
 </div>
-<div id="ref-bertin1967" class="csl-entry" role="listitem">
-Bertin, J. (1967). <em>S<span>é</span>miologie Graphique. Les Diagrammes
-- Les R<span>é</span>seaux - Les Cartes</em>. Paris: Mouton &amp;
-Gauthier-Villars.
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapsf)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>com <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/lot.gpkg"</span>, <span class="at">layer =</span> <span class="st">"communes"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>elev <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"data/elev.tif"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>cahors <span class="ot">&lt;-</span> <span class="fu">st_buffer</span>(com[com<span class="sc">$</span>NOM_COM <span class="sc">==</span> <span class="st">"Cahors"</span>, ], <span class="dv">5000</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>elev_cahors <span class="ot">&lt;-</span> <span class="fu">crop</span>(elev, cahors)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">"green"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(cahors, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">border =</span> <span class="cn">NA</span>, <span class="at">expandBB =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">05</span>,<span class="dv">0</span>,<span class="fl">0.05</span>,<span class="dv">0</span>))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">linemap</span>(<span class="at">x =</span> elev_cahors,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">k =</span> <span class="dv">5</span>, </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">bg =</span> <span class="fu">getOption</span>(<span class="st">"mapsf.bg"</span>), </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">lwd =</span> <span class="dv">1</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Altitude vers Cahors"</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_credits</span>(<span class="st">"Giraud &amp; Pecout, 2023"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="figs/linemap-1.png" class="img-fluid" width="672"></p>
 </div>
-<div id="ref-Brunet93" class="csl-entry" role="listitem">
-Brunet, R., Ferras, R. et Théry, H. (1993). <em>Les mots de la
-g<span>é</span>ographie: dictionnaire critique</em>. La Documentation
-française.
 </div>
-<div id="ref-Dorling96" class="csl-entry" role="listitem">
-Dorling, D. (1996). <em>Area cartograms: their use and creation,
-concepts and techniques in modern geography</em> (vol. 59, p. 69).
-Institute of British Geographers.
+</section>
+<section id="relief-tanaka" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="relief-tanaka"><span class="header-section-number">5.2</span> Relief Tanaka</h2>
+<p>Nous utilisons le package <code>tanaka</code> <span class="citation" data-cites="R-tanaka">(<a href="2000_references.html#ref-R-tanaka" role="doc-biblioref">Giraud, 2023b</a>)</span> qui met à disposition une méthode <span class="citation" data-cites="Tanaka50">(<a href="2000_references.html#ref-Tanaka50" role="doc-biblioref">Tanaka, 1950</a>)</span> utilisée pour améliorer la perception du relief.</p>
+<div class="cell" data-hash="cache/tanaka_c305a008adaa3dc4dea9f988fec6b79a">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tanaka)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">"candy"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(cahors, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">border =</span> <span class="cn">NA</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tanaka</span>(elev_cahors, </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">100</span>,<span class="dv">375</span>,<span class="dv">25</span>), </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">hcl.colors</span>(<span class="dv">11</span>, <span class="st">"Lajolla"</span>), </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Altitude vers Cahors"</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_credits</span>(<span class="st">"Giraud &amp; Pecout, 2023"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="figs/tanaka-1.png" class="img-fluid" width="576"></p>
 </div>
-<div id="ref-Dougenik85" class="csl-entry" role="listitem">
-Dougenik, J. A., Chrisman, N. R. et Niemeyer, D. R. (1985). An algorithm
-to construct continuous area cartograms. <em>The Professional
-Geographer</em>, <em>37</em>(1), 75‑81. <a href="https://doi.org/10.1111/j.0033-0124.1985.00075.x">https://doi.org/10.1111/j.0033-0124.1985.00075.x</a>
 </div>
-<div id="ref-R-ggspatial" class="csl-entry" role="listitem">
-Dunnington, D. (2023). <em>ggspatial: Spatial Data Framework for
-ggplot2</em>. <a href="https://CRAN.R-project.org/package=ggspatial">https://CRAN.R-project.org/package=ggspatial</a>
-</div>
+<!-- ## rayshader -->
+<!-- Le package `rayshader` [@R-rayshader] permet de réaliser de belles cartes en relief mais il n'est pas très facile à prendre en main. Le package `rayvista` [@R-rayvista] s'appuie sur `rayshader` et facilite la création de représentations 3D du terrain. -->
+<!-- `rayvista` n'est pas sur le CRAN.  -->
+<!-- ```{r rayshade,eval=FALSE} -->
+<!-- # remotes::install_github("https://github.com/h-a-graham/rayvista") -->
+<!-- library(rayshader)  -->
+<!-- library(rayvista) -->
+<!-- zone <- plot_3d_vista( -->
+<!--   lat = 44.9320, long = 1.6905, radius = 4000, -->
+<!--   zscale = 1.5, phi = 30, theta = 120,  -->
+<!--   windowsize = c(1000, 600),  -->
+<!--   baseshape = "circle", -->
+<!--   overlay_detail = 15, -->
+<!--   elevation_detail = 14, -->
+<!--   background = "grey20" -->
+<!-- ) -->
+<!-- png("img/mezels.png", width = 1000, height = 600) -->
+<!-- render_camera(zoom = .4) -->
+<!-- render_depth(focus = 0.4, focallength = 55, vignette = TRUE) -->
+<!-- dev.off() -->
+<!-- ``` -->
+<!-- ```{r, fig.align='center', echo=FALSE, out.width='100%'} -->
+<!-- # knitr::include_graphics("img/mezels.png") -->
+<!-- ``` -->
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-R-linemap" class="csl-entry" role="listitem">
 Giraud, T. (2023a). <em>linemap: Line Maps</em>. <a href="https://CRAN.R-project.org/package=linemap">https://CRAN.R-project.org/package=linemap</a>
 </div>
-<div id="ref-R-mapsf" class="csl-entry" role="listitem">
-Giraud, T. (2023b). <em>mapsf: Thematic Cartography</em>. <a href="https://CRAN.R-project.org/package=mapsf">https://CRAN.R-project.org/package=mapsf</a>
-</div>
 <div id="ref-R-tanaka" class="csl-entry" role="listitem">
-Giraud, T. (2023c). <em>tanaka: Design Shaded Contour Lines (or Tanaka)
-Maps</em>. <a href="https://CRAN.R-project.org/package=tanaka">https://CRAN.R-project.org/package=tanaka</a>
-</div>
-<div id="ref-R-cartography" class="csl-entry" role="listitem">
-Giraud, T. et Lambert, N. (2017). <em>Reproducible Cartography</em>. M.
-Peterson (dir.), Cham, Switzerland (p. 173‑183). <a href="https://doi.org/10.1007/978-3-319-57336-6_13">https://doi.org/10.1007/978-3-319-57336-6_13</a>
-</div>
-<div id="ref-R-cartogram" class="csl-entry" role="listitem">
-Jeworutzki, S. (2023). <em>cartogram: Create Cartograms with R</em>. <a href="https://CRAN.R-project.org/package=cartogram">https://CRAN.R-project.org/package=cartogram</a>
-</div>
-<div id="ref-Lambert15" class="csl-entry" role="listitem">
-Lambert, N. (2015). Les anamorphoses cartographiques [Blog]. <em>Carnet
-néocartographique</em>. <a href="https://neocarto.hypotheses.org/366">https://neocarto.hypotheses.org/366</a>
-</div>
-<div id="ref-lambert2016" class="csl-entry" role="listitem">
-Lambert, N. et Zanin, C. (2016). <em>Manuel de cartographie: principes,
-m<span>é</span>thodes, applications</em>. Armand Colin.
-</div>
-<div id="ref-Olson76" class="csl-entry" role="listitem">
-Olson, J. M. (1976). Noncontiguous area cartograms. <em>The Professional
-Geographer</em>, <em>28</em>(4), 371‑380. <a href="https://doi.org/10.1111/j.0033-0124.1976.00371.x">https://doi.org/10.1111/j.0033-0124.1976.00371.x</a>
+Giraud, T. (2023b). <em>tanaka: Design Shaded Contour Lines (or Tanaka) Maps</em>. <a href="https://CRAN.R-project.org/package=tanaka">https://CRAN.R-project.org/package=tanaka</a>
 </div>
 <div id="ref-Tanaka50" class="csl-entry" role="listitem">
-Tanaka, K. (1950). The Relief Contour Method of Representing Topography
-on Maps. <em>The Geographical Review</em>, <em>xl</em>(3). <a href="https://doi.org/doi:10.2307/211219">https://doi.org/doi:10.2307/211219</a>
-</div>
-<div id="ref-R-tmap" class="csl-entry" role="listitem">
-Tennekes, M. (2018). <span>tmap</span>: Thematic Maps in <span>R</span>.
-<em>Journal of Statistical Software</em>, <em>84</em>(6), 1‑39. <a href="https://doi.org/10.18637/jss.v084.i06">https://doi.org/10.18637/jss.v084.i06</a>
-</div>
-<div id="ref-R-ggplot2" class="csl-entry" role="listitem">
-Wickham, H. (2016). <em>ggplot2: Elegant Graphics for Data
-Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>
+Tanaka, K. (1950). The Relief Contour Method of Representing Topography on Maps. <em>The Geographical Review</em>, <em>xl</em>(3). <a href="https://doi.org/doi:10.2307/211219">https://doi.org/doi:10.2307/211219</a>
 </div>
 </div>
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -553,13 +607,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./05_anamorphoses.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Les cartogrammes</span></span>
+      <a href="./04_mise_en_page.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La mise en page</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./2002_data.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Les données du projet</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./05_anamorphoses.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Les cartogrammes</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
