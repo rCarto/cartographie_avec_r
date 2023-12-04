@@ -26,17 +26,8 @@ Un deuxième manuel centré sur la géomatique est disponible ici :
 <small>
 **Pour citer le document :**     
 
-Giraud, T. et Pecout, H. (2023). Cartographie avec R (Version 1.0.1). https://doi.org/10.5281/zenodo.5905734 
+Giraud, T. et Pecout, H. (2023). Cartographie avec R. https://doi.org/10.5281/zenodo.5905734 
 
-```
-@misc{Giraud_Cartographie_avec_R_2023,
-  author = {Giraud, Timothée and Pecout, Hugues},
-  doi = {10.5281/zenodo.5905734},
-  title = {{Cartographie avec R}},
-  url = {https://rcarto.github.io/cartography_avec_r/},
-  year = {2023}
-}
-```
 </small>
 
 

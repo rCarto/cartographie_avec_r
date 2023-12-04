@@ -11,28 +11,27 @@ Pour une première approche de la cartographie thématique on peut se référer 
 ![](img/arbre_type_data.png)
 
 
+:::{.callout-note}
+Pourquoi on ne représente [pas de stocks en aplat !](https://neocarto.hypotheses.org/5717)
+:::
 
 
 
 ## Ressources
 
-Voici quelques ouvrages de référence en cartographie thématique : 
-
-- Sémiologie Graphique. Les Diagrammes - Les Réseaux - Les Cartes. @bertin1967.
-- La représentation des données géographiques : Statistique et cartographie. @beguin2010.
-- Manuel de cartographie : principes, méthodes, applications. @lambert2016.  
-
-Le site des supports de formation à la cartographie thématique et au logiciel Magrit ([Formations Magrit](https://magrit-formations.github.io/)) pourrait également vous être utile :
-
-- [Histoire de la cartographie thématique](https://magrit-formations.github.io/histoire_carto)
-- [Les sources de l'information géographique](https://magrit-formations.github.io/infogeo_sources)
-- [Le fond de carte](https://magrit-formations.github.io/fond_de_carte)
-- [Sémiologie graphique et variables visuelles](https://magrit-formations.github.io/variables_visuelles)
-- [Les discrétisations](https://magrit-formations.github.io/discretisation)
-- [Habillage et mise en page](https://magrit-formations.github.io/mise_en_page) 
-- [Mise en scène](https://magrit-formations.github.io/mise_en_scene)
+Voici quelques ouvrages et ressources pour l'apprentissage de la cartographie thématique : 
 
 
-:::{.callout-note}
-Pourquoi on ne représente [pas de stocks en aplat !](https://neocarto.hypotheses.org/5717)
+::: {layout="[[1,1,1,1], [1,1,1,1]]"}
+
+![@beguin2010](img/c1.png)
+
+
+![@lambert2016](img/c2.png)
+
+
+![@ctm](img/c3.png)  
+
 :::
+
+
