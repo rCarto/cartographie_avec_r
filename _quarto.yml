@@ -14,7 +14,7 @@ format:
     pagetitle: "Cartographie avec R"
     author-meta: "Timothée Giraud et Hugues Pecout"
     description-meta: 
-      "Cartographie avec R: créer des cartes thématiques conformes aux règles de la sémiologie graphique et de la cartographie.
+      "Cartographie avec R: créer des cartes thématiques reproductibles conformes aux règles de la sémiologie graphique et de la cartographie.
       L'objectif de ce document est de fournir un support à l'apprentissage de la cartographie avec R."
     bibliography: [book.bib]
     lang: fr
@@ -24,7 +24,7 @@ format:
 
 book:
   title: "Cartographie avec R"
-  description: "créer des cartes thématiques conformes aux règles de la sémiologie graphique et de la cartographie."
+  description: "Créer des cartes thématiques reproductibles."
   author:
     - name: Timothée Giraud
       orcid: 0000-0001-5679-6536
