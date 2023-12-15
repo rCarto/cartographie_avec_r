@@ -1,7 +1,7 @@
 # *Préambule* {.unnumbered}
 
 
-L'objectif de ce document est de fournir un support à l'apprentissage de la cartographie avec R. 
+L'objectif de ce document est de fournir un support à l'apprentissage de la cartographie thématique avec R. 
 
 
 **Comment utiliser le manuel**  

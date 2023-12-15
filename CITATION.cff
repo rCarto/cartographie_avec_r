@@ -7,9 +7,9 @@ authors:
 - family-names: "Pecout"
   given-names: "Hugues"
   orcid: "https://orcid.org/0000-0002-0246-0954"
-title: "Géomatique avec R"
+title: "Cartographie avec R"
 version: 1.0.1
-doi: 10.5281/zenodo.7528161
+doi: 10.5281/zenodo.5905734
 date-released: 2023-01-11
 url: "https://github.com/rCarto/cartographie_avec_r"
 preferred-citation:
@@ -23,6 +23,6 @@ preferred-citation:
     orcid: "https://orcid.org/0000-0002-0246-0954"
   title: "Cartographie avec R"
   version: 1.0.1
-  doi: 10.5281/zenodo.7528161
+  doi: 10.5281/zenodo.5905734
   year: 2023
   url: "https://rcarto.github.io/cartographie_avec_r/"
