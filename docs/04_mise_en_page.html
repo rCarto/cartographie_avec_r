@@ -263,6 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#placer-précisément-un-élément-sur-la-carte" id="toc-placer-précisément-un-élément-sur-la-carte" class="nav-link" data-scroll-target="#placer-précisément-un-élément-sur-la-carte"><span class="header-section-number">4.14</span> Placer précisément un élément sur la carte</a></li>
   <li><a href="#ajouter-un-ombrage-à-une-couche" id="toc-ajouter-un-ombrage-à-une-couche" class="nav-link" data-scroll-target="#ajouter-un-ombrage-à-une-couche"><span class="header-section-number">4.15</span> Ajouter un ombrage à une couche</a></li>
   <li><a href="#création-de-cartons" id="toc-création-de-cartons" class="nav-link" data-scroll-target="#création-de-cartons"><span class="header-section-number">4.16</span> Création de cartons</a></li>
+  <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice"><span class="header-section-number">4.17</span> Exercice</a></li>
   </ul>
 </nav>
     </div>
@@ -835,134 +836,27 @@ Vignette
 <p><a href="https://riatelab.github.io/mapsf/articles/web_only/how_to_create_inset_maps.html">How to Create Inset Maps</a></p>
 </div>
 </div>
-<!-- ## Exercices -->
-<!-- 1. Créez une carte représentant la population active travaillant dans l'industrie.  -->
-<!-- 2. Ajoutez les éléments d'habillage indispensables. -->
-<!-- 3. Utilisez un thème personnalisé. -->
-<!-- 4. Ajoutez un carton de localisation du Lot -->
-<!-- 5. Exportez la carte au format PNG avec 800 pixels de large.  -->
-<!-- 6. Comment rendre la carte plus intelligible ? Allez-y ! -->
-<!-- ```{r exoa, echo=TRUE, eval = TRUE} -->
-<!-- library(mapsf) -->
-<!-- # import des communes du Lot -->
-<!-- com <- st_read("data/lot46.gpkg", layer = "commune", quiet = TRUE) -->
-<!-- # import des départments français -->
-<!-- dep <- st_read("data/lot46.gpkg", layer = "departement", quiet = TRUE) -->
-<!-- # Nombre total d'actifs -->
-<!-- com$ACT <- com$AGR_H + com$AGR_F + com$IND_H + com$IND_F + com$BTP_H + -->
-<!--   com$BTP_F + com$TER_H + com$TER_F -->
-<!-- # Nombre d'actifs dans l'industrie -->
-<!-- com$IND <- com$IND_F + com$IND_H -->
-<!-- # Part des actifs travaillant dans l'industrie -->
-<!-- com$PART_ACT_IND <- 100 * com$IND / com$ACT -->
-<!-- # Création d'un thème personnalisé -->
-<!-- th <- mf_theme("green", mar = c(0,0,1.5,0), pos = "left") -->
-<!-- # Cartographie du nombre total de travailleurs de l'industrie -->
-<!-- mf_export(com, "img/n_ind.png", theme = th, -->
-<!--           width = 800) -->
-<!-- mf_map(x = com, border = "white", lwd = .2, add = T) -->
-<!-- mf_map(x = dep, lwd = 1, col = NA, add = TRUE, lend = 0) -->
-<!-- mf_map(x = com, var = "IND", type = "prop", -->
-<!--        leg_title = "Nombre d'actifs\ntravaillant dans\nl'industrie") -->
-<!-- mf_title("Répartition des actifs travaillant dans l'industrie - 2017") -->
-<!-- mf_scale(5) -->
-<!-- mf_arrow(pos = "topright") -->
-<!-- # notez l'utilisation ici de paste0() qui permet de concatener des chaines -->
-<!-- # de caractères et de \n qui permet d'aller à la ligne -->
-<!-- mf_credits(paste0("Admin Express COG Carto 3.0, IGN - 2021 & ", -->
-<!--                   "BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - ", -->
-<!--                   "Séries départementales et communales, INSEE - 2020\n", -->
-<!--                   "Auteurs : T. Giraud & H. Pecout, 2022")) -->
-<!-- dev.off() -->
-<!-- ``` -->
-<!-- ![](img/n_ind.png) -->
-<!-- ```{r exob, echo=TRUE, eval = TRUE} -->
-<!-- # Cartographie de la part des actifs travaillant dans l'industrie -->
-<!-- ## Quelle est la forme de la distribution que nous voulons cartographier ? -->
-<!-- hist(com$PART_ACT_IND) -->
-<!-- boxplot(com$PART_ACT_IND, horizontal = TRUE) -->
-<!-- summary(com$PART_ACT_IND) -->
-<!-- #### > Seules 2 communes ont 100% de travailleurs dans l'industrie -->
-<!-- #### Ces communes ont moins de 15 actifs -->
-<!-- # Sélection des communes ayant plus de 15 actifs -->
-<!-- com_sel <- com[com$ACT > 15, ] -->
-<!-- ## Quelle est la forme de cette (nouvelle) distribution -->
-<!-- hist(com_sel$PART_ACT_IND) -->
-<!-- boxplot(com_sel$PART_ACT_IND, horizontal = TRUE) -->
-<!-- summary(com_sel$PART_ACT_IND) -->
-<!-- # Creation d'un vecteur contenant les limites de classes en -->
-<!-- # utilisant la méthode des quantiles -->
-<!-- bks <- mf_get_breaks(com_sel$PART_ACT_IND, nbreaks = 5, -->
-<!--                      breaks = "quantile") -->
-<!-- hist(com_sel$PART_ACT_IND, bks) -->
-<!-- mf_export(com, "img/s_ind.png", theme = th, -->
-<!--           width = 800) -->
-<!-- # Cartographie -->
-<!-- mf_map(x = com, -->
-<!--        var = "PART_ACT_IND", -->
-<!--        type = "choro", -->
-<!--        breaks = bks,         # Utilisation des bornes de classes créées précédement -->
-<!--        leg_val_rnd = 0,      # arrondir les valeurs dans la légende -->
-<!--        pal = "Red-Yellow",   # Utilisation d'une palette de couleur -->
-<!--        leg_title = "Part des actifs\ntravaillant dans\nl'industrie", -->
-<!--        add = TRUE, -->
-<!--        col_na = "grey", -->
-<!--        leg_no_data = "Communes de moins de 15 actifs") # texte du no data dans la légende -->
-<!-- mf_title("Répartition des actifs travaillant dans l'industrie - 2017") -->
-<!-- mf_scale(5) -->
-<!-- mf_arrow(pos = "topright") -->
-<!-- mf_credits(paste0("Admin Express COG Carto 3.0, IGN - 2021 & ", -->
-<!--                   "BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - ", -->
-<!--                   "Séries départementales et communales, INSEE - 2020\n", -->
-<!--                   "Auteurs : T. Giraud & H. Pecout, 2022")) -->
-<!-- dev.off() -->
-<!-- ``` -->
-<!-- ![](img/s_ind.png) -->
-<!-- Nous allons maintenant combiner le nombre total d'actifs et la parts des travailleurs de l'industrie. -->
-<!-- ```{r exoc, echo=TRUE, eval = TRUE} -->
-<!-- mf_export(com, "img/c_ind.png", theme = th, -->
-<!--           width = 800) -->
-<!-- mf_map(x = com, border = "white", lwd = .2, add = T) -->
-<!-- mf_map(x = dep, lwd = 1, col = NA, add = TRUE, lend = 0) -->
-<!-- mf_map(com, c("ACT", "PART_ACT_IND"), "prop_choro", -->
-<!--        breaks = bks, -->
-<!--        pal = "Red-Yellow", -->
-<!--        inches = .4, -->
-<!--        border = "white", lwd = .7, -->
-<!--        leg_val_rnd =  c(0,1), -->
-<!--        leg_pos = c(538000,6442000, 538000, 6424000),  # ici les légendes sont positionnées manuellement -->
-<!--        leg_title = c("Nombre d'actifs*", -->
-<!--                      "Part des actifs\ndans l'industrie (en %)"), -->
-<!--        col_na = "grey", -->
-<!--        leg_no_data = "Communes de moins de 15 actifs") -->
-<!-- # Ajout d'annotations -->
-<!-- mf_annotation(x = com[com$NOM_COM=="Biars-sur-Cère",], -->
-<!--               txt = "Andros", -->
-<!--               col_arrow = th$fg, halo = T, cex = 1) -->
-<!-- mf_annotation(x = com[com$NOM_COM=="Figeac",], -->
-<!--               txt = "Industrie\naéronautique", -->
-<!--               col_arrow = th$fg, pos = "bottomright", halo = T, cex = 1) -->
-<!-- mf_annotation(x = com[com$NOM_COM=="Gramat",], -->
-<!--               txt = "La Quercynoise (?)", -->
-<!--               col_arrow = th$fg, pos = "topleft", s = 1, halo = T, -->
-<!--               cex = 1) -->
-<!-- mf_title("Répartition des actifs travaillant dans l'industrie - 2017") -->
-<!-- # ajout d'un carton -> -->
-<!-- mf_inset_on(fig = c(.8,0.98,0.1,0.3)) -->
-<!-- mf_map(dep, lwd = .1) -->
-<!-- mf_map(com, border = NA, add = T, col = th$fg) -->
-<!-- box(col = th$fg, lwd = .5) -->
-<!-- mf_inset_off() -->
-<!-- # <- fin du carton -->
-<!-- mf_scale(5) -->
-<!-- mf_arrow("topright") -->
-<!-- mf_credits(paste0("Admin Express COG Carto 3.0, IGN - 2021 & ", -->
-<!--                   "BD CARTO® 4.0, IGN - 2021 ; Recensements harmonisés - ", -->
-<!--                   "Séries départementales et communales, INSEE - 2020\n", -->
-<!--                   "Auteurs : T. Giraud & H. Pecout, 2022")) -->
-<!-- dev.off() -->
-<!-- ``` -->
-<!-- ![](img/c_ind.png) -->
+</section>
+<section id="exercice" class="level2 unumbered" data-number="4.17">
+<h2 class="unumbered anchored" data-number="4.17" data-anchor-id="exercice"><span class="header-section-number">4.17</span> Exercice</h2>
+<ol type="1">
+<li><p>Importer la couche des communes du département du Lot à partir du fichier geopackage <strong>lot.gpkg</strong>.</p></li>
+<li><p>Importer le fichier <strong>com.csv</strong>.<br>
+Ce jeu de données porte sur les communes du lot et contient plusieurs variables supplémentaires:</p>
+<ul>
+<li>le nombre d’actifs (<strong>ACT</strong>).</li>
+<li>le nombre d’actifs dans l’industrie (<strong>IND</strong>)</li>
+<li>La part des actifs dans la population totale (<strong>SACT</strong>)</li>
+<li>La part des actifs dans l’industrie dans le total des actifs (<strong>SACT_IND</strong>)</li>
+</ul></li>
+<li><p>Joindre le jeu de données et la couche des communes.</p></li>
+<li><p>Créez une carte représentant la population active travaillant dans l’industrie.</p></li>
+<li><p>Ajoutez les éléments d’habillage indispensables.</p></li>
+<li><p>Utilisez un thème personnalisé.</p></li>
+<li><p>Ajoutez un carton de localisation du Lot.</p></li>
+<li><p>Exportez la carte au format PNG avec 800 pixels de large.</p></li>
+<li><p>Comment rendre la carte plus intelligible ? Allez-y !</p></li>
+</ol>
 
 
 </section>

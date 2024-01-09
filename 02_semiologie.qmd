@@ -35,3 +35,15 @@ Voici quelques ouvrages et ressources pour l'apprentissage de la cartographie th
 :::
 
 
+
+## Exercice {.unumbered}
+
+Comment représenter les variables suivantes :
+
+  * Une population communale
+  * Un age médian par département
+  * Un taux de croissance
+  * Le statut administratif d'une commune (préfecture, sous-préfecture, commune simple…)
+  * L'espérance de vie par pays
+
+

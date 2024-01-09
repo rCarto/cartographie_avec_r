@@ -235,12 +235,25 @@ mf_map(
 mf_title("Distribution de la population dans le Lot (2018)")
 ```
 
+## Exercice {.unumbered}
+
+1. Importer la couche des communes du département du Lot à partir du fichier geopackage **lot.gpkg**.
 
 
+2. Importer le fichier **com.csv**.   
+  Ce jeu de données porte sur les communes du Lot et contient plusieurs variables supplémentaires: 
+    - le nombre d'actifs (**ACT**). 
+    - le nombre d'actifs dans l'industrie (**IND**)
+    - la part des actifs dans la population totale (**SACT**)
+    - la part des actifs dans l'industrie dans le total des actifs (**SACT_IND**) 
 
 
+3. Joindre le jeu de données et la couche des communes. 
 
 
+4. Créer une carte de la population active.  
+  Quel mode de représentation utiliser? Quels choix cela implique-t-il?
 
 
-
+5. Créer une carte de la part de la population active dans la population totale.  
+  Quel mode de représentation utiliser? Quels choix cela implique-t-il?
