@@ -220,8 +220,8 @@
     "objectID": "04_mise_en_page.html#exercice",
     "href": "04_mise_en_page.html#exercice",
     "title": "4  La mise en page",
-    "section": "4.17 Exercice",
-    "text": "4.17 Exercice\n\nImporter la couche des communes du département du Lot à partir du fichier geopackage lot.gpkg.\nImporter le fichier com.csv.\nCe jeu de données porte sur les communes du lot et contient plusieurs variables supplémentaires:\n\nle nombre d’actifs (ACT).\nle nombre d’actifs dans l’industrie (IND)\nLa part des actifs dans la population totale (SACT)\nLa part des actifs dans l’industrie dans le total des actifs (SACT_IND)\n\nJoindre le jeu de données et la couche des communes.\nCréez une carte représentant la population active travaillant dans l’industrie.\nAjoutez les éléments d’habillage indispensables.\nUtilisez un thème personnalisé.\nAjoutez un carton de localisation du Lot.\nExportez la carte au format PNG avec 800 pixels de large.\nComment rendre la carte plus intelligible ? Allez-y !"
+    "section": "Exercice",
+    "text": "Exercice\n\nImporter la couche des communes du département du Lot à partir du fichier geopackage lot.gpkg.\nImporter le fichier com.csv.\nCe jeu de données porte sur les communes du lot et contient plusieurs variables supplémentaires:\n\nle nombre d’actifs (ACT).\nle nombre d’actifs dans l’industrie (IND)\nLa part des actifs dans la population totale (SACT)\nLa part des actifs dans l’industrie dans le total des actifs (SACT_IND)\n\nJoindre le jeu de données et la couche des communes.\nCréez une carte représentant la population active travaillant dans l’industrie.\nAjoutez les éléments d’habillage indispensables.\nUtilisez un thème personnalisé.\nAjoutez un carton de localisation du Lot.\nExportez la carte au format PNG avec 800 pixels de large.\nComment rendre la carte plus intelligible ? Allez-y !"
   },
   {
     "objectID": "04_cartes_3D.html#linemap",
