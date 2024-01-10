@@ -54,13 +54,13 @@ Associées aux fonctions de représentation des données d’autres fonctions so
 - [How to use a custom font family](https://riatelab.github.io/mapsf/articles/web_only/how_to_use_a_custom_font_family.html)
 - [How to use themes](https://riatelab.github.io/mapsf/articles/web_only/how_to_use_themes.html)
 
-## Exercice {.unumbered}
+## Exercice {.unnumbered}
 
-* Installez le package `mapsf`.
+1. Installez le package `mapsf`.
 
-* Quelle est la version du package?
+2. Quelle est la version du package?
 
-* Quelles sont les nouveautés par rapport à la version précédente?
+3. Quelles sont les nouveautés par rapport à la version précédente?
 
 
 

@@ -1,5 +1,3 @@
-
-
 # Les types de cartes  
 
 La fonction `mf_map()` est la fonction centrale du package `mapsf`. Elle permet de réaliser la plupart des représentations usuelles en cartographie.
@@ -235,7 +233,7 @@ mf_map(
 mf_title("Distribution de la population dans le Lot (2018)")
 ```
 
-## Exercice {.unumbered}
+## Exercice {.unnumbered}
 
 1. Importer la couche des communes du département du Lot à partir du fichier geopackage **lot.gpkg**.
 
