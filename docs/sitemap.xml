@@ -2,38 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/index.html</loc>
-    <lastmod>2024-01-10T10:41:51.696Z</lastmod>
+    <lastmod>2024-03-11T13:26:26.652Z</lastmod>
   </url>
   <url>
     <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/01_mapsf.html</loc>
-    <lastmod>2024-01-10T10:41:51.700Z</lastmod>
+    <lastmod>2024-01-10T10:15:24.620Z</lastmod>
   </url>
   <url>
     <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/02_semiologie.html</loc>
-    <lastmod>2024-01-10T10:41:51.708Z</lastmod>
+    <lastmod>2024-01-10T10:15:25.732Z</lastmod>
   </url>
   <url>
     <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/03_types_de_cartes.html</loc>
-    <lastmod>2024-01-10T10:41:51.720Z</lastmod>
+    <lastmod>2024-01-10T10:16:02.596Z</lastmod>
   </url>
   <url>
     <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/04_mise_en_page.html</loc>
-    <lastmod>2024-01-10T10:41:51.744Z</lastmod>
+    <lastmod>2024-03-11T12:48:36.528Z</lastmod>
   </url>
   <url>
     <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/04_cartes_3D.html</loc>
-    <lastmod>2024-01-10T10:41:51.752Z</lastmod>
+    <lastmod>2023-11-29T10:50:09.323Z</lastmod>
   </url>
   <url>
     <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/05_anamorphoses.html</loc>
-    <lastmod>2024-01-10T10:41:51.756Z</lastmod>
+    <lastmod>2023-11-23T15:56:33.640Z</lastmod>
   </url>
   <url>
     <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/2000_references.html</loc>
-    <lastmod>2024-01-10T10:41:51.760Z</lastmod>
+    <lastmod>2023-11-23T15:56:33.640Z</lastmod>
   </url>
   <url>
     <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/2002_data.html</loc>
-    <lastmod>2024-01-10T10:41:51.764Z</lastmod>
+    <lastmod>2024-03-11T13:26:26.640Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/Cartographie-avec-R.pdf</loc>
+    <lastmod>2024-03-11T13:36:54.296Z</lastmod>
   </url>
 </urlset>

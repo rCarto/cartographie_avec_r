@@ -14,6 +14,21 @@ format:
     theme: cosmo
     pagetitle: "Cartographie avec R"
     author-meta: "Timothée Giraud et Hugues Pecout"
+    description-meta:
+      "Cartographie avec R: créer des cartes thématiques reproductibles conformes aux règles de la sémiologie graphique et de la cartographie.
+      L'objectif de ce document est de fournir un support à l'apprentissage de la cartographie avec R."
+    bibliography: [book.bib]
+    lang: fr
+    csl: "universite-de-montreal-apa.csl"
+  pdf:
+    toc: true
+    number-sections: true
+    colorlinks: true
+    callout-appearance: simple
+    callout-icon: false
+    theme: cosmo
+    pagetitle: "Cartographie avec R"
+    author-meta: "Timothée Giraud et Hugues Pecout"
     description-meta: 
       "Cartographie avec R: créer des cartes thématiques reproductibles conformes aux règles de la sémiologie graphique et de la cartographie.
       L'objectif de ce document est de fournir un support à l'apprentissage de la cartographie avec R."
@@ -21,15 +36,12 @@ format:
     lang: fr
     csl: "universite-de-montreal-apa.csl"
 
-
-
 book:
   title: "Cartographie avec R"
   description: "Créer des cartes thématiques reproductibles."
   author:
     - name: Timothée Giraud
       orcid: 0000-0001-5679-6536
-      email: timothee.giraud@cnrs.fr
       url: https://rcarto.github.io
       affiliation:
           name: RIATE (CNRS)
@@ -47,7 +59,7 @@ book:
   cover-image: img/globe-africa-solid.svg
   page-footer: 
     right: "<img src='img/logos-footer.png' width=290px />"
-    left: "[![CreativeCommonsLicense](img/by-nc-sa.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)"
+    left: "[![](img/by-nc-sa.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)"
   favicon: img/globe-africa-solid.svg
   site-url: https://rcarto.github.io/rcarto/cartographie_avec_r/
   open-graph: true

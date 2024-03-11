@@ -384,7 +384,7 @@ rasterImage(
 
 Dans plusieurs fonctions de `mapsf` il est possible de placer des éléments d'habillage de manière interactive avec la position *"interactive"*.
 
-![](img/interactive.gif)
+[![](img/interactive.gif)]{.content-visible when-format="html"}
 
 :::{.callout-note}
 Plus généralement la fonction `locator()` permet de cliquer sur une figure et d'obtenir les coordonnées d'un point dans le système de coordonnées de la figure (de la carte). `locator()`peut être utilisée sur la plupart des graphiques (pas ceux produits avec `ggplot2`).
