@@ -16,7 +16,7 @@ Vous pouvez nous envoyer vos remarques et suggestions en [postant une *issue*](h
 **Contexte**  
 Ce manuel a été initialement conçu pour accompagner le cours "Cartographie avec R" 
 du Master 2 Géomatique, géodécisionnel, géomarketing et multimédia (G2M) de 
-l'Université Paris 8 Vincennes - Saint-Denis. Une version PDF est disponible ici : [{{< fa file-pdf >}}](https://github.com/rCarto/cartographie_avec_r/Cartographie-avec-R.pdf).  
+l'Université Paris 8 Vincennes - Saint-Denis. Une version PDF est disponible ici : [{{< fa file-pdf >}}](https://rcarto.github.io/cartographie_avec_r/Cartographie-avec-R.pdf).  
 Un deuxième manuel centré sur la géomatique est disponible ici : 
 [Géomatique avec R](https://rcarto.github.io/geomatique_avec_r/).
 
