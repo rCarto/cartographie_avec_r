@@ -12,7 +12,7 @@ knitr:
 
 # mapsf
 
-1. Installez le package `mapsf`.
+2. Installez le package `mapsf`.
 
 
 ```{r}
@@ -20,15 +20,15 @@ knitr:
 install.packages("mapsf")
 ```
 
-2. Quelle est la version du package?
+3. Quelle est la version du package?
 
 ```{r}
 packageVersion("mapsf")
 ```
 
-3. Quelles sont les nouveautés par rapport à la version précédente?
+4. Quelles sont les nouveautés par rapport à la version précédente?
 
-Voir sur le [*changelog*](https://riatelab.github.io/mapsf/news/) sur le site du package.
+Voir le [*changelog*](https://riatelab.github.io/mapsf/news/) sur le site du package.
 
 # La sémiologie graphique
 

@@ -71,7 +71,7 @@ La fonction `mf_map(..., type = "choro")` permet de créer des cartes choroplèt
 
 ```{r choro}
 # Densité de population (hab./km2) en utilisant la fonction sf::st_area()
-com$DENS <- 1e6 * com$POP / as.numeric(st_area(com))
+com$DENS <- 1e6 * com$POPULATION / as.numeric(st_area(com))
 mf_map(
   x = com,
   var = "DENS",
@@ -255,3 +255,8 @@ mf_title("Distribution de la population dans le Lot (2018)")
 
 5. Créer une carte de la part de la population active dans la population totale.  
   Quel mode de représentation utiliser? Quels choix cela implique-t-il?
+
+
+:::{.callout-note}
+Vous pouvez utiliser le fichier **exo_cartographie_simple.R** pour vous guider dans cette exercice.   
+:::

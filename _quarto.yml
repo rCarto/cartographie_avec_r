@@ -26,6 +26,7 @@ format:
     colorlinks: true
     callout-appearance: simple
     callout-icon: false
+    fig-format: png
     theme: cosmo
     pagetitle: "Cartographie avec R"
     author-meta: "Timothée Giraud et Hugues Pecout"

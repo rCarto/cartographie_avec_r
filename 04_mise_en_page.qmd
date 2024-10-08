@@ -328,7 +328,7 @@ dev.off()
 
 ```
 
-![com_default.png](img/com_default.png)
+![](img/com_default.png)
 
 L'emprise de cette carte est exactement celle de la région affichée.
 
@@ -347,7 +347,7 @@ mf_title("Le Lot")
 dev.off()
 ```
 
-![com_expand.png](img/com_expand.png)
+![](img/com_expand.png)
 
 :::{.callout-note}
 ## Vignette
@@ -483,3 +483,8 @@ mf_title("Le Lot dans le Monde!")
 8. Exportez la carte au format PNG avec 800 pixels de large. 
 
 9. Comment rendre la carte plus intelligible ? Allez-y !
+
+
+:::{.callout-note}
+Vous pouvez utiliser le fichier **exo_cartographie_mise_en_page.R** pour vous guider dans cette exercice.   
+:::

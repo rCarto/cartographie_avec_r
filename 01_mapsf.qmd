@@ -56,11 +56,16 @@ Associées aux fonctions de représentation des données d’autres fonctions so
 
 ## Exercice {.unnumbered}
 
-1. Installez le package `mapsf`.
+1. Les données utilisées dans ce document sont stockées dans un projet RStudio. 
+Vous devez le télécharger puis le décompresser sur votre machine. Il vous sera ensuite possible de tester l'ensemble des manipulations proposées dans ce document au sein du projet **geodata**.  
+[Télécharger le projet](https://rcarto.github.io/cartographie_avec_r/geodata.zip){.btn .btn-primary .btn-sm role="button"}  
 
-2. Quelle est la version du package?
+2. Nous utiliserons principalement le package `mapsf` dans la suite de ce document.   
+Installez le en utilisant la fonction `install.packages()`.
 
-3. Quelles sont les nouveautés par rapport à la version précédente?
+3. Quelle est la version du package?
+
+4. Quelles sont les nouveautés par rapport à la version précédente?
 
 
 

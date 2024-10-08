@@ -1,6 +1,0 @@
-# `sessionInfo()`
-
-```{r, echo=FALSE}
-sessionInfo()
-```
-
