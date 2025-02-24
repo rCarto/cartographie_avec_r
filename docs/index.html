@@ -8,9 +8,9 @@
 
 <meta name="author" content="Timothée Giraud et Hugues Pecout">
 <meta name="dcterms.date" content="2025-02-24">
-<meta name="description" content="Cartographie avec R: créer des cartes thématiques reproductibles conformes aux règles de la sémiologie graphique et de la cartographie. L’objectif de ce document est de fournir un support à l’apprentissage de la cartographie avec R.">
+<meta name="description" content="Create reproducible maps with R">
 
-<title>Cartographie avec R</title>
+<title>Cartography with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,10 +73,10 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="Cartographie avec R">
-<meta property="og:description" content="Créer des cartes thématiques reproductibles.">
+<meta property="og:title" content="Cartography with R">
+<meta property="og:description" content="Create reproducible maps with R">
 <meta property="og:image" content="https://rcarto.github.io/rcarto/cartographie_avec_r/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
-<meta property="og:site_name" content="Cartographie avec R">
+<meta property="og:site_name" content="Cartography with R">
 </head>
 
 <body class="nav-sidebar floating">
@@ -103,7 +103,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Cartographie avec R</a> 
+      <a href="./">Cartography with R</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/rcarto/cartographie_avec_r/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -190,12 +190,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Cartographie avec R</h1>
+<h1 class="title">Cartography with R</h1>
 </div>
 
 <div>
   <div class="description">
-    Créer des cartes thématiques reproductibles.
+    Create reproducible maps with R
   </div>
 </div>
 
@@ -253,7 +253,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <section id="preamble" class="level1 unnumbered">
-<h1 class="unnumbered"><em>Preamble</em></h1><p><img src="img/globe-africa-solid.svg" title="Cartographie avec R" class="quarto-cover-image img-fluid"></p>
+<h1 class="unnumbered"><em>Preamble</em></h1><p><img src="img/globe-africa-solid.svg" title="Cartography with R" class="quarto-cover-image img-fluid"></p>
 <p>The aim of this document is to provide support for learning thematic mapping with R.</p>
 <p><strong>How to use the manual</strong><br>
 The data used in this document is stored in an RStudio project. You need to download it and unzip it on your machine. You will then be able to test all data processing proposed in this document using the <strong>geodata</strong> project.<br>

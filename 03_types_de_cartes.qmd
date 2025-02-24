@@ -23,7 +23,7 @@ dep <- st_read("data/lot.gpkg", layer = "departements", quiet = TRUE)
 # import restaurants
 resto <- st_read("data/lot.gpkg", layer = "restaurants", quiet = TRUE)
 # import someroads
-route <- st_read("data/lot.gpkg", layer = "routes", quiet = TRUE)
+road <- st_read("data/lot.gpkg", layer = "routes", quiet = TRUE)
 ```
 
 
@@ -38,8 +38,8 @@ library(mapsf)
 mf_map(x = com, border = "white")
 # Départements (polygones, fond transparent)
 mf_map(x = dep, lwd = 2, col = NA, add = TRUE)
-# Routes (polylignes)
-mf_map(x = route, lwd = .7, col = "ivory4", add = TRUE)
+# roads (polylignes)
+mf_map(x = road, lwd = .7, col = "ivory4", add = TRUE)
 # Restaurants (points)
 mf_map(x = resto, pch = 20, cex = .7, col = "darkred", add = TRUE)
 # Ajour d'un titre

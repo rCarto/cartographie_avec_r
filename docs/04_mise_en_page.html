@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Timothée Giraud et Hugues Pecout">
-<meta name="description" content="Cartographie avec R: créer des cartes thématiques reproductibles conformes aux règles de la sémiologie graphique et de la cartographie. L’objectif de ce document est de fournir un support à l’apprentissage de la cartographie avec R.">
+<meta name="description" content="Create reproducible maps with R">
 
-<title>Cartographie avec R</title>
+<title>Cartography with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,10 +107,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<meta property="og:title" content="Cartographie avec R">
-<meta property="og:description" content="Créer des cartes thématiques reproductibles.">
+<meta property="og:title" content="Cartography with R">
+<meta property="og:description" content="Create reproducible maps with R">
 <meta property="og:image" content="https://rcarto.github.io/rcarto/cartographie_avec_r/figs/title-1.png">
-<meta property="og:site_name" content="Cartographie avec R">
+<meta property="og:site_name" content="Cartography with R">
 <meta property="og:image:height" content="1102">
 <meta property="og:image:width" content="1152">
 </head>
@@ -139,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Cartographie avec R</a> 
+      <a href="./">Cartography with R</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/rcarto/cartographie_avec_r/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -220,17 +220,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sample-data-set" id="toc-sample-data-set" class="nav-link active" data-scroll-target="#sample-data-set"><span class="header-section-number">4.1</span> Sample data set</a></li>
   <li><a href="#titles" id="toc-titles" class="nav-link" data-scroll-target="#titles"><span class="header-section-number">4.2</span> Titles</a></li>
   <li><a href="#flèche-dorientation-et-échelle" id="toc-flèche-dorientation-et-échelle" class="nav-link" data-scroll-target="#flèche-dorientation-et-échelle"><span class="header-section-number">4.3</span> Flèche d’orientation et échelle</a></li>
-  <li><a href="#crédits" id="toc-crédits" class="nav-link" data-scroll-target="#crédits"><span class="header-section-number">4.4</span> Crédits</a></li>
+  <li><a href="#credits" id="toc-credits" class="nav-link" data-scroll-target="#credits"><span class="header-section-number">4.4</span> Credits</a></li>
   <li><a href="#full-layout" id="toc-full-layout" class="nav-link" data-scroll-target="#full-layout"><span class="header-section-number">4.5</span> Full layout</a></li>
   <li><a href="#annotations" id="toc-annotations" class="nav-link" data-scroll-target="#annotations"><span class="header-section-number">4.6</span> Annotations</a></li>
   <li><a href="#labels" id="toc-labels" class="nav-link" data-scroll-target="#labels"><span class="header-section-number">4.7</span> Labels</a></li>
-  <li><a href="#les-légendes" id="toc-les-légendes" class="nav-link" data-scroll-target="#les-légendes"><span class="header-section-number">4.8</span> Les légendes</a></li>
-  <li><a href="#centrer-la-carte-sur-une-région" id="toc-centrer-la-carte-sur-une-région" class="nav-link" data-scroll-target="#centrer-la-carte-sur-une-région"><span class="header-section-number">4.9</span> Centrer la carte sur une région</a></li>
-  <li><a href="#afficher-plusieurs-cartes-sur-la-même-figure" id="toc-afficher-plusieurs-cartes-sur-la-même-figure" class="nav-link" data-scroll-target="#afficher-plusieurs-cartes-sur-la-même-figure"><span class="header-section-number">4.10</span> Afficher plusieurs cartes sur la même figure</a></li>
-  <li><a href="#export-des-cartes" id="toc-export-des-cartes" class="nav-link" data-scroll-target="#export-des-cartes"><span class="header-section-number">4.11</span> Export des cartes</a></li>
-  <li><a href="#ajouter-une-image-sur-une-carte" id="toc-ajouter-une-image-sur-une-carte" class="nav-link" data-scroll-target="#ajouter-une-image-sur-une-carte"><span class="header-section-number">4.12</span> Ajouter une image sur une carte</a></li>
-  <li><a href="#placer-précisément-un-élément-sur-la-carte" id="toc-placer-précisément-un-élément-sur-la-carte" class="nav-link" data-scroll-target="#placer-précisément-un-élément-sur-la-carte"><span class="header-section-number">4.13</span> Placer précisément un élément sur la carte</a></li>
-  <li><a href="#ajouter-un-ombrage-à-une-couche" id="toc-ajouter-un-ombrage-à-une-couche" class="nav-link" data-scroll-target="#ajouter-un-ombrage-à-une-couche"><span class="header-section-number">4.14</span> Ajouter un ombrage à une couche</a></li>
+  <li><a href="#legends" id="toc-legends" class="nav-link" data-scroll-target="#legends"><span class="header-section-number">4.8</span> Legends</a></li>
+  <li><a href="#center-the-map-on-a-specific-area" id="toc-center-the-map-on-a-specific-area" class="nav-link" data-scroll-target="#center-the-map-on-a-specific-area"><span class="header-section-number">4.9</span> Center the map on a specific area</a></li>
+  <li><a href="#display-several-maps-on-the-same-figure" id="toc-display-several-maps-on-the-same-figure" class="nav-link" data-scroll-target="#display-several-maps-on-the-same-figure"><span class="header-section-number">4.10</span> Display several maps on the same figure</a></li>
+  <li><a href="#export-maps" id="toc-export-maps" class="nav-link" data-scroll-target="#export-maps"><span class="header-section-number">4.11</span> Export maps</a></li>
+  <li><a href="#add-an-image-on-the-map" id="toc-add-an-image-on-the-map" class="nav-link" data-scroll-target="#add-an-image-on-the-map"><span class="header-section-number">4.12</span> Add an image on the map</a></li>
+  <li><a href="#interactive-placement-of-layout-elements" id="toc-interactive-placement-of-layout-elements" class="nav-link" data-scroll-target="#interactive-placement-of-layout-elements"><span class="header-section-number">4.13</span> Interactive placement of layout elements</a></li>
+  <li><a href="#add-a-shadow-to-a-layer" id="toc-add-a-shadow-to-a-layer" class="nav-link" data-scroll-target="#add-a-shadow-to-a-layer"><span class="header-section-number">4.14</span> Add a shadow to a layer</a></li>
   <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice">Exercice</a></li>
   </ul>
 </nav>
@@ -262,23 +262,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Import map layers from the <a href="https://www.geopackage.org/">geopackage</a> file <strong>lot.gpkg</strong>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># import des communes du Lot</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>com <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/lot.gpkg"</span>, <span class="at">layer =</span> <span class="st">"communes"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># import des départements français</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>dep <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/lot.gpkg"</span>, <span class="at">layer =</span> <span class="st">"departements"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># import des restaurants</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>resto <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/lot.gpkg"</span>, <span class="at">layer =</span> <span class="st">"restaurants"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># import des routes autour de la commune de Gramat</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>route <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/lot.gpkg"</span>, <span class="at">layer =</span> <span class="st">"routes"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># import municipalities</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>com <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/lot.gpkg"</span>, <span class="at">layer =</span> <span class="st">"communes"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="titles" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="titles"><span class="header-section-number">4.2</span> Titles</h2>
 <p><code>mf_title()</code> displays a title.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">"default"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Titre de la carte"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Title of the map"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -290,8 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="flèche-dorientation-et-échelle" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="flèche-dorientation-et-échelle"><span class="header-section-number">4.3</span> Flèche d’orientation et échelle</h2>
-<p>La fonction <code>mf_arrow()</code> permet de choisir la position et l’aspect de la flèche d’orientation.<br>
-La fonction <code>mf_scale()</code> permet de choisir la position et l’aspect de l’échelle.</p>
+<p><code>mf_arrow()</code> displays a North arrow and <code>mf_scale()</code> displays a scale bar.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">cex =</span> <span class="fl">1.2</span>)</span>
@@ -305,9 +297,9 @@ La fonction <code>mf_scale()</code> permet de choisir la position et l’aspect 
 </div>
 </div>
 </section>
-<section id="crédits" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="crédits"><span class="header-section-number">4.4</span> Crédits</h2>
-<p>La fonction <code>mf_credits()</code> permet d’afficher une ligne de crédits (sources, auteur…).</p>
+<section id="credits" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="credits"><span class="header-section-number">4.4</span> Credits</h2>
+<p><code>mf_credits()</code> plots credits at the bottom of the map.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_credits</span>(<span class="st">"Auteurs : TG &amp; HP</span><span class="sc">\n</span><span class="st">Sources : IGN, 2018"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -322,11 +314,11 @@ La fonction <code>mf_scale()</code> permet de choisir la position et l’aspect 
 </section>
 <section id="full-layout" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="full-layout"><span class="header-section-number">4.5</span> Full layout</h2>
-<p>La fonction <code>mf_layout()</code> permet d’afficher tous ces éléments (titre, c.</p>
+<p><code>mf_layout()</code> add a complete layout to the map (title, credits, north arrow, scale bar). Each layout elements can also be set separately (with <code>mf_title()</code>, <code>mf_credits()</code>, <code>mf_arrow()</code> and <code>mf_scale()</code>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_layout</span>(</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Le Lot"</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Lot"</span>,</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">credits =</span> <span class="st">"Auteurs : TG &amp; HP</span><span class="sc">\n</span><span class="st">Sources : IGN, 2018"</span>,</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">arrow =</span> <span class="cn">TRUE</span>, </span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">scale =</span> <span class="cn">TRUE</span></span>
@@ -342,8 +334,9 @@ La fonction <code>mf_scale()</code> permet de choisir la position et l’aspect 
 </section>
 <section id="annotations" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="annotations"><span class="header-section-number">4.6</span> Annotations</h2>
+<p><code>mf_annotation()</code> displays an annotation on a spatial feature.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sélection d'une commune</span></span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select a municipality</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>cahors <span class="ot">&lt;-</span> com[com<span class="sc">$</span>NOM_COM <span class="sc">==</span> <span class="st">"Cahors"</span>, ]</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_annotation</span>(</span>
@@ -363,21 +356,20 @@ La fonction <code>mf_scale()</code> permet de choisir la position et l’aspect 
 </section>
 <section id="labels" class="level2" data-number="4.7">
 <h2 data-number="4.7" class="anchored" data-anchor-id="labels"><span class="header-section-number">4.7</span> Labels</h2>
-<p>La fonction <code>mf_label()</code> est dédiée à l’affichage d’étiquettes.</p>
+<p><code>mf_label()</code> is dedicated to the display of labels on a map. The <code>overlap = FALSE</code> argument displays non overlapping labels.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selection des communes qui intersectent la </span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># commune de Cahors</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>com_sel <span class="ot">&lt;-</span> <span class="fu">st_filter</span>(com, com[com<span class="sc">$</span>NOM_COM <span class="sc">==</span> <span class="st">"Cahors"</span>, ])</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_sel)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_label</span>(</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com_sel,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="st">"NOM_COM"</span>,</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">col=</span> <span class="st">"black"</span>,</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">halo =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">overlap =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">lines =</span> <span class="cn">FALSE</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select municipalities intersecting Cahors</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>com_sel <span class="ot">&lt;-</span> <span class="fu">st_filter</span>(com, com[com<span class="sc">$</span>NOM_COM <span class="sc">==</span> <span class="st">"Cahors"</span>, ])</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com_sel)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_label</span>(</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com_sel,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="st">"NOM_COM"</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">col=</span> <span class="st">"black"</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">halo =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">overlap =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">lines =</span> <span class="cn">FALSE</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_scale</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -386,11 +378,10 @@ La fonction <code>mf_scale()</code> permet de choisir la position et l’aspect 
 </div>
 </div>
 </div>
-<p>L’argument <code>halo = TRUE</code> permet d’afficher un léger halo autour des étiquettes et l’argument <code>overlap = FALSE</code> permet de créer des étiquettes ne se recouvrant pas.</p>
 </section>
-<section id="les-légendes" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="les-légendes"><span class="header-section-number">4.8</span> Les légendes</h2>
-<p>La fonction <code>mf_legend()</code> permet d’afficher des légendes.</p>
+<section id="legends" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="legends"><span class="header-section-number">4.8</span> Legends</h2>
+<p><code>mf_legend()</code> displays legends.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_legend</span>(</span>
@@ -415,23 +406,10 @@ La fonction <code>mf_scale()</code> permet de choisir la position et l’aspect 
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Le package <code>maplegend</code>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>La fonction <code>mf_legend()</code> s’appuie sur le package <a href="https://github.com/riatelab/maplegend"><code>maplegend</code></a></p>
-</div>
-</div>
 </section>
-<section id="centrer-la-carte-sur-une-région" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="centrer-la-carte-sur-une-région"><span class="header-section-number">4.9</span> Centrer la carte sur une région</h2>
-<p>La fonction <code>mf_map()</code> permet d’initialiser une carte en la centrant sur une objet spatial en choisissant un fond et des bordures transparantes.</p>
+<section id="center-the-map-on-a-specific-area" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="center-the-map-on-a-specific-area"><span class="header-section-number">4.9</span> Center the map on a specific area</h2>
+<p>The <code>mf_map()</code> function can start a map by centering it on a spatial object and choosing transparent background and borders.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com_sel, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">border =</span> <span class="cn">NA</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
@@ -445,10 +423,9 @@ Le package <code>maplegend</code>
 </div>
 </div>
 </section>
-<section id="afficher-plusieurs-cartes-sur-la-même-figure" class="level2" data-number="4.10">
-<h2 data-number="4.10" class="anchored" data-anchor-id="afficher-plusieurs-cartes-sur-la-même-figure"><span class="header-section-number">4.10</span> Afficher plusieurs cartes sur la même figure</h2>
-<p>Il faut ici utiliser l’argument <code>mfrow</code> de la fonction <code>par()</code>. Le premier chiffre représente le nombre lignes et le deuxième le nombre de colonnes.<br>
-Par exemple <code>par(mfrow = c(1, 2))</code> (1 ligne et 2 colonnes) permet d’afficher deux cartes côte à côte.</p>
+<section id="display-several-maps-on-the-same-figure" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="display-several-maps-on-the-same-figure"><span class="header-section-number">4.10</span> Display several maps on the same figure</h2>
+<p>To plot several maps on the same figure, the user can use the <code>mfrow</code> argument of the <code>par()</code> function before plotting the maps. For example, use <code>par(mfrow = c(1, 2))</code> (i.e.&nbsp;1 row, 2 columns) to plot two maps side by side).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define the figure layout (1 row, 2 columns)</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>opar <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
@@ -461,14 +438,14 @@ Par exemple <code>par(mfrow = c(1, 2))</code> (1 ligne et 2 colonnes) permet d�
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">val_max =</span> <span class="dv">4000</span>, </span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_pos =</span> <span class="st">"topleft"</span>, </span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_title =</span> <span class="st">"N."</span>)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Tertiaire: Femmes"</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Tertiary: Women"</span>)</span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># second map</span></span>
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com)</span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="st">"TER_H"</span>, <span class="st">"prop"</span>,</span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">inches =</span> .<span class="dv">2</span>,</span>
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">val_max =</span> <span class="dv">4000</span>, </span>
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">leg_pos =</span> <span class="cn">NA</span>)</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Hommes"</span>)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Men"</span>)</span>
 <span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(opar)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -478,64 +455,35 @@ Par exemple <code>par(mfrow = c(1, 2))</code> (1 ligne et 2 colonnes) permet d�
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Comparer des cartes de cercles proportionnels
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Notons ici l’utilisation des arguments <code>inches</code> et <code>val_max</code> avec des valeurs identiques pour les deux carte. Cela rend possible les comparaisons entres les deux cartes.</p>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Vignette
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><a href="https://riatelab.github.io/mapsf/articles/web_only/how_to_create_faceted_maps.html">How to Create Faceted Maps</a></p>
-</div>
-</div>
 </section>
-<section id="export-des-cartes" class="level2" data-number="4.11">
-<h2 data-number="4.11" class="anchored" data-anchor-id="export-des-cartes"><span class="header-section-number">4.11</span> Export des cartes</h2>
-<p><code>mf_export()</code> permet d’exporter des cartes en PNG ou en SVG.<br>
-Le ratio hauteur/largeur de la carte correspondra au ratio hauteur/largeur d’un objet spatial.<br>
-Si <code>width</code> est spécifié alors <code>height</code> est déduit du ratio hauteur/largeur de <code>x</code>, de la taille des marges de la figure et des dimensions du titre (du thème utilisé en somme).<br>
-<code>mf_export()</code> peut aussi être utilisé pour ajouter de l’espace sur un ou plusieurs côté de la carte ou encore centrer la carte sur une zone particulière.</p>
+<section id="export-maps" class="level2" data-number="4.11">
+<h2 data-number="4.11" class="anchored" data-anchor-id="export-maps"><span class="header-section-number">4.11</span> Export maps</h2>
+<p><code>mf_export()</code> exports maps in PNG or SVG formats.<br>
+The exported map width/height ratio will match the one of a spatial object.<br>
+If <code>width</code> is specified, then <code>height</code> is deduced from the width/height ratio of <code>x</code>, figure margins and title size.<br>
+If <code>height</code> is specified, then <code>width</code> is deduced from the width/height ratio of <code>x</code>, figure margins and title size.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>Toujours utiliser <code>add = TRUE</code> après un appel à <code>mf_export()</code> et ne pas oublier d’utiliser <code>dev.off()</code> pour finaliser l’export de la figure.</strong></p>
+<p>Always use <code>add = TRUE</code> after <code>mf_export()</code> and do not forget to add <code>dev.off()</code> at the end of the export.</p>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#création d'un thème personnel</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">"candy"</span>, <span class="at">bg =</span> <span class="st">"grey80"</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_export</span>(</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com, </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">"img/com_default.png"</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">600</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Le Lot"</span>)</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_export</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">"img/com_default.png"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">600</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Le Lot"</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="img/com_default.png" class="img-fluid"></p>
-<p>L’emprise de cette carte est exactement celle de la région affichée.</p>
-<p>Lors de l’export suivant nous ajoutons de l’espace sur la partie droite de la carte (50% de la largeur de <code>x</code>).</p>
+<p>In the following export we have added some space on the right side of the plot (50% of <code>x</code> width).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_export</span>(</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com, </span>
@@ -562,27 +510,25 @@ Vignette
 </div>
 </div>
 </section>
-<section id="ajouter-une-image-sur-une-carte" class="level2" data-number="4.12">
-<h2 data-number="4.12" class="anchored" data-anchor-id="ajouter-une-image-sur-une-carte"><span class="header-section-number">4.12</span> Ajouter une image sur une carte</h2>
-<p>Cela peut être utile pour ajouter un logo, un pictogramme. La fonction <code>readPNG()</code> du package <code>png</code> permet l’ajout d’images sur une figure.</p>
+<section id="add-an-image-on-the-map" class="level2" data-number="4.12">
+<h2 data-number="4.12" class="anchored" data-anchor-id="add-an-image-on-the-map"><span class="header-section-number">4.12</span> Add an image on the map</h2>
+<p><code>readPNG()</code> from the <code>png</code> package can be used to add an image on a map.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">"default"</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(png)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import de l'image</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>logo <span class="ot">&lt;-</span> <span class="fu">readPNG</span>(<span class="st">"img/Logo CG 46 - Bleu.png"</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># dimension de l'image en unité de la carte</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>pp <span class="ot">&lt;-</span> <span class="fu">dim</span>(logo)[<span class="dv">2</span><span class="sc">:</span><span class="dv">1</span>] <span class="sc">*</span> <span class="dv">20</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition d'un point d'encrage de l'image dans la figure, ici</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># le coin supérieur gauche de la bounding box du département</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>xy <span class="ot">&lt;-</span> <span class="fu">st_bbox</span>(com)[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">col =</span> <span class="st">"#D1914D"</span>, <span class="at">border =</span> <span class="st">"white"</span>)</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="fu">rasterImage</span>(</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">image   =</span> logo,</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">xleft   =</span> xy[<span class="dv">1</span>],</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">ybottom =</span> xy[<span class="dv">2</span>] <span class="sc">-</span> pp[<span class="dv">2</span>],</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">xright  =</span> xy[<span class="dv">1</span>] <span class="sc">+</span> pp[<span class="dv">1</span>],</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">ytop    =</span> xy[<span class="dv">2</span>]</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(png)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># image import</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>logo <span class="ot">&lt;-</span> <span class="fu">readPNG</span>(<span class="st">"img/Logo CG 46 - Bleu.png"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># image dimension</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>pp <span class="ot">&lt;-</span> <span class="fu">dim</span>(logo)[<span class="dv">2</span><span class="sc">:</span><span class="dv">1</span>] <span class="sc">*</span> <span class="dv">20</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Coordinates of the topleft corner of com bounding box</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>xy <span class="ot">&lt;-</span> <span class="fu">st_bbox</span>(com)[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">col =</span> <span class="st">"#D1914D"</span>, <span class="at">border =</span> <span class="st">"white"</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rasterImage</span>(</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">image   =</span> logo,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">xleft   =</span> xy[<span class="dv">1</span>],</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">ybottom =</span> xy[<span class="dv">2</span>] <span class="sc">-</span> pp[<span class="dv">2</span>],</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">xright  =</span> xy[<span class="dv">1</span>] <span class="sc">+</span> pp[<span class="dv">1</span>],</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">ytop    =</span> xy[<span class="dv">2</span>]</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -592,28 +538,17 @@ Vignette
 </div>
 </div>
 </section>
-<section id="placer-précisément-un-élément-sur-la-carte" class="level2" data-number="4.13">
-<h2 data-number="4.13" class="anchored" data-anchor-id="placer-précisément-un-élément-sur-la-carte"><span class="header-section-number">4.13</span> Placer précisément un élément sur la carte</h2>
-<p>Dans plusieurs fonctions de <code>mapsf</code> il est possible de placer des éléments d’habillage de manière interactive avec la position <em>“interactive”</em>.</p>
+<section id="interactive-placement-of-layout-elements" class="level2" data-number="4.13">
+<h2 data-number="4.13" class="anchored" data-anchor-id="interactive-placement-of-layout-elements"><span class="header-section-number">4.13</span> Interactive placement of layout elements</h2>
+<p>Some layout elements can be positioned interactively on the map by using <em>“interactive”</em> as position. This applies to legends, north arrow, scale bar.</p>
 <p><span><img src="img/interactive.gif" class="img-fluid"></span></p>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Plus généralement la fonction <code>locator()</code> permet de cliquer sur une figure et d’obtenir les coordonnées d’un point dans le système de coordonnées de la figure (de la carte). <code>locator()</code>peut être utilisée sur la plupart des graphiques (pas ceux produits avec <code>ggplot2</code>).</p>
-</div>
-</div>
-</div>
 </section>
-<section id="ajouter-un-ombrage-à-une-couche" class="level2" data-number="4.14">
-<h2 data-number="4.14" class="anchored" data-anchor-id="ajouter-un-ombrage-à-une-couche"><span class="header-section-number">4.14</span> Ajouter un ombrage à une couche</h2>
-<p>La fonction <code>mf_shadow()</code> permet de créer une ombre à une couche de polygones.</p>
+<section id="add-a-shadow-to-a-layer" class="level2" data-number="4.14">
+<h2 data-number="4.14" class="anchored" data-anchor-id="add-a-shadow-to-a-layer"><span class="header-section-number">4.14</span> Add a shadow to a layer</h2>
+<p><code>mf_shadow()</code> plots the shadow of a polygon layer.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_theme</span>(<span class="st">"default"</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_shadow</span>(com)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">add=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_shadow</span>(com)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(com, <span class="at">add=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -626,22 +561,22 @@ Vignette
 <section id="exercice" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="exercice">Exercice</h2>
 <ol type="1">
-<li><p>Importer la couche des communes du département du Lot à partir du fichier geopackage <strong>lot.gpkg</strong>.</p></li>
-<li><p>Importer le fichier <strong>com.csv</strong>.<br>
-Ce jeu de données porte sur les communes du lot et contient plusieurs variables supplémentaires:</p>
+<li><p>Import the communes layer for the Lot department from the geopackage <strong>lot.gpkg</strong> file.</p></li>
+<li><p>Import the <strong>com.csv</strong> file.<br>
+This dataset covers the communes of the Lot department and contains several additional variables:</p>
 <ul>
-<li>le nombre d’actifs (<strong>ACT</strong>).</li>
-<li>le nombre d’actifs dans l’industrie (<strong>IND</strong>)</li>
-<li>La part des actifs dans la population totale (<strong>SACT</strong>)</li>
-<li>La part des actifs dans l’industrie dans le total des actifs (<strong>SACT_IND</strong>)</li>
+<li>number of employees (<strong>ACT</strong>).</li>
+<li>number of people employed in industry (<strong>IND</strong>)</li>
+<li>Number of people employed in the total population (<strong>SACT</strong>)</li>
+<li>The share of industry workers in the total workforce (<strong>SACT_IND</strong>)</li>
 </ul></li>
-<li><p>Joindre le jeu de données et la couche des communes.</p></li>
-<li><p>Créez une carte représentant la population active travaillant dans l’industrie.</p></li>
-<li><p>Ajoutez les éléments d’habillage indispensables.</p></li>
-<li><p>Utilisez un thème personnalisé.</p></li>
-<li><p>Ajoutez un carton de localisation du Lot.</p></li>
-<li><p>Exportez la carte au format PNG avec 800 pixels de large.</p></li>
-<li><p>Comment rendre la carte plus intelligible ? Allez-y !</p></li>
+<li><p>Attach dataset and municipality layer.</p></li>
+<li><p>Create a map showing the active population working in industry.</p></li>
+<li><p>Add the necessary wrapping elements.</p></li>
+<li><p>Use a custom theme.</p></li>
+<li><p>Add a Lot location card.</p></li>
+<li><p>Export the map in PNG format, 800 pixels wide.</p></li>
+<li><p>How can I make the map more intelligible? Get started!</p></li>
 </ol>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -649,7 +584,7 @@ Ce jeu de données porte sur les communes du lot et contient plusieurs variables
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Vous pouvez utiliser le fichier <strong>exo_cartographie_mise_en_page.R</strong> pour vous guider dans cette exercice.</p>
+<p>You can use the file <strong>exo_cartographie_mise_en_page.R</strong> to guide you through this exercise.</p>
 </div>
 </div>
 </div>

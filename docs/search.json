@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Cartographie avec R",
+    "title": "Cartography with R",
     "section": "",
     "text": "Preamble\nThe aim of this document is to provide support for learning thematic mapping with R.\nHow to use the manual\nThe data used in this document is stored in an RStudio project. You need to download it and unzip it on your machine. You will then be able to test all data processing proposed in this document using the geodata project.\nDownload project\nContribution and feedback\nYou can send us your comments and suggestions by posting an issue on the GitHub repository of this document.\nContext\nThis manual was initially designed for the “Cartography with R” course of the “Géomatique, géodécisionnel, géomarketing et multimédia” master (G2M - Université Paris 8 Vincennes - Saint-Denis).\nA second manual focusing on geomatics is available here : Géomatique avec R.\n\n To cite the document:\nGiraud, T. et Pecout, H. (2024). Cartographie avec R. https://doi.org/10.5281/zenodo.5905734",
     "crumbs": [
@@ -74,7 +74,7 @@
     "href": "03_types_de_cartes.html",
     "title": "3  Map Types",
     "section": "",
-    "text": "3.1 Sample data set\nmf_map() is the main function of the package, it displays map layers on a georeferenced plot.\nmf_map() has three main arguments:\nMany parameters are available to fine tune symbologies and legends.\nImport map layers from the geopackage file lot.gpkg.\nlibrary(sf)\n\n#&gt; Linking to GEOS 3.13.0, GDAL 3.10.2, PROJ 9.5.1; sf_use_s2() is TRUE\n\n# import municipalities\ncom &lt;- st_read(\"data/lot.gpkg\", layer = \"communes\", quiet = TRUE)\n# import french departements \ndep &lt;- st_read(\"data/lot.gpkg\", layer = \"departements\", quiet = TRUE)\n# import restaurants\nresto &lt;- st_read(\"data/lot.gpkg\", layer = \"restaurants\", quiet = TRUE)\n# import someroads\nroute &lt;- st_read(\"data/lot.gpkg\", layer = \"routes\", quiet = TRUE)",
+    "text": "3.1 Sample data set\nmf_map() is the main function of the package, it displays map layers on a georeferenced plot.\nmf_map() has three main arguments:\nMany parameters are available to fine tune symbologies and legends.\nImport map layers from the geopackage file lot.gpkg.\nlibrary(sf)\n# import municipalities\ncom &lt;- st_read(\"data/lot.gpkg\", layer = \"communes\", quiet = TRUE)\n# import french departements \ndep &lt;- st_read(\"data/lot.gpkg\", layer = \"departements\", quiet = TRUE)\n# import restaurants\nresto &lt;- st_read(\"data/lot.gpkg\", layer = \"restaurants\", quiet = TRUE)\n# import someroads\nroad &lt;- st_read(\"data/lot.gpkg\", layer = \"routes\", quiet = TRUE)",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Map Types</span>"
     ]
@@ -84,7 +84,7 @@
     "href": "03_types_de_cartes.html#geometries",
     "title": "3  Map Types",
     "section": "3.2 Geometries",
-    "text": "3.2 Geometries\nmf_map(x, type = \"base\") displays sf objects geometries.\n\nlibrary(mapsf)\n# polygones\nmf_map(x = com, border = \"white\")\n# Départements (polygones, fond transparent)\nmf_map(x = dep, lwd = 2, col = NA, add = TRUE)\n# Routes (polylignes)\nmf_map(x = route, lwd = .7, col = \"ivory4\", add = TRUE)\n# Restaurants (points)\nmf_map(x = resto, pch = 20, cex = .7, col = \"darkred\", add = TRUE)\n# Ajour d'un titre\nmf_title(txt = \"Le Lot (46)\")",
+    "text": "3.2 Geometries\nmf_map(x, type = \"base\") displays sf objects geometries.\n\nlibrary(mapsf)\n# polygones\nmf_map(x = com, border = \"white\")\n# Départements (polygones, fond transparent)\nmf_map(x = dep, lwd = 2, col = NA, add = TRUE)\n# roads (polylignes)\nmf_map(x = road, lwd = .7, col = \"ivory4\", add = TRUE)\n# Restaurants (points)\nmf_map(x = resto, pch = 20, cex = .7, col = \"darkred\", add = TRUE)\n# Ajour d'un titre\nmf_title(txt = \"Le Lot (46)\")",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Map Types</span>"
     ]
@@ -154,7 +154,7 @@
     "href": "04_mise_en_page.html",
     "title": "4  Map Layout",
     "section": "",
-    "text": "4.1 Sample data set\nImport map layers from the geopackage file lot.gpkg.\nlibrary(sf)\n# import des communes du Lot\ncom &lt;- st_read(\"data/lot.gpkg\", layer = \"communes\", quiet = TRUE)\n# import des départements français\ndep &lt;- st_read(\"data/lot.gpkg\", layer = \"departements\", quiet = TRUE)\n# import des restaurants\nresto &lt;- st_read(\"data/lot.gpkg\", layer = \"restaurants\", quiet = TRUE)\n# import des routes autour de la commune de Gramat\nroute &lt;- st_read(\"data/lot.gpkg\", layer = \"routes\", quiet = TRUE)",
+    "text": "4.1 Sample data set\nImport map layers from the geopackage file lot.gpkg.\nlibrary(sf)\n# import municipalities\ncom &lt;- st_read(\"data/lot.gpkg\", layer = \"communes\", quiet = TRUE)",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
@@ -164,7 +164,7 @@
     "href": "04_mise_en_page.html#titles",
     "title": "4  Map Layout",
     "section": "4.2 Titles",
-    "text": "4.2 Titles\nmf_title() displays a title.\n\nmf_theme(\"default\")\nmf_map(com)\nmf_title(\"Titre de la carte\")",
+    "text": "4.2 Titles\nmf_title() displays a title.\n\nmf_map(com)\nmf_title(\"Title of the map\")",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
@@ -174,17 +174,17 @@
     "href": "04_mise_en_page.html#flèche-dorientation-et-échelle",
     "title": "4  Map Layout",
     "section": "4.3 Flèche d’orientation et échelle",
-    "text": "4.3 Flèche d’orientation et échelle\nLa fonction mf_arrow() permet de choisir la position et l’aspect de la flèche d’orientation.\nLa fonction mf_scale() permet de choisir la position et l’aspect de l’échelle.\n\nmf_map(com)\nmf_scale(size = 20, lwd = 2, cex = 1.2)\nmf_arrow()",
+    "text": "4.3 Flèche d’orientation et échelle\nmf_arrow() displays a North arrow and mf_scale() displays a scale bar.\n\nmf_map(com)\nmf_scale(size = 20, lwd = 2, cex = 1.2)\nmf_arrow()",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
-    "objectID": "04_mise_en_page.html#crédits",
-    "href": "04_mise_en_page.html#crédits",
+    "objectID": "04_mise_en_page.html#credits",
+    "href": "04_mise_en_page.html#credits",
     "title": "4  Map Layout",
-    "section": "4.4 Crédits",
-    "text": "4.4 Crédits\nLa fonction mf_credits() permet d’afficher une ligne de crédits (sources, auteur…).\n\nmf_map(com)\nmf_credits(\"Auteurs : TG & HP\\nSources : IGN, 2018\")",
+    "section": "4.4 Credits",
+    "text": "4.4 Credits\nmf_credits() plots credits at the bottom of the map.\n\nmf_map(com)\nmf_credits(\"Auteurs : TG & HP\\nSources : IGN, 2018\")",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
@@ -194,7 +194,7 @@
     "href": "04_mise_en_page.html#full-layout",
     "title": "4  Map Layout",
     "section": "4.5 Full layout",
-    "text": "4.5 Full layout\nLa fonction mf_layout() permet d’afficher tous ces éléments (titre, c.\n\nmf_map(com)\nmf_layout(\n  title = \"Le Lot\",\n  credits = \"Auteurs : TG & HP\\nSources : IGN, 2018\",\n  arrow = TRUE, \n  scale = TRUE\n)",
+    "text": "4.5 Full layout\nmf_layout() add a complete layout to the map (title, credits, north arrow, scale bar). Each layout elements can also be set separately (with mf_title(), mf_credits(), mf_arrow() and mf_scale()).\n\nmf_map(com)\nmf_layout(\n  title = \"Lot\",\n  credits = \"Auteurs : TG & HP\\nSources : IGN, 2018\",\n  arrow = TRUE, \n  scale = TRUE\n)",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
@@ -204,7 +204,7 @@
     "href": "04_mise_en_page.html#annotations",
     "title": "4  Map Layout",
     "section": "4.6 Annotations",
-    "text": "4.6 Annotations\n\n# Sélection d'une commune\ncahors &lt;- com[com$NOM_COM == \"Cahors\", ]\nmf_map(com)\nmf_annotation(\n  x = cahors, \n  txt = \"Cahors\", \n  halo = TRUE, \n  cex = 1.5\n)",
+    "text": "4.6 Annotations\nmf_annotation() displays an annotation on a spatial feature.\n\n# select a municipality\ncahors &lt;- com[com$NOM_COM == \"Cahors\", ]\nmf_map(com)\nmf_annotation(\n  x = cahors, \n  txt = \"Cahors\", \n  halo = TRUE, \n  cex = 1.5\n)",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
@@ -214,77 +214,77 @@
     "href": "04_mise_en_page.html#labels",
     "title": "4  Map Layout",
     "section": "4.7 Labels",
-    "text": "4.7 Labels\nLa fonction mf_label() est dédiée à l’affichage d’étiquettes.\n\n# Selection des communes qui intersectent la \n# commune de Cahors\ncom_sel &lt;- st_filter(com, com[com$NOM_COM == \"Cahors\", ])\nmf_map(com_sel)\nmf_label(\n  x = com_sel,\n  var = \"NOM_COM\",\n  col= \"black\",\n  halo = TRUE,\n  overlap = FALSE, \n  lines = FALSE\n)\nmf_scale()\n\n\n\n\n\n\n\n\nL’argument halo = TRUE permet d’afficher un léger halo autour des étiquettes et l’argument overlap = FALSE permet de créer des étiquettes ne se recouvrant pas.",
+    "text": "4.7 Labels\nmf_label() is dedicated to the display of labels on a map. The overlap = FALSE argument displays non overlapping labels.\n\n# Select municipalities intersecting Cahors\ncom_sel &lt;- st_filter(com, com[com$NOM_COM == \"Cahors\", ])\nmf_map(com_sel)\nmf_label(\n  x = com_sel,\n  var = \"NOM_COM\",\n  col= \"black\",\n  halo = TRUE,\n  overlap = FALSE, \n  lines = FALSE\n)\nmf_scale()",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
-    "objectID": "04_mise_en_page.html#les-légendes",
-    "href": "04_mise_en_page.html#les-légendes",
+    "objectID": "04_mise_en_page.html#legends",
+    "href": "04_mise_en_page.html#legends",
     "title": "4  Map Layout",
-    "section": "4.8 Les légendes",
-    "text": "4.8 Les légendes\nLa fonction mf_legend() permet d’afficher des légendes.\n\nmf_map(com)\nmf_legend(\n  type = \"prop\", \n  val = c(1000,500,200,10), \n  inches = .4, \n  title = \"Population\", \n  pos = \"topleft\"\n)\nmf_legend(\n  type = \"choro\", \n  val = c(0,10,20,30,40),\n  pal = \"Greens\", \n  pos = \"bottomright\", \n  val_rnd = 0\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLe package maplegend\n\n\n\nLa fonction mf_legend() s’appuie sur le package maplegend",
+    "section": "4.8 Legends",
+    "text": "4.8 Legends\nmf_legend() displays legends.\n\nmf_map(com)\nmf_legend(\n  type = \"prop\", \n  val = c(1000,500,200,10), \n  inches = .4, \n  title = \"Population\", \n  pos = \"topleft\"\n)\nmf_legend(\n  type = \"choro\", \n  val = c(0,10,20,30,40),\n  pal = \"Greens\", \n  pos = \"bottomright\", \n  val_rnd = 0\n)",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
-    "objectID": "04_mise_en_page.html#centrer-la-carte-sur-une-région",
-    "href": "04_mise_en_page.html#centrer-la-carte-sur-une-région",
+    "objectID": "04_mise_en_page.html#center-the-map-on-a-specific-area",
+    "href": "04_mise_en_page.html#center-the-map-on-a-specific-area",
     "title": "4  Map Layout",
-    "section": "4.9 Centrer la carte sur une région",
-    "text": "4.9 Centrer la carte sur une région\nLa fonction mf_map() permet d’initialiser une carte en la centrant sur une objet spatial en choisissant un fond et des bordures transparantes.\n\nmf_map(x = com_sel, col = NA, border = NA)\nmf_map(com, add = TRUE)\nmf_map(com_sel, col = NA, border = \"red\", lwd = 2, add = TRUE)",
+    "section": "4.9 Center the map on a specific area",
+    "text": "4.9 Center the map on a specific area\nThe mf_map() function can start a map by centering it on a spatial object and choosing transparent background and borders.\n\nmf_map(x = com_sel, col = NA, border = NA)\nmf_map(com, add = TRUE)\nmf_map(com_sel, col = NA, border = \"red\", lwd = 2, add = TRUE)",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
-    "objectID": "04_mise_en_page.html#afficher-plusieurs-cartes-sur-la-même-figure",
-    "href": "04_mise_en_page.html#afficher-plusieurs-cartes-sur-la-même-figure",
+    "objectID": "04_mise_en_page.html#display-several-maps-on-the-same-figure",
+    "href": "04_mise_en_page.html#display-several-maps-on-the-same-figure",
     "title": "4  Map Layout",
-    "section": "4.10 Afficher plusieurs cartes sur la même figure",
-    "text": "4.10 Afficher plusieurs cartes sur la même figure\nIl faut ici utiliser l’argument mfrow de la fonction par(). Le premier chiffre représente le nombre lignes et le deuxième le nombre de colonnes.\nPar exemple par(mfrow = c(1, 2)) (1 ligne et 2 colonnes) permet d’afficher deux cartes côte à côte.\n\n# define the figure layout (1 row, 2 columns)\nopar &lt;- par(mfrow = c(1, 2))\n# define theme\nmf_theme(\"default\", mar = c(0,0,1.2,0), tab = FALSE, pos = \"center\")\n# first map\nmf_map(com)\nmf_map(com, \"TER_F\", \"prop\", \n       inches = .2,\n       val_max = 4000, \n       leg_pos = \"topleft\", \n       leg_title = \"N.\")\nmf_title(\"Tertiaire: Femmes\")\n# second map\nmf_map(com)\nmf_map(com, \"TER_H\", \"prop\",\n       inches = .2,\n       val_max = 4000, \n       leg_pos = NA)\nmf_title(\"Hommes\")\npar(opar)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nComparer des cartes de cercles proportionnels\n\n\n\nNotons ici l’utilisation des arguments inches et val_max avec des valeurs identiques pour les deux carte. Cela rend possible les comparaisons entres les deux cartes.\n\n\n\n\n\n\n\n\nVignette\n\n\n\nHow to Create Faceted Maps",
+    "section": "4.10 Display several maps on the same figure",
+    "text": "4.10 Display several maps on the same figure\nTo plot several maps on the same figure, the user can use the mfrow argument of the par() function before plotting the maps. For example, use par(mfrow = c(1, 2)) (i.e. 1 row, 2 columns) to plot two maps side by side).\n\n# define the figure layout (1 row, 2 columns)\nopar &lt;- par(mfrow = c(1, 2))\n# define theme\nmf_theme(\"default\", mar = c(0,0,1.2,0), tab = FALSE, pos = \"center\")\n# first map\nmf_map(com)\nmf_map(com, \"TER_F\", \"prop\", \n       inches = .2,\n       val_max = 4000, \n       leg_pos = \"topleft\", \n       leg_title = \"N.\")\nmf_title(\"Tertiary: Women\")\n# second map\nmf_map(com)\nmf_map(com, \"TER_H\", \"prop\",\n       inches = .2,\n       val_max = 4000, \n       leg_pos = NA)\nmf_title(\"Men\")\npar(opar)",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
-    "objectID": "04_mise_en_page.html#export-des-cartes",
-    "href": "04_mise_en_page.html#export-des-cartes",
+    "objectID": "04_mise_en_page.html#export-maps",
+    "href": "04_mise_en_page.html#export-maps",
     "title": "4  Map Layout",
-    "section": "4.11 Export des cartes",
-    "text": "4.11 Export des cartes\nmf_export() permet d’exporter des cartes en PNG ou en SVG.\nLe ratio hauteur/largeur de la carte correspondra au ratio hauteur/largeur d’un objet spatial.\nSi width est spécifié alors height est déduit du ratio hauteur/largeur de x, de la taille des marges de la figure et des dimensions du titre (du thème utilisé en somme).\nmf_export() peut aussi être utilisé pour ajouter de l’espace sur un ou plusieurs côté de la carte ou encore centrer la carte sur une zone particulière.\n\n\n\n\n\n\nToujours utiliser add = TRUE après un appel à mf_export() et ne pas oublier d’utiliser dev.off() pour finaliser l’export de la figure.\n\n\n\n\n#création d'un thème personnel\nmf_theme(\"candy\", bg = \"grey80\")\nmf_export(\n  x = com, \n  filename = \"img/com_default.png\",\n  width = 600\n)\nmf_map(com, add = TRUE)\nmf_title(\"Le Lot\")\ndev.off()\n\n\nL’emprise de cette carte est exactement celle de la région affichée.\nLors de l’export suivant nous ajoutons de l’espace sur la partie droite de la carte (50% de la largeur de x).\n\nmf_export(\n  x = com, \n  filename = \"img/com_expand.png\",\n  width = 600, \n  expandBB = c(0, 0, 0, .5)\n)\nmf_map(com, add = TRUE)\nmf_title(\"Le Lot\")\ndev.off()\n\n\n\n\n\n\n\n\nVignette\n\n\n\nHow to Export Maps",
+    "section": "4.11 Export maps",
+    "text": "4.11 Export maps\nmf_export() exports maps in PNG or SVG formats.\nThe exported map width/height ratio will match the one of a spatial object.\nIf width is specified, then height is deduced from the width/height ratio of x, figure margins and title size.\nIf height is specified, then width is deduced from the width/height ratio of x, figure margins and title size.\n\n\n\n\n\n\nAlways use add = TRUE after mf_export() and do not forget to add dev.off() at the end of the export.\n\n\n\n\nmf_export(\n  x = com, \n  filename = \"img/com_default.png\",\n  width = 600\n)\nmf_map(com, add = TRUE)\nmf_title(\"Le Lot\")\ndev.off()\n\n\nIn the following export we have added some space on the right side of the plot (50% of x width).\n\nmf_export(\n  x = com, \n  filename = \"img/com_expand.png\",\n  width = 600, \n  expandBB = c(0, 0, 0, .5)\n)\nmf_map(com, add = TRUE)\nmf_title(\"Le Lot\")\ndev.off()\n\n\n\n\n\n\n\n\nVignette\n\n\n\nHow to Export Maps",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
-    "objectID": "04_mise_en_page.html#ajouter-une-image-sur-une-carte",
-    "href": "04_mise_en_page.html#ajouter-une-image-sur-une-carte",
+    "objectID": "04_mise_en_page.html#add-an-image-on-the-map",
+    "href": "04_mise_en_page.html#add-an-image-on-the-map",
     "title": "4  Map Layout",
-    "section": "4.12 Ajouter une image sur une carte",
-    "text": "4.12 Ajouter une image sur une carte\nCela peut être utile pour ajouter un logo, un pictogramme. La fonction readPNG() du package png permet l’ajout d’images sur une figure.\n\nmf_theme(\"default\", mar = c(0,0,0,0))\nlibrary(png)\n# import de l'image\nlogo &lt;- readPNG(\"img/Logo CG 46 - Bleu.png\")\n# dimension de l'image en unité de la carte\npp &lt;- dim(logo)[2:1] * 20\n# Définition d'un point d'encrage de l'image dans la figure, ici\n# le coin supérieur gauche de la bounding box du département\nxy &lt;- st_bbox(com)[c(1,4)]\nmf_map(com, col = \"#D1914D\", border = \"white\")\nrasterImage(\n  image   = logo,\n  xleft   = xy[1],\n  ybottom = xy[2] - pp[2],\n  xright  = xy[1] + pp[1],\n  ytop    = xy[2]\n)",
+    "section": "4.12 Add an image on the map",
+    "text": "4.12 Add an image on the map\nreadPNG() from the png package can be used to add an image on a map.\n\nlibrary(png)\n# image import\nlogo &lt;- readPNG(\"img/Logo CG 46 - Bleu.png\")\n# image dimension\npp &lt;- dim(logo)[2:1] * 20\n# Coordinates of the topleft corner of com bounding box\nxy &lt;- st_bbox(com)[c(1,4)]\nmf_map(com, col = \"#D1914D\", border = \"white\")\nrasterImage(\n  image   = logo,\n  xleft   = xy[1],\n  ybottom = xy[2] - pp[2],\n  xright  = xy[1] + pp[1],\n  ytop    = xy[2]\n)",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
-    "objectID": "04_mise_en_page.html#placer-précisément-un-élément-sur-la-carte",
-    "href": "04_mise_en_page.html#placer-précisément-un-élément-sur-la-carte",
+    "objectID": "04_mise_en_page.html#interactive-placement-of-layout-elements",
+    "href": "04_mise_en_page.html#interactive-placement-of-layout-elements",
     "title": "4  Map Layout",
-    "section": "4.13 Placer précisément un élément sur la carte",
-    "text": "4.13 Placer précisément un élément sur la carte\nDans plusieurs fonctions de mapsf il est possible de placer des éléments d’habillage de manière interactive avec la position “interactive”.\n\n\n\n\n\n\n\nPlus généralement la fonction locator() permet de cliquer sur une figure et d’obtenir les coordonnées d’un point dans le système de coordonnées de la figure (de la carte). locator()peut être utilisée sur la plupart des graphiques (pas ceux produits avec ggplot2).",
+    "section": "4.13 Interactive placement of layout elements",
+    "text": "4.13 Interactive placement of layout elements\nSome layout elements can be positioned interactively on the map by using “interactive” as position. This applies to legends, north arrow, scale bar.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
-    "objectID": "04_mise_en_page.html#ajouter-un-ombrage-à-une-couche",
-    "href": "04_mise_en_page.html#ajouter-un-ombrage-à-une-couche",
+    "objectID": "04_mise_en_page.html#add-a-shadow-to-a-layer",
+    "href": "04_mise_en_page.html#add-a-shadow-to-a-layer",
     "title": "4  Map Layout",
-    "section": "4.14 Ajouter un ombrage à une couche",
-    "text": "4.14 Ajouter un ombrage à une couche\nLa fonction mf_shadow() permet de créer une ombre à une couche de polygones.\n\nmf_theme(\"default\")\nmf_shadow(com)\nmf_map(com, add=TRUE)",
+    "section": "4.14 Add a shadow to a layer",
+    "text": "4.14 Add a shadow to a layer\nmf_shadow() plots the shadow of a polygon layer.\n\nmf_shadow(com)\nmf_map(com, add=TRUE)",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
@@ -294,7 +294,7 @@
     "href": "04_mise_en_page.html#exercice",
     "title": "4  Map Layout",
     "section": "Exercice",
-    "text": "Exercice\n\nImporter la couche des communes du département du Lot à partir du fichier geopackage lot.gpkg.\nImporter le fichier com.csv.\nCe jeu de données porte sur les communes du lot et contient plusieurs variables supplémentaires:\n\nle nombre d’actifs (ACT).\nle nombre d’actifs dans l’industrie (IND)\nLa part des actifs dans la population totale (SACT)\nLa part des actifs dans l’industrie dans le total des actifs (SACT_IND)\n\nJoindre le jeu de données et la couche des communes.\nCréez une carte représentant la population active travaillant dans l’industrie.\nAjoutez les éléments d’habillage indispensables.\nUtilisez un thème personnalisé.\nAjoutez un carton de localisation du Lot.\nExportez la carte au format PNG avec 800 pixels de large.\nComment rendre la carte plus intelligible ? Allez-y !\n\n\n\n\n\n\n\nVous pouvez utiliser le fichier exo_cartographie_mise_en_page.R pour vous guider dans cette exercice.",
+    "text": "Exercice\n\nImport the communes layer for the Lot department from the geopackage lot.gpkg file.\nImport the com.csv file.\nThis dataset covers the communes of the Lot department and contains several additional variables:\n\nnumber of employees (ACT).\nnumber of people employed in industry (IND)\nNumber of people employed in the total population (SACT)\nThe share of industry workers in the total workforce (SACT_IND)\n\nAttach dataset and municipality layer.\nCreate a map showing the active population working in industry.\nAdd the necessary wrapping elements.\nUse a custom theme.\nAdd a Lot location card.\nExport the map in PNG format, 800 pixels wide.\nHow can I make the map more intelligible? Get started!\n\n\n\n\n\n\n\nYou can use the file exo_cartographie_mise_en_page.R to guide you through this exercise.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]

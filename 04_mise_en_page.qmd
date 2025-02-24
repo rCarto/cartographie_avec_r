@@ -7,14 +7,8 @@ Import map layers from the [geopackage](https://www.geopackage.org/) file **lot.
 
 ```{r}
 library(sf)
-# import des communes du Lot
+# import municipalities
 com <- st_read("data/lot.gpkg", layer = "communes", quiet = TRUE)
-# import des départements français
-dep <- st_read("data/lot.gpkg", layer = "departements", quiet = TRUE)
-# import des restaurants
-resto <- st_read("data/lot.gpkg", layer = "restaurants", quiet = TRUE)
-# import des routes autour de la commune de Gramat
-route <- st_read("data/lot.gpkg", layer = "routes", quiet = TRUE)
 ```
 
 ## Titles
@@ -23,9 +17,8 @@ route <- st_read("data/lot.gpkg", layer = "routes", quiet = TRUE)
 
 
 ```{r title}
-mf_theme("default")
 mf_map(com)
-mf_title("Titre de la carte")
+mf_title("Title of the map")
 ```
 
 
@@ -33,8 +26,7 @@ mf_title("Titre de la carte")
 
 ## Flèche d'orientation et échelle
 
-La fonction `mf_arrow()` permet de choisir la position et l'aspect de la flèche d'orientation.  
-La fonction `mf_scale()` permet de choisir la position et l'aspect de l'échelle.
+`mf_arrow()` displays a North arrow and `mf_scale()` displays a scale bar.
 
 ```{r north}
 mf_map(com)
@@ -43,10 +35,9 @@ mf_arrow()
 ```
 
 
-## Crédits
+## Credits
 
-La fonction `mf_credits()` permet d'afficher une ligne de crédits (sources, auteur...).
-
+`mf_credits()` plots credits at the bottom of the map.
 ```{r credit}
 mf_map(com)
 mf_credits("Auteurs : TG & HP\nSources : IGN, 2018")
@@ -55,12 +46,14 @@ mf_credits("Auteurs : TG & HP\nSources : IGN, 2018")
 
 ## Full layout 
 
-La fonction `mf_layout()` permet d'afficher tous ces éléments (titre, c.
+`mf_layout()` add a complete layout to the map (title, credits, north arrow, scale bar). Each layout elements can also be set separately (with `mf_title()`, `mf_credits()`, `mf_arrow()` and `mf_scale()`).
+
+
 
 ```{r layout1}
 mf_map(com)
 mf_layout(
-  title = "Le Lot",
+  title = "Lot",
   credits = "Auteurs : TG & HP\nSources : IGN, 2018",
   arrow = TRUE, 
   scale = TRUE
@@ -70,9 +63,10 @@ mf_layout(
 
 ## Annotations
 
+`mf_annotation()` displays an annotation on a spatial feature.
 
 ```{r annot}
-# Sélection d'une commune
+# select a municipality
 cahors <- com[com$NOM_COM == "Cahors", ]
 mf_map(com)
 mf_annotation(
@@ -86,11 +80,10 @@ mf_annotation(
 
 ## Labels
 
-La fonction `mf_label()` est dédiée à l'affichage d'étiquettes.
+`mf_label()` is dedicated to the display of labels on a map. The `overlap = FALSE` argument displays non overlapping labels.
 
 ```{r labs}
-# Selection des communes qui intersectent la 
-# commune de Cahors
+# Select municipalities intersecting Cahors
 com_sel <- st_filter(com, com[com$NOM_COM == "Cahors", ])
 mf_map(com_sel)
 mf_label(
@@ -104,12 +97,12 @@ mf_label(
 mf_scale()
 ```
 
-L'argument `halo = TRUE` permet d'afficher un léger halo autour des étiquettes et l'argument `overlap = FALSE` permet de créer des étiquettes ne se recouvrant pas.
 
 
-## Les légendes
 
-La fonction `mf_legend()` permet d'afficher des légendes. 
+## Legends
+
+`mf_legend()` displays legends.
 
 ```{r legends}
 mf_map(com)
@@ -130,14 +123,9 @@ mf_legend(
 ```
 
 
-:::{.callout-note}
-## Le package `maplegend`
-La fonction `mf_legend()` s'appuie sur le package [`maplegend`](https://github.com/riatelab/maplegend)
-:::
+## Center the map on a specific area
 
-## Centrer la carte sur une région
-
-La fonction `mf_map()` permet d'initialiser une carte en la centrant sur une objet spatial en choisissant un fond et des bordures transparantes. 
+The `mf_map()` function can start a map by centering it on a spatial object and choosing transparent background and borders. 
 
 ```{r init_map}
 mf_map(x = com_sel, col = NA, border = NA)
@@ -148,11 +136,10 @@ mf_map(com_sel, col = NA, border = "red", lwd = 2, add = TRUE)
 
 
 
-## Afficher plusieurs cartes sur la même figure
+## Display several maps on the same figure
 
-Il faut ici utiliser l'argument `mfrow` de la fonction `par()`. Le premier chiffre représente le nombre lignes et le deuxième le nombre de colonnes.  
-Par exemple `par(mfrow = c(1, 2))` (1 ligne et 2 colonnes) permet d'afficher deux cartes côte à côte.
-
+To plot several maps on the same figure, the user can use the `mfrow` argument of the `par()` function before plotting the maps. 
+For example, use `par(mfrow = c(1, 2))` (i.e. 1 row, 2 columns) to plot two maps side by side). 
 
 ```{r mfrow0}
 #| fig-show: hold
@@ -170,46 +157,30 @@ mf_map(com, "TER_F", "prop",
        val_max = 4000, 
        leg_pos = "topleft", 
        leg_title = "N.")
-mf_title("Tertiaire: Femmes")
+mf_title("Tertiary: Women")
 # second map
 mf_map(com)
 mf_map(com, "TER_H", "prop",
        inches = .2,
        val_max = 4000, 
        leg_pos = NA)
-mf_title("Hommes")
+mf_title("Men")
 par(opar)
 ```
 
-:::{.callout-note}
-## Comparer des cartes de cercles proportionnels
-Notons ici l'utilisation des arguments `inches` et `val_max` avec des valeurs identiques pour les deux carte. Cela rend possible les comparaisons entres les deux cartes.
-:::
+## Export maps
 
-:::{.callout-note}
-## Vignette
-[How to Create Faceted Maps](https://riatelab.github.io/mapsf/articles/web_only/how_to_create_faceted_maps.html)
-:::
+`mf_export()` exports maps in PNG or SVG formats.   
+The exported map width/height ratio will match the one of a spatial object.   
+If `width` is specified, then `height` is deduced from the width/height ratio of `x`, figure margins and title size.  
+If `height` is specified, then `width` is deduced from the width/height ratio of `x`, figure margins and title size. 
 
-
-
-
-## Export des cartes
-
-`mf_export()` permet d'exporter des cartes en PNG ou en SVG.  
-Le ratio hauteur/largeur de la carte correspondra au ratio hauteur/largeur d'un objet spatial.  
-Si `width` est spécifié alors `height` est déduit du ratio hauteur/largeur de `x`, de la taille des marges de la figure et des dimensions du titre (du thème utilisé en somme).     
-`mf_export()` peut aussi être utilisé pour ajouter de l'espace sur un ou plusieurs côté de la carte ou encore centrer la carte sur une zone particulière. 
 
 :::{.callout-note}
-**Toujours utiliser `add = TRUE` après un appel à `mf_export()` et ne pas oublier d'utiliser `dev.off()` pour finaliser l'export de la figure.** 
+Always use `add = TRUE` after `mf_export()` and do not forget to add `dev.off()` at the end of the export. 
 :::
-
-
 
 ```{r export, results='hide'}
-#création d'un thème personnel
-mf_theme("candy", bg = "grey80")
 mf_export(
   x = com, 
   filename = "img/com_default.png",
@@ -223,9 +194,8 @@ dev.off()
 
 ![](img/com_default.png)
 
-L'emprise de cette carte est exactement celle de la région affichée.
 
-Lors de l'export suivant nous ajoutons de l'espace sur la partie droite de la carte (50% de la largeur de `x`).
+In the following export we have added some space on the right side of the plot (50% of `x` width). 
 
 
 ```{r export2, results="hide"}
@@ -247,20 +217,17 @@ dev.off()
 [How to Export Maps](https://riatelab.github.io/mapsf/articles/web_only/how_to_export_maps.html)
 :::
 
-## Ajouter une image sur une carte
+## Add an image on the map
+`readPNG()` from the `png` package can be used to add an image on a map.
 
-Cela peut être utile pour ajouter un logo, un pictogramme. La fonction `readPNG()` 
-du package `png` permet l'ajout d'images sur une figure.
 
 ```{r logo}
-mf_theme("default", mar = c(0,0,0,0))
 library(png)
-# import de l'image
+# image import
 logo <- readPNG("img/Logo CG 46 - Bleu.png")
-# dimension de l'image en unité de la carte
+# image dimension
 pp <- dim(logo)[2:1] * 20
-# Définition d'un point d'encrage de l'image dans la figure, ici
-# le coin supérieur gauche de la bounding box du département
+# Coordinates of the topleft corner of com bounding box
 xy <- st_bbox(com)[c(1,4)]
 mf_map(com, col = "#D1914D", border = "white")
 rasterImage(
@@ -273,22 +240,21 @@ rasterImage(
 ```
 
 
-## Placer précisément un élément sur la carte
+## Interactive placement of layout elements
 
-Dans plusieurs fonctions de `mapsf` il est possible de placer des éléments d'habillage de manière interactive avec la position *"interactive"*.
+Some layout elements can be positioned interactively on the map by using *"interactive"* as position. This applies to legends, north arrow, scale bar.
 
 [![](img/interactive.gif)]{.content-visible when-format="html"}
 
-:::{.callout-note}
-Plus généralement la fonction `locator()` permet de cliquer sur une figure et d'obtenir les coordonnées d'un point dans le système de coordonnées de la figure (de la carte). `locator()`peut être utilisée sur la plupart des graphiques (pas ceux produits avec `ggplot2`).
-:::
 
 
-## Ajouter un ombrage à une couche
 
-La fonction `mf_shadow()` permet de créer une ombre à une couche de polygones. 
+
+## Add a shadow to a layer
+
+`mf_shadow()` plots the shadow of a polygon layer.
+
 ```{r shadow}
-mf_theme("default")
 mf_shadow(com)
 mf_map(com, add=TRUE)
 ```
@@ -297,30 +263,30 @@ mf_map(com, add=TRUE)
 ## Exercice {.unnumbered}
 
 
-1. Importer la couche des communes du département du Lot à partir du fichier geopackage **lot.gpkg**.
+1. Import the communes layer for the Lot department from the geopackage **lot.gpkg** file.
 
-2. Importer le fichier **com.csv**.   
-  Ce jeu de données porte sur les communes du lot et contient plusieurs variables supplémentaires: 
-    - le nombre d'actifs (**ACT**). 
-    - le nombre d'actifs dans l'industrie (**IND**)
-    - La part des actifs dans la population totale (**SACT**)
-    - La part des actifs dans l'industrie dans le total des actifs (**SACT_IND**) 
+2. Import the **com.csv** file.   
+  This dataset covers the communes of the Lot department and contains several additional variables: 
+    - number of employees (**ACT**). 
+    - number of people employed in industry (**IND**)
+    - Number of people employed in the total population (**SACT**)
+    - The share of industry workers in the total workforce (**SACT_IND**) 
 
-3. Joindre le jeu de données et la couche des communes. 
+3. Attach dataset and municipality layer. 
 
-4. Créez une carte représentant la population active travaillant dans l'industrie. 
+4. Create a map showing the active population working in industry. 
 
-5. Ajoutez les éléments d'habillage indispensables.
+5. Add the necessary wrapping elements.
 
-6. Utilisez un thème personnalisé.
+6. Use a custom theme.
 
-7. Ajoutez un carton de localisation du Lot.
+7. Add a Lot location card.
 
-8. Exportez la carte au format PNG avec 800 pixels de large. 
+8. Export the map in PNG format, 800 pixels wide. 
 
-9. Comment rendre la carte plus intelligible ? Allez-y !
+9. How can I make the map more intelligible? Get started!
 
 
 :::{.callout-note}
-Vous pouvez utiliser le fichier **exo_cartographie_mise_en_page.R** pour vous guider dans cette exercice.   
+You can use the file **exo_cartographie_mise_en_page.R** to guide you through this exercise.   
 :::
