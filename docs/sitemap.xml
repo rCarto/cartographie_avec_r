@@ -2,31 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/index.html</loc>
-    <lastmod>2024-10-07T15:37:30.196Z</lastmod>
+    <lastmod>2025-02-24T09:57:33.703Z</lastmod>
   </url>
   <url>
     <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/01_mapsf.html</loc>
-    <lastmod>2024-10-08T08:32:49.956Z</lastmod>
+    <lastmod>2025-02-24T10:03:16.682Z</lastmod>
   </url>
   <url>
     <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/02_semiologie.html</loc>
-    <lastmod>2024-10-07T09:50:53.988Z</lastmod>
+    <lastmod>2025-02-24T10:52:54.996Z</lastmod>
   </url>
   <url>
     <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/03_types_de_cartes.html</loc>
-    <lastmod>2024-10-08T09:05:01.408Z</lastmod>
+    <lastmod>2025-02-24T11:10:29.948Z</lastmod>
   </url>
   <url>
     <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/04_mise_en_page.html</loc>
-    <lastmod>2024-10-08T09:35:23.564Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/04_cartes_3D.html</loc>
-    <lastmod>2024-10-07T09:50:53.988Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/05_anamorphoses.html</loc>
-    <lastmod>2024-05-16T12:22:11.344Z</lastmod>
+    <lastmod>2025-02-24T11:21:51.392Z</lastmod>
   </url>
   <url>
     <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/2000_references.html</loc>
@@ -35,9 +27,5 @@
   <url>
     <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/2002_data.html</loc>
     <lastmod>2024-10-07T09:50:53.988Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcarto.github.io/rcarto/cartographie_avec_r/Cartographie-avec-R.pdf</loc>
-    <lastmod>2025-02-24T09:31:22.985Z</lastmod>
   </url>
 </urlset>

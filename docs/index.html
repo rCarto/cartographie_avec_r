@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.40">
@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Timothée Giraud et Hugues Pecout">
+<meta name="dcterms.date" content="2025-02-24">
 <meta name="description" content="Cartographie avec R: créer des cartes thématiques reproductibles conformes aux règles de la sémiologie graphique et de la cartographie. L’objectif de ce document est de fournir un support à l’apprentissage de la cartographie avec R.">
 
 <title>Cartographie avec R</title>
@@ -43,8 +44,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-7aaafe8f88d9ab8307b30e01b0806846.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -59,17 +58,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Pas de résultats",
-    "search-matching-documents-text": "documents trouvés",
-    "search-copy-link-title": "Copier le lien vers la recherche",
-    "search-hide-matches-text": "Cacher les correspondances additionnelles",
-    "search-more-match-text": "correspondance de plus dans ce document",
-    "search-more-matches-text": "correspondances de plus dans ce document",
-    "search-clear-button-title": "Effacer",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Annuler",
-    "search-submit-button-title": "Envoyer",
-    "search-label": "Recherche"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -86,13 +85,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><em>Préambule</em></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><em>Preamble</em></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -112,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Recherche"></div>
+        <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -120,67 +119,33 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><em>Préambule</em></span></a>
+ <span class="menu-text"><em>Preamble</em></span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>Cartographie thématique</strong></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_mapsf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">mapsf</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_semiologie.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La sémiologie graphique</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Cartographical Language</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_types_de_cartes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Les types de cartes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Map Types</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_mise_en_page.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La mise en page</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Map Layout</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>Cartographie 3D et Anamorphoses</strong></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04_cartes_3D.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Les cartes en 3D</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./05_anamorphoses.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Les cartogrammes</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2000_references.html" class="sidebar-item-text sidebar-link">
@@ -189,13 +154,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2002_data.html" class="sidebar-item-text sidebar-link">
@@ -213,10 +178,10 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table des matières</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#préambule" id="toc-préambule" class="nav-link active" data-scroll-target="#préambule"><em>Préambule</em></a></li>
+  <li><a href="#preamble" id="toc-preamble" class="nav-link active" data-scroll-target="#preamble"><em>Preamble</em></a></li>
   </ul>
 </nav>
     </div>
@@ -235,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 <div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Auteur·rice·s</div>
+  <div class="quarto-title-meta-heading">Authors</div>
   <div class="quarto-title-meta-heading">Affiliations</div>
   
     <div class="quarto-title-meta-contents">
@@ -264,9 +229,9 @@ ul.task-list li input[type="checkbox"] {
 
       
     <div>
-    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">24 févr. 2025</p>
+      <p class="date">February 24, 2025</p>
     </div>
   </div>
   
@@ -287,19 +252,19 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="préambule" class="level1 unnumbered">
-<h1 class="unnumbered"><em>Préambule</em></h1><p><img src="img/globe-africa-solid.svg" title="Cartographie avec R" class="quarto-cover-image img-fluid"></p>
-<p>L’objectif de ce document est de fournir un support à l’apprentissage de la cartographie thématique avec R.</p>
-<p><strong>Comment utiliser le manuel</strong><br>
-Les données utilisées dans ce document sont stockées dans un projet RStudio. Vous devez le télécharger puis le décompresser sur votre machine. Il vous sera ensuite possible de tester l’ensemble des manipulations proposées dans ce document au sein du projet <strong>geodata</strong>.<br>
-<a href="https://rcarto.github.io/cartographie_avec_r/geodata.zip" class="btn btn-primary btn-sm" role="button">Télécharger le projet</a></p>
-<p><strong>Contribution et feedback</strong><br>
-Vous pouvez nous envoyer vos remarques et suggestions en <a href="https://github.com/rCarto/cartographie_avec_r/issues">postant une <em>issue</em></a> sur le <a href="https://github.com/rCarto/cartographie_avec_r">dépôt GitHub</a> de ce document.</p>
-<p><strong>Contexte</strong><br>
-Ce manuel a été initialement conçu pour accompagner le cours “Cartographie avec R” du Master 2 Géomatique, géodécisionnel, géomarketing et multimédia (G2M) de l’Université Paris 8 Vincennes - Saint-Denis. Une version PDF est disponible ici : <a href="https://rcarto.github.io/cartographie_avec_r/Cartographie-avec-R.pdf"><i class="fa-solid fa-file-pdf" aria-label="file-pdf"></i></a>.<br>
-Un deuxième manuel centré sur la géomatique est disponible ici : <a href="https://rcarto.github.io/geomatique_avec_r/">Géomatique avec R</a>.</p>
+<section id="preamble" class="level1 unnumbered">
+<h1 class="unnumbered"><em>Preamble</em></h1><p><img src="img/globe-africa-solid.svg" title="Cartographie avec R" class="quarto-cover-image img-fluid"></p>
+<p>The aim of this document is to provide support for learning thematic mapping with R.</p>
+<p><strong>How to use the manual</strong><br>
+The data used in this document is stored in an RStudio project. You need to download it and unzip it on your machine. You will then be able to test all data processing proposed in this document using the <strong>geodata</strong> project.<br>
+<a href="https://rcarto.github.io/cartographie_avec_r/geodata.zip" class="btn btn-primary btn-sm" role="“button”">Download project</a></p>
+<p><strong>Contribution and feedback</strong><br>
+You can send us your comments and suggestions by <a href="https://github.com/rCarto/cartographie_avec_r/issues">posting an <em>issue</em></a> on the <a href="https://github.com/rCarto/cartographie_avec_r">GitHub repository</a> of this document.</p>
+<p><strong>Context</strong><br>
+This manual was initially designed for the “Cartography with R” course of the “Géomatique, géodécisionnel, géomarketing et multimédia” master (G2M - Université Paris 8 Vincennes - Saint-Denis).<br>
+A second manual focusing on geomatics is available here : <a href="https://rcarto.github.io/geomatique_avec_r/">Géomatique avec R</a>.</p>
 <hr>
-<p><small> <strong>Pour citer le document :</strong></small></p><small>
+<p><small> <strong>To cite the document:</strong></small></p><small>
 <p>Giraud, T. et Pecout, H. (2024). Cartographie avec R. https://doi.org/10.5281/zenodo.5905734</p>
 </small><p><small></small></p>
 <p><br></p>
@@ -352,12 +317,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copié");
+    button.setAttribute("title", "Copied!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copié");
+      button.setAttribute("data-bs-title", "Copied!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",

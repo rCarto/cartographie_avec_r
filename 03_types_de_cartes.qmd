@@ -1,37 +1,40 @@
-# Les types de cartes  
+# Map Types
 
-La fonction `mf_map()` est la fonction centrale du package `mapsf`. Elle permet de réaliser la plupart des représentations usuelles en cartographie.
-Ces arguments principaux sont :
+`mf_map()` is the main function of the package, it displays map layers on a georeferenced plot.
 
-- `x`, un objet sf ;
-- `var`, le nom de la variable à représenter ;
-- `type`, le type de représentation.
+`mf_map()` has three main arguments:
 
-## Les données d'exemple
+* `x`, an sf object;
+* `var`, the name(s) of a variable(s) to map;
+* `type`, the map layer type.
 
-Les lignes suivantes importent les couches d'information spatiales situées dans le fichier [geopackage](https://www.geopackage.org/) **lot.gpkg**.
+Many parameters are available to fine tune symbologies and legends.
+
+## Sample data set
+
+Import map layers from the [geopackage](https://www.geopackage.org/) file **lot.gpkg**.
 
 ```{r}
 library(sf)
-# import des communes du Lot
+# import municipalities
 com <- st_read("data/lot.gpkg", layer = "communes", quiet = TRUE)
-# import des départements français
+# import french departements 
 dep <- st_read("data/lot.gpkg", layer = "departements", quiet = TRUE)
-# import des restaurants
+# import restaurants
 resto <- st_read("data/lot.gpkg", layer = "restaurants", quiet = TRUE)
-# import des routes autour de la commune de Gramat
+# import someroads
 route <- st_read("data/lot.gpkg", layer = "routes", quiet = TRUE)
 ```
 
 
 
-## Afficher un fond de carte
+## Geometries
 
-Utilisée sans précision de type, la fonction `mf_map()` affiche simplement les couches spatiales.
+`mf_map(x, type = "base")` displays `sf` objects geometries.
 
 ```{r mf_base}
 library(mapsf)
-# Communes (polygones)
+# polygones
 mf_map(x = com, border = "white")
 # Départements (polygones, fond transparent)
 mf_map(x = dep, lwd = 2, col = NA, add = TRUE)
@@ -43,10 +46,9 @@ mf_map(x = resto, pch = 20, cex = .7, col = "darkred", add = TRUE)
 mf_title(txt = "Le Lot (46)")
 ```
 
-## Carte de symboles proportionnels
+## Proportional Symbols
 
-Les cartes de symboles proportionnels sont utilisées pour représenter les variables de stocks (variables quantitatives absolues, la somme et la moyenne ont un sens).
-La fonction `mf_map(..., type = "prop")` propose cette représentation.
+`mf_map(x, var, type = "prop")` displays symbols with areas proportional to a quantitative variable (stocks). The `inches` argument is used to customize the symbols sizes.
 
 ```{r proportional_symbols}
 # Communes
@@ -63,11 +65,11 @@ mf_title("Distribution de la population dans le Lot")
 ```
 
 
-## Carte choroplèthe
+## Choropleth Map
 
-Les cartes choroplèthes sont utilisées pour représenter les variables de ratios (variables quantitatives relatives, la moyenne a un sens, la somme n'a pas de sens).
+In choropleth maps, areas are shaded according to the variation of a quantitative variable. They are used to represent ratios or indices.
+`mf_map(x, var, type = "choro")` displays choropleth maps . Arguments `nbreaks`, and `breaks` allow to customize the variable classification. 
 
-La fonction `mf_map(..., type = "choro")` permet de créer des cartes choroplètes. Les arguments `nbreaks` et `breaks` servent à paramétrer les discrétisations.
 
 ```{r choro}
 # Densité de population (hab./km2) en utilisant la fonction sf::st_area()
@@ -86,10 +88,9 @@ mf_map(
 mf_title("Distribution de la population dans le Lot (2018)")
 ```
 
-### Les palettes de couleurs
-
-L'argument `pal` de `mf_map()` est dédié au choix d'une palette de couleur.
-`pal` peut être le nom d'une palette de couleur fournie par R ou alors un vecteur de couleurs définies par leurs codes hexadécimaux. 
+### Color palettes
+Color palettes, defined with `pal`, can be created with `mf_get_pal()` or you can use palette names from `hcl.pals()`.
+ 
 
 ```{r pal1}
 #| layout-ncol: 2
@@ -105,46 +106,26 @@ mf_title("Palette définie par un vecteur de couleurs")
 ```
 
 
-![Les palettes de R](img/swatch-plot-1.svg)
-
-Les fonctions `hcl.colors()` et `mf_get_pal()` permettent de construire des palettes de couleurs.
-`mf_get_pal()` est surtout utile pour créer des palettes divergentes asymétriques équilibrées. 
-
-```{r pal2}
-#| fig-show: hold
-#| fig-height: 2
-pal_equilibre <- mf_get_pal(n = c(6,3), palette = c("Burg", "Teal"))
-pal_non_equi <- c(hcl.colors(6, "Burg"), hcl.colors(3,"Teal", rev = TRUE))
-library(maplegend)
-opar <- par(mar = c(0,0,0,0))
-plot.new()
-plot.window(xlim = c(0, 1), ylim = c(0, 1), asp = 1)
-leg(type = "choro", val = rep("", 10), 
-    pal = pal_equilibre, pos = "topleft", 
-    title = "Palette équilibrée")
-leg(type = "choro", val = rep("", 10), 
-    pal = pal_non_equi, pos = "top", 
-    title = "Palette non équilibrée")
-par(opar)
-```
+![Builtin R color palettes](img/swatch-plot-1.svg)
 
 
+### Classifications {#discretisation}
 
-### Discrétisations {#discretisation}
 
-Avant de réaliser une carte choroplèthe on doit d'abord étudier la distribution statistique de la variable que l'on souhaite cartographier. 
-La fonction `mf_distr()` permet de visualiser les distributions. 
+Before creating a choropleth map, we must first study the statistical distribution of the variable we wish to map. 
+The `mf_distr()` function is used to visualise distributions. 
 
 ```{r discr2}
 #| fig-width: 7
 #| fig-height: 5
 mf_distr(com$DENS)
 ```
-Cette distribution est très dissymétrique à gauche. 
+This distribution is very skewed to the left.
 
-La fonction `mf_get_breaks()` met à disposition les méthodes de discrétisations de variables classique : quantiles, moyenne/écart-type, amplitudes égales, moyennes emboîtées, Fisher-Jenks, géométrique...
+`mf_get_breaks()` can be used to classify continuous variables.
+Many classification methods are available ( "fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust", "bclust", "fisher", "jenks", "dpih", "q6", "Q6", geom", "arith", "em", "msd" or "ckmeans").
 
-Ici, l'utilisation de la méthode "geom" est assez appropriée.
+Here, using the ‘geom’ method is quite appropriate.
 
 ```{r discr3}
 #| fig-height: 6
@@ -163,9 +144,10 @@ mf_title("Distribution de la population dans le Lot (2018)")
 
 
 
-## Carte de typologie
-Les cartes de typologies sont utilisées pour représenter les variables qualitatives.  
-La fonction `mf_map(..., type = "typo")` propose cette représentation.
+## Typology Map
+
+`mf_map(x, var, type = "typo")` displays a typology map of a qualitative variable. `val_order` is used to set the modalities order in the legend.
+
 
 ```{r typo_simple}
 mf_map(
@@ -180,7 +162,7 @@ mf_title("Statut administratif des communes")
 ```
 
 
-L'argument `val_order` sert à ordonner les modalités dans la légende.
+The `val_order` argument is used to order the modalities in the legend.
 
 ```{r typo_order}
 mf_map(
@@ -197,8 +179,10 @@ mf_title("Statut administratif des communes")
 
 
 
-## Carte de stocks et de ratios
-La fonction `mf_map(..., var = c("var1", "var2"), type = "prop_choro")` représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d'une variable et dont la couleur repose sur la discrétisation d'une seconde variable. La fonction utilise les arguments des fonctions `mf_map(..., type = "prop")` et `mf_map(..., type = "choro")`.
+## Proportional Symbols using Choropleth Coloration
+
+`mf_map(x, var, type = "prop_choro")` creates a map of symbols that are proportional to values of a first variable and colored to reflect the classification of a second variable.
+
 
 ```{r choroprop}
 mf_map(x = com)
@@ -215,8 +199,10 @@ mf_map(
 mf_title("Distribution de la population dans le Lot (2018)")
 ```
 
-## Carte de stocks et de catégories
-La fonction `mf_map(..., var = c("var1", "var2"), type = "prop_typo")` représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d'une variable et dont la couleur représente les modalités d'une variable qualitative. La fonction utilise les arguments des fonctions `mf_map(..., type = "prop")` et `mf_map(..., type = "typo")`.
+## Proportional Symbols using Typology Coloration
+
+`mf_map(x, var, type = "prop_typo")` creates a map of symbols that are proportional to values of a first variable and colored to reflect the modalities of a second qualitative variable.
+
 
 ```{r typoprop}
 mf_map(x = com)
@@ -235,28 +221,28 @@ mf_title("Distribution de la population dans le Lot (2018)")
 
 ## Exercice {.unnumbered}
 
-1. Importer la couche des communes du département du Lot à partir du fichier geopackage **lot.gpkg**.
+1. Import the communes layer for the Lot department from the geopackage **lot.gpkg** file.
 
 
-2. Importer le fichier **com.csv**.   
-  Ce jeu de données porte sur les communes du Lot et contient plusieurs variables supplémentaires: 
-    - le nombre d'actifs (**ACT**). 
-    - le nombre d'actifs dans l'industrie (**IND**)
-    - la part des actifs dans la population totale (**SACT**)
-    - la part des actifs dans l'industrie dans le total des actifs (**SACT_IND**) 
+2. Import the **com.csv** file.   
+  This dataset covers the communes of the Lot department and contains several additional variables: 
+    - the number of employees (**ACT**). 
+    - the number of people employed in industry (**IND**)
+    - the share of the working population in the total population (**SACT**)
+    - the share of the workforce in industry in the total workforce (**SACT_IND**) 
 
 
-3. Joindre le jeu de données et la couche des communes. 
+3. Attach the dataset and the municipalities layer. 
 
 
-4. Créer une carte de la population active.  
-  Quel mode de représentation utiliser? Quels choix cela implique-t-il?
+4. Create a map of the active population.  
+  Which representation method should be used? What choices does this involve?
 
 
-5. Créer une carte de la part de la population active dans la population totale.  
-  Quel mode de représentation utiliser? Quels choix cela implique-t-il?
-
-
+5. Create a map of the share of the working population in the total population.  
+  What representation method should be used? What choices does this involve?
+  
+  
 :::{.callout-note}
-Vous pouvez utiliser le fichier **exo_cartographie_simple.R** pour vous guider dans cette exercice.   
+You can use the file **exo_cartographie_simple.R** to guide you through this exercise.   
 :::

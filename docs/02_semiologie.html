@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.40">
@@ -22,27 +22,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -78,27 +58,27 @@ div.csl-indent {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Pas de résultats",
-    "search-matching-documents-text": "documents trouvés",
-    "search-copy-link-title": "Copier le lien vers la recherche",
-    "search-hide-matches-text": "Cacher les correspondances additionnelles",
-    "search-more-match-text": "correspondance de plus dans ce document",
-    "search-more-matches-text": "correspondances de plus dans ce document",
-    "search-clear-button-title": "Effacer",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Annuler",
-    "search-submit-button-title": "Envoyer",
-    "search-label": "Recherche"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
 
 <meta property="og:title" content="Cartographie avec R">
 <meta property="og:description" content="Créer des cartes thématiques reproductibles.">
-<meta property="og:image" content="https://rcarto.github.io/rcarto/cartographie_avec_r/img/arbre_type_data.png">
+<meta property="og:image" content="https://rcarto.github.io/rcarto/cartographie_avec_r/img/lightsemio.png">
 <meta property="og:site_name" content="Cartographie avec R">
-<meta property="og:image:height" content="2001">
-<meta property="og:image:width" content="2979">
+<meta property="og:image:height" content="529">
+<meta property="og:image:width" content="998">
 </head>
 
 <body class="nav-sidebar floating">
@@ -107,13 +87,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_mapsf.html"><strong>Cartographie thématique</strong></a></li><li class="breadcrumb-item"><a href="./02_semiologie.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La sémiologie graphique</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_semiologie.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Cartographical Language</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -133,7 +113,7 @@ div.csl-indent {
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Recherche"></div>
+        <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -141,67 +121,33 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>Préambule</em></span></a>
+ <span class="menu-text"><em>Preamble</em></span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>Cartographie thématique</strong></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_mapsf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">mapsf</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_semiologie.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La sémiologie graphique</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Cartographical Language</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_types_de_cartes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Les types de cartes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Map Types</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_mise_en_page.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La mise en page</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Map Layout</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>Cartographie 3D et Anamorphoses</strong></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04_cartes_3D.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Les cartes en 3D</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./05_anamorphoses.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Les cartogrammes</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2000_references.html" class="sidebar-item-text sidebar-link">
@@ -210,13 +156,13 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2002_data.html" class="sidebar-item-text sidebar-link">
@@ -234,21 +180,19 @@ div.csl-indent {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table des matières</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#principes-généraux" id="toc-principes-généraux" class="nav-link active" data-scroll-target="#principes-généraux"><span class="header-section-number">2.1</span> Principes généraux</a></li>
-  <li><a href="#ressources" id="toc-ressources" class="nav-link" data-scroll-target="#ressources"><span class="header-section-number">2.2</span> Ressources</a></li>
-  <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice">Exercice</a></li>
+  <li><a href="#exercice" id="toc-exercice" class="nav-link active" data-scroll-target="#exercice">Exercice</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_mapsf.html"><strong>Cartographie thématique</strong></a></li><li class="breadcrumb-item"><a href="./02_semiologie.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La sémiologie graphique</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La sémiologie graphique</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Cartographical Language</span></h1>
 </div>
 
 
@@ -265,86 +209,25 @@ div.csl-indent {
 </header>
 
 
-<section id="principes-généraux" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="principes-généraux"><span class="header-section-number">2.1</span> Principes généraux</h2>
-<blockquote class="blockquote">
-<p>La <strong>sémiologie graphique</strong> est, de façon générale, l’ensemble des règles qui régissent la construction d’un système de signes ou langage permettant la traduction graphique d’une information. Depuis la parution de la Sémiologie graphique de Jacques <span class="citation" data-cites="bertin1967">Bertin (<a href="2000_references.html#ref-bertin1967" role="doc-biblioref">1967</a>)</span>, elle désigne surtout <strong>un ensemble standardisé des règles et de pratiques inhérentes à la représentation cartographique</strong> au-delà des travaux réalisés par Bertin.<br>
-<small><a href="https://fr.wikipedia.org/wiki/S%C3%A9miologie_graphique">Wikipedia : Sémiologie graphique</a></small></p>
-</blockquote>
-<p>Pour une première approche de la cartographie thématique on peut se référer à la figure suivante qui résume de manière simplifiée la relation entre un type de variable et sa représentation graphique correcte.</p>
-<p><img src="img/arbre_type_data.png" class="img-fluid"></p>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Pourquoi on ne représente <a href="https://neocarto.hypotheses.org/5717">pas de stocks en aplat !</a></p>
-</div>
-</div>
-</div>
-</section>
-<section id="ressources" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="ressources"><span class="header-section-number">2.2</span> Ressources</h2>
-<p>Voici quelques ouvrages et ressources pour l’apprentissage de la cartographie thématique :</p>
-<div>
-
-</div>
-<div class="quarto-layout-panel" data-layout="[[1,1,1,1], [1,1,1,1]]">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<p>🔗 <a href="https://rcarto.github.io/thematic_cartography">Thematic Cartography - Cartographical Language</a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/c1.png" class="img-fluid figure-img"></p>
-<figcaption><span class="citation" data-cites="beguin2010">Béguin et Pumain (<a href="2000_references.html#ref-beguin2010" role="doc-biblioref">2023</a>)</span></figcaption>
+<p><img src="img/lightsemio.png" class="img-fluid figure-img"></p>
+<figcaption>Map semiology decision tree</figcaption>
 </figure>
 </div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/c2.png" class="img-fluid figure-img"></p>
-<figcaption><span class="citation" data-cites="lambert2016">Lambert et Zanin (<a href="2000_references.html#ref-lambert2016" role="doc-biblioref">2016</a>)</span></figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/c3.png" class="img-fluid figure-img"></p>
-<figcaption><span class="citation" data-cites="ctm">RIATE (<a href="2000_references.html#ref-ctm" role="doc-biblioref">2023</a>)</span></figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
 <section id="exercice" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="exercice">Exercice</h2>
-<p>Comment représenter les variables suivantes :</p>
+<p>How to represent the following variables :</p>
 <ul>
-<li>Une population communale</li>
-<li>Un age médian par département</li>
-<li>Un taux de croissance</li>
-<li>Le statut administratif d’une commune (préfecture, sous-préfecture, commune simple…)</li>
-<li>L’espérance de vie par pays</li>
+<li>A municipal population</li>
+<li>A median age by department</li>
+<li>A growth rate</li>
+<li>The administrative status of a commune (prefecture, sub-prefecture, simple commune, etc.)</li>
+<li>Life expectancy per country</li>
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
-<div id="ref-beguin2010" class="csl-entry" role="listitem">
-Béguin, M. et Pumain, D. (2023). <em>La repr<span>é</span>sentation des donn<span>é</span>es g<span>é</span>ographiques: Statistique et cartographie</em>. Armand Colin.
-</div>
-<div id="ref-bertin1967" class="csl-entry" role="listitem">
-Bertin, J. (1967). <em>S<span>é</span>miologie Graphique. Les Diagrammes - Les R<span>é</span>seaux - Les Cartes</em>. Paris: Mouton &amp; Gauthier-Villars.
-</div>
-<div id="ref-lambert2016" class="csl-entry" role="listitem">
-Lambert, N. et Zanin, C. (2016). <em>Manuel de cartographie: principes, m<span>é</span>thodes, applications</em>. Armand Colin.
-</div>
-<div id="ref-ctm" class="csl-entry" role="listitem">
-RIATE. (2023). <span>Cartographie thématique avec Magrit</span>. <a href="https://magrit-formations.github.io/">https://magrit-formations.github.io/</a>
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -391,12 +274,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copié");
+    button.setAttribute("title", "Copied!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copié");
+      button.setAttribute("data-bs-title", "Copied!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -772,8 +655,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03_types_de_cartes.html" class="pagination-link" aria-label="Les types de cartes">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Les types de cartes</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./03_types_de_cartes.html" class="pagination-link" aria-label="Map Types">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Map Types</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

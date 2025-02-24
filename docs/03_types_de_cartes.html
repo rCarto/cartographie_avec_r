@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.40">
@@ -92,17 +92,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Pas de résultats",
-    "search-matching-documents-text": "documents trouvés",
-    "search-copy-link-title": "Copier le lien vers la recherche",
-    "search-hide-matches-text": "Cacher les correspondances additionnelles",
-    "search-more-match-text": "correspondance de plus dans ce document",
-    "search-more-matches-text": "correspondances de plus dans ce document",
-    "search-clear-button-title": "Effacer",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Annuler",
-    "search-submit-button-title": "Envoyer",
-    "search-label": "Recherche"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -111,8 +111,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta property="og:description" content="Créer des cartes thématiques reproductibles.">
 <meta property="og:image" content="https://rcarto.github.io/rcarto/cartographie_avec_r/figs/mf_base-1.png">
 <meta property="og:site_name" content="Cartographie avec R">
-<meta property="og:image:height" content="1722">
-<meta property="og:image:width" content="1800">
+<meta property="og:image:height" content="1102">
+<meta property="og:image:width" content="1152">
 </head>
 
 <body class="nav-sidebar floating">
@@ -121,13 +121,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_mapsf.html"><strong>Cartographie thématique</strong></a></li><li class="breadcrumb-item"><a href="./03_types_de_cartes.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Les types de cartes</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_types_de_cartes.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Map Types</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -147,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Recherche"></div>
+        <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -155,67 +155,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>Préambule</em></span></a>
+ <span class="menu-text"><em>Preamble</em></span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>Cartographie thématique</strong></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_mapsf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">mapsf</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_semiologie.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La sémiologie graphique</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Cartographical Language</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_types_de_cartes.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Les types de cartes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Map Types</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_mise_en_page.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La mise en page</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Map Layout</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>Cartographie 3D et Anamorphoses</strong></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04_cartes_3D.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Les cartes en 3D</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./05_anamorphoses.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Les cartogrammes</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2000_references.html" class="sidebar-item-text sidebar-link">
@@ -224,13 +190,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2002_data.html" class="sidebar-item-text sidebar-link">
@@ -248,20 +214,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table des matières</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#les-données-dexemple" id="toc-les-données-dexemple" class="nav-link active" data-scroll-target="#les-données-dexemple"><span class="header-section-number">3.1</span> Les données d’exemple</a></li>
-  <li><a href="#afficher-un-fond-de-carte" id="toc-afficher-un-fond-de-carte" class="nav-link" data-scroll-target="#afficher-un-fond-de-carte"><span class="header-section-number">3.2</span> Afficher un fond de carte</a></li>
-  <li><a href="#carte-de-symboles-proportionnels" id="toc-carte-de-symboles-proportionnels" class="nav-link" data-scroll-target="#carte-de-symboles-proportionnels"><span class="header-section-number">3.3</span> Carte de symboles proportionnels</a></li>
-  <li><a href="#carte-choroplèthe" id="toc-carte-choroplèthe" class="nav-link" data-scroll-target="#carte-choroplèthe"><span class="header-section-number">3.4</span> Carte choroplèthe</a>
+  <li><a href="#sample-data-set" id="toc-sample-data-set" class="nav-link active" data-scroll-target="#sample-data-set"><span class="header-section-number">3.1</span> Sample data set</a></li>
+  <li><a href="#geometries" id="toc-geometries" class="nav-link" data-scroll-target="#geometries"><span class="header-section-number">3.2</span> Geometries</a></li>
+  <li><a href="#proportional-symbols" id="toc-proportional-symbols" class="nav-link" data-scroll-target="#proportional-symbols"><span class="header-section-number">3.3</span> Proportional Symbols</a></li>
+  <li><a href="#choropleth-map" id="toc-choropleth-map" class="nav-link" data-scroll-target="#choropleth-map"><span class="header-section-number">3.4</span> Choropleth Map</a>
   <ul class="collapse">
-  <li><a href="#les-palettes-de-couleurs" id="toc-les-palettes-de-couleurs" class="nav-link" data-scroll-target="#les-palettes-de-couleurs"><span class="header-section-number">3.4.1</span> Les palettes de couleurs</a></li>
-  <li><a href="#discretisation" id="toc-discretisation" class="nav-link" data-scroll-target="#discretisation"><span class="header-section-number">3.4.2</span> Discrétisations</a></li>
+  <li><a href="#color-palettes" id="toc-color-palettes" class="nav-link" data-scroll-target="#color-palettes"><span class="header-section-number">3.4.1</span> Color palettes</a></li>
+  <li><a href="#discretisation" id="toc-discretisation" class="nav-link" data-scroll-target="#discretisation"><span class="header-section-number">3.4.2</span> Classifications</a></li>
   </ul></li>
-  <li><a href="#carte-de-typologie" id="toc-carte-de-typologie" class="nav-link" data-scroll-target="#carte-de-typologie"><span class="header-section-number">3.5</span> Carte de typologie</a></li>
-  <li><a href="#carte-de-stocks-et-de-ratios" id="toc-carte-de-stocks-et-de-ratios" class="nav-link" data-scroll-target="#carte-de-stocks-et-de-ratios"><span class="header-section-number">3.6</span> Carte de stocks et de ratios</a></li>
-  <li><a href="#carte-de-stocks-et-de-catégories" id="toc-carte-de-stocks-et-de-catégories" class="nav-link" data-scroll-target="#carte-de-stocks-et-de-catégories"><span class="header-section-number">3.7</span> Carte de stocks et de catégories</a></li>
+  <li><a href="#typology-map" id="toc-typology-map" class="nav-link" data-scroll-target="#typology-map"><span class="header-section-number">3.5</span> Typology Map</a></li>
+  <li><a href="#proportional-symbols-using-choropleth-coloration" id="toc-proportional-symbols-using-choropleth-coloration" class="nav-link" data-scroll-target="#proportional-symbols-using-choropleth-coloration"><span class="header-section-number">3.6</span> Proportional Symbols using Choropleth Coloration</a></li>
+  <li><a href="#proportional-symbols-using-typology-coloration" id="toc-proportional-symbols-using-typology-coloration" class="nav-link" data-scroll-target="#proportional-symbols-using-typology-coloration"><span class="header-section-number">3.7</span> Proportional Symbols using Typology Coloration</a></li>
   <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice">Exercice</a></li>
   </ul>
 </nav>
@@ -269,9 +235,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_mapsf.html"><strong>Cartographie thématique</strong></a></li><li class="breadcrumb-item"><a href="./03_types_de_cartes.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Les types de cartes</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Les types de cartes</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Map Types</span></h1>
 </div>
 
 
@@ -288,36 +254,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>La fonction <code>mf_map()</code> est la fonction centrale du package <code>mapsf</code>. Elle permet de réaliser la plupart des représentations usuelles en cartographie. Ces arguments principaux sont :</p>
+<p><code>mf_map()</code> is the main function of the package, it displays map layers on a georeferenced plot.</p>
+<p><code>mf_map()</code> has three main arguments:</p>
 <ul>
-<li><code>x</code>, un objet sf ;</li>
-<li><code>var</code>, le nom de la variable à représenter ;</li>
-<li><code>type</code>, le type de représentation.</li>
+<li><code>x</code>, an sf object;</li>
+<li><code>var</code>, the name(s) of a variable(s) to map;</li>
+<li><code>type</code>, the map layer type.</li>
 </ul>
-<section id="les-données-dexemple" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="les-données-dexemple"><span class="header-section-number">3.1</span> Les données d’exemple</h2>
-<p>Les lignes suivantes importent les couches d’information spatiales situées dans le fichier <a href="https://www.geopackage.org/">geopackage</a> <strong>lot.gpkg</strong>.</p>
+<p>Many parameters are available to fine tune symbologies and legends.</p>
+<section id="sample-data-set" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sample-data-set"><span class="header-section-number">3.1</span> Sample data set</h2>
+<p>Import map layers from the <a href="https://www.geopackage.org/">geopackage</a> file <strong>lot.gpkg</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Linking to GEOS 3.11.1, GDAL 3.6.2, PROJ 9.1.1; sf_use_s2() is TRUE</code></pre>
+<pre><code>#&gt; Linking to GEOS 3.13.0, GDAL 3.10.2, PROJ 9.5.1; sf_use_s2() is TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import des communes du Lot</span></span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import municipalities</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>com <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/lot.gpkg"</span>, <span class="at">layer =</span> <span class="st">"communes"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import des départements français</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import french departements </span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>dep <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/lot.gpkg"</span>, <span class="at">layer =</span> <span class="st">"departements"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># import des restaurants</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># import restaurants</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>resto <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/lot.gpkg"</span>, <span class="at">layer =</span> <span class="st">"restaurants"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># import des routes autour de la commune de Gramat</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>route <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/lot.gpkg"</span>, <span class="at">layer =</span> <span class="st">"routes"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># import someroads</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>route <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/lot.gpkg"</span>, <span class="at">layer =</span> <span class="st">"routes"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="afficher-un-fond-de-carte" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="afficher-un-fond-de-carte"><span class="header-section-number">3.2</span> Afficher un fond de carte</h2>
-<p>Utilisée sans précision de type, la fonction <code>mf_map()</code> affiche simplement les couches spatiales.</p>
+<section id="geometries" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="geometries"><span class="header-section-number">3.2</span> Geometries</h2>
+<p><code>mf_map(x, type = "base")</code> displays <code>sf</code> objects geometries.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapsf)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Communes (polygones)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># polygones</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com, <span class="at">border =</span> <span class="st">"white"</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Départements (polygones, fond transparent)</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> dep, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="cn">NA</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
@@ -326,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Restaurants (points)</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> resto, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> .<span class="dv">7</span>, <span class="at">col =</span> <span class="st">"darkred"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajour d'un titre</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="at">txt =</span> <span class="st">"Le Lot (46)"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="at">txt =</span> <span class="st">"Le Lot (46)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -336,9 +304,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="carte-de-symboles-proportionnels" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="carte-de-symboles-proportionnels"><span class="header-section-number">3.3</span> Carte de symboles proportionnels</h2>
-<p>Les cartes de symboles proportionnels sont utilisées pour représenter les variables de stocks (variables quantitatives absolues, la somme et la moyenne ont un sens). La fonction <code>mf_map(..., type = "prop")</code> propose cette représentation.</p>
+<section id="proportional-symbols" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="proportional-symbols"><span class="header-section-number">3.3</span> Proportional Symbols</h2>
+<p><code>mf_map(x, var, type = "prop")</code> displays symbols with areas proportional to a quantitative variable (stocks). The <code>inches</code> argument is used to customize the symbols sizes.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Communes</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com)</span>
@@ -350,7 +318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">"Population totale</span><span class="sc">\n</span><span class="st">(2015)"</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Titre</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Distribution de la population dans le Lot"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Distribution de la population dans le Lot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -360,10 +328,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="carte-choroplèthe" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="carte-choroplèthe"><span class="header-section-number">3.4</span> Carte choroplèthe</h2>
-<p>Les cartes choroplèthes sont utilisées pour représenter les variables de ratios (variables quantitatives relatives, la moyenne a un sens, la somme n’a pas de sens).</p>
-<p>La fonction <code>mf_map(..., type = "choro")</code> permet de créer des cartes choroplètes. Les arguments <code>nbreaks</code> et <code>breaks</code> servent à paramétrer les discrétisations.</p>
+<section id="choropleth-map" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="choropleth-map"><span class="header-section-number">3.4</span> Choropleth Map</h2>
+<p>In choropleth maps, areas are shaded according to the variation of a quantitative variable. They are used to represent ratios or indices. <code>mf_map(x, var, type = "choro")</code> displays choropleth maps . Arguments <code>nbreaks</code>, and <code>breaks</code> allow to customize the variable classification.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Densité de population (hab./km2) en utilisant la fonction sf::st_area()</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>com<span class="sc">$</span>DENS <span class="ot">&lt;-</span> <span class="fl">1e6</span> <span class="sc">*</span> com<span class="sc">$</span>POPULATION <span class="sc">/</span> <span class="fu">as.numeric</span>(<span class="fu">st_area</span>(com))</span>
@@ -378,7 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">"Densité de population</span><span class="sc">\n</span><span class="st">(habitants par km2)"</span>, </span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_val_rnd =</span> <span class="dv">0</span></span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Distribution de la population dans le Lot (2018)"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Distribution de la population dans le Lot (2018)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -387,9 +354,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="les-palettes-de-couleurs" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="les-palettes-de-couleurs"><span class="header-section-number">3.4.1</span> Les palettes de couleurs</h3>
-<p>L’argument <code>pal</code> de <code>mf_map()</code> est dédié au choix d’une palette de couleur. <code>pal</code> peut être le nom d’une palette de couleur fournie par R ou alors un vecteur de couleurs définies par leurs codes hexadécimaux.</p>
+<section id="color-palettes" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="color-palettes"><span class="header-section-number">3.4.1</span> Color palettes</h3>
+<p>Color palettes, defined with <code>pal</code>, can be created with <code>mf_get_pal()</code> or you can use palette names from <code>hcl.pals()</code>.</p>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com, <span class="at">var =</span> <span class="st">"DENS"</span>, <span class="at">type =</span> <span class="st">"choro"</span>,</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">breaks =</span> <span class="st">"quantile"</span>, <span class="at">nbreaks =</span> <span class="dv">4</span>, </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">pal =</span> <span class="st">"Peach"</span>)</span>
@@ -398,7 +365,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com, <span class="at">var =</span> <span class="st">"DENS"</span>, <span class="at">type =</span> <span class="st">"choro"</span>,</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">breaks =</span> <span class="st">"quantile"</span>, <span class="at">nbreaks =</span> <span class="dv">4</span>, </span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">pal =</span> ma_palette)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Palette définie par un vecteur de couleurs"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Palette définie par un vecteur de couleurs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
@@ -412,38 +379,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/swatch-plot-1.svg" class="img-fluid figure-img"></p>
-<figcaption>Les palettes de R</figcaption>
+<figcaption>Builtin R color palettes</figcaption>
 </figure>
-</div>
-<p>Les fonctions <code>hcl.colors()</code> et <code>mf_get_pal()</code> permettent de construire des palettes de couleurs. <code>mf_get_pal()</code> est surtout utile pour créer des palettes divergentes asymétriques équilibrées.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>pal_equilibre <span class="ot">&lt;-</span> <span class="fu">mf_get_pal</span>(<span class="at">n =</span> <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">3</span>), <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"Burg"</span>, <span class="st">"Teal"</span>))</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pal_non_equi <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">hcl.colors</span>(<span class="dv">6</span>, <span class="st">"Burg"</span>), <span class="fu">hcl.colors</span>(<span class="dv">3</span>,<span class="st">"Teal"</span>, <span class="at">rev =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maplegend)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>opar <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.new</span>()</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.window</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">asp =</span> <span class="dv">1</span>)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">leg</span>(<span class="at">type =</span> <span class="st">"choro"</span>, <span class="at">val =</span> <span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">10</span>), </span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">pal =</span> pal_equilibre, <span class="at">pos =</span> <span class="st">"topleft"</span>, </span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Palette équilibrée"</span>)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">leg</span>(<span class="at">type =</span> <span class="st">"choro"</span>, <span class="at">val =</span> <span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">10</span>), </span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">pal =</span> pal_non_equi, <span class="at">pos =</span> <span class="st">"top"</span>, </span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Palette non équilibrée"</span>)</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(opar)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="figs/pal2-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
-</div>
 </div>
 </section>
 <section id="discretisation" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="discretisation"><span class="header-section-number">3.4.2</span> Discrétisations</h3>
-<p>Avant de réaliser une carte choroplèthe on doit d’abord étudier la distribution statistique de la variable que l’on souhaite cartographier. La fonction <code>mf_distr()</code> permet de visualiser les distributions.</p>
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="discretisation"><span class="header-section-number">3.4.2</span> Classifications</h3>
+<p>Before creating a choropleth map, we must first study the statistical distribution of the variable we wish to map. The <code>mf_distr()</code> function is used to visualise distributions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_distr</span>(com<span class="sc">$</span>DENS)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_distr</span>(com<span class="sc">$</span>DENS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -452,23 +396,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Cette distribution est très dissymétrique à gauche.</p>
-<p>La fonction <code>mf_get_breaks()</code> met à disposition les méthodes de discrétisations de variables classique : quantiles, moyenne/écart-type, amplitudes égales, moyennes emboîtées, Fisher-Jenks, géométrique…</p>
-<p>Ici, l’utilisation de la méthode “geom” est assez appropriée.</p>
+<p>This distribution is very skewed to the left.</p>
+<p><code>mf_get_breaks()</code> can be used to classify continuous variables. Many classification methods are available ( “fixed”, “sd”, “equal”, “pretty”, “quantile”, “kmeans”, “hclust”, “bclust”, “fisher”, “jenks”, “dpih”, “q6”, “Q6”, geom”, “arith”, “em”, “msd” or “ckmeans”).</p>
+<p>Here, using the ‘geom’ method is quite appropriate.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>bks <span class="ot">&lt;-</span> <span class="fu">mf_get_breaks</span>(<span class="at">x =</span> com<span class="sc">$</span>DENS, <span class="at">nbreaks =</span> <span class="dv">5</span>, <span class="at">breaks =</span> <span class="st">"geom"</span>) </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>bks</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>bks <span class="ot">&lt;-</span> <span class="fu">mf_get_breaks</span>(<span class="at">x =</span> com<span class="sc">$</span>DENS, <span class="at">nbreaks =</span> <span class="dv">5</span>, <span class="at">breaks =</span> <span class="st">"geom"</span>) </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>bks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; [1]   4.113775  11.033758  29.594181  79.376000 212.898252 571.024813</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com, <span class="at">var =</span> <span class="st">"DENS"</span>, <span class="at">type =</span> <span class="st">"choro"</span>,</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> bks, <span class="at">pal =</span> <span class="st">"Blues"</span>,</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> <span class="dv">1</span>,</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">"Population density</span><span class="sc">\n</span><span class="st">(inh. per km2)"</span>, </span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_val_rnd =</span> <span class="dv">0</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Distribution de la population dans le Lot (2018)"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com, <span class="at">var =</span> <span class="st">"DENS"</span>, <span class="at">type =</span> <span class="st">"choro"</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> bks, <span class="at">pal =</span> <span class="st">"Blues"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> <span class="dv">1</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">"Population density</span><span class="sc">\n</span><span class="st">(inh. per km2)"</span>, </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_val_rnd =</span> <span class="dv">0</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Distribution de la population dans le Lot (2018)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -479,20 +423,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="carte-de-typologie" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="carte-de-typologie"><span class="header-section-number">3.5</span> Carte de typologie</h2>
-<p>Les cartes de typologies sont utilisées pour représenter les variables qualitatives.<br>
-La fonction <code>mf_map(..., type = "typo")</code> propose cette représentation.</p>
+<section id="typology-map" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="typology-map"><span class="header-section-number">3.5</span> Typology Map</h2>
+<p><code>mf_map(x, var, type = "typo")</code> displays a typology map of a qualitative variable. <code>val_order</code> is used to set the modalities order in the legend.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com,</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">var=</span><span class="st">"STATUT"</span>,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"typo"</span>,</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">"aquamarine4"</span>, <span class="st">"yellow3"</span>,<span class="st">"wheat"</span>),</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> .<span class="dv">7</span>,</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">""</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Statut administratif des communes"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">var=</span><span class="st">"STATUT"</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"typo"</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">"aquamarine4"</span>, <span class="st">"yellow3"</span>,<span class="st">"wheat"</span>),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> .<span class="dv">7</span>,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">""</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Statut administratif des communes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -501,18 +444,18 @@ La fonction <code>mf_map(..., type = "typo")</code> propose cette représentatio
 </div>
 </div>
 </div>
-<p>L’argument <code>val_order</code> sert à ordonner les modalités dans la légende.</p>
+<p>The <code>val_order</code> argument is used to order the modalities in the legend.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com,</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">var=</span><span class="st">"STATUT"</span>,</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"typo"</span>,</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">"aquamarine4"</span>, <span class="st">"yellow3"</span>,<span class="st">"wheat"</span>),</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">val_order =</span> <span class="fu">c</span>(<span class="st">"Préfecture"</span>, <span class="st">"Sous-préfecture"</span>, <span class="st">"Commune simple"</span>),</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> .<span class="dv">7</span>,</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">""</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Statut administratif des communes"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">var=</span><span class="st">"STATUT"</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"typo"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">"aquamarine4"</span>, <span class="st">"yellow3"</span>,<span class="st">"wheat"</span>),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">val_order =</span> <span class="fu">c</span>(<span class="st">"Préfecture"</span>, <span class="st">"Sous-préfecture"</span>, <span class="st">"Commune simple"</span>),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> .<span class="dv">7</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="st">""</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Statut administratif des communes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -522,22 +465,22 @@ La fonction <code>mf_map(..., type = "typo")</code> propose cette représentatio
 </div>
 </div>
 </section>
-<section id="carte-de-stocks-et-de-ratios" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="carte-de-stocks-et-de-ratios"><span class="header-section-number">3.6</span> Carte de stocks et de ratios</h2>
-<p>La fonction <code>mf_map(..., var = c("var1", "var2"), type = "prop_choro")</code> représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d’une variable et dont la couleur repose sur la discrétisation d’une seconde variable. La fonction utilise les arguments des fonctions <code>mf_map(..., type = "prop")</code> et <code>mf_map(..., type = "choro")</code>.</p>
+<section id="proportional-symbols-using-choropleth-coloration" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="proportional-symbols-using-choropleth-coloration"><span class="header-section-number">3.6</span> Proportional Symbols using Choropleth Coloration</h2>
+<p><code>mf_map(x, var, type = "prop_choro")</code> creates a map of symbols that are proportional to values of a first variable and colored to reflect the classification of a second variable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="fu">c</span>(<span class="st">"POPULATION"</span>, <span class="st">"DENS"</span>),</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"prop_choro"</span>,</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">border =</span> <span class="st">"grey50"</span>,</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> <span class="dv">1</span>,</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="fu">c</span>(<span class="st">"Population"</span>, <span class="st">"Densité</span><span class="sc">\n</span><span class="st">de population</span><span class="sc">\n</span><span class="st">(en hab./km2)"</span>),</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="st">"q6"</span>,</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="st">"Magenta"</span>,</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_val_rnd =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Distribution de la population dans le Lot (2018)"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="fu">c</span>(<span class="st">"POPULATION"</span>, <span class="st">"DENS"</span>),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"prop_choro"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">border =</span> <span class="st">"grey50"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">lwd =</span> <span class="dv">1</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="fu">c</span>(<span class="st">"Population"</span>, <span class="st">"Densité</span><span class="sc">\n</span><span class="st">de population</span><span class="sc">\n</span><span class="st">(en hab./km2)"</span>),</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="st">"q6"</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="st">"Magenta"</span>,</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_val_rnd =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Distribution de la population dans le Lot (2018)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -547,22 +490,22 @@ La fonction <code>mf_map(..., type = "typo")</code> propose cette représentatio
 </div>
 </div>
 </section>
-<section id="carte-de-stocks-et-de-catégories" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="carte-de-stocks-et-de-catégories"><span class="header-section-number">3.7</span> Carte de stocks et de catégories</h2>
-<p>La fonction <code>mf_map(..., var = c("var1", "var2"), type = "prop_typo")</code> représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d’une variable et dont la couleur représente les modalités d’une variable qualitative. La fonction utilise les arguments des fonctions <code>mf_map(..., type = "prop")</code> et <code>mf_map(..., type = "typo")</code>.</p>
+<section id="proportional-symbols-using-typology-coloration" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="proportional-symbols-using-typology-coloration"><span class="header-section-number">3.7</span> Proportional Symbols using Typology Coloration</h2>
+<p><code>mf_map(x, var, type = "prop_typo")</code> creates a map of symbols that are proportional to values of a first variable and colored to reflect the modalities of a second qualitative variable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com,</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="fu">c</span>(<span class="st">"POPULATION"</span>, <span class="st">"STATUT"</span>),</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"prop_typo"</span>,</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">"aquamarine4"</span>, <span class="st">"yellow3"</span>,<span class="st">"wheat"</span>),</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">val_order =</span> <span class="fu">c</span>(<span class="st">"Préfecture"</span>, <span class="st">"Sous-préfecture"</span>, <span class="st">"Commune simple"</span>),</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_pos =</span> <span class="st">"topleft"</span>,</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="fu">c</span>(<span class="st">"Population</span><span class="sc">\n</span><span class="st">(2015)"</span>,</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Statut administratif"</span>),</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Distribution de la population dans le Lot (2018)"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> com)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_map</span>(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> com,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="fu">c</span>(<span class="st">"POPULATION"</span>, <span class="st">"STATUT"</span>),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"prop_typo"</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">pal =</span> <span class="fu">c</span>(<span class="st">"aquamarine4"</span>, <span class="st">"yellow3"</span>,<span class="st">"wheat"</span>),</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">val_order =</span> <span class="fu">c</span>(<span class="st">"Préfecture"</span>, <span class="st">"Sous-préfecture"</span>, <span class="st">"Commune simple"</span>),</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_pos =</span> <span class="st">"topleft"</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">leg_title =</span> <span class="fu">c</span>(<span class="st">"Population</span><span class="sc">\n</span><span class="st">(2015)"</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Statut administratif"</span>),</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mf_title</span>(<span class="st">"Distribution de la population dans le Lot (2018)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -575,20 +518,20 @@ La fonction <code>mf_map(..., type = "typo")</code> propose cette représentatio
 <section id="exercice" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="exercice">Exercice</h2>
 <ol type="1">
-<li><p>Importer la couche des communes du département du Lot à partir du fichier geopackage <strong>lot.gpkg</strong>.</p></li>
-<li><p>Importer le fichier <strong>com.csv</strong>.<br>
-Ce jeu de données porte sur les communes du Lot et contient plusieurs variables supplémentaires:</p>
+<li><p>Import the communes layer for the Lot department from the geopackage <strong>lot.gpkg</strong> file.</p></li>
+<li><p>Import the <strong>com.csv</strong> file.<br>
+This dataset covers the communes of the Lot department and contains several additional variables:</p>
 <ul>
-<li>le nombre d’actifs (<strong>ACT</strong>).</li>
-<li>le nombre d’actifs dans l’industrie (<strong>IND</strong>)</li>
-<li>la part des actifs dans la population totale (<strong>SACT</strong>)</li>
-<li>la part des actifs dans l’industrie dans le total des actifs (<strong>SACT_IND</strong>)</li>
+<li>the number of employees (<strong>ACT</strong>).</li>
+<li>the number of people employed in industry (<strong>IND</strong>)</li>
+<li>the share of the working population in the total population (<strong>SACT</strong>)</li>
+<li>the share of the workforce in industry in the total workforce (<strong>SACT_IND</strong>)</li>
 </ul></li>
-<li><p>Joindre le jeu de données et la couche des communes.</p></li>
-<li><p>Créer une carte de la population active.<br>
-Quel mode de représentation utiliser? Quels choix cela implique-t-il?</p></li>
-<li><p>Créer une carte de la part de la population active dans la population totale.<br>
-Quel mode de représentation utiliser? Quels choix cela implique-t-il?</p></li>
+<li><p>Attach the dataset and the municipalities layer.</p></li>
+<li><p>Create a map of the active population.<br>
+Which representation method should be used? What choices does this involve?</p></li>
+<li><p>Create a map of the share of the working population in the total population.<br>
+What representation method should be used? What choices does this involve?</p></li>
 </ol>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -596,7 +539,7 @@ Quel mode de représentation utiliser? Quels choix cela implique-t-il?</p></li>
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Vous pouvez utiliser le fichier <strong>exo_cartographie_simple.R</strong> pour vous guider dans cette exercice.</p>
+<p>You can use the file <strong>exo_cartographie_simple.R</strong> to guide you through this exercise.</p>
 </div>
 </div>
 </div>
@@ -648,12 +591,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copié");
+    button.setAttribute("title", "Copied!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copié");
+      button.setAttribute("data-bs-title", "Copied!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -1024,13 +967,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02_semiologie.html" class="pagination-link" aria-label="La sémiologie graphique">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La sémiologie graphique</span></span>
+      <a href="./02_semiologie.html" class="pagination-link" aria-label="The Cartographical Language">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Cartographical Language</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04_mise_en_page.html" class="pagination-link" aria-label="La mise en page">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La mise en page</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04_mise_en_page.html" class="pagination-link" aria-label="Map Layout">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Map Layout</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

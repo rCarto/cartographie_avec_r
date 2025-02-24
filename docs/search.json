@@ -4,9 +4,9 @@
     "href": "index.html",
     "title": "Cartographie avec R",
     "section": "",
-    "text": "Préambule\nL’objectif de ce document est de fournir un support à l’apprentissage de la cartographie thématique avec R.\nComment utiliser le manuel\nLes données utilisées dans ce document sont stockées dans un projet RStudio. Vous devez le télécharger puis le décompresser sur votre machine. Il vous sera ensuite possible de tester l’ensemble des manipulations proposées dans ce document au sein du projet geodata.\nTélécharger le projet\nContribution et feedback\nVous pouvez nous envoyer vos remarques et suggestions en postant une issue sur le dépôt GitHub de ce document.\nContexte\nCe manuel a été initialement conçu pour accompagner le cours “Cartographie avec R” du Master 2 Géomatique, géodécisionnel, géomarketing et multimédia (G2M) de l’Université Paris 8 Vincennes - Saint-Denis. Une version PDF est disponible ici : .\nUn deuxième manuel centré sur la géomatique est disponible ici : Géomatique avec R.\n\n Pour citer le document :\nGiraud, T. et Pecout, H. (2024). Cartographie avec R. https://doi.org/10.5281/zenodo.5905734",
+    "text": "Preamble\nThe aim of this document is to provide support for learning thematic mapping with R.\nHow to use the manual\nThe data used in this document is stored in an RStudio project. You need to download it and unzip it on your machine. You will then be able to test all data processing proposed in this document using the geodata project.\nDownload project\nContribution and feedback\nYou can send us your comments and suggestions by posting an issue on the GitHub repository of this document.\nContext\nThis manual was initially designed for the “Cartography with R” course of the “Géomatique, géodécisionnel, géomarketing et multimédia” master (G2M - Université Paris 8 Vincennes - Saint-Denis).\nA second manual focusing on geomatics is available here : Géomatique avec R.\n\n To cite the document:\nGiraud, T. et Pecout, H. (2024). Cartographie avec R. https://doi.org/10.5281/zenodo.5905734",
     "crumbs": [
-      "*Préambule*"
+      "*Preamble*"
     ]
   },
   {
@@ -14,20 +14,18 @@
     "href": "01_mapsf.html",
     "title": "1  mapsf",
     "section": "",
-    "text": "1.1 Présentation\nL’écosystème spatial du logiciel libre R est riche, dynamique et mature et plusieurs packages permettent d’importer, de traiter et de représenter les données spatiales. Le package mapsf (Giraud, 2023) s’appuie sur cet écosystème pour intégrer la création de cartes thématiques de qualité dans les chaînes de traitements avec R.\nDans ce document, nous utiliserons principalement le package mapsf dont les fonctionnalités sont assez complètes et la prise en main plutôt simple. De plus, le package est relativement léger.\nmapsf permet de créer la plupart des types de carte utilisés habituellement en cartographie statistique (cartes choroplèthes, typologies, symboles proportionnels ou gradués…).\nPour chaque type de carte, plusieurs paramètres permettent de personnaliser la représentation cartographique. Ces paramètres sont les mêmes que ceux que l’on retrouve dans les logiciels de SIG ou de cartographie usuels (par exemple, le choix des discrétisations et des palettes de couleurs, la modification de de la taille des symboles ou la personnalisation des légendes).\nAssociées aux fonctions de représentation des données d’autres fonctions sont dédiées à l’habillage cartographique (thèmes ou chartes graphiques, légendes, échelles, flèches d’orientation, titre, crédits, annotations…), à la création de cartons ou à l’export des cartes.\nmapsf est le successeur de cartography (Giraud et Lambert, 2017), il offre les mêmes fonctionnalités principales tout en étant plus léger et plus ergonomique.",
+    "text": "1.1 Presentation\nThe spatial ecosystem of R is rich, dynamic and mature and several packages can be used to import, process and represent spatial data. The mapsf package (Giraud 2023) is a part of this ecosystem and can be used to create high-quality thematic maps.\nIn this document, we will mainly be using the mapsf package, which has fairly comprehensive functionality and is fairly easy to learn. What’s more, the package is relatively lightweight.\nmapsf can be used to create most of the map types commonly used in statistical cartography (choropleth maps, typologies, proportional or graduated symbols, etc.).\nFor each type of map, a number of parameters can be used to customise the cartographic representation. These parameters are the same as those found in standard GIS or cartography software (for example, the choice of discretisations and colour palettes, changing the size of symbols or customising legends).\nIn addition to the data representation functions, other functions are dedicated to cartographic design (themes or graphic charters, legends, scales, orientation arrows, titles, credits, annotations, etc.), the creation of insets or map export.",
     "crumbs": [
-      "**Cartographie thématique**",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>mapsf</span>"
     ]
   },
   {
-    "objectID": "01_mapsf.html#présentation",
-    "href": "01_mapsf.html#présentation",
+    "objectID": "01_mapsf.html#presentation",
+    "href": "01_mapsf.html#presentation",
     "title": "1  mapsf",
     "section": "",
-    "text": "Une chaîne de traitements typique\n\n\n\n\n\n\n\n\nD’autres packages peuvent être utilisés pour réaliser des cartes thématiques.\nLe package ggplot2 (Wickham, 2016), en association avec le package ggspatial (Dunnington, 2023), permet par exemple d’afficher des objets spatiaux et de réaliser des cartes thématiques simples.\nLe package tmap (Tennekes, 2018) est dédié à la création de cartes thématiques, il utilise une syntaxe proche de celle de ggplot2 (enchaînement d’instructions combinées avec le signe +).\nLa documentation et les tutoriels pour utiliser ces deux packages sont facilement accessibles sur le web.\n\n\n\n\n\n\n\nUn nombre minimal de dépendances bien connues",
+    "text": "A typical processing chain\n\n\n\n\n\n\n\n\nOther packages can be used to create thematic maps.\nThe ggplot2 package (Wickham 2016), in conjunction with the ggspatial package (Dunnington 2023), can be used to display spatial objects and create simple thematic maps.\nThe tmap package (Tennekes 2018) is dedicated to creating thematic maps, and uses a syntax similar to that of ggplot2 (sequence of instructions combined with the + sign).\nDocumentation and tutorials for using these two packages are readily available on the web.\n\n\n\n\n\n\n\nA minimal number of well-known dependencies",
     "crumbs": [
-      "**Cartographie thématique**",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>mapsf</span>"
     ]
   },
@@ -36,9 +34,8 @@
     "href": "01_mapsf.html#documentation",
     "title": "1  mapsf",
     "section": "1.2 Documentation",
-    "text": "1.2 Documentation\n\n\n\n\n\n\nSite web : \n\n\ncheat sheet : \n\n\n\nVignettes :\n\nGet started\nHow to create faceted maps\nHow to create inset maps\nHow to export maps\nHow to use a custom font family\nHow to use themes",
+    "text": "1.2 Documentation\n\n\n\n\n\n\nWebsite : \n\n\ncheat sheet : \n\n\n\nVignettes :\n\nGet started\nHow to create faceted maps\nHow to create inset maps\nHow to export maps\nHow to use a custom font family\nHow to use themes",
     "crumbs": [
-      "**Cartographie thématique**",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>mapsf</span>"
     ]
   },
@@ -47,395 +44,259 @@
     "href": "01_mapsf.html#exercice",
     "title": "1  mapsf",
     "section": "Exercice",
-    "text": "Exercice\n\nLes données utilisées dans ce document sont stockées dans un projet RStudio. Vous devez le télécharger puis le décompresser sur votre machine. Il vous sera ensuite possible de tester l’ensemble des manipulations proposées dans ce document au sein du projet geodata.\nTélécharger le projet\nNous utiliserons principalement le package mapsf dans la suite de ce document.\nInstallez le en utilisant la fonction install.packages().\nQuelle est la version du package?\nQuelles sont les nouveautés par rapport à la version précédente?\n\n\n\n\n\nDunnington, D. (2023). ggspatial: Spatial Data Framework for ggplot2. https://CRAN.R-project.org/package=ggspatial\n\n\nGiraud, T. (2023). mapsf: Thematic Cartography. https://CRAN.R-project.org/package=mapsf\n\n\nGiraud, T. et Lambert, N. (2017). Reproducible Cartography. M. Peterson (dir.), Cham, Switzerland (p. 173‑183). https://doi.org/10.1007/978-3-319-57336-6_13\n\n\nTennekes, M. (2018). tmap: Thematic Maps in R. Journal of Statistical Software, 84(6), 1‑39. https://doi.org/10.18637/jss.v084.i06\n\n\nWickham, H. (2016). ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York. https://ggplot2.tidyverse.org",
+    "text": "Exercice\n\nThe data used in this document is stored in an RStudio project. You must download it and unzip it on your machine. You will then be able to test all the operations proposed in this document within the geodata project.\nDownload the project\nWe will mainly use the mapsf package.\nInstall it using the install.packages() function.\nWhat is the version of the package?\nWhat is new compared to the previous version?\n\n\n\n\n\nDunnington, Dewey. 2023. Ggspatial: Spatial Data Framework for Ggplot2. https://CRAN.R-project.org/package=ggspatial.\n\n\nGiraud, Timothée. 2023. Mapsf: Thematic Cartography. https://CRAN.R-project.org/package=mapsf.\n\n\nTennekes, Martijn. 2018. “tmap: Thematic Maps in R.” Journal of Statistical Software 84 (6): 1–39. https://doi.org/10.18637/jss.v084.i06.\n\n\nWickham, Hadley. 2016. Ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York. https://ggplot2.tidyverse.org.",
     "crumbs": [
-      "**Cartographie thématique**",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>mapsf</span>"
     ]
   },
   {
     "objectID": "02_semiologie.html",
     "href": "02_semiologie.html",
-    "title": "2  La sémiologie graphique",
+    "title": "2  The Cartographical Language",
     "section": "",
-    "text": "2.1 Principes généraux\nPour une première approche de la cartographie thématique on peut se référer à la figure suivante qui résume de manière simplifiée la relation entre un type de variable et sa représentation graphique correcte.",
+    "text": "Exercice\n🔗 Thematic Cartography - Cartographical Language\nHow to represent the following variables :",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>La sémiologie graphique</span>"
-    ]
-  },
-  {
-    "objectID": "02_semiologie.html#principes-généraux",
-    "href": "02_semiologie.html#principes-généraux",
-    "title": "2  La sémiologie graphique",
-    "section": "",
-    "text": "La sémiologie graphique est, de façon générale, l’ensemble des règles qui régissent la construction d’un système de signes ou langage permettant la traduction graphique d’une information. Depuis la parution de la Sémiologie graphique de Jacques Bertin (1967), elle désigne surtout un ensemble standardisé des règles et de pratiques inhérentes à la représentation cartographique au-delà des travaux réalisés par Bertin.\nWikipedia : Sémiologie graphique\n\n\n\n\n\n\n\n\n\nPourquoi on ne représente pas de stocks en aplat !",
-    "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>La sémiologie graphique</span>"
-    ]
-  },
-  {
-    "objectID": "02_semiologie.html#ressources",
-    "href": "02_semiologie.html#ressources",
-    "title": "2  La sémiologie graphique",
-    "section": "2.2 Ressources",
-    "text": "2.2 Ressources\nVoici quelques ouvrages et ressources pour l’apprentissage de la cartographie thématique :\n\n\n\n\n\n\n\n\n\nBéguin et Pumain (2023)\n\n\n\n\n\n\n\nLambert et Zanin (2016)\n\n\n\n\n\n\n\nRIATE (2023)",
-    "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>La sémiologie graphique</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Cartographical Language</span>"
     ]
   },
   {
     "objectID": "02_semiologie.html#exercice",
     "href": "02_semiologie.html#exercice",
-    "title": "2  La sémiologie graphique",
-    "section": "Exercice",
-    "text": "Exercice\nComment représenter les variables suivantes :\n\nUne population communale\nUn age médian par département\nUn taux de croissance\nLe statut administratif d’une commune (préfecture, sous-préfecture, commune simple…)\nL’espérance de vie par pays\n\n\n\n\n\nBéguin, M. et Pumain, D. (2023). La représentation des données géographiques: Statistique et cartographie. Armand Colin.\n\n\nBertin, J. (1967). Sémiologie Graphique. Les Diagrammes - Les Réseaux - Les Cartes. Paris: Mouton & Gauthier-Villars.\n\n\nLambert, N. et Zanin, C. (2016). Manuel de cartographie: principes, méthodes, applications. Armand Colin.\n\n\nRIATE. (2023). Cartographie thématique avec Magrit. https://magrit-formations.github.io/",
+    "title": "2  The Cartographical Language",
+    "section": "",
+    "text": "A municipal population\nA median age by department\nA growth rate\nThe administrative status of a commune (prefecture, sub-prefecture, simple commune, etc.)\nLife expectancy per country",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>La sémiologie graphique</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Cartographical Language</span>"
     ]
   },
   {
     "objectID": "03_types_de_cartes.html",
     "href": "03_types_de_cartes.html",
-    "title": "3  Les types de cartes",
+    "title": "3  Map Types",
     "section": "",
-    "text": "3.1 Les données d’exemple\nLa fonction mf_map() est la fonction centrale du package mapsf. Elle permet de réaliser la plupart des représentations usuelles en cartographie. Ces arguments principaux sont :\nLes lignes suivantes importent les couches d’information spatiales situées dans le fichier geopackage lot.gpkg.\nlibrary(sf)\n\n#&gt; Linking to GEOS 3.11.1, GDAL 3.6.2, PROJ 9.1.1; sf_use_s2() is TRUE\n\n# import des communes du Lot\ncom &lt;- st_read(\"data/lot.gpkg\", layer = \"communes\", quiet = TRUE)\n# import des départements français\ndep &lt;- st_read(\"data/lot.gpkg\", layer = \"departements\", quiet = TRUE)\n# import des restaurants\nresto &lt;- st_read(\"data/lot.gpkg\", layer = \"restaurants\", quiet = TRUE)\n# import des routes autour de la commune de Gramat\nroute &lt;- st_read(\"data/lot.gpkg\", layer = \"routes\", quiet = TRUE)",
+    "text": "3.1 Sample data set\nmf_map() is the main function of the package, it displays map layers on a georeferenced plot.\nmf_map() has three main arguments:\nMany parameters are available to fine tune symbologies and legends.\nImport map layers from the geopackage file lot.gpkg.\nlibrary(sf)\n\n#&gt; Linking to GEOS 3.13.0, GDAL 3.10.2, PROJ 9.5.1; sf_use_s2() is TRUE\n\n# import municipalities\ncom &lt;- st_read(\"data/lot.gpkg\", layer = \"communes\", quiet = TRUE)\n# import french departements \ndep &lt;- st_read(\"data/lot.gpkg\", layer = \"departements\", quiet = TRUE)\n# import restaurants\nresto &lt;- st_read(\"data/lot.gpkg\", layer = \"restaurants\", quiet = TRUE)\n# import someroads\nroute &lt;- st_read(\"data/lot.gpkg\", layer = \"routes\", quiet = TRUE)",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Les types de cartes</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Map Types</span>"
     ]
   },
   {
-    "objectID": "03_types_de_cartes.html#afficher-un-fond-de-carte",
-    "href": "03_types_de_cartes.html#afficher-un-fond-de-carte",
-    "title": "3  Les types de cartes",
-    "section": "3.2 Afficher un fond de carte",
-    "text": "3.2 Afficher un fond de carte\nUtilisée sans précision de type, la fonction mf_map() affiche simplement les couches spatiales.\n\nlibrary(mapsf)\n# Communes (polygones)\nmf_map(x = com, border = \"white\")\n# Départements (polygones, fond transparent)\nmf_map(x = dep, lwd = 2, col = NA, add = TRUE)\n# Routes (polylignes)\nmf_map(x = route, lwd = .7, col = \"ivory4\", add = TRUE)\n# Restaurants (points)\nmf_map(x = resto, pch = 20, cex = .7, col = \"darkred\", add = TRUE)\n# Ajour d'un titre\nmf_title(txt = \"Le Lot (46)\")",
+    "objectID": "03_types_de_cartes.html#geometries",
+    "href": "03_types_de_cartes.html#geometries",
+    "title": "3  Map Types",
+    "section": "3.2 Geometries",
+    "text": "3.2 Geometries\nmf_map(x, type = \"base\") displays sf objects geometries.\n\nlibrary(mapsf)\n# polygones\nmf_map(x = com, border = \"white\")\n# Départements (polygones, fond transparent)\nmf_map(x = dep, lwd = 2, col = NA, add = TRUE)\n# Routes (polylignes)\nmf_map(x = route, lwd = .7, col = \"ivory4\", add = TRUE)\n# Restaurants (points)\nmf_map(x = resto, pch = 20, cex = .7, col = \"darkred\", add = TRUE)\n# Ajour d'un titre\nmf_title(txt = \"Le Lot (46)\")",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Les types de cartes</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Map Types</span>"
     ]
   },
   {
-    "objectID": "03_types_de_cartes.html#carte-de-symboles-proportionnels",
-    "href": "03_types_de_cartes.html#carte-de-symboles-proportionnels",
-    "title": "3  Les types de cartes",
-    "section": "3.3 Carte de symboles proportionnels",
-    "text": "3.3 Carte de symboles proportionnels\nLes cartes de symboles proportionnels sont utilisées pour représenter les variables de stocks (variables quantitatives absolues, la somme et la moyenne ont un sens). La fonction mf_map(..., type = \"prop\") propose cette représentation.\n\n# Communes\nmf_map(x = com)\n# Symboles proportionnels\nmf_map(\n  x = com, \n  var = \"POPULATION\",\n  type = \"prop\",\n  leg_title = \"Population totale\\n(2015)\"\n)\n# Titre\nmf_title(\"Distribution de la population dans le Lot\")",
+    "objectID": "03_types_de_cartes.html#proportional-symbols",
+    "href": "03_types_de_cartes.html#proportional-symbols",
+    "title": "3  Map Types",
+    "section": "3.3 Proportional Symbols",
+    "text": "3.3 Proportional Symbols\nmf_map(x, var, type = \"prop\") displays symbols with areas proportional to a quantitative variable (stocks). The inches argument is used to customize the symbols sizes.\n\n# Communes\nmf_map(x = com)\n# Symboles proportionnels\nmf_map(\n  x = com, \n  var = \"POPULATION\",\n  type = \"prop\",\n  leg_title = \"Population totale\\n(2015)\"\n)\n# Titre\nmf_title(\"Distribution de la population dans le Lot\")",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Les types de cartes</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Map Types</span>"
     ]
   },
   {
-    "objectID": "03_types_de_cartes.html#carte-choroplèthe",
-    "href": "03_types_de_cartes.html#carte-choroplèthe",
-    "title": "3  Les types de cartes",
-    "section": "3.4 Carte choroplèthe",
-    "text": "3.4 Carte choroplèthe\nLes cartes choroplèthes sont utilisées pour représenter les variables de ratios (variables quantitatives relatives, la moyenne a un sens, la somme n’a pas de sens).\nLa fonction mf_map(..., type = \"choro\") permet de créer des cartes choroplètes. Les arguments nbreaks et breaks servent à paramétrer les discrétisations.\n\n# Densité de population (hab./km2) en utilisant la fonction sf::st_area()\ncom$DENS &lt;- 1e6 * com$POPULATION / as.numeric(st_area(com))\nmf_map(\n  x = com,\n  var = \"DENS\",\n  type = \"choro\",\n  breaks = \"quantile\",\n  nbreaks = 6,\n  pal = \"Dark Mint\",\n  lwd = 1,\n  leg_title = \"Densité de population\\n(habitants par km2)\", \n  leg_val_rnd = 0\n)\nmf_title(\"Distribution de la population dans le Lot (2018)\")\n\n\n\n\n\n\n\n\n\n3.4.1 Les palettes de couleurs\nL’argument pal de mf_map() est dédié au choix d’une palette de couleur. pal peut être le nom d’une palette de couleur fournie par R ou alors un vecteur de couleurs définies par leurs codes hexadécimaux.\nmf_map(x = com, var = \"DENS\", type = \"choro\",\n       breaks = \"quantile\", nbreaks = 4, \n       pal = \"Peach\")\nmf_title(\"Palette définie par son nom\")\nma_palette &lt;- c(\"#F3CAD2\", \"#E08BB1\", \"#AF4F91\", \"#6D1C68\")\nmf_map(x = com, var = \"DENS\", type = \"choro\",\n       breaks = \"quantile\", nbreaks = 4, \n       pal = ma_palette)\nmf_title(\"Palette définie par un vecteur de couleurs\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nLes palettes de R\n\n\nLes fonctions hcl.colors() et mf_get_pal() permettent de construire des palettes de couleurs. mf_get_pal() est surtout utile pour créer des palettes divergentes asymétriques équilibrées.\n\npal_equilibre &lt;- mf_get_pal(n = c(6,3), palette = c(\"Burg\", \"Teal\"))\npal_non_equi &lt;- c(hcl.colors(6, \"Burg\"), hcl.colors(3,\"Teal\", rev = TRUE))\nlibrary(maplegend)\nopar &lt;- par(mar = c(0,0,0,0))\nplot.new()\nplot.window(xlim = c(0, 1), ylim = c(0, 1), asp = 1)\nleg(type = \"choro\", val = rep(\"\", 10), \n    pal = pal_equilibre, pos = \"topleft\", \n    title = \"Palette équilibrée\")\nleg(type = \"choro\", val = rep(\"\", 10), \n    pal = pal_non_equi, pos = \"top\", \n    title = \"Palette non équilibrée\")\npar(opar)\n\n\n\n\n\n\n\n\n\n\n3.4.2 Discrétisations\nAvant de réaliser une carte choroplèthe on doit d’abord étudier la distribution statistique de la variable que l’on souhaite cartographier. La fonction mf_distr() permet de visualiser les distributions.\n\nmf_distr(com$DENS)\n\n\n\n\n\n\n\n\nCette distribution est très dissymétrique à gauche.\nLa fonction mf_get_breaks() met à disposition les méthodes de discrétisations de variables classique : quantiles, moyenne/écart-type, amplitudes égales, moyennes emboîtées, Fisher-Jenks, géométrique…\nIci, l’utilisation de la méthode “geom” est assez appropriée.\n\nbks &lt;- mf_get_breaks(x = com$DENS, nbreaks = 5, breaks = \"geom\") \nbks\n\n#&gt; [1]   4.113775  11.033758  29.594181  79.376000 212.898252 571.024813\n\nmf_map(\n  x = com, var = \"DENS\", type = \"choro\",\n  breaks = bks, pal = \"Blues\",\n  lwd = 1,\n  leg_title = \"Population density\\n(inh. per km2)\", \n  leg_val_rnd = 0\n)\nmf_title(\"Distribution de la population dans le Lot (2018)\")",
+    "objectID": "03_types_de_cartes.html#choropleth-map",
+    "href": "03_types_de_cartes.html#choropleth-map",
+    "title": "3  Map Types",
+    "section": "3.4 Choropleth Map",
+    "text": "3.4 Choropleth Map\nIn choropleth maps, areas are shaded according to the variation of a quantitative variable. They are used to represent ratios or indices. mf_map(x, var, type = \"choro\") displays choropleth maps . Arguments nbreaks, and breaks allow to customize the variable classification.\n\n# Densité de population (hab./km2) en utilisant la fonction sf::st_area()\ncom$DENS &lt;- 1e6 * com$POPULATION / as.numeric(st_area(com))\nmf_map(\n  x = com,\n  var = \"DENS\",\n  type = \"choro\",\n  breaks = \"quantile\",\n  nbreaks = 6,\n  pal = \"Dark Mint\",\n  lwd = 1,\n  leg_title = \"Densité de population\\n(habitants par km2)\", \n  leg_val_rnd = 0\n)\nmf_title(\"Distribution de la population dans le Lot (2018)\")\n\n\n\n\n\n\n\n\n\n3.4.1 Color palettes\nColor palettes, defined with pal, can be created with mf_get_pal() or you can use palette names from hcl.pals().\nmf_map(x = com, var = \"DENS\", type = \"choro\",\n       breaks = \"quantile\", nbreaks = 4, \n       pal = \"Peach\")\nmf_title(\"Palette définie par son nom\")\nma_palette &lt;- c(\"#F3CAD2\", \"#E08BB1\", \"#AF4F91\", \"#6D1C68\")\nmf_map(x = com, var = \"DENS\", type = \"choro\",\n       breaks = \"quantile\", nbreaks = 4, \n       pal = ma_palette)\nmf_title(\"Palette définie par un vecteur de couleurs\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nBuiltin R color palettes\n\n\n\n\n3.4.2 Classifications\nBefore creating a choropleth map, we must first study the statistical distribution of the variable we wish to map. The mf_distr() function is used to visualise distributions.\n\nmf_distr(com$DENS)\n\n\n\n\n\n\n\n\nThis distribution is very skewed to the left.\nmf_get_breaks() can be used to classify continuous variables. Many classification methods are available ( “fixed”, “sd”, “equal”, “pretty”, “quantile”, “kmeans”, “hclust”, “bclust”, “fisher”, “jenks”, “dpih”, “q6”, “Q6”, geom”, “arith”, “em”, “msd” or “ckmeans”).\nHere, using the ‘geom’ method is quite appropriate.\n\nbks &lt;- mf_get_breaks(x = com$DENS, nbreaks = 5, breaks = \"geom\") \nbks\n\n#&gt; [1]   4.113775  11.033758  29.594181  79.376000 212.898252 571.024813\n\nmf_map(\n  x = com, var = \"DENS\", type = \"choro\",\n  breaks = bks, pal = \"Blues\",\n  lwd = 1,\n  leg_title = \"Population density\\n(inh. per km2)\", \n  leg_val_rnd = 0\n)\nmf_title(\"Distribution de la population dans le Lot (2018)\")",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Les types de cartes</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Map Types</span>"
     ]
   },
   {
-    "objectID": "03_types_de_cartes.html#carte-de-typologie",
-    "href": "03_types_de_cartes.html#carte-de-typologie",
-    "title": "3  Les types de cartes",
-    "section": "3.5 Carte de typologie",
-    "text": "3.5 Carte de typologie\nLes cartes de typologies sont utilisées pour représenter les variables qualitatives.\nLa fonction mf_map(..., type = \"typo\") propose cette représentation.\n\nmf_map(\n  x = com,\n  var=\"STATUT\",\n  type = \"typo\",\n  pal = c(\"aquamarine4\", \"yellow3\",\"wheat\"),\n  lwd = .7,\n  leg_title = \"\"\n)\nmf_title(\"Statut administratif des communes\")\n\n\n\n\n\n\n\n\nL’argument val_order sert à ordonner les modalités dans la légende.\n\nmf_map(\n  x = com,\n  var=\"STATUT\",\n  type = \"typo\",\n  pal = c(\"aquamarine4\", \"yellow3\",\"wheat\"),\n  val_order = c(\"Préfecture\", \"Sous-préfecture\", \"Commune simple\"),\n  lwd = .7,\n  leg_title = \"\"\n)\nmf_title(\"Statut administratif des communes\")",
+    "objectID": "03_types_de_cartes.html#typology-map",
+    "href": "03_types_de_cartes.html#typology-map",
+    "title": "3  Map Types",
+    "section": "3.5 Typology Map",
+    "text": "3.5 Typology Map\nmf_map(x, var, type = \"typo\") displays a typology map of a qualitative variable. val_order is used to set the modalities order in the legend.\n\nmf_map(\n  x = com,\n  var=\"STATUT\",\n  type = \"typo\",\n  pal = c(\"aquamarine4\", \"yellow3\",\"wheat\"),\n  lwd = .7,\n  leg_title = \"\"\n)\nmf_title(\"Statut administratif des communes\")\n\n\n\n\n\n\n\n\nThe val_order argument is used to order the modalities in the legend.\n\nmf_map(\n  x = com,\n  var=\"STATUT\",\n  type = \"typo\",\n  pal = c(\"aquamarine4\", \"yellow3\",\"wheat\"),\n  val_order = c(\"Préfecture\", \"Sous-préfecture\", \"Commune simple\"),\n  lwd = .7,\n  leg_title = \"\"\n)\nmf_title(\"Statut administratif des communes\")",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Les types de cartes</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Map Types</span>"
     ]
   },
   {
-    "objectID": "03_types_de_cartes.html#carte-de-stocks-et-de-ratios",
-    "href": "03_types_de_cartes.html#carte-de-stocks-et-de-ratios",
-    "title": "3  Les types de cartes",
-    "section": "3.6 Carte de stocks et de ratios",
-    "text": "3.6 Carte de stocks et de ratios\nLa fonction mf_map(..., var = c(\"var1\", \"var2\"), type = \"prop_choro\") représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d’une variable et dont la couleur repose sur la discrétisation d’une seconde variable. La fonction utilise les arguments des fonctions mf_map(..., type = \"prop\") et mf_map(..., type = \"choro\").\n\nmf_map(x = com)\nmf_map(\n  x = com,\n  var = c(\"POPULATION\", \"DENS\"),\n  type = \"prop_choro\",\n  border = \"grey50\",\n  lwd = 1,\n  leg_title = c(\"Population\", \"Densité\\nde population\\n(en hab./km2)\"),\n  breaks = \"q6\",\n  pal = \"Magenta\",\n  leg_val_rnd = c(0,1))\nmf_title(\"Distribution de la population dans le Lot (2018)\")",
+    "objectID": "03_types_de_cartes.html#proportional-symbols-using-choropleth-coloration",
+    "href": "03_types_de_cartes.html#proportional-symbols-using-choropleth-coloration",
+    "title": "3  Map Types",
+    "section": "3.6 Proportional Symbols using Choropleth Coloration",
+    "text": "3.6 Proportional Symbols using Choropleth Coloration\nmf_map(x, var, type = \"prop_choro\") creates a map of symbols that are proportional to values of a first variable and colored to reflect the classification of a second variable.\n\nmf_map(x = com)\nmf_map(\n  x = com,\n  var = c(\"POPULATION\", \"DENS\"),\n  type = \"prop_choro\",\n  border = \"grey50\",\n  lwd = 1,\n  leg_title = c(\"Population\", \"Densité\\nde population\\n(en hab./km2)\"),\n  breaks = \"q6\",\n  pal = \"Magenta\",\n  leg_val_rnd = c(0,1))\nmf_title(\"Distribution de la population dans le Lot (2018)\")",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Les types de cartes</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Map Types</span>"
     ]
   },
   {
-    "objectID": "03_types_de_cartes.html#carte-de-stocks-et-de-catégories",
-    "href": "03_types_de_cartes.html#carte-de-stocks-et-de-catégories",
-    "title": "3  Les types de cartes",
-    "section": "3.7 Carte de stocks et de catégories",
-    "text": "3.7 Carte de stocks et de catégories\nLa fonction mf_map(..., var = c(\"var1\", \"var2\"), type = \"prop_typo\") représente des symboles proportionnels dont les surfaces sont proportionnelles aux valeurs d’une variable et dont la couleur représente les modalités d’une variable qualitative. La fonction utilise les arguments des fonctions mf_map(..., type = \"prop\") et mf_map(..., type = \"typo\").\n\nmf_map(x = com)\nmf_map(\n  x = com,\n  var = c(\"POPULATION\", \"STATUT\"),\n  type = \"prop_typo\",\n  pal = c(\"aquamarine4\", \"yellow3\",\"wheat\"),\n  val_order = c(\"Préfecture\", \"Sous-préfecture\", \"Commune simple\"),\n  leg_pos = \"topleft\",\n  leg_title = c(\"Population\\n(2015)\",\n                \"Statut administratif\"),\n)\nmf_title(\"Distribution de la population dans le Lot (2018)\")",
+    "objectID": "03_types_de_cartes.html#proportional-symbols-using-typology-coloration",
+    "href": "03_types_de_cartes.html#proportional-symbols-using-typology-coloration",
+    "title": "3  Map Types",
+    "section": "3.7 Proportional Symbols using Typology Coloration",
+    "text": "3.7 Proportional Symbols using Typology Coloration\nmf_map(x, var, type = \"prop_typo\") creates a map of symbols that are proportional to values of a first variable and colored to reflect the modalities of a second qualitative variable.\n\nmf_map(x = com)\nmf_map(\n  x = com,\n  var = c(\"POPULATION\", \"STATUT\"),\n  type = \"prop_typo\",\n  pal = c(\"aquamarine4\", \"yellow3\",\"wheat\"),\n  val_order = c(\"Préfecture\", \"Sous-préfecture\", \"Commune simple\"),\n  leg_pos = \"topleft\",\n  leg_title = c(\"Population\\n(2015)\",\n                \"Statut administratif\"),\n)\nmf_title(\"Distribution de la population dans le Lot (2018)\")",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Les types de cartes</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Map Types</span>"
     ]
   },
   {
     "objectID": "03_types_de_cartes.html#exercice",
     "href": "03_types_de_cartes.html#exercice",
-    "title": "3  Les types de cartes",
+    "title": "3  Map Types",
     "section": "Exercice",
-    "text": "Exercice\n\nImporter la couche des communes du département du Lot à partir du fichier geopackage lot.gpkg.\nImporter le fichier com.csv.\nCe jeu de données porte sur les communes du Lot et contient plusieurs variables supplémentaires:\n\nle nombre d’actifs (ACT).\nle nombre d’actifs dans l’industrie (IND)\nla part des actifs dans la population totale (SACT)\nla part des actifs dans l’industrie dans le total des actifs (SACT_IND)\n\nJoindre le jeu de données et la couche des communes.\nCréer une carte de la population active.\nQuel mode de représentation utiliser? Quels choix cela implique-t-il?\nCréer une carte de la part de la population active dans la population totale.\nQuel mode de représentation utiliser? Quels choix cela implique-t-il?\n\n\n\n\n\n\n\nVous pouvez utiliser le fichier exo_cartographie_simple.R pour vous guider dans cette exercice.",
+    "text": "Exercice\n\nImport the communes layer for the Lot department from the geopackage lot.gpkg file.\nImport the com.csv file.\nThis dataset covers the communes of the Lot department and contains several additional variables:\n\nthe number of employees (ACT).\nthe number of people employed in industry (IND)\nthe share of the working population in the total population (SACT)\nthe share of the workforce in industry in the total workforce (SACT_IND)\n\nAttach the dataset and the municipalities layer.\nCreate a map of the active population.\nWhich representation method should be used? What choices does this involve?\nCreate a map of the share of the working population in the total population.\nWhat representation method should be used? What choices does this involve?\n\n\n\n\n\n\n\nYou can use the file exo_cartographie_simple.R to guide you through this exercise.",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Les types de cartes</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Map Types</span>"
     ]
   },
   {
     "objectID": "04_mise_en_page.html",
     "href": "04_mise_en_page.html",
-    "title": "4  La mise en page",
+    "title": "4  Map Layout",
     "section": "",
-    "text": "4.1 Les données d’exemple\nPour être finalisée, une carte thématique doit contenir certains éléments additionnels tels que : le titre, l’auteur, la source, l’échelle, l’orientation…\nLes lignes suivantes importent les couches d’information spatiales situées dans le fichier geopackage lot.gpkg.\nlibrary(sf)\n# import des communes du Lot\ncom &lt;- st_read(\"data/lot.gpkg\", layer = \"communes\", quiet = TRUE)\n# import des départements français\ndep &lt;- st_read(\"data/lot.gpkg\", layer = \"departements\", quiet = TRUE)\n# import des restaurants\nresto &lt;- st_read(\"data/lot.gpkg\", layer = \"restaurants\", quiet = TRUE)\n# import des routes autour de la commune de Gramat\nroute &lt;- st_read(\"data/lot.gpkg\", layer = \"routes\", quiet = TRUE)",
+    "text": "4.1 Sample data set\nImport map layers from the geopackage file lot.gpkg.\nlibrary(sf)\n# import des communes du Lot\ncom &lt;- st_read(\"data/lot.gpkg\", layer = \"communes\", quiet = TRUE)\n# import des départements français\ndep &lt;- st_read(\"data/lot.gpkg\", layer = \"departements\", quiet = TRUE)\n# import des restaurants\nresto &lt;- st_read(\"data/lot.gpkg\", layer = \"restaurants\", quiet = TRUE)\n# import des routes autour de la commune de Gramat\nroute &lt;- st_read(\"data/lot.gpkg\", layer = \"routes\", quiet = TRUE)",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>La mise en page</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
-    "objectID": "04_mise_en_page.html#les-thèmes",
-    "href": "04_mise_en_page.html#les-thèmes",
-    "title": "4  La mise en page",
-    "section": "4.2 Les thèmes",
-    "text": "4.2 Les thèmes\nLa fonction mf_theme() définit un thème cartographique. L’utilisation d’un thème permet de définir plusieurs paramètres graphiques qui sont ensuite appliqués aux cartes créées avec mapsf. Ces paramètres sont : les marges de la carte, la couleur principale, la couleur de fond, la position et l’aspect du titre.\n\n4.2.1 Utiliser un thème prédéfini\nUne série de thèmes prédéfinis est disponible par défaut (voir ?mf_theme).\nlibrary(mapsf)\n# Utilisation d'un thème prédéfini\nmf_theme(\"default\")\nmf_map(com)\nmf_title(\"Theme : 'default'\")\nmf_theme(\"darkula\")\nmf_map(com)\nmf_title(\"Theme : 'darkula'\")\nmf_theme(\"candy\")\nmf_map(com)\nmf_title(\"Theme : 'candy'\")\nmf_theme(\"nevermind\")\nmf_map(com)\nmf_title(\"Theme : 'nevermind'\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4.2.2 Modifier un thème existant\nIl est possible de modifier un thème existant. Dans cet exemple, nous utilisons le thème “default” et nous en modifions quelques paramètres.\nlibrary(mapsf)\nmf_theme(\"default\")\nmf_map(com)\nmf_title(\"default\")\nmf_theme(\"default\", tab = FALSE, font = 4, bg = \"grey60\", pos = \"center\")\nmf_map(com)\nmf_title(\"modified default\")\n\n\n\n\n\n\n\n\n\n\n\n\n4.2.3 Créer un thème\nIl est également possible de créer un thème.\n\nmf_theme(\n  bg = \"lightblue\",    # couleur de fond\n  fg = \"tomato1\",      # couleur principale\n  mar = c(0,0,1.5,0),  # marges\n  tab = FALSE,         # style \"onglet\" pour le titre\n  inner = FALSE,       # titre à l'intérieur de la zone de carte ou à l'extérieur\n  line = 1.5,          # espace dédié au titre\n  pos = \"center\",      # position du titre\n  cex = 1.2,           # taille du titre\n  font = 2             # type de fonte pour le titre\n)\nmf_map(com)\nmf_title(\"New theme\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVignette\n\n\n\nHow to Use Themes",
+    "objectID": "04_mise_en_page.html#titles",
+    "href": "04_mise_en_page.html#titles",
+    "title": "4  Map Layout",
+    "section": "4.2 Titles",
+    "text": "4.2 Titles\nmf_title() displays a title.\n\nmf_theme(\"default\")\nmf_map(com)\nmf_title(\"Titre de la carte\")",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>La mise en page</span>"
-    ]
-  },
-  {
-    "objectID": "04_mise_en_page.html#les-titres",
-    "href": "04_mise_en_page.html#les-titres",
-    "title": "4  La mise en page",
-    "section": "4.3 Les titres",
-    "text": "4.3 Les titres\nLa fonction mf_title() permet d’ajouter un titre à une carte.\n\nmf_theme(\"default\")\nmf_map(com)\nmf_title(\"Titre de la carte\")\n\n\n\n\n\n\n\n\nIl est possible de personnaliser l’aspect du titre.\n\nmf_map(com)\nmf_title(\n  txt = \"Titre de la carte\", \n  pos = \"center\", \n  tab = FALSE, \n  bg = \"tomato3\", \n  fg = \"lightblue\", \n  cex = 1, \n  line = 1.2, \n  font = 1, \n  inner = FALSE\n)",
-    "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>La mise en page</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
     "objectID": "04_mise_en_page.html#flèche-dorientation-et-échelle",
     "href": "04_mise_en_page.html#flèche-dorientation-et-échelle",
-    "title": "4  La mise en page",
-    "section": "4.4 Flèche d’orientation et échelle",
-    "text": "4.4 Flèche d’orientation et échelle\nLa fonction mf_arrow() permet de choisir la position et l’aspect de la flèche d’orientation.\nLa fonction mf_scale() permet de choisir la position et l’aspect de l’échelle.\n\nmf_map(com)\nmf_scale(size = 20, lwd = 2, cex = 1.2)\nmf_arrow()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nToutes les cartes doivent avoir une échelle et une flèche d’orientation !?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCarnet Observable interactif de Nicolas Lambert",
+    "title": "4  Map Layout",
+    "section": "4.3 Flèche d’orientation et échelle",
+    "text": "4.3 Flèche d’orientation et échelle\nLa fonction mf_arrow() permet de choisir la position et l’aspect de la flèche d’orientation.\nLa fonction mf_scale() permet de choisir la position et l’aspect de l’échelle.\n\nmf_map(com)\nmf_scale(size = 20, lwd = 2, cex = 1.2)\nmf_arrow()",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>La mise en page</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
     "objectID": "04_mise_en_page.html#crédits",
     "href": "04_mise_en_page.html#crédits",
-    "title": "4  La mise en page",
-    "section": "4.5 Crédits",
-    "text": "4.5 Crédits\nLa fonction mf_credits() permet d’afficher une ligne de crédits (sources, auteur…).\n\nmf_map(com)\nmf_credits(\"Auteurs : TG & HP\\nSources : IGN, 2018\")",
+    "title": "4  Map Layout",
+    "section": "4.4 Crédits",
+    "text": "4.4 Crédits\nLa fonction mf_credits() permet d’afficher une ligne de crédits (sources, auteur…).\n\nmf_map(com)\nmf_credits(\"Auteurs : TG & HP\\nSources : IGN, 2018\")",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>La mise en page</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
-    "objectID": "04_mise_en_page.html#habillage-complet",
-    "href": "04_mise_en_page.html#habillage-complet",
-    "title": "4  La mise en page",
-    "section": "4.6 Habillage complet",
-    "text": "4.6 Habillage complet\nLa fonction mf_layout() permet d’afficher tous ces éléments (titre, c.\n\nmf_map(com)\nmf_layout(\n  title = \"Le Lot\",\n  credits = \"Auteurs : TG & HP\\nSources : IGN, 2018\",\n  arrow = TRUE, \n  scale = TRUE\n)",
+    "objectID": "04_mise_en_page.html#full-layout",
+    "href": "04_mise_en_page.html#full-layout",
+    "title": "4  Map Layout",
+    "section": "4.5 Full layout",
+    "text": "4.5 Full layout\nLa fonction mf_layout() permet d’afficher tous ces éléments (titre, c.\n\nmf_map(com)\nmf_layout(\n  title = \"Le Lot\",\n  credits = \"Auteurs : TG & HP\\nSources : IGN, 2018\",\n  arrow = TRUE, \n  scale = TRUE\n)",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>La mise en page</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
     "objectID": "04_mise_en_page.html#annotations",
     "href": "04_mise_en_page.html#annotations",
-    "title": "4  La mise en page",
-    "section": "4.7 Annotations",
-    "text": "4.7 Annotations\n\n# Sélection d'une commune\ncahors &lt;- com[com$NOM_COM == \"Cahors\", ]\nmf_map(com)\nmf_annotation(\n  x = cahors, \n  txt = \"Cahors\", \n  halo = TRUE, \n  cex = 1.5\n)",
+    "title": "4  Map Layout",
+    "section": "4.6 Annotations",
+    "text": "4.6 Annotations\n\n# Sélection d'une commune\ncahors &lt;- com[com$NOM_COM == \"Cahors\", ]\nmf_map(com)\nmf_annotation(\n  x = cahors, \n  txt = \"Cahors\", \n  halo = TRUE, \n  cex = 1.5\n)",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>La mise en page</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
-    "objectID": "04_mise_en_page.html#étiquettes",
-    "href": "04_mise_en_page.html#étiquettes",
-    "title": "4  La mise en page",
-    "section": "4.8 Étiquettes",
-    "text": "4.8 Étiquettes\nLa fonction mf_label() est dédiée à l’affichage d’étiquettes.\n\n# Selection des communes qui intersectent la \n# commune de Cahors\ncom_sel &lt;- st_filter(com, com[com$NOM_COM == \"Cahors\", ])\nmf_map(com_sel)\nmf_label(\n  x = com_sel,\n  var = \"NOM_COM\",\n  col= \"black\",\n  halo = TRUE,\n  overlap = FALSE, \n  lines = FALSE\n)\nmf_scale()\n\n\n\n\n\n\n\n\nL’argument halo = TRUE permet d’afficher un léger halo autour des étiquettes et l’argument overlap = FALSE permet de créer des étiquettes ne se recouvrant pas.",
+    "objectID": "04_mise_en_page.html#labels",
+    "href": "04_mise_en_page.html#labels",
+    "title": "4  Map Layout",
+    "section": "4.7 Labels",
+    "text": "4.7 Labels\nLa fonction mf_label() est dédiée à l’affichage d’étiquettes.\n\n# Selection des communes qui intersectent la \n# commune de Cahors\ncom_sel &lt;- st_filter(com, com[com$NOM_COM == \"Cahors\", ])\nmf_map(com_sel)\nmf_label(\n  x = com_sel,\n  var = \"NOM_COM\",\n  col= \"black\",\n  halo = TRUE,\n  overlap = FALSE, \n  lines = FALSE\n)\nmf_scale()\n\n\n\n\n\n\n\n\nL’argument halo = TRUE permet d’afficher un léger halo autour des étiquettes et l’argument overlap = FALSE permet de créer des étiquettes ne se recouvrant pas.",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>La mise en page</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
     "objectID": "04_mise_en_page.html#les-légendes",
     "href": "04_mise_en_page.html#les-légendes",
-    "title": "4  La mise en page",
-    "section": "4.9 Les légendes",
-    "text": "4.9 Les légendes\nLa fonction mf_legend() permet d’afficher des légendes.\n\nmf_map(com)\nmf_legend(\n  type = \"prop\", \n  val = c(1000,500,200,10), \n  inches = .4, \n  title = \"Population\", \n  pos = \"topleft\"\n)\nmf_legend(\n  type = \"choro\", \n  val = c(0,10,20,30,40),\n  pal = \"Greens\", \n  pos = \"bottomright\", \n  val_rnd = 0\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLe package maplegend\n\n\n\nLa fonction mf_legend() s’appuie sur le package maplegend",
+    "title": "4  Map Layout",
+    "section": "4.8 Les légendes",
+    "text": "4.8 Les légendes\nLa fonction mf_legend() permet d’afficher des légendes.\n\nmf_map(com)\nmf_legend(\n  type = \"prop\", \n  val = c(1000,500,200,10), \n  inches = .4, \n  title = \"Population\", \n  pos = \"topleft\"\n)\nmf_legend(\n  type = \"choro\", \n  val = c(0,10,20,30,40),\n  pal = \"Greens\", \n  pos = \"bottomright\", \n  val_rnd = 0\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLe package maplegend\n\n\n\nLa fonction mf_legend() s’appuie sur le package maplegend",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>La mise en page</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
     "objectID": "04_mise_en_page.html#centrer-la-carte-sur-une-région",
     "href": "04_mise_en_page.html#centrer-la-carte-sur-une-région",
-    "title": "4  La mise en page",
-    "section": "4.10 Centrer la carte sur une région",
-    "text": "4.10 Centrer la carte sur une région\nLa fonction mf_map() permet d’initialiser une carte en la centrant sur une objet spatial en choisissant un fond et des bordures transparantes.\n\nmf_map(x = com_sel, col = NA, border = NA)\nmf_map(com, add = TRUE)\nmf_map(com_sel, col = NA, border = \"red\", lwd = 2, add = TRUE)",
+    "title": "4  Map Layout",
+    "section": "4.9 Centrer la carte sur une région",
+    "text": "4.9 Centrer la carte sur une région\nLa fonction mf_map() permet d’initialiser une carte en la centrant sur une objet spatial en choisissant un fond et des bordures transparantes.\n\nmf_map(x = com_sel, col = NA, border = NA)\nmf_map(com, add = TRUE)\nmf_map(com_sel, col = NA, border = \"red\", lwd = 2, add = TRUE)",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>La mise en page</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
     "objectID": "04_mise_en_page.html#afficher-plusieurs-cartes-sur-la-même-figure",
     "href": "04_mise_en_page.html#afficher-plusieurs-cartes-sur-la-même-figure",
-    "title": "4  La mise en page",
-    "section": "4.11 Afficher plusieurs cartes sur la même figure",
-    "text": "4.11 Afficher plusieurs cartes sur la même figure\nIl faut ici utiliser l’argument mfrow de la fonction par(). Le premier chiffre représente le nombre lignes et le deuxième le nombre de colonnes.\nPar exemple par(mfrow = c(1, 2)) (1 ligne et 2 colonnes) permet d’afficher deux cartes côte à côte.\n\n# define the figure layout (1 row, 2 columns)\nopar &lt;- par(mfrow = c(1, 2))\n# define theme\nmf_theme(\"default\", mar = c(0,0,1.2,0), tab = FALSE, pos = \"center\")\n# first map\nmf_map(com)\nmf_map(com, \"TER_F\", \"prop\", \n       inches = .2,\n       val_max = 4000, \n       leg_pos = \"topleft\", \n       leg_title = \"N.\")\nmf_title(\"Tertiaire: Femmes\")\n# second map\nmf_map(com)\nmf_map(com, \"TER_H\", \"prop\",\n       inches = .2,\n       val_max = 4000, \n       leg_pos = NA)\nmf_title(\"Hommes\")\npar(opar)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nComparer des cartes de cercles proportionnels\n\n\n\nNotons ici l’utilisation des arguments inches et val_max avec des valeurs identiques pour les deux carte. Cela rend possible les comparaisons entres les deux cartes.\n\n\n\n\n\n\n\n\nVignette\n\n\n\nHow to Create Faceted Maps",
+    "title": "4  Map Layout",
+    "section": "4.10 Afficher plusieurs cartes sur la même figure",
+    "text": "4.10 Afficher plusieurs cartes sur la même figure\nIl faut ici utiliser l’argument mfrow de la fonction par(). Le premier chiffre représente le nombre lignes et le deuxième le nombre de colonnes.\nPar exemple par(mfrow = c(1, 2)) (1 ligne et 2 colonnes) permet d’afficher deux cartes côte à côte.\n\n# define the figure layout (1 row, 2 columns)\nopar &lt;- par(mfrow = c(1, 2))\n# define theme\nmf_theme(\"default\", mar = c(0,0,1.2,0), tab = FALSE, pos = \"center\")\n# first map\nmf_map(com)\nmf_map(com, \"TER_F\", \"prop\", \n       inches = .2,\n       val_max = 4000, \n       leg_pos = \"topleft\", \n       leg_title = \"N.\")\nmf_title(\"Tertiaire: Femmes\")\n# second map\nmf_map(com)\nmf_map(com, \"TER_H\", \"prop\",\n       inches = .2,\n       val_max = 4000, \n       leg_pos = NA)\nmf_title(\"Hommes\")\npar(opar)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nComparer des cartes de cercles proportionnels\n\n\n\nNotons ici l’utilisation des arguments inches et val_max avec des valeurs identiques pour les deux carte. Cela rend possible les comparaisons entres les deux cartes.\n\n\n\n\n\n\n\n\nVignette\n\n\n\nHow to Create Faceted Maps",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>La mise en page</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
     "objectID": "04_mise_en_page.html#export-des-cartes",
     "href": "04_mise_en_page.html#export-des-cartes",
-    "title": "4  La mise en page",
-    "section": "4.12 Export des cartes",
-    "text": "4.12 Export des cartes\nmf_export() permet d’exporter des cartes en PNG ou en SVG.\nLe ratio hauteur/largeur de la carte correspondra au ratio hauteur/largeur d’un objet spatial.\nSi width est spécifié alors height est déduit du ratio hauteur/largeur de x, de la taille des marges de la figure et des dimensions du titre (du thème utilisé en somme).\nmf_export() peut aussi être utilisé pour ajouter de l’espace sur un ou plusieurs côté de la carte ou encore centrer la carte sur une zone particulière.\n\n\n\n\n\n\nToujours utiliser add = TRUE après un appel à mf_export() et ne pas oublier d’utiliser dev.off() pour finaliser l’export de la figure.\n\n\n\n\n#création d'un thème personnel\nmf_theme(\"candy\", bg = \"grey80\")\nmf_export(\n  x = com, \n  filename = \"img/com_default.png\",\n  width = 600\n)\nmf_map(com, add = TRUE)\nmf_title(\"Le Lot\")\ndev.off()\n\n\nL’emprise de cette carte est exactement celle de la région affichée.\nLors de l’export suivant nous ajoutons de l’espace sur la partie droite de la carte (50% de la largeur de x).\n\nmf_export(\n  x = com, \n  filename = \"img/com_expand.png\",\n  width = 600, \n  expandBB = c(0, 0, 0, .5)\n)\nmf_map(com, add = TRUE)\nmf_title(\"Le Lot\")\ndev.off()\n\n\n\n\n\n\n\n\nVignette\n\n\n\nHow to Export Maps",
+    "title": "4  Map Layout",
+    "section": "4.11 Export des cartes",
+    "text": "4.11 Export des cartes\nmf_export() permet d’exporter des cartes en PNG ou en SVG.\nLe ratio hauteur/largeur de la carte correspondra au ratio hauteur/largeur d’un objet spatial.\nSi width est spécifié alors height est déduit du ratio hauteur/largeur de x, de la taille des marges de la figure et des dimensions du titre (du thème utilisé en somme).\nmf_export() peut aussi être utilisé pour ajouter de l’espace sur un ou plusieurs côté de la carte ou encore centrer la carte sur une zone particulière.\n\n\n\n\n\n\nToujours utiliser add = TRUE après un appel à mf_export() et ne pas oublier d’utiliser dev.off() pour finaliser l’export de la figure.\n\n\n\n\n#création d'un thème personnel\nmf_theme(\"candy\", bg = \"grey80\")\nmf_export(\n  x = com, \n  filename = \"img/com_default.png\",\n  width = 600\n)\nmf_map(com, add = TRUE)\nmf_title(\"Le Lot\")\ndev.off()\n\n\nL’emprise de cette carte est exactement celle de la région affichée.\nLors de l’export suivant nous ajoutons de l’espace sur la partie droite de la carte (50% de la largeur de x).\n\nmf_export(\n  x = com, \n  filename = \"img/com_expand.png\",\n  width = 600, \n  expandBB = c(0, 0, 0, .5)\n)\nmf_map(com, add = TRUE)\nmf_title(\"Le Lot\")\ndev.off()\n\n\n\n\n\n\n\n\nVignette\n\n\n\nHow to Export Maps",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>La mise en page</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
     "objectID": "04_mise_en_page.html#ajouter-une-image-sur-une-carte",
     "href": "04_mise_en_page.html#ajouter-une-image-sur-une-carte",
-    "title": "4  La mise en page",
-    "section": "4.13 Ajouter une image sur une carte",
-    "text": "4.13 Ajouter une image sur une carte\nCela peut être utile pour ajouter un logo, un pictogramme. La fonction readPNG() du package png permet l’ajout d’images sur une figure.\n\nmf_theme(\"default\", mar = c(0,0,0,0))\nlibrary(png)\n# import de l'image\nlogo &lt;- readPNG(\"img/Logo CG 46 - Bleu.png\")\n# dimension de l'image en unité de la carte\npp &lt;- dim(logo)[2:1] * 20\n# Définition d'un point d'encrage de l'image dans la figure, ici\n# le coin supérieur gauche de la bounding box du département\nxy &lt;- st_bbox(com)[c(1,4)]\nmf_map(com, col = \"#D1914D\", border = \"white\")\nrasterImage(\n  image   = logo,\n  xleft   = xy[1],\n  ybottom = xy[2] - pp[2],\n  xright  = xy[1] + pp[1],\n  ytop    = xy[2]\n)",
+    "title": "4  Map Layout",
+    "section": "4.12 Ajouter une image sur une carte",
+    "text": "4.12 Ajouter une image sur une carte\nCela peut être utile pour ajouter un logo, un pictogramme. La fonction readPNG() du package png permet l’ajout d’images sur une figure.\n\nmf_theme(\"default\", mar = c(0,0,0,0))\nlibrary(png)\n# import de l'image\nlogo &lt;- readPNG(\"img/Logo CG 46 - Bleu.png\")\n# dimension de l'image en unité de la carte\npp &lt;- dim(logo)[2:1] * 20\n# Définition d'un point d'encrage de l'image dans la figure, ici\n# le coin supérieur gauche de la bounding box du département\nxy &lt;- st_bbox(com)[c(1,4)]\nmf_map(com, col = \"#D1914D\", border = \"white\")\nrasterImage(\n  image   = logo,\n  xleft   = xy[1],\n  ybottom = xy[2] - pp[2],\n  xright  = xy[1] + pp[1],\n  ytop    = xy[2]\n)",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>La mise en page</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
     "objectID": "04_mise_en_page.html#placer-précisément-un-élément-sur-la-carte",
     "href": "04_mise_en_page.html#placer-précisément-un-élément-sur-la-carte",
-    "title": "4  La mise en page",
-    "section": "4.14 Placer précisément un élément sur la carte",
-    "text": "4.14 Placer précisément un élément sur la carte\nDans plusieurs fonctions de mapsf il est possible de placer des éléments d’habillage de manière interactive avec la position “interactive”.\n\n\n\n\n\n\n\nPlus généralement la fonction locator() permet de cliquer sur une figure et d’obtenir les coordonnées d’un point dans le système de coordonnées de la figure (de la carte). locator()peut être utilisée sur la plupart des graphiques (pas ceux produits avec ggplot2).",
+    "title": "4  Map Layout",
+    "section": "4.13 Placer précisément un élément sur la carte",
+    "text": "4.13 Placer précisément un élément sur la carte\nDans plusieurs fonctions de mapsf il est possible de placer des éléments d’habillage de manière interactive avec la position “interactive”.\n\n\n\n\n\n\n\nPlus généralement la fonction locator() permet de cliquer sur une figure et d’obtenir les coordonnées d’un point dans le système de coordonnées de la figure (de la carte). locator()peut être utilisée sur la plupart des graphiques (pas ceux produits avec ggplot2).",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>La mise en page</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
     "objectID": "04_mise_en_page.html#ajouter-un-ombrage-à-une-couche",
     "href": "04_mise_en_page.html#ajouter-un-ombrage-à-une-couche",
-    "title": "4  La mise en page",
-    "section": "4.15 Ajouter un ombrage à une couche",
-    "text": "4.15 Ajouter un ombrage à une couche\nLa fonction mf_shadow() permet de créer une ombre à une couche de polygones.\n\nmf_theme(\"default\")\nmf_shadow(com)\nmf_map(com, add=TRUE)",
+    "title": "4  Map Layout",
+    "section": "4.14 Ajouter un ombrage à une couche",
+    "text": "4.14 Ajouter un ombrage à une couche\nLa fonction mf_shadow() permet de créer une ombre à une couche de polygones.\n\nmf_theme(\"default\")\nmf_shadow(com)\nmf_map(com, add=TRUE)",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>La mise en page</span>"
-    ]
-  },
-  {
-    "objectID": "04_mise_en_page.html#création-de-cartons",
-    "href": "04_mise_en_page.html#création-de-cartons",
-    "title": "4  La mise en page",
-    "section": "4.16 Création de cartons",
-    "text": "4.16 Création de cartons\nLa fonction mf_inset_on() permet de démarrer la création d’un carton. Il faut ensuite “refermer” le carton avec mf_inset_off().\n\nbiars &lt;- com[com$NOM_COM == \"Biars-sur-Cère\", ]\n# affichage de toutes les communes\nmf_map(com)\n# affichage de la sélection de communes\nmf_map(biars, col = \"tomato4\", border = \"tomato1\", \n       lwd = 2, add = TRUE)\n\n# Démarrer le carton \n# en haut à gauche sur\n# le ratio width/height de biars\n# avec une largeur d'1/4 de la largeur de la figure\nmf_inset_on(x = biars, pos = \"topleft\", cex = .25)\n# couleur du fond\nmf_theme(bg = \"#f7f7f7\")\n# affichage de la commune cible\nmf_map(biars, col = \"tomato4\", border = \"tomato1\")\n# affichage des communes\nmf_map(com, col = NA, add = TRUE)\n# échelle\nmf_scale(size = 1, pos = \"bottomright\")\n# affichage d'un cadre\nbox()\n# Fermer le carton\nmf_inset_off()\n\n# Ajouter titre et échelle\nmf_title(\"Biars-sur-Cère\")\nmf_scale(10, pos = 'bottomright')\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCarton “carte du monde”\n\n\n\nOn peut facilement créer un carton avec la position d’un point sur une carte du monde en combinant les fonctions mf_worldmap() et mf_inset_on(x = \"worldmap\", ...) :\n\nmf_map(com)\nmf_inset_on(x = \"worldmap\",cex = .3, pos = \"topleft\")\nmf_worldmap(com)\nmf_inset_off()\nmf_title(\"Le Lot dans le Monde!\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVignette\n\n\n\nHow to Create Inset Maps",
-    "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>La mise en page</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
     "objectID": "04_mise_en_page.html#exercice",
     "href": "04_mise_en_page.html#exercice",
-    "title": "4  La mise en page",
+    "title": "4  Map Layout",
     "section": "Exercice",
     "text": "Exercice\n\nImporter la couche des communes du département du Lot à partir du fichier geopackage lot.gpkg.\nImporter le fichier com.csv.\nCe jeu de données porte sur les communes du lot et contient plusieurs variables supplémentaires:\n\nle nombre d’actifs (ACT).\nle nombre d’actifs dans l’industrie (IND)\nLa part des actifs dans la population totale (SACT)\nLa part des actifs dans l’industrie dans le total des actifs (SACT_IND)\n\nJoindre le jeu de données et la couche des communes.\nCréez une carte représentant la population active travaillant dans l’industrie.\nAjoutez les éléments d’habillage indispensables.\nUtilisez un thème personnalisé.\nAjoutez un carton de localisation du Lot.\nExportez la carte au format PNG avec 800 pixels de large.\nComment rendre la carte plus intelligible ? Allez-y !\n\n\n\n\n\n\n\nVous pouvez utiliser le fichier exo_cartographie_mise_en_page.R pour vous guider dans cette exercice.",
     "crumbs": [
-      "**Cartographie thématique**",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>La mise en page</span>"
-    ]
-  },
-  {
-    "objectID": "04_cartes_3D.html",
-    "href": "04_cartes_3D.html",
-    "title": "5  Les cartes en 3D",
-    "section": "",
-    "text": "5.1 linemap\nLe package linemap (Giraud, 2023a) permet de réaliser des cartes composées de lignes.\nlibrary(linemap)\nlibrary(sf)\nlibrary(terra)\n\n#&gt; terra 1.7.78\n\nlibrary(mapsf)\ncom &lt;- st_read(\"data/lot.gpkg\", layer = \"communes\", quiet = TRUE)\nelev &lt;- rast(\"data/elev.tif\")\ncahors &lt;- st_buffer(com[com$NOM_COM == \"Cahors\", ], 5000)\nelev_cahors &lt;- crop(elev, cahors)\nmf_theme(\"green\")\nmf_map(cahors, col = NA, border = NA, expandBB = c(-.05,0,0.05,0))\nlinemap(x = elev_cahors,\n        k = 5, \n        bg = getOption(\"mapsf.bg\"), \n        add = TRUE, lwd = 1)\nmf_title(\"Altitude vers Cahors\")\nmf_credits(\"Giraud & Pecout, 2023\")",
-    "crumbs": [
-      "**Cartographie 3D et Anamorphoses**",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Les cartes en 3D</span>"
-    ]
-  },
-  {
-    "objectID": "04_cartes_3D.html#relief-tanaka",
-    "href": "04_cartes_3D.html#relief-tanaka",
-    "title": "5  Les cartes en 3D",
-    "section": "5.2 Relief Tanaka",
-    "text": "5.2 Relief Tanaka\nNous utilisons le package tanaka (Giraud, 2023b) qui met à disposition une méthode (Tanaka, 1950) utilisée pour améliorer la perception du relief.\n\nlibrary(tanaka)\nlibrary(terra)\nmf_theme(\"candy\")\nmf_map(cahors, col = NA, border = NA)\ntanaka(elev_cahors, \n       breaks = seq(100,375,25), \n       col = hcl.colors(11, \"Lajolla\"), \n       add = TRUE)\nmf_title(\"Altitude vers Cahors\")\nmf_credits(\"Giraud & Pecout, 2023\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGiraud, T. (2023a). linemap: Line Maps. https://CRAN.R-project.org/package=linemap\n\n\nGiraud, T. (2023b). tanaka: Design Shaded Contour Lines (or Tanaka) Maps. https://CRAN.R-project.org/package=tanaka\n\n\nTanaka, K. (1950). The Relief Contour Method of Representing Topography on Maps. The Geographical Review, xl(3). https://doi.org/doi:10.2307/211219",
-    "crumbs": [
-      "**Cartographie 3D et Anamorphoses**",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Les cartes en 3D</span>"
-    ]
-  },
-  {
-    "objectID": "05_anamorphoses.html",
-    "href": "05_anamorphoses.html",
-    "title": "6  Les cartogrammes",
-    "section": "",
-    "text": "6.1 Les cartogrammes de Dorling\n3 types d’anamorphoses ou cartogrammes sont ici présentés :\nPour réaliser les cartogrammes nous utilisons le package cartogram (Jeworutzki, 2023).\nLes territoires sont représentés par des figurés (cercles, des carrés ou des rectangles) ne se recouvrant pas dont les surfaces sont proportionnelles à une variable. Les positions des figurés sont définies selon les positions de départ.\nlibrary(mapsf)\nlibrary(cartogram)\n\n#&gt; \n#&gt; Attaching package: 'cartogram'\n\n\n#&gt; The following object is masked from 'package:terra':\n#&gt; \n#&gt;     cartogram\n\ncom &lt;- st_read(\"data/lot.gpkg\", layer = \"communes\", quiet = TRUE)\ncom_dorling &lt;- cartogram_dorling(x = com, weight = \"POPULATION\", k = 7)\nmf_map(com_dorling, col = \"#940000\", border= \"white\")\nmf_label(\n  x = com_dorling[order(com_dorling$POPULATION, decreasing = TRUE), ][1:10,], \n  var = \"NOM_COM\",\n  overlap = FALSE, lines = FALSE,\n  halo = TRUE, \n  r = .15\n)\nmf_title(\"Population du Lot - Cartogramme de Dorling\")\nLe paramètre k permet de faire varier le facteur d’expansion des cercles.\nOn identifie assez mal l’espace.\nOn peut nommer les cercles pour se repérer et/ou s’aider de la couleur pour faire apparaître des clusters et mieux identifier les blocs géographiques.\nLa perception des quantités est très bonne.\nLes tailles de cercles sont vraiment comparables.",
-    "crumbs": [
-      "**Cartographie 3D et Anamorphoses**",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Les cartogrammes</span>"
-    ]
-  },
-  {
-    "objectID": "05_anamorphoses.html#les-cartogrammes-non-continus",
-    "href": "05_anamorphoses.html#les-cartogrammes-non-continus",
-    "title": "6  Les cartogrammes",
-    "section": "6.2 Les cartogrammes non continus",
-    "text": "6.2 Les cartogrammes non continus\nLa taille des polygones est proportionnelle à une variable. L’agencement des polygones les uns par rapport aux autres est conservée. La forme des polygones est ressemblante.\n\ncom_ncont &lt;- cartogram_ncont(x = com, weight = \"POPULATION\", k = 1.2)\nmf_map(com, border = \"white\", lwd = 0.5,)\nmf_map(com_ncont, col = \"#940000\", border= \"white\", add = TRUE)\nmf_title(\"Population du Lot - Cartogramme de Olson\")\n\n\n\n\n\n\n\n\nLe paramètre k permet de faire varier le facteur d’expansion des polygones.\nLa topologie des régions est perdue.\nLa conservation de la forme des polygones est optimale.",
-    "crumbs": [
-      "**Cartographie 3D et Anamorphoses**",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Les cartogrammes</span>"
-    ]
-  },
-  {
-    "objectID": "05_anamorphoses.html#les-cartogrammes-continus",
-    "href": "05_anamorphoses.html#les-cartogrammes-continus",
-    "title": "6  Les cartogrammes",
-    "section": "6.3 Les cartogrammes continus",
-    "text": "6.3 Les cartogrammes continus\nLa taille des polygones est proportionnelle à une variable. L’agencement des polygones les uns par rapport aux autres est conservée. Pour conserver la contiguïté, la forme des polygones est fortement transformée.\n\ncom_cont &lt;- cartogram_cont(x = com, weight = \"POPULATION\", \n                           prepare = \"none\", \n                           itermax = 10)\nmf_map(com_cont, col = \"#940000\", border= \"white\", add = FALSE)\nmf_title(\"Population du Lot - Cartogramme de Dougenik\")\nmf_inset_on(com, cex = .2, pos = \"topleft\")\nmf_map(com, lwd = .5)\nmf_inset_off()\n\n\n\n\n\n\n\n\nLa forme des polygones est fortement distordue.\nC’est une “vraie carte de géographie” : la topologie et la contiguïté sont conservées.",
-    "crumbs": [
-      "**Cartographie 3D et Anamorphoses**",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Les cartogrammes</span>"
-    ]
-  },
-  {
-    "objectID": "05_anamorphoses.html#forces-et-faiblesses-des-cartogrammes",
-    "href": "05_anamorphoses.html#forces-et-faiblesses-des-cartogrammes",
-    "title": "6  Les cartogrammes",
-    "section": "6.4 Forces et faiblesses des cartogrammes",
-    "text": "6.4 Forces et faiblesses des cartogrammes\nLes cartogrammes sont des représentations cartographiques perçues comme innovantes (bien que la méthode date de 40 ans). Ces images très généralisées rendent bien compte des quantités et des gradients. Ce sont de vraies images de communication qui provoquent, suscitent l’intérêt, véhiculent un message fort, interpellent.\nMais les cartogrammes induisent une perte des repères visuels (difficile de retrouver son pays, ou sa région sur la carte), demandent un effort de lecture qui peut être important et ne permettent pas de gérer des données manquantes.\n\n\n\n\nBrunet, R., Ferras, R. et Théry, H. (1993). Les mots de la géographie: dictionnaire critique. La Documentation française.\n\n\nDorling, D. (1996). Area cartograms: their use and creation, concepts and techniques in modern geography (vol. 59, p. 69). Institute of British Geographers.\n\n\nDougenik, J. A., Chrisman, N. R. et Niemeyer, D. R. (1985). An algorithm to construct continuous area cartograms. The Professional Geographer, 37(1), 75‑81. https://doi.org/10.1111/j.0033-0124.1985.00075.x\n\n\nJeworutzki, S. (2023). cartogram: Create Cartograms with R. https://CRAN.R-project.org/package=cartogram\n\n\nLambert, N. (2015). Les anamorphoses cartographiques [Blog]. Carnet néocartographique. https://neocarto.hypotheses.org/366\n\n\nOlson, J. M. (1976). Noncontiguous area cartograms. The Professional Geographer, 28(4), 371‑380. https://doi.org/10.1111/j.0033-0124.1976.00371.x",
-    "crumbs": [
-      "**Cartographie 3D et Anamorphoses**",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Les cartogrammes</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Map Layout</span>"
     ]
   },
   {
@@ -443,7 +304,7 @@
     "href": "2000_references.html",
     "title": "References",
     "section": "",
-    "text": "Béguin, M. et Pumain, D. (2023). La représentation des\ndonnées géographiques: Statistique et\ncartographie. Armand Colin.\n\n\nBertin, J. (1967). Sémiologie Graphique. Les Diagrammes\n- Les Réseaux - Les Cartes. Paris: Mouton &\nGauthier-Villars.\n\n\nBrunet, R., Ferras, R. et Théry, H. (1993). Les mots de la\ngéographie: dictionnaire critique. La Documentation\nfrançaise.\n\n\nDorling, D. (1996). Area cartograms: their use and creation,\nconcepts and techniques in modern geography (vol. 59, p. 69).\nInstitute of British Geographers.\n\n\nDougenik, J. A., Chrisman, N. R. et Niemeyer, D. R. (1985). An algorithm\nto construct continuous area cartograms. The Professional\nGeographer, 37(1), 75‑81. https://doi.org/10.1111/j.0033-0124.1985.00075.x\n\n\nDunnington, D. (2023). ggspatial: Spatial Data Framework for\nggplot2. https://CRAN.R-project.org/package=ggspatial\n\n\nGiraud, T. (2023a). linemap: Line Maps. https://CRAN.R-project.org/package=linemap\n\n\nGiraud, T. (2023b). mapsf: Thematic Cartography. https://CRAN.R-project.org/package=mapsf\n\n\nGiraud, T. (2023c). tanaka: Design Shaded Contour Lines (or Tanaka)\nMaps. https://CRAN.R-project.org/package=tanaka\n\n\nGiraud, T. et Lambert, N. (2017). Reproducible Cartography. M.\nPeterson (dir.), Cham, Switzerland (p. 173‑183). https://doi.org/10.1007/978-3-319-57336-6_13\n\n\nJeworutzki, S. (2023). cartogram: Create Cartograms with R. https://CRAN.R-project.org/package=cartogram\n\n\nLambert, N. (2015). Les anamorphoses cartographiques [Blog]. Carnet\nnéocartographique. https://neocarto.hypotheses.org/366\n\n\nLambert, N. et Zanin, C. (2016). Manuel de cartographie: principes,\nméthodes, applications. Armand Colin.\n\n\nOlson, J. M. (1976). Noncontiguous area cartograms. The Professional\nGeographer, 28(4), 371‑380. https://doi.org/10.1111/j.0033-0124.1976.00371.x\n\n\nRIATE. (2023). Cartographie thématique avec Magrit. https://magrit-formations.github.io/\n\n\nTanaka, K. (1950). The Relief Contour Method of Representing Topography\non Maps. The Geographical Review, xl(3). https://doi.org/doi:10.2307/211219\n\n\nTennekes, M. (2018). tmap: Thematic Maps in R.\nJournal of Statistical Software, 84(6), 1‑39. https://doi.org/10.18637/jss.v084.i06\n\n\nWickham, H. (2016). ggplot2: Elegant Graphics for Data\nAnalysis. Springer-Verlag New York. https://ggplot2.tidyverse.org",
+    "text": "Dunnington, Dewey. 2023. Ggspatial: Spatial Data Framework for\nGgplot2. https://CRAN.R-project.org/package=ggspatial.\n\n\nGiraud, Timothée. 2023. Mapsf: Thematic Cartography. https://CRAN.R-project.org/package=mapsf.\n\n\nTennekes, Martijn. 2018. “tmap:\nThematic Maps in R.” Journal of Statistical\nSoftware 84 (6): 1–39. https://doi.org/10.18637/jss.v084.i06.\n\n\nWickham, Hadley. 2016. Ggplot2: Elegant Graphics for Data\nAnalysis. Springer-Verlag New York. https://ggplot2.tidyverse.org.",
     "crumbs": [
       "References"
     ]
@@ -451,7 +312,7 @@
   {
     "objectID": "2002_data.html",
     "href": "2002_data.html",
-    "title": "Annexe A — Les données du projet",
+    "title": "Appendix A — Les données du projet",
     "section": "",
     "text": "Les données utilisées dans ce document sont stockées dans un projet RStudio. Vous devez le télécharger puis le décompresser sur votre machine. Il vous sera ensuite possible de tester l’ensemble des manipulations proposées dans ce document au sein du projet geodata.\nTélécharger le projet\n lot.gpkg\nCe fichier contient plusieurs couches d’informations.\n\ndepartements : les départements français métropolitains, Admin Express COG Carto 3.0, IGN - 2021;\ncommunes : les communes du département du Lot (46) avec des données sur la population active occupée âgée de 25 à 54 ans, par secteur d’activité et sexe, au lieu de résidence, en 2017, BD CARTO® 4.0, IGN - 2021 & Recensements harmonisés - Séries départementales et communales, INSEE - 2020;\nroutes : les routes de la commune de Gramat et alentours (46128), BD CARTO® 4.0, IGN - 2021;\nrestaurants : les restaurants du Lot, Base permanente des équipements (BPE), INSEE - 2021;\nelevations : une grille régulière de points d’altitude (pas d’1 km), Jarvis A., H.I. Reuter, A. Nelson, E. Guevara, 2008, Hole-filled seamless SRTM data V4, International Centre for Tropical Agriculture (CIAT).\n\n com.csv\nCe fichier tabulaire contient des informations complémentaire sur la population active occupée âgée de 25 à 54 ans, par secteur d’activité et sexe, au lieu de résidence, en 2017, Recensements harmonisés - Séries départementales et communales, INSEE - 2020.\n\nle nombre d’actifs (ACT);\nle nombre d’actifs dans l’industrie (IND);\nla part des actifs dans la population totale (SACT);\nla part des actifs dans l’industrie dans le total des actifs (SACT_IND).\n\n elevation.tif\nUne grille régulière de points d’altitude (pas de 30 mètres environ), Jarvis A., H.I. Reuter, A. Nelson, E. Guevara, 2008, Hole-filled seamless SRTM data V4, International Centre for Tropical Agriculture (CIAT).\nelev.tif est une version reprojetée en Lambert 93 de elevation.tif\n clc_2018.tif\nDonnées CORINE Land Cover, Corine Land Cover (CLC) 2018, Version 2020_20u1 - Copernicus Programme.\nclc.tif est une version reprojetée en Lambert 93 de clc_2018.tif\n Sentinel2A.tif\nDonnées Sentinel, Sentinel, Sentinel-2A, S2A_OPER_MSI_L2A_DS_VGS2_20211012T140548_S20211012T105447_N03.01, 12 Octobre 2021 - Copernicus Programme, téléchargé le 28 décembre 2021.",
     "crumbs": [

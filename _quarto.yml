@@ -18,24 +18,7 @@ format:
       "Cartographie avec R: créer des cartes thématiques reproductibles conformes aux règles de la sémiologie graphique et de la cartographie.
       L'objectif de ce document est de fournir un support à l'apprentissage de la cartographie avec R."
     bibliography: [book.bib]
-    lang: fr
-    csl: "universite-de-montreal-apa.csl"
-  pdf:
-    toc: true
-    number-sections: true
-    colorlinks: true
-    callout-appearance: simple
-    callout-icon: false
-    fig-format: png
-    theme: cosmo
-    pagetitle: "Cartographie avec R"
-    author-meta: "Timothée Giraud et Hugues Pecout"
-    description-meta: 
-      "Cartographie avec R: créer des cartes thématiques reproductibles conformes aux règles de la sémiologie graphique et de la cartographie.
-      L'objectif de ce document est de fournir un support à l'apprentissage de la cartographie avec R."
-    bibliography: [book.bib]
-    lang: fr
-    csl: "universite-de-montreal-apa.csl"
+    lang: en
 
 book:
   title: "Cartographie avec R"
@@ -53,7 +36,7 @@ book:
           name: Géographie-cités (CNRS)
           url: https://geographie-cites.cnrs.fr/       
   date: today
-  date-format: "D MMM YYYY"
+  date-format: long
   doi: 10.5281/zenodo.5905734
   search: true
   repo-url: https://github.com/rcarto/cartographie_avec_r/
@@ -65,16 +48,10 @@ book:
   open-graph: true
   chapters:
     - index.qmd
-    - part: "**Cartographie thématique**"
-      chapters:
-      - 01_mapsf.qmd
-      - 02_semiologie.qmd
-      - 03_types_de_cartes.qmd
-      - 04_mise_en_page.qmd
-    - part: "**Cartographie 3D et Anamorphoses**"
-      chapters: 
-      - 04_cartes_3D.qmd
-      - 05_anamorphoses.qmd
+    - 01_mapsf.qmd
+    - 02_semiologie.qmd
+    - 03_types_de_cartes.qmd
+    - 04_mise_en_page.qmd
     - 2000_references.qmd
   appendices:
     - 2002_data.qmd

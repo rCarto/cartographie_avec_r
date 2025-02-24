@@ -1,11 +1,9 @@
-# La mise en page 
-
-Pour être finalisée, une carte thématique doit contenir certains éléments additionnels tels que : le titre, l'auteur, la source, l'échelle, l'orientation...
+# Map Layout
 
 
-## Les données d'exemple
+## Sample data set
 
-Les lignes suivantes importent les couches d'information spatiales situées dans le fichier [geopackage](https://www.geopackage.org/) **lot.gpkg**.
+Import map layers from the [geopackage](https://www.geopackage.org/) file **lot.gpkg**.
 
 ```{r}
 library(sf)
@@ -19,80 +17,9 @@ resto <- st_read("data/lot.gpkg", layer = "restaurants", quiet = TRUE)
 route <- st_read("data/lot.gpkg", layer = "routes", quiet = TRUE)
 ```
 
-## Les thèmes
+## Titles
 
-La fonction `mf_theme()` définit un thème cartographique. L'utilisation d'un thème permet de définir plusieurs paramètres graphiques qui sont ensuite appliqués aux cartes créées avec `mapsf`. Ces paramètres sont : les marges de la carte, la couleur principale, la couleur de fond, la position et l'aspect du titre. 
-
-### Utiliser un thème prédéfini
-
-Une série de thèmes prédéfinis est disponible par défaut (voir `?mf_theme`).
-
-```{r them1}
-#| layout: [[1,1],[1,1]]
-library(mapsf)
-# Utilisation d'un thème prédéfini
-mf_theme("default")
-mf_map(com)
-mf_title("Theme : 'default'")
-mf_theme("darkula")
-mf_map(com)
-mf_title("Theme : 'darkula'")
-mf_theme("candy")
-mf_map(com)
-mf_title("Theme : 'candy'")
-mf_theme("nevermind")
-mf_map(com)
-mf_title("Theme : 'nevermind'")
-```
-
-### Modifier un thème existant
-
-Il est possible de modifier un thème existant. Dans cet exemple, nous utilisons le thème "default" et nous en modifions quelques paramètres.
-
-```{r theme2}
-#| layout-ncol: 2
-library(mapsf)
-mf_theme("default")
-mf_map(com)
-mf_title("default")
-mf_theme("default", tab = FALSE, font = 4, bg = "grey60", pos = "center")
-mf_map(com)
-mf_title("modified default")
-```
-
-### Créer un thème
-Il est également possible de créer un thème.
-
-```{r}
-mf_theme(
-  bg = "lightblue",    # couleur de fond
-  fg = "tomato1",      # couleur principale
-  mar = c(0,0,1.5,0),  # marges
-  tab = FALSE,         # style "onglet" pour le titre
-  inner = FALSE,       # titre à l'intérieur de la zone de carte ou à l'extérieur
-  line = 1.5,          # espace dédié au titre
-  pos = "center",      # position du titre
-  cex = 1.2,           # taille du titre
-  font = 2             # type de fonte pour le titre
-)
-mf_map(com)
-mf_title("New theme")
-```
-
-
-:::{.callout-note}
-## Vignette
-[How to Use Themes](https://riatelab.github.io/mapsf/articles/web_only/how_to_use_themes.html)
-:::
-
-
-
-
-
-
-## Les titres
-
-La fonction `mf_title()` permet d'ajouter un titre à une carte.
+`mf_title()` displays a title. 
 
 
 ```{r title}
@@ -100,25 +27,6 @@ mf_theme("default")
 mf_map(com)
 mf_title("Titre de la carte")
 ```
-
-
-Il est possible de personnaliser l'aspect du titre.
-
-```{r title_custom}
-mf_map(com)
-mf_title(
-  txt = "Titre de la carte", 
-  pos = "center", 
-  tab = FALSE, 
-  bg = "tomato3", 
-  fg = "lightblue", 
-  cex = 1, 
-  line = 1.2, 
-  font = 1, 
-  inner = FALSE
-)
-```
-
 
 
 
@@ -134,33 +42,18 @@ mf_scale(size = 20, lwd = 2, cex = 1.2)
 mf_arrow()
 ```
 
-:::{.callout-note}
-
-## Toutes les cartes doivent avoir une échelle et une flèche d'orientation !?
-
-::: {layout-ncol=2}
-
-![](img/scale_.png){width="50%"}
-
-![](img/north_.png)
-
-:::
-
-[Carnet Observable interactif](https://observablehq.com/@neocartocnrs/geoviz-scalebar?collection=@neocartocnrs/geoviz) de Nicolas Lambert
-
-:::
-
 
 ## Crédits
 
 La fonction `mf_credits()` permet d'afficher une ligne de crédits (sources, auteur...).
+
 ```{r credit}
 mf_map(com)
 mf_credits("Auteurs : TG & HP\nSources : IGN, 2018")
 ```
 
 
-## Habillage complet
+## Full layout 
 
 La fonction `mf_layout()` permet d'afficher tous ces éléments (titre, c.
 
@@ -191,7 +84,7 @@ mf_annotation(
 ```
 
 
-## Étiquettes
+## Labels
 
 La fonction `mf_label()` est dédiée à l'affichage d'étiquettes.
 
@@ -399,63 +292,6 @@ mf_theme("default")
 mf_shadow(com)
 mf_map(com, add=TRUE)
 ```
-
-
-## Création de cartons
-
-La fonction `mf_inset_on()` permet de démarrer la création d'un carton.
-Il faut ensuite "refermer" le carton avec `mf_inset_off()`.
-
-```{r inset}
-biars <- com[com$NOM_COM == "Biars-sur-Cère", ]
-# affichage de toutes les communes
-mf_map(com)
-# affichage de la sélection de communes
-mf_map(biars, col = "tomato4", border = "tomato1", 
-       lwd = 2, add = TRUE)
-
-# Démarrer le carton 
-# en haut à gauche sur
-# le ratio width/height de biars
-# avec une largeur d'1/4 de la largeur de la figure
-mf_inset_on(x = biars, pos = "topleft", cex = .25)
-# couleur du fond
-mf_theme(bg = "#f7f7f7")
-# affichage de la commune cible
-mf_map(biars, col = "tomato4", border = "tomato1")
-# affichage des communes
-mf_map(com, col = NA, add = TRUE)
-# échelle
-mf_scale(size = 1, pos = "bottomright")
-# affichage d'un cadre
-box()
-# Fermer le carton
-mf_inset_off()
-
-# Ajouter titre et échelle
-mf_title("Biars-sur-Cère")
-mf_scale(10, pos = 'bottomright')
-```
-
-
-
-:::{.callout-note}
-## Carton "carte du monde"
-On peut facilement créer un carton avec la position d'un point sur une carte du monde en combinant les fonctions `mf_worldmap()` et `mf_inset_on(x = "worldmap", ...)` :
-
-```{r carton}
-mf_map(com)
-mf_inset_on(x = "worldmap",cex = .3, pos = "topleft")
-mf_worldmap(com)
-mf_inset_off()
-mf_title("Le Lot dans le Monde!")
-```
-:::
-
-:::{.callout-note}
-## Vignette
-[How to Create Inset Maps](https://riatelab.github.io/mapsf/articles/web_only/how_to_create_inset_maps.html)
-:::
 
 
 ## Exercice {.unnumbered}

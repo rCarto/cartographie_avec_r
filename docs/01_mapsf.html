@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.40">
@@ -78,17 +78,17 @@ div.csl-indent {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Pas de résultats",
-    "search-matching-documents-text": "documents trouvés",
-    "search-copy-link-title": "Copier le lien vers la recherche",
-    "search-hide-matches-text": "Cacher les correspondances additionnelles",
-    "search-more-match-text": "correspondance de plus dans ce document",
-    "search-more-matches-text": "correspondances de plus dans ce document",
-    "search-clear-button-title": "Effacer",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Annuler",
-    "search-submit-button-title": "Envoyer",
-    "search-label": "Recherche"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -97,7 +97,6 @@ div.csl-indent {
 <meta property="og:description" content="Créer des cartes thématiques reproductibles.">
 <meta property="og:image" content="https://rcarto.github.io/rcarto/cartographie_avec_r/img/logo.png">
 <meta property="og:site_name" content="Cartographie avec R">
-<meta property="og:image:alt" content="">
 <meta property="og:image:height" content="1030">
 <meta property="og:image:width" content="892">
 </head>
@@ -108,13 +107,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_mapsf.html"><strong>Cartographie thématique</strong></a></li><li class="breadcrumb-item"><a href="./01_mapsf.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">mapsf</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_mapsf.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">mapsf</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -134,7 +133,7 @@ div.csl-indent {
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Recherche"></div>
+        <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -142,67 +141,33 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>Préambule</em></span></a>
+ <span class="menu-text"><em>Preamble</em></span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>Cartographie thématique</strong></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_mapsf.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">mapsf</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_semiologie.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La sémiologie graphique</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Cartographical Language</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_types_de_cartes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Les types de cartes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Map Types</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_mise_en_page.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La mise en page</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Map Layout</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text"><strong>Cartographie 3D et Anamorphoses</strong></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04_cartes_3D.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Les cartes en 3D</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./05_anamorphoses.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Les cartogrammes</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2000_references.html" class="sidebar-item-text sidebar-link">
@@ -211,13 +176,13 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2002_data.html" class="sidebar-item-text sidebar-link">
@@ -235,10 +200,10 @@ div.csl-indent {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table des matières</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#présentation" id="toc-présentation" class="nav-link active" data-scroll-target="#présentation"><span class="header-section-number">1.1</span> Présentation</a></li>
+  <li><a href="#presentation" id="toc-presentation" class="nav-link active" data-scroll-target="#presentation"><span class="header-section-number">1.1</span> Presentation</a></li>
   <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation"><span class="header-section-number">1.2</span> Documentation</a></li>
   <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice">Exercice</a></li>
   </ul>
@@ -247,7 +212,7 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_mapsf.html"><strong>Cartographie thématique</strong></a></li><li class="breadcrumb-item"><a href="./01_mapsf.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">mapsf</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">mapsf</span></h1>
 </div>
@@ -266,14 +231,14 @@ div.csl-indent {
 </header>
 
 
-<section id="présentation" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="présentation"><span class="header-section-number">1.1</span> Présentation</h2>
-<p><img src="img/logo.png" align="right" alt="" width="120"></p>
-<p>L’écosystème spatial du logiciel libre R est riche, dynamique et mature et plusieurs packages permettent d’importer, de traiter et de représenter les données spatiales. Le package <a href="https://CRAN.R-project.org/package=mapsf"><code>mapsf</code></a> <span class="citation" data-cites="R-mapsf">(<a href="2000_references.html#ref-R-mapsf" role="doc-biblioref">Giraud, 2023</a>)</span> s’appuie sur cet écosystème pour intégrer la création de cartes thématiques de qualité dans les chaînes de traitements avec R.</p>
+<section id="presentation" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="presentation"><span class="header-section-number">1.1</span> Presentation</h2>
+<p><img src="img/logo.png" align="right" width="120"></p>
+<p>The spatial ecosystem of R is rich, dynamic and mature and several packages can be used to import, process and represent spatial data. The <a href="https://CRAN.R-project.org/package=mapsf"><code>mapsf</code></a> package <span class="citation" data-cites="R-mapsf">(<a href="2000_references.html#ref-R-mapsf" role="doc-biblioref">Giraud 2023</a>)</span> is a part of this ecosystem and can be used to create high-quality thematic maps.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/workflow.png" class="img-fluid figure-img"></p>
-<figcaption>Une chaîne de traitements typique</figcaption>
+<figcaption>A typical processing chain</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -282,24 +247,23 @@ div.csl-indent {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>D’autres packages peuvent être utilisés pour réaliser des cartes thématiques.<br>
-Le package <code>ggplot2</code> <span class="citation" data-cites="R-ggplot2">(<a href="2000_references.html#ref-R-ggplot2" role="doc-biblioref">Wickham, 2016</a>)</span>, en association avec le package <code>ggspatial</code> <span class="citation" data-cites="R-ggspatial">(<a href="2000_references.html#ref-R-ggspatial" role="doc-biblioref">Dunnington, 2023</a>)</span>, permet par exemple d’afficher des objets spatiaux et de réaliser des cartes thématiques simples.<br>
-Le package <code>tmap</code> <span class="citation" data-cites="R-tmap">(<a href="2000_references.html#ref-R-tmap" role="doc-biblioref">Tennekes, 2018</a>)</span> est dédié à la création de cartes thématiques, il utilise une syntaxe proche de celle de <code>ggplot2</code> (enchaînement d’instructions combinées avec le signe <code>+</code>).<br>
-La documentation et les tutoriels pour utiliser ces deux packages sont facilement accessibles sur le web.</p>
+<p>Other packages can be used to create thematic maps.<br>
+The <code>ggplot2</code> package <span class="citation" data-cites="R-ggplot2">(<a href="2000_references.html#ref-R-ggplot2" role="doc-biblioref">Wickham 2016</a>)</span>, in conjunction with the <code>ggspatial</code> package <span class="citation" data-cites="R-ggspatial">(<a href="2000_references.html#ref-R-ggspatial" role="doc-biblioref">Dunnington 2023</a>)</span>, can be used to display spatial objects and create simple thematic maps.<br>
+The <code>tmap</code> package <span class="citation" data-cites="R-tmap">(<a href="2000_references.html#ref-R-tmap" role="doc-biblioref">Tennekes 2018</a>)</span> is dedicated to creating thematic maps, and uses a syntax similar to that of <code>ggplot2</code> (sequence of instructions combined with the <code>+</code> sign).<br>
+Documentation and tutorials for using these two packages are readily available on the web.</p>
 </div>
 </div>
 </div>
-<p>Dans ce document, nous utiliserons principalement le package <code>mapsf</code> dont les fonctionnalités sont assez complètes et la prise en main plutôt simple. De plus, le package est relativement léger.</p>
+<p>In this document, we will mainly be using the <code>mapsf</code> package, which has fairly comprehensive functionality and is fairly easy to learn. What’s more, the package is relatively lightweight.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/deps.png" class="img-fluid figure-img"></p>
-<figcaption>Un nombre minimal de dépendances bien connues</figcaption>
+<figcaption>A minimal number of well-known dependencies</figcaption>
 </figure>
 </div>
-<p><code>mapsf</code> permet de créer la plupart des types de carte utilisés habituellement en cartographie statistique (cartes choroplèthes, typologies, symboles proportionnels ou gradués…).<br>
-Pour chaque type de carte, plusieurs paramètres permettent de personnaliser la représentation cartographique. Ces paramètres sont les mêmes que ceux que l’on retrouve dans les logiciels de SIG ou de cartographie usuels (par exemple, le choix des discrétisations et des palettes de couleurs, la modification de de la taille des symboles ou la personnalisation des légendes).<br>
-Associées aux fonctions de représentation des données d’autres fonctions sont dédiées à l’habillage cartographique (thèmes ou chartes graphiques, légendes, échelles, flèches d’orientation, titre, crédits, annotations…), à la création de cartons ou à l’export des cartes.<br>
-<code>mapsf</code> est le successeur de <a href="http://riatelab.github.io/cartography/docs/"><code>cartography</code></a> <span class="citation" data-cites="R-cartography">(<a href="2000_references.html#ref-R-cartography" role="doc-biblioref">Giraud et Lambert, 2017</a>)</span>, il offre les mêmes fonctionnalités principales tout en étant plus léger et plus ergonomique.</p>
+<p><code>mapsf</code> can be used to create most of the map types commonly used in statistical cartography (choropleth maps, typologies, proportional or graduated symbols, etc.).<br>
+For each type of map, a number of parameters can be used to customise the cartographic representation. These parameters are the same as those found in standard GIS or cartography software (for example, the choice of discretisations and colour palettes, changing the size of symbols or customising legends).<br>
+In addition to the data representation functions, other functions are dedicated to cartographic design (themes or graphic charters, legends, scales, orientation arrows, titles, credits, annotations, etc.), the creation of insets or map export.</p>
 </section>
 <section id="documentation" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="documentation"><span class="header-section-number">1.2</span> Documentation</h2>
@@ -309,7 +273,7 @@ Associées aux fonctions de représentation des données d’autres fonctions so
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p><a href="https://riatelab.github.io/mapsf/">Site web</a> : <img src="img/webmapsf.png" class="img-fluid"></p>
+<p><a href="https://riatelab.github.io/mapsf/">Website</a> : <img src="img/webmapsf.png" class="img-fluid"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><a href="https://raw.githubusercontent.com/riatelab/mapsf/master/vignettes/web_only/img/mapsf_cheatsheet.pdf"><em>cheat sheet</em></a> : <img src="img/mapsf_cheatsheet.png" class="img-fluid"></p>
@@ -329,30 +293,27 @@ Associées aux fonctions de représentation des données d’autres fonctions so
 <section id="exercice" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="exercice">Exercice</h2>
 <ol type="1">
-<li><p>Les données utilisées dans ce document sont stockées dans un projet RStudio. Vous devez le télécharger puis le décompresser sur votre machine. Il vous sera ensuite possible de tester l’ensemble des manipulations proposées dans ce document au sein du projet <strong>geodata</strong>.<br>
-<a href="https://rcarto.github.io/cartographie_avec_r/geodata.zip" class="btn btn-primary btn-sm" role="button">Télécharger le projet</a></p></li>
-<li><p>Nous utiliserons principalement le package <code>mapsf</code> dans la suite de ce document.<br>
-Installez le en utilisant la fonction <code>install.packages()</code>.</p></li>
-<li><p>Quelle est la version du package?</p></li>
-<li><p>Quelles sont les nouveautés par rapport à la version précédente?</p></li>
+<li><p>The data used in this document is stored in an RStudio project. You must download it and unzip it on your machine. You will then be able to test all the operations proposed in this document within the <strong>geodata</strong> project.<br>
+<a href="https://rcarto.github.io/cartographie_avec_r/geodata.zip" class="btn btn-primary btn-sm" role="‘button’">Download the project</a></p></li>
+<li><p>We will mainly use the <code>mapsf</code> package.<br>
+Install it using the <code>install.packages()</code> function.</p></li>
+<li><p>What is the version of the package?</p></li>
+<li><p>What is new compared to the previous version?</p></li>
 </ol>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-R-ggspatial" class="csl-entry" role="listitem">
-Dunnington, D. (2023). <em>ggspatial: Spatial Data Framework for ggplot2</em>. <a href="https://CRAN.R-project.org/package=ggspatial">https://CRAN.R-project.org/package=ggspatial</a>
+Dunnington, Dewey. 2023. <em>Ggspatial: Spatial Data Framework for Ggplot2</em>. <a href="https://CRAN.R-project.org/package=ggspatial">https://CRAN.R-project.org/package=ggspatial</a>.
 </div>
 <div id="ref-R-mapsf" class="csl-entry" role="listitem">
-Giraud, T. (2023). <em>mapsf: Thematic Cartography</em>. <a href="https://CRAN.R-project.org/package=mapsf">https://CRAN.R-project.org/package=mapsf</a>
-</div>
-<div id="ref-R-cartography" class="csl-entry" role="listitem">
-Giraud, T. et Lambert, N. (2017). <em>Reproducible Cartography</em>. M. Peterson (dir.), Cham, Switzerland (p. 173‑183). <a href="https://doi.org/10.1007/978-3-319-57336-6_13">https://doi.org/10.1007/978-3-319-57336-6_13</a>
+Giraud, Timothée. 2023. <em>Mapsf: Thematic Cartography</em>. <a href="https://CRAN.R-project.org/package=mapsf">https://CRAN.R-project.org/package=mapsf</a>.
 </div>
 <div id="ref-R-tmap" class="csl-entry" role="listitem">
-Tennekes, M. (2018). <span>tmap</span>: Thematic Maps in <span>R</span>. <em>Journal of Statistical Software</em>, <em>84</em>(6), 1‑39. <a href="https://doi.org/10.18637/jss.v084.i06">https://doi.org/10.18637/jss.v084.i06</a>
+Tennekes, Martijn. 2018. <span>“<span class="nocase">tmap</span>: Thematic Maps in <span>R</span>.”</span> <em>Journal of Statistical Software</em> 84 (6): 1–39. <a href="https://doi.org/10.18637/jss.v084.i06">https://doi.org/10.18637/jss.v084.i06</a>.
 </div>
 <div id="ref-R-ggplot2" class="csl-entry" role="listitem">
-Wickham, H. (2016). <em>ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>
+Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
 </div>
 </div>
 </section>
@@ -401,12 +362,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copié");
+    button.setAttribute("title", "Copied!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copié");
+      button.setAttribute("data-bs-title", "Copied!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -777,13 +738,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="*Préambule*">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><em>Préambule</em></span>
+      <a href="./index.html" class="pagination-link" aria-label="*Preamble*">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><em>Preamble</em></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02_semiologie.html" class="pagination-link" aria-label="La sémiologie graphique">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La sémiologie graphique</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02_semiologie.html" class="pagination-link" aria-label="The Cartographical Language">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Cartographical Language</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
