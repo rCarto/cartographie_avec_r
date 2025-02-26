@@ -53,7 +53,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./02_semiologie.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./00_ecosystem.html" rel="prev">
 <link href="./img/globe-africa-solid.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -110,7 +110,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_mapsf.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">mapsf</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_mapsf.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">mapsf</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -146,26 +146,32 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./00_ecosystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R Spatial Ecosystem</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./01_mapsf.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">mapsf</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">mapsf</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_semiologie.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Cartographical Language</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Cartographic Language</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_types_de_cartes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Map Types</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Map Types</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_mise_en_page.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Map Layout</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Map Layout</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -203,8 +209,8 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#presentation" id="toc-presentation" class="nav-link active" data-scroll-target="#presentation"><span class="header-section-number">1.1</span> Presentation</a></li>
-  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation"><span class="header-section-number">1.2</span> Documentation</a></li>
+  <li><a href="#presentation" id="toc-presentation" class="nav-link active" data-scroll-target="#presentation"><span class="header-section-number">2.1</span> Presentation</a></li>
+  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation"><span class="header-section-number">2.2</span> Documentation</a></li>
   <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice">Exercice</a></li>
   </ul>
 </nav>
@@ -214,7 +220,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">mapsf</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">mapsf</span></h1>
 </div>
 
 
@@ -231,8 +237,8 @@ div.csl-indent {
 </header>
 
 
-<section id="presentation" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="presentation"><span class="header-section-number">1.1</span> Presentation</h2>
+<section id="presentation" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="presentation"><span class="header-section-number">2.1</span> Presentation</h2>
 <p><img src="img/logo.png" align="right" width="120"></p>
 <p>The spatial ecosystem of R is rich, dynamic and mature and several packages can be used to import, process and represent spatial data. The <a href="https://CRAN.R-project.org/package=mapsf"><code>mapsf</code></a> package <span class="citation" data-cites="R-mapsf">(<a href="2000_references.html#ref-R-mapsf" role="doc-biblioref">Giraud 2023</a>)</span> is a part of this ecosystem and can be used to create high-quality thematic maps.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -265,8 +271,8 @@ Documentation and tutorials for using these two packages are readily available o
 For each type of map, a number of parameters can be used to customise the cartographic representation. These parameters are the same as those found in standard GIS or cartography software (for example, the choice of discretisations and colour palettes, changing the size of symbols or customising legends).<br>
 In addition to the data representation functions, other functions are dedicated to cartographic design (themes or graphic charters, legends, scales, orientation arrows, titles, credits, annotations, etc.), the creation of insets or map export.</p>
 </section>
-<section id="documentation" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="documentation"><span class="header-section-number">1.2</span> Documentation</h2>
+<section id="documentation" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="documentation"><span class="header-section-number">2.2</span> Documentation</h2>
 <div>
 
 </div>
@@ -738,13 +744,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="*Preamble*">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><em>Preamble</em></span>
+      <a href="./00_ecosystem.html" class="pagination-link" aria-label="R Spatial Ecosystem">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R Spatial Ecosystem</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02_semiologie.html" class="pagination-link" aria-label="The Cartographical Language">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Cartographical Language</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02_semiologie.html" class="pagination-link" aria-label="The Cartographic Language">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Cartographic Language</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,6 +1,6 @@
-# The Cartographical Language
+# The Cartographic Language
 
-&#128279; [Thematic Cartography - Cartographical Language](https://rcarto.github.io/thematic_cartography)
+&#128279; [Thematic Cartography - Cartographic Language](https://rcarto.github.io/thematic_cartography)
 
 
 ![Map semiology decision tree](img/lightsemio.png)
