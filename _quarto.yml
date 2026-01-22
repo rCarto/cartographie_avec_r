@@ -1,92 +1,29 @@
 project:
-  type: book
   output-dir: docs
-  resources: 
-    - "geodata.zip"
-    - "Exercices.html"
-execute: 
-  freeze: auto
-  
+
 format:
   html:
-    callout-appearance: simple
-    callout-icon: false
     theme: cosmo
     pagetitle: "Cartographie avec R"
     author-meta: "Timothée Giraud et Hugues Pecout"
     description-meta:
       "Cartographie avec R: créer des cartes thématiques reproductibles conformes aux règles de la sémiologie graphique et de la cartographie.
       L'objectif de ce document est de fournir un support à l'apprentissage de la cartographie avec R."
-    bibliography: [book.bib]
     lang: fr
-    csl: "universite-de-montreal-apa.csl"
-  pdf:
-    toc: true
-    number-sections: true
-    colorlinks: true
-    callout-appearance: simple
-    callout-icon: false
-    fig-format: png
-    theme: cosmo
-    pagetitle: "Cartographie avec R"
-    author-meta: "Timothée Giraud et Hugues Pecout"
-    description-meta: 
-      "Cartographie avec R: créer des cartes thématiques reproductibles conformes aux règles de la sémiologie graphique et de la cartographie.
-      L'objectif de ce document est de fournir un support à l'apprentissage de la cartographie avec R."
-    bibliography: [book.bib]
-    lang: fr
-    csl: "universite-de-montreal-apa.csl"
-
-book:
-  title: "Cartographie avec R"
-  description: "Créer des cartes thématiques reproductibles."
-  author:
-    - name: Timothée Giraud
-      orcid: 0000-0001-5679-6536
-      url: https://rcarto.github.io
-      affiliation:
-          name: RIATE (CNRS)
-          url: https://riate.cnrs.fr
-    - name: Hugues Pecout
-      orcid: 0000-0002-0246-0954
-      affiliation:
-          name: Géographie-cités (CNRS)
-          url: https://geographie-cites.cnrs.fr/       
-  date: today
-  date-format: "D MMM YYYY"
-  doi: 10.5281/zenodo.5905734
-  search: true
-  repo-url: https://github.com/rcarto/cartographie_avec_r/
-  cover-image: img/globe-africa-solid.svg
-  sidebar: 
-    footer: "</br>[![](img/cc-icon.svg){height=42px}](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr)" 
-  favicon: img/globe-africa-solid.svg
-  site-url: https://rcarto.github.io/rcarto/cartographie_avec_r/
-  open-graph: true
-  chapters:
-    - index.qmd
-    - part: "**Cartographie thématique**"
-      chapters:
-      - 01_mapsf.qmd
-      - 02_semiologie.qmd
-      - 03_types_de_cartes.qmd
-      - 04_mise_en_page.qmd
-    - part: "**Cartographie 3D et Anamorphoses**"
-      chapters: 
-      - 04_cartes_3D.qmd
-      - 05_anamorphoses.qmd
-    - 2000_references.qmd
-  appendices:
-    - 2002_data.qmd
-  
-knitr:
-  opts_chunk: 
-    collapse: false
-    comment: "#>" 
-    fig.height: 5.74
-    fig.width: 6
-    cache: true
-    crop: true
-    fig.path: "figs/"
-    cache.path: "cache/"
-
+    language: 
+      title-block-author-plural: "Auteurs"
+    author:
+      - name: Timothée Giraud
+        orcid: 0000-0002-1932-3323
+        url: https://rcarto.github.io
+        affiliation:
+            name: Centre pour l’analyse spatiale et la géovisualisation - RIATE (CNRS)
+            url: https://riate.cnrs.fr
+      - name: Hugues Pecout
+        orcid: 0000-0002-0246-0954
+        url: https://geographie-cites.cnrs.fr/membres/hugues-pecout/
+        affiliation:
+            name: Géographie-cités (CNRS)
+            url: https://geographie-cites.cnrs.fr
+    date: today
+    date-format: "D MMM YYYY"
